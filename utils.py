@@ -68,6 +68,6 @@ def get_morn_con_day(year, month, no_morn_con_date=no_morn_con_date):
 
     return morn_con_day
 
-print(get_morn_con_day(2023, 3))
+# print(get_morn_con_day(2023, 3))
 
     
