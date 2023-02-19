@@ -71,6 +71,12 @@ def get_morn_con_day(year, month, no_morn_con_date=no_morn_con_date):
 # print(get_morn_con_day(2023, 3))
 
 
+def is_weekend(date):
+    return date.weekday() == 5 or date.weekday() == 6
+
+def is_holiday(date):
+    return is_weekend(date) or date in thai_special_holiday
+
 
 def negated_bounded_span(works, start, length):
     """Filters an isolated sub-sequence of variables assined to True.
