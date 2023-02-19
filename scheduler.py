@@ -6,7 +6,7 @@ import numpy as np
 import ortools
 
 #import local module
-from utils import get_holiday, get_morn_con_day
+from src.utils.utils import get_holiday, get_morn_con_day
 
 
 # ============================= Input ============================= #
