@@ -1,1 +1,1 @@
-from .timeinterval import TimeInterval, TimeIntervals
+from .timeinterval import *
