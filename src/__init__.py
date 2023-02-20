@@ -1,2 +1,2 @@
-from objects.timeinterval import *
-from utils.utils import *
+from .objects.timeinterval import *
+from .utils.utils import *

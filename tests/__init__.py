@@ -1,1 +1,1 @@
-from .timeinterval_test import TimeIntervalTest, TimeIntervalsTest
+from .test_objects import *

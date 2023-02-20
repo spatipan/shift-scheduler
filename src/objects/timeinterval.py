@@ -68,6 +68,24 @@ class TimeInterval:
         - The duration of the time interval as an int.
         """
         return self.end_time - self.start_time
+
+    def change_start_time(self, new_start_time: datetime):
+        """
+        Changes the start time of the time interval to the specified new start time.
+
+        Args:
+        - new_start_time (int): the new start time of the time interval
+        """
+        self.start_time = new_start_time
+
+    def change_end_time(self, new_end_time: datetime):
+        """
+        Changes the end time of the time interval to the specified new end time.
+
+        Args:
+        - new_end_time (int): the new end time of the time interval
+        """
+        self.end_time = new_end_time
     
 
     def contains(self, other):
