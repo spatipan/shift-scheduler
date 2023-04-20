@@ -23,3 +23,4 @@ async def root():
 async def solve():
     schedulerApp = SchedulerApp()
     schedulerApp.solve()
+    return {"message": "Solved"}
