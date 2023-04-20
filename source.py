@@ -762,89 +762,91 @@ class Schedule:
 
         # Custom shift groups summate to a specific value per employee
 
-        shift_group_sum = {
-            ('max',('mc')) : 2,
-            ('min',('mc')) : 1,
-            ('max',('amd')) : 3,
-            ('min',('amd')) : 2,
-            ('max',('avd')) : 3,
-            ('min',('avd')) : 2,
-            ('max',('s1', 's2')) : 3,
-            ('min',('s1', 's2')) : 2,
-            ('max',('s1', 's1+', 's2', 's2+')) : 7,
-            ('min',('s1', 's1+', 's2', 's2+')) : 5,
+
+
+        # shift_group_sum = {
+        #     ('max',('mc')) : 2,
+        #     ('min',('mc')) : 1,
+        #     ('max',('amd')) : 3,
+        #     ('min',('amd')) : 2,
+        #     ('max',('avd')) : 3,
+        #     ('min',('avd')) : 2,
+        #     ('max',('s1', 's2')) : 3,
+        #     ('min',('s1', 's2')) : 2,
+        #     ('max',('s1', 's1+', 's2', 's2+')) : 7,
+        #     ('min',('s1', 's1+', 's2', 's2+')) : 5,
             
-        }
-        for employee in self.employees:
-            for group in shift_group_sum:
-                shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in group[1]]
-                # constraints[f'shift_group_sum_max_{group[1]}'] = self.__model.NewBoolVar('shift_group_sum_max_constraints')
-                constraints[f'shift_group_sum_min_{group[1]}_{employee.first_name}'] = self.__model.NewBoolVar(f'shift_group_sum_min_constraints_{group[1]}_{employee.first_name}')
-                # print(f'{employee.first_name} {shifts}')
-                if group[0] == 'max':
-                    self.__model.Add(sum(shifts) <= shift_group_sum[group])
-                    # self.__model.Add(sum(shifts) <= shift_group_sum[group]).OnlyEnforceIf(constraints['shift_group_sum_max']) # type: ignore
-                elif group[0] == 'min':
-                    # print(f'{employee.first_name} - {group[1]} - {shift_group_sum[group]}')
-                    # self.__model.Add(sum(shifts) >= shift_group_sum[group])
-                    self.__model.Add(sum(shifts) >= shift_group_sum[group]).OnlyEnforceIf(constraints[f'shift_group_sum_min_{group[1]}_{employee.first_name}']) # type: ignore
+        # }
+        # for employee in self.employees:
+        #     for group in shift_group_sum:
+        #         shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in group[1]]
+        #         # constraints[f'shift_group_sum_max_{group[1]}'] = self.__model.NewBoolVar('shift_group_sum_max_constraints')
+        #         constraints[f'shift_group_sum_min_{group[1]}_{employee.first_name}'] = self.__model.NewBoolVar(f'shift_group_sum_min_constraints_{group[1]}_{employee.first_name}')
+        #         # print(f'{employee.first_name} {shifts}')
+        #         if group[0] == 'max':
+        #             self.__model.Add(sum(shifts) <= shift_group_sum[group])
+        #             # self.__model.Add(sum(shifts) <= shift_group_sum[group]).OnlyEnforceIf(constraints['shift_group_sum_max']) # type: ignore
+        #         elif group[0] == 'min':
+        #             # print(f'{employee.first_name} - {group[1]} - {shift_group_sum[group]}')
+        #             # self.__model.Add(sum(shifts) >= shift_group_sum[group])
+        #             self.__model.Add(sum(shifts) >= shift_group_sum[group]).OnlyEnforceIf(constraints[f'shift_group_sum_min_{group[1]}_{employee.first_name}']) # type: ignore
 
 
-        #AVD
-        for employee in self.employees:
-            shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['avd'] and shift.day <16]
-            self.__model.Add(sum(shifts) <= 2)
-            self.__model.Add(sum(shifts) >= 1)
-            shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['avd'] and shift.day >=16]
-            self.__model.Add(sum(shifts) <= 2)
-            self.__model.Add(sum(shifts) >= 1)
+        # #AVD
+        # for employee in self.employees:
+        #     shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['avd'] and shift.day <16]
+        #     self.__model.Add(sum(shifts) <= 2)
+        #     self.__model.Add(sum(shifts) >= 1)
+        #     shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['avd'] and shift.day >=16]
+        #     self.__model.Add(sum(shifts) <= 2)
+        #     self.__model.Add(sum(shifts) >= 1)
 
-        #Holiday
-        for employee in self.employees:
-            # constraints[f'holiday_max_{employee.first_name}'] = self.__model.NewBoolVar(f'holiday_constraints_{employee.first_name}')
-            # constraints[f'holiday_min_{employee.first_name}'] = self.__model.NewBoolVar(f'holiday_constraints_{employee.first_name}')
-            shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.date in self.holiday_dates]
-            # print(f'{employee.first_name} - {shifts}')
-            self.__model.Add(sum(shifts) <= 4)
-            self.__model.Add(sum(shifts) >= 1)
-
-
+        # #Holiday
+        # for employee in self.employees:
+        #     # constraints[f'holiday_max_{employee.first_name}'] = self.__model.NewBoolVar(f'holiday_constraints_{employee.first_name}')
+        #     # constraints[f'holiday_min_{employee.first_name}'] = self.__model.NewBoolVar(f'holiday_constraints_{employee.first_name}')
+        #     shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.date in self.holiday_dates]
+        #     # print(f'{employee.first_name} - {shifts}')
+        #     self.__model.Add(sum(shifts) <= 4)
+        #     self.__model.Add(sum(shifts) >= 1)
 
 
-        shift_group_sum_employee = {
-            ('s1','s2'): {
-            'BC': 2,
-            'BW': 3,
-            'KS': 3,
-            'PT': 3,
-            'PL': 3,
-            'BT': 3,
-            'BK': 3,
-            'CC': 3,
-            'KL': 3,
-            'PU': 3,
-            'NM': 3,
-            },
-            ('s1','s1+','s2','s2+'): {
-            'BC': 7,
-            'BW': 5,
-            'KS': 6,
-            'PT': 5,
-            'PL': 7,
-            'BT': 5,
-            'BK': 6,
-            'CC': 7,
-            'KL': 5,
-            'PU': 6,
-            'NM': 5,
-            },
-            }
-        for employee in self.employees:
-            for group in shift_group_sum_employee:
-                constraints[f'shift_group_sum_employee_{employee.abbreviation}_{group}'] = self.__model.NewBoolVar(f'shift_group_sum_employee_{employee.abbreviation}_{group}_constraints')
-                shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in group]
-                # print(shifts)
-                self.__model.Add(sum(shifts) == shift_group_sum_employee[group][employee.abbreviation]).OnlyEnforceIf(constraints[f'shift_group_sum_employee_{employee.abbreviation}_{group}']) # type: ignore
+
+        # TODO: Discuss กับ อจก ว่ายังอยากให้มี constraint นี้ไหม
+        # shift_group_sum_employee = {
+        #     ('s1','s2'): {
+        #     'BC': 2,
+        #     'BW': 3,
+        #     'KS': 3,
+        #     'PT': 3,
+        #     'PL': 3,
+        #     'BT': 3,
+        #     'BK': 3,
+        #     'CC': 3,
+        #     'KL': 3,
+        #     'PU': 3,
+        #     'NM': 3,
+        #     },
+        #     ('s1','s1+','s2','s2+'): {
+        #     'BC': 7,
+        #     'BW': 5,
+        #     'KS': 6,
+        #     'PT': 5,
+        #     'PL': 7,
+        #     'BT': 5,
+        #     'BK': 6,
+        #     'CC': 7,
+        #     'KL': 5,
+        #     'PU': 6,
+        #     'NM': 5,
+        #     },
+        #     }
+        # for employee in self.employees:
+        #     for group in shift_group_sum_employee:
+        #         constraints[f'shift_group_sum_employee_{employee.abbreviation}_{group}'] = self.__model.NewBoolVar(f'shift_group_sum_employee_{employee.abbreviation}_{group}_constraints')
+        #         shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in group]
+        #         # print(shifts)
+        #         self.__model.Add(sum(shifts) == shift_group_sum_employee[group][employee.abbreviation]).OnlyEnforceIf(constraints[f'shift_group_sum_employee_{employee.abbreviation}_{group}']) # type: ignore
 
         
 
