@@ -20,7 +20,10 @@ async def root():
     return {"message": "Hello World"}
 
 @app.get("/solve")
-async def solve():
-    schedulerApp = SchedulerApp()
-    schedulerApp.solve()
+def solve():
+    try:
+        schedulerApp = SchedulerApp()
+        schedulerApp.solve()
+    except Exception as e:
+        return {"message": str(e)}
     return {"message": "Solved"}

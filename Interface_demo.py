@@ -222,6 +222,7 @@ class SchedulerApp:
     
     def update_schedule(self)-> None:
         self.googleSheetApp.update_sheet_values(self.__sheet_id, self.__output_range, self.schedule.to_matrix())
+        print('Update schedule successfully')
         pass
 
     def get_holidays(self):
