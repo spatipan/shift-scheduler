@@ -4,7 +4,7 @@ from ortools.sat.python import cp_model
 import pandas as pd
 import pickle
 import csv
-from IPython.display import clear_output
+# from IPython.display import clear_output
 import math
 import numpy as np
 
@@ -224,7 +224,7 @@ class ShiftSolutionPrinter(cp_model.CpSolverSolutionCallback):
             for shift_type in self.__shift_types:
                 schedule_workload.loc[employee.name, shift_type] = len([shift for shift in shift_by_type[shift_type] if self.Value(self.__shift_vars[(shift, employee)]) == 1])
         
-        clear_output(wait=True)
+        # clear_output(wait=True)
         print('Solution %i' % self.__solution_count)
         print('  Objective value = %i' % self.ObjectiveValue())
         print(shift_schedule)
@@ -787,19 +787,20 @@ class Schedule:
                     self.__model.Add(sum(shifts) <= shift_group_sum[group])
                     # self.__model.Add(sum(shifts) <= shift_group_sum[group]).OnlyEnforceIf(constraints['shift_group_sum_max']) # type: ignore
                 elif group[0] == 'min':
-                    # print(f'{employee.first_name} - {group[1]} - {shift_group_sum[group]}')
-                    # self.__model.Add(sum(shifts) >= shift_group_sum[group])
-                    self.__model.Add(sum(shifts) >= shift_group_sum[group]).OnlyEnforceIf(constraints[f'shift_group_sum_min_{group[1]}_{employee.first_name}']) # type: ignore
+                    self.__model.Add(sum(shifts) >= shift_group_sum[group])
+                    # self.__model.Add(sum(shifts) >= shift_group_sum[group]).OnlyEnforceIf(constraints[f'shift_group_sum_min_{group[1]}_{employee.first_name}']) # type: ignore
 
 
         #AVD
         for employee in self.employees:
+            constraints[f'avd_max_{employee.first_name}'] = self.__model.NewBoolVar(f'avd_constraints_{employee.first_name}')
+            constraints[f'avd_min_{employee.first_name}'] = self.__model.NewBoolVar(f'avd_constraints_{employee.first_name}')
             # shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['avd'] and shift.day <16]
             # self.__model.Add(sum(shifts) <= 2)
             # self.__model.Add(sum(shifts) >= 1)
             shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['avd'] and shift.day >=16]
-            self.__model.Add(sum(shifts) <= 2)
-            self.__model.Add(sum(shifts) >= 1)
+            self.__model.Add(sum(shifts) <= 2).OnlyEnforceIf(constraints[f'avd_max_{employee.first_name}']) # type: ignore
+            self.__model.Add(sum(shifts) >= 1).OnlyEnforceIf(constraints[f'avd_min_{employee.first_name}']) # type: ignore
 
         #Holiday
         for employee in self.employees:
@@ -807,47 +808,66 @@ class Schedule:
             # constraints[f'holiday_min_{employee.first_name}'] = self.__model.NewBoolVar(f'holiday_constraints_{employee.first_name}')
             shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.date in self.holiday_dates]
             # print(f'{employee.first_name} - {shifts}')
-            self.__model.Add(sum(shifts) <= 3)
-        #     self.__model.Add(sum(shifts) >= 1)
+            self.__model.Add(sum(shifts) <= 2)
+            self.__model.Add(sum(shifts) >= 1)
 
 
 
         # TODO: Discuss กับ อจก ว่ายังอยากให้มี constraint นี้ไหม
-        # shift_group_sum_employee = {
-        #     ('s1','s2'): {
-        #     'BC': 2,
-        #     'BW': 3,
-        #     'KS': 3,
-        #     'PT': 3,
-        #     'PL': 3,
-        #     'BT': 3,
-        #     'BK': 3,
-        #     'CC': 3,
-        #     'KL': 3,
-        #     'PU': 3,
-        #     'NM': 3,
-        #     },
-        #     ('s1','s1+','s2','s2+'): {
-        #     'BC': 7,
-        #     'BW': 5,
-        #     'KS': 6,
-        #     'PT': 5,
-        #     'PL': 7,
-        #     'BT': 5,
-        #     'BK': 6,
-        #     'CC': 7,
-        #     'KL': 5,
-        #     'PU': 6,
-        #     'NM': 5,
-        #     },
-        #     }
-        # for employee in self.employees:
-        #     for group in shift_group_sum_employee:
-        #         constraints[f'shift_group_sum_employee_{employee.abbreviation}_{group}'] = self.__model.NewBoolVar(f'shift_group_sum_employee_{employee.abbreviation}_{group}_constraints')
-        #         shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in group]
-        #         # print(shifts)
-        #         self.__model.Add(sum(shifts) == shift_group_sum_employee[group][employee.abbreviation]).OnlyEnforceIf(constraints[f'shift_group_sum_employee_{employee.abbreviation}_{group}']) # type: ignore
+        shift_group_sum_employee = {
+            ('s1', 's2', 's1+', 's2+'): {
+                'BC': 8,
+                'SS': 8,
+                'PU': 8,
+            },
 
+            ('s1','s2'): {
+            # 'BC': 2,
+            # 'BW': 3,
+            # 'KS': 3,
+            # 'PT': 3,
+            # 'PL':1,
+            # 'BT': 3,
+            # 'BK': 3,
+            # 'CC': 3,
+            # 'KL': 3,
+            # 'PU': 3,
+            # 'NM': 3,
+            # 'SS': 0,
+            # 'UT': 3,
+            },
+            ('s1+','s2+'): {
+            # 'BC': 7,
+            # 'BW': 5,
+            # 'KS': 6,
+            # 'PT': 5,
+            # 'PL': 3,
+            # 'BT': 5,
+            # 'BK': 6,
+            # 'CC': 7,
+            # 'KL': 5,
+            # 'PU': 6,
+            # 'NM': 5,
+            # 'SS': 6,
+            },
+            }
+        
+        for group in shift_group_sum_employee:
+            for e in shift_group_sum_employee[group]:
+                
+                # select employee by abbreviation
+                employee = [employee for employee in self.employees if employee.abbreviation == e][0]
+
+
+                constraints[f'shift_group_sum_employee_{employee.first_name}_{group}'] = self.__model.NewBoolVar(f'shift_group_sum_employee_{employee.first_name}_{group}_constraints')
+                
+                shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in group]
+                
+                # print(shifts)
+                # self.__model.Add(sum(shifts) == shift_group_sum_employee[group][e])
+                self.__model.Add(sum(shifts) == shift_group_sum_employee[group][e]).OnlyEnforceIf(constraints[f'shift_group_sum_employee_{employee.first_name}_{group}']) # type: ignore
+
+     
         
 
         # ------------------------ Objective ---------------------------
@@ -875,7 +895,7 @@ class Schedule:
                 # self.__model.Add(sum(shifts)<=3)
                 # self.__model.Add(sum(shifts)<=2).OnlyEnforceIf(constraints[f'max_shifts_per_day_{day}_{employee.first_name}']) # Hard constraint  # type: ignore
                 ls_vars.append(objectives[f'max_shifts_per_day_{day}_{employee.first_name}'])
-                ls_coeff.append(10)
+                ls_coeff.append(1)
                 # print(f'{day} - {employee.name} - {sum(shifts)}')
         obj_bool_vars.append(ls_vars)
         obj_bool_coeffs.append(ls_coeff)
@@ -926,51 +946,69 @@ class Schedule:
         # obj_int_coeffs.append(ls_coeff)    
 
 
+        # TODO: Re-open this objective
+        # # Maximize distance between 2 adjacented shifts as much as possible (int version)
+        # ls_vars = []
+        # ls_coeff = []
+        # objective_names.append('Maximize distance between 2 adjacented shifts (shift group) as much as possible (int version)')
+        # shift_groups = [
+        #     ['s1', 's1+', 's2', 's2+'],
+        #     ['mc'],
+        #     ['amd', 'avd'],
+        #     # ['avd']
+        # ]
 
-        # Maximize distance between 2 adjacented shifts as much as possible (int version)
+        # for group in shift_groups:
+        #     for employee in self.employees:
+        #         shifts = [shift for shift in self.shifts if shift.shift_type in group]
+        #         for shift1 in shifts:
+        #             for shift2 in [shift for shift in shifts if shift != shift1 and shift.start_time > shift1.start_time]:
+        #                 # Date interval between 2 shifts
+        #                 date_interval = [date for date in self.dates if shift1.start_time <= date <= shift2.start_time]
+        #                 # other_shifts = [shift for shift in self.shifts if shift.date in date_interval and shift != shift1 and shift != shift2]
+                        
+        #                 delta = abs(shift1.start_time - shift2.start_time).days
+        #                 objectives[f'shift_distance_delta_{shift1}_{shift2}'] = self.__model.NewIntVar(0, 100, f'maximize_distance_between_shifts_{shift1}_{shift2}')
+        #                 bool_var = self.__model.NewBoolVar(f'maximize_distance_between_shifts_{shift1}_{shift2}')
+                        
+        #                 # bool_var represents the condition that shift1 and shift2 are assigned to the same employee 
+        #                 self.__model.Add(self.__shift_vars[(shift1, employee)] == self.__shift_vars[(shift2, employee)]).OnlyEnforceIf(bool_var) # type: ignore
+        #                 self.__model.Add(sum([self.__shift_vars[(shift1, employee)], self.__shift_vars[(shift2, employee)]]) <= 1).OnlyEnforceIf(bool_var.Not()) # type: ignore
+                        
+        #                 self.__model.Add(objectives[f'shift_distance_delta_{shift1}_{shift2}'] == delta).OnlyEnforceIf(bool_var) # type: ignore
+        #                 ls_vars.append(objectives[f'shift_distance_delta_{shift1}_{shift2}'])
+        #                 ls_coeff.append(1)
+        # obj_int_vars.append(ls_vars)
+        # obj_int_coeffs.append(ls_coeff)
+
+    
+        # Avoid working with thse shift in the same group on consecutive days
         ls_vars = []
         ls_coeff = []
-        objective_names.append('Maximize distance between 2 adjacented shifts (shift group) as much as possible (int version)')
+        objective_names.append('Avoid working with thse shift in the same group on consecutive days')
         shift_groups = [
             ['s1', 's1+', 's2', 's2+'],
             ['mc'],
             ['amd', 'avd'],
-            # ['avd']
+            ['avd']
         ]
 
         for group in shift_groups:
             for employee in self.employees:
                 shifts = [shift for shift in self.shifts if shift.shift_type in group]
                 for shift1 in shifts:
-                    for shift2 in [shift for shift in shifts if shift != shift1 and shift.start_time > shift1.start_time]:
-                        # Date interval between 2 shifts
-                        date_interval = [date for date in self.dates if shift1.start_time <= date <= shift2.start_time]
-                        # other_shifts = [shift for shift in self.shifts if shift.date in date_interval and shift != shift1 and shift != shift2]
+                    for shift2 in [shift for shift in shifts if shift != shift1 and shift.start_time > shift1.start_time and shift.start_time - shift1.start_time <= timedelta(days=1)]:
                         
-                        delta = abs(shift1.start_time - shift2.start_time).days
-                        objectives[f'shift_distance_delta_{shift1}_{shift2}'] = self.__model.NewIntVar(0, 100, f'maximize_distance_between_shifts_{shift1}_{shift2}')
-                        bool_var = self.__model.NewBoolVar(f'maximize_distance_between_shifts_{shift1}_{shift2}')
-                        
-                        # bool_var represents the condition that shift1 and shift2 are assigned to the same employee 
-                        self.__model.Add(self.__shift_vars[(shift1, employee)] == self.__shift_vars[(shift2, employee)]).OnlyEnforceIf(bool_var) # type: ignore
-                        self.__model.Add(sum([self.__shift_vars[(shift1, employee)], self.__shift_vars[(shift2, employee)]]) <= 1).OnlyEnforceIf(bool_var.Not()) # type: ignore
-                        
-                        self.__model.Add(objectives[f'shift_distance_delta_{shift1}_{shift2}'] == delta).OnlyEnforceIf(bool_var) # type: ignore
-                        ls_vars.append(objectives[f'shift_distance_delta_{shift1}_{shift2}'])
+                        bool_var = self.__model.NewBoolVar(f'avoid_consecutive_days_{shift1}_{shift2}')
+                        self.__model.Add(sum([self.__shift_vars[(shift1, employee)], self.__shift_vars[(shift2, employee)]])<=1).OnlyEnforceIf(bool_var) # type: ignore
+                        self.__model.Add(self.__shift_vars[(shift1, employee)] == self.__shift_vars[(shift2, employee)]).OnlyEnforceIf(bool_var.Not()) # type: ignore
+                        ls_vars.append(bool_var)
                         ls_coeff.append(1)
-        obj_int_vars.append(ls_vars)
-        obj_int_coeffs.append(ls_coeff)
-
-
-
-
-
-
-
-            # # print(f'{employee.first_name} - {shifts}')
-            # self.__model.Add(sum(shifts) <= 3).OnlyEnforceIf(constraints[f'holiday_max_{employee.first_name}']) # type: ignore
-            # self.__model.Add(sum(shifts) >= 1).OnlyEnforceIf(constraints[f'holiday_min_{employee.first_name}']) # type: ignore
-            
+        obj_bool_vars.append(ls_vars)
+        obj_bool_coeffs.append(ls_coeff)
+                        
+                        
+                
 
         # # Equalize work load between employees
         # ls_vars = []
@@ -1140,3 +1178,8 @@ class Schedule:
         shift_schedule = shift_schedule[columns].values.tolist()
 
         return shift_schedule
+    
+
+    # console command line to export requirement.txt with conda
+    # conda list -e > requirements.txt
+    
