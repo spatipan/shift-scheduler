@@ -1,72 +1,15 @@
-from __future__ import print_function
-
-import os.path
-
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
-
 from source import *
 
+from googlesheetapp import GoogleSheetApp
 
-
-class GoogleSheetApp():
-    def __init__(self, creds = None):
-        SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-        creds = None
-
-        try:
-            if os.path.exists('token.json'):
-                creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-            # If there are no (valid) credentials available, let the user log in.
-            if not creds or not creds.valid:
-                if creds and creds.expired and creds.refresh_token:
-                    creds.refresh(Request())
-                else:
-                    flow = InstalledAppFlow.from_client_secrets_file(
-                        'credentials.json', SCOPES)
-                    creds = flow.run_local_server(port=0)
-                # Save the credentials for the next run
-                with open('token.json', 'w') as token:
-                    token.write(creds.to_json())
-        except Exception as e:
-            print(f'Error: {e}')
-
-        self.creds = creds
-        service = build('sheets', 'v4', credentials=self.creds)
-        self.service = service
-        self.sheet = service.spreadsheets()
-
-    def get_sheet_values(self, spreadsheet_id, range_name, type = 'values'):
-        result = self.sheet.values().get(spreadsheetId=spreadsheet_id,
-                                        range=range_name).execute()
-        values = result.get('values', [])
-        if type == 'values':
-            return values
-        elif type == 'dict':
-            titles = values[0]
-            values = values[1:]
-            result = [dict(zip(titles, value)) for value in values]
-            return result
-        
-    def update_sheet_values(self, spreadsheet_id, range_name, values):
-        body = {
-            'values': values
-        }
-        result = self.sheet.values().update(
-            spreadsheetId=spreadsheet_id, range=range_name,
-            valueInputOption='USER_ENTERED', body=body).execute()
-        print('{0} cells updated.'.format(result.get('updatedCells')))
 
 
 class SchedulerApp:
     def __init__(self):
         self.googleSheetApp = GoogleSheetApp()
         self.__sheet_id = '1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU'
-        self.__morning_availability_range = 'Interface demo!B72:L103'
-        self.__afternoon_availability_range = 'Interface demo!B107:L138'
+        self.__morning_availability_range = 'Interface demo!B72:M103'
+        self.__afternoon_availability_range = 'Interface demo!B107:M138'
         self.__fixed_shift_range = 'Interface demo!C145:K176' # include header
         self.__staffs_range = 'Interface demo!A47:G67'
         self.__name_range = 'Interface demo!E5'
