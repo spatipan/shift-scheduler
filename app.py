@@ -19,10 +19,20 @@ app = FastAPI()
 async def root():
     return {"message": "Hello World"}
 
-@app.get("/solve")
-def solve():
+# @app.get("/solve")
+# def solve():
+#     try:
+#         schedulerApp = SchedulerApp()
+#         schedulerApp.solve()
+#     except Exception as e:
+#         return {"message": str(e)}
+#     return {"message": "Solved"}
+
+#input sheet name and solve
+@app.get("/solve/{sheet_name}")
+def solve(sheet_name: str):
     try:
-        schedulerApp = SchedulerApp()
+        schedulerApp = SchedulerApp(sheet_name=sheet_name)
         schedulerApp.solve()
     except Exception as e:
         return {"message": str(e)}

@@ -5,19 +5,21 @@ from googlesheetapp import GoogleSheetApp
 
 
 class SchedulerApp:
-    def __init__(self):
+    def __init__(self, sheet_name = "August 2023"):
         self.googleSheetApp = GoogleSheetApp()
+        # self.__sheet_name = 'August 2023'
+        self.__sheet_name = sheet_name
         self.__sheet_id = '1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU'
-        self.__morning_availability_range = 'Interface demo!B72:M103'
-        self.__afternoon_availability_range = 'Interface demo!B107:M138'
-        self.__fixed_shift_range = 'Interface demo!C145:K176' # include header
-        self.__staffs_range = 'Interface demo!A47:G67'
-        self.__name_range = 'Interface demo!E5'
-        self.__shifts_range = 'Interface demo!C11:K42'
-        self.__output_range = 'Interface demo!C233:K263'
-        self.__holidays_range = 'Interface demo!B12:B42' #exclude header
-        self.__date_range = 'Interface demo!A12:A42'
-        self.__shift_matrix_range = 'Interface demo!A210:J219' #TODO: retrieve shift matrix from sheet
+        self.__morning_availability_range = self.__sheet_name + '!B72:M103'
+        self.__afternoon_availability_range = self.__sheet_name + '!B107:M138'
+        self.__fixed_shift_range = self.__sheet_name + '!C145:K176' # include header
+        self.__staffs_range = self.__sheet_name + '!A47:G67'
+        self.__name_range = self.__sheet_name + '!E5'
+        self.__shifts_range = self.__sheet_name + '!C11:K42'
+        self.__output_range = self.__sheet_name + '!C233:K263'
+        self.__holidays_range = self.__sheet_name + '!B12:B42' #exclude header
+        self.__date_range = self.__sheet_name + '!A12:A42'
+        self.__shift_matrix_range = self.__sheet_name + '!A210:J219' #TODO: retrieve shift matrix from sheet
 
         start_date, end_date = self.get_date()
 
@@ -184,7 +186,7 @@ class SchedulerApp:
     
 
 if __name__ == '__main__':
-    schedulerApp = SchedulerApp()
+    schedulerApp = SchedulerApp(sheet_name="Interface demo")
 
     # print(schedulerApp.staffs)
     # print(schedulerApp.shifts)
