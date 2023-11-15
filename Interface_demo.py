@@ -20,6 +20,7 @@ class SchedulerApp:
         self.__holidays_range = self.__sheet_name + '!B12:B42' #exclude header
         self.__date_range = self.__sheet_name + '!A12:A42'
         self.__shift_matrix_range = self.__sheet_name + '!A210:J219' #TODO: retrieve shift matrix from sheet
+        self.__total_shift_constraint = self.__sheet_name + '!B183:C204'
 
         start_date, end_date = self.get_date()
 
@@ -126,6 +127,17 @@ class SchedulerApp:
                 # print(f'Add holiday: {datetime(2023, 4, 1 + index)}')
             
         self.__schedule = schedule
+
+         #Add Total service constraint
+        total_shift_constraint = self.googleSheetApp.get_sheet_values(self.__sheet_id, self.__total_shift_constraint, type = 'values')
+        for row in total_shift_constraint: #type: ignore
+            if len(row) == 2 and row[0] != '' and row[1] != '':
+                staff = row[0]
+                total_shift = int(row[1])
+                schedule.add_total_shift_constraint(staff, total_shift)
+                # print(f'Add total shift constraint: {staff} {total_shift}')
+            else:
+                continue
 
     @property
     def schedule(self):

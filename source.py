@@ -253,6 +253,9 @@ class Schedule:
         self.__model = cp_model.CpModel()
         self.__shift_vars = {}
         self.__penalties = 0
+
+        # Constraint
+        self.__shift_group_sum_employee = {}
         
         
     @property
@@ -413,6 +416,10 @@ class Schedule:
         shift.add_employee(employee)
         employee.add_task(shift)
         self.__updated_at = datetime.now()
+
+    def add_total_shift_constraint(self, employee_abbreviation: str, total_shifts: int) -> None:
+        self.__shift_group_sum_employee[employee_abbreviation] = total_shifts
+        print(self.__shift_group_sum_employee)
 
     def show(self, format = 'text', group_by = 'shift type') -> None:        
         
@@ -815,12 +822,7 @@ class Schedule:
 
         # TODO: Discuss กับ อจก ว่ายังอยากให้มี constraint นี้ไหม
         shift_group_sum_employee = {
-            ('s1', 's2', 's1+', 's2+'): {
-                'BC': 8,
-                'SS': 8,
-                'PU': 8,
-            },
-
+            ('s1', 's2', 's1+', 's2+'): self.__shift_group_sum_employee,
             ('s1','s2'): {
             # 'BC': 2,
             # 'BW': 3,
@@ -857,13 +859,9 @@ class Schedule:
                 
                 # select employee by abbreviation
                 employee = [employee for employee in self.employees if employee.abbreviation == e][0]
-
-
                 constraints[f'shift_group_sum_employee_{employee.first_name}_{group}'] = self.__model.NewBoolVar(f'shift_group_sum_employee_{employee.first_name}_{group}_constraints')
-                
                 shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in group]
-                
-                # print(shifts)
+
                 # self.__model.Add(sum(shifts) == shift_group_sum_employee[group][e])
                 self.__model.Add(sum(shifts) == shift_group_sum_employee[group][e]).OnlyEnforceIf(constraints[f'shift_group_sum_employee_{employee.first_name}_{group}']) # type: ignore
 
