@@ -31,6 +31,11 @@ class GoogleSheetApp():
 
         print(f'Updated {spreadsheet_id} {range} with {values}')
 
+    def clear_sheet(self, spreadsheet_id, sheet_name):
+        sheet = self.service.open_by_key(spreadsheet_id)
+        worksheet = sheet.worksheet(sheet_name)
+        worksheet.clear()
+
 
 if __name__ == '__main__':
 

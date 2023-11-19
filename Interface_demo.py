@@ -5,9 +5,8 @@ from googlesheetapp import GoogleSheetApp
 
 
 class SchedulerApp:
-    def __init__(self, sheet_name = "August 2023"):
+    def __init__(self, sheet_name = "December 2023"):
         self.googleSheetApp = GoogleSheetApp()
-        # self.__sheet_name = 'August 2023'
         self.__sheet_name = sheet_name
         self.__sheet_id = '1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU'
         self.__morning_availability_range = self.__sheet_name + '!B72:M103'
@@ -21,6 +20,7 @@ class SchedulerApp:
         self.__date_range = self.__sheet_name + '!A12:A42'
         self.__shift_matrix_range = self.__sheet_name + '!A210:J219' #TODO: retrieve shift matrix from sheet
         self.__total_shift_constraint = self.__sheet_name + '!B183:C204'
+        self.__shift_preference_range = self.__sheet_name + '!E183:G204'
 
         start_date, end_date = self.get_date()
 
@@ -139,6 +139,23 @@ class SchedulerApp:
             else:
                 continue
 
+        #Add shift preference
+        shift_preference = self.googleSheetApp.get_sheet_values(self.__sheet_id, self.__shift_preference_range, type = 'values')
+        for row in shift_preference: #type: ignore
+            if len(row) == 3 and row[0] != '' and row[1] != '' and row[2] != '':
+                employee_abbreviation = row[0]
+                morning_preference = True if row[1] == 'TRUE' else False
+                afternoon_preference = True if row[2] == 'TRUE' else False
+                # print(f'Add shift preference: {employee_abbreviation} {morning_preference} {afternoon_preference}')
+                # If both true -> set both to false, because it is not a preference
+                if morning_preference and afternoon_preference:
+                    morning_preference = False
+                    afternoon_preference = False
+
+                schedule.add_shift_preference(employee_abbreviation, morning_preference, afternoon_preference)
+            else:
+                continue
+
     @property
     def schedule(self):
         return self.__schedule
@@ -194,12 +211,23 @@ class SchedulerApp:
 
     def solve(self):
         self.schedule.solve()
+    
+    #logging to sheet named 'Log'
+    def logging(self):
+        self.googleSheetApp.clear_sheet(self.__sheet_id, 'Log')
+        log = self.schedule.logging() # return a list of string
+        log_value = [[i] for i in log]
+        # Update 'Log' sheet multiple lines
+        RANGE = 'Log!A1:A' + str(len(log_value))
+        self.googleSheetApp.update_sheet_values(self.__sheet_id, RANGE, log_value)
+        print('Logging successfully')
+
         
     
 
 if __name__ == '__main__':
-    schedulerApp = SchedulerApp(sheet_name="Interface demo")
-
+    # schedulerApp = SchedulerApp(sheet_name="Interface demo")
+    schedulerApp = SchedulerApp(sheet_name="Test for december 2023")
     # print(schedulerApp.staffs)
     # print(schedulerApp.shifts)
 
@@ -207,9 +235,10 @@ if __name__ == '__main__':
 
     
     schedulerApp.solve()
-    schedulerApp.schedule.show(format='table')
+    # schedulerApp.schedule.show(format='table')
     schedulerApp.update_schedule()
-    schedulerApp.schedule.show(format='table', group_by='workload')
+    schedulerApp.logging()
+    # schedulerApp.schedule.show(format='table', group_by='workload')
 
     # print(schedulerApp.schedule.to_matrix())
 

@@ -254,8 +254,13 @@ class Schedule:
         self.__shift_vars = {}
         self.__penalties = 0
 
+        self.__logs = []
+
         # Constraint
         self.__shift_group_sum_employee = {}
+
+        # Objective
+        self.__shift_preference = {}
         
         
     @property
@@ -310,18 +315,14 @@ class Schedule:
     def num_days(self) -> int:
         return self.duration.days + 1
     
+    # TODO: This function is very slow :(, need to optimize)
     def get_shifts_by_date(self, date: datetime) -> list[Shift]:
         return [shift for shift in self.shifts if shift.start_time.date() == date.date()]
     
     
-    def shift_per_employee(self, shift_type, type = None) -> float:
+    def shift_per_employee(self, shift_type) -> float:
         average = sum([shift.shift_type == shift_type for shift in self.shifts]) / len(self.employees)
-        if type == 'max':
-            return math.floor(average) + 1 # to handle the case where the average is a float and we want to round up
-        elif type == 'min':
-            return math.floor(average) # to handle the case where the average is a float and we want to round down
-        else:
-            return average
+        return average
 
     def info(self):
         print(f"Schedule: {self.name}")
@@ -338,7 +339,6 @@ class Schedule:
         for shift_type in self.shift_types:
             print(f"Number of {shift_type} shifts: {len([shift for shift in self.shifts if shift.shift_type == shift_type])}")
             print(f"Number of {shift_type} shifts per employee: {self.shift_per_employee(shift_type)}")
-
 
     def add_holiday(self, date: datetime) -> None:
         # Check if date is in dates 
@@ -402,8 +402,6 @@ class Schedule:
             else:
                 break
                 
-
-
     def remove_employee(self, employee) -> None:
         self.employees.remove(employee)
         self.__updated_at = datetime.now()
@@ -420,6 +418,14 @@ class Schedule:
     def add_total_shift_constraint(self, employee_abbreviation: str, total_shifts: int) -> None:
         self.__shift_group_sum_employee[employee_abbreviation] = total_shifts
         print(self.__shift_group_sum_employee)
+
+    def add_shift_preference(self, employee_abbreviation: str, morning_preference: bool, afternoon_preference: bool) -> None:
+        if morning_preference:
+            self.__shift_preference[employee_abbreviation] = 'morning'
+        elif afternoon_preference:
+            self.__shift_preference[employee_abbreviation] = 'afternoon'
+        else:
+            self.__shift_preference[employee_abbreviation] = None
 
     def show(self, format = 'text', group_by = 'shift type') -> None:        
         
@@ -623,6 +629,358 @@ class Schedule:
     
 
     def solve(self, time_limit=60, verbose=True):
+        # ------------------------ Variable ---------------------------
+        self.__shift_vars = {}
+        for shift in self.shifts:
+            for employee in self.employees:
+                self.__shift_vars[(shift, employee)] = self.__model.NewBoolVar('shift_{}_employee_{}'.format(shift.name, employee.name)) #
+
+        # ------------------------ Constraints -> Rules ---------------------------
+
+        # Solve constraint one by one, exit if there's no solution
+        date_constraints = {}
+        employee_constraints = {}
+
+        # constraint should look like this:
+        # constraints = {
+        # date: [list of constraints]],
+        # date: [list of constraints]],
+        # ...}
+
+       
+        for date in self.days:
+            date_constraints[date] = []
+        
+        for employee in self.employees:
+            employee_constraints[employee] = []
+        
+ 
+        # [1] Each shift must be assigned to employees more than or equal to min_employees, and less than or equal to max_employees
+        for shift in self.shifts:
+            date_constraints[shift.date].append(sum([self.__shift_vars[(shift, employee)] for employee in self.employees]) >= shift.min_employees)
+            date_constraints[shift.date].append(sum([self.__shift_vars[(shift, employee)] for employee in self.employees]) <= shift.max_employees)
+
+
+        # [2] If the shift is assigned to employees, fixed the shift assigned to the employees
+        fixed_shifts = []
+        ls_fixed_shifts = []
+        for shift in self.shifts:
+            for employee in shift.employees:
+                fixed_shifts.append((shift, employee))
+                ls_fixed_shifts.append(shift)
+        for shift, employee in fixed_shifts:
+            date_constraints[shift.date].append(self.__shift_vars[(shift, employee)] == 1)
+            
+        ls_not_fixed_shifts = [shift for shift in self.shifts if shift not in ls_fixed_shifts]
+
+        # [3] The shift should only be assigned to the employees who are available (Compare to employee's tasks), except for fixed shifts
+        for date in self.dates:
+            for shift in self.get_shifts_by_date(date):
+                for employee in self.employees:
+                    if not employee.is_available(shift) and (shift, employee) not in fixed_shifts:
+                        date_constraints[shift.date].append(self.__shift_vars[(shift, employee)] == 0)
+        
+
+        # [4.1] Some shifts cannot be assigned to the same employee in the same day, represent with a logical matrix, exclude fixed shifts
+        shift_types_matrix = {
+            'labels' : ['s1', 's1+', 'mc', 's2', 's2+', 'observe', 'ems', 'amd', 'avd'],
+            'matrix': [
+              # s1 s1+ mc s2 s2+ ob em amd avd
+                [0, 0, 0, 0, 0, 0, 0, 1, 0], # s1
+                [0, 0, 0, 0, 0, 1, 1, 1, 1], # s1+
+                [0, 0, 0, 1, 1, 0, 0, 1, 1], # mc
+                [0, 0, 1, 0, 0, 0, 0, 1, 0], # s2
+                [0, 0, 1, 0, 0, 1, 1, 1, 1], # s2+
+                [0, 1, 0, 0, 1, 0, 0, 1, 1], # ob
+                [0, 1, 0, 0, 1, 0, 0, 1, 1], # em
+                [1, 1, 1, 1, 1, 1, 1, 0, 0], # amd
+                [0, 1, 1, 0, 1, 1, 1, 0, 0]  # avd
+            ]
+        }
+
+        shift_labels = shift_types_matrix['labels']
+        matrix = shift_types_matrix['matrix']
+        for date in self.dates:
+            # shifts = self.get_shifts_by_date(date) # exclude fixed shifts
+            # exclude fixed shifts
+            # shifts = [shift for shift in shifts if shift not in ls_fixed_shifts]
+            # ls_not_fixed_shifts = [shift for shift in self.shifts if shift not in ls_fixed_shifts]
+            shifts = [shift for shift in ls_not_fixed_shifts if shift.start_time.date() == date]
+            for shift1 in shifts:
+                for shift2 in shifts:
+                    if shift1 != shift2 and shift1.type in shift_labels and shift2.type in shift_labels:
+                        i = shift_labels.index(shift1.type)
+                        j = shift_labels.index(shift2.type)
+                        if not matrix[i][j]:
+                            for employee in self.employees:
+                                date_constraints[shift1.date].append(self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1)
+
+        # [4.2] Employee cannot work more than 2 shifts per day
+        for date in self.days:
+            for employee in self.employees:
+                date_constraints[date].append(sum([self.__shift_vars[(shift, employee)] for shift in ls_not_fixed_shifts if shift.start_time.date() == date]) <= 2)
+
+        #[5] Fair distribution of shifts per employee per shift type
+        # TODO: Create an automatic way to feed the shift_group_sum, may be 'increment constraint with maximize the minimum'?
+        shift_group_sum = {
+            ('max',('mc')) : math.floor(self.shift_per_employee('mc'))+1,
+            ('min',('mc')) : math.floor(self.shift_per_employee('mc')),
+            ('max',('amd')) : math.floor(self.shift_per_employee('amd'))+1,
+            ('min',('amd')) : math.floor(self.shift_per_employee('amd')),
+            ('max',('avd')) : math.floor(self.shift_per_employee('avd'))+1,
+            ('min',('avd')) : math.floor(self.shift_per_employee('avd')),
+            ('max',('s1', 's2')) : math.floor(self.shift_per_employee('s1') + self.shift_per_employee('s2'))+1,
+            ('min',('s1', 's2')) : math.floor(self.shift_per_employee('s1') + self.shift_per_employee('s2')),
+            ('max',('s1', 's1+', 's2', 's2+')) : math.floor(self.shift_per_employee('s1') + self.shift_per_employee('s1+') + self.shift_per_employee('s2') + self.shift_per_employee('s2+'))+1,
+            ('min',('s1', 's1+', 's2', 's2+')) : math.floor(self.shift_per_employee('s1') + self.shift_per_employee('s1+') + self.shift_per_employee('s2') + self.shift_per_employee('s2+')),
+        }
+
+        print(shift_group_sum)
+
+        for employee in self.employees:
+            employee_constraints[employee] = []
+            for group in shift_group_sum:
+                shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in group[1]]
+                if group[0] == 'max':
+                    employee_constraints[employee].append(sum(shifts) <= shift_group_sum[group])
+                elif group[0] == 'min':
+                    employee_constraints[employee].append(sum(shifts) >= shift_group_sum[group])
+       
+        # [ุ6] Manual set number of shifts per employee
+        shift_group_sum_employee = {
+            ('s1', 's2', 's1+', 's2+'): self.__shift_group_sum_employee,
+            }
+        
+        for group in shift_group_sum_employee:
+            for e in shift_group_sum_employee[group]:
+                employee = [employee for employee in self.employees if employee.abbreviation == e][0]
+                shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in group]
+                employee_constraints[employee].append(sum(shifts) == shift_group_sum_employee[group][e])
+
+
+        # [x] Equalize holiday shifts per employee -> Moved to objective section
+        # holiday_shifts = [shift for shift in self.shifts if shift.date in self.holiday_dates]
+        # for employee in self.employees:
+        #     employee_constraints[employee].append(sum([self.__shift_vars[(shift, employee)] for shift in holiday_shifts]) >= math.floor(len(holiday_shifts) / len(self.employees)))
+        #     employee_constraints[employee].append(sum([self.__shift_vars[(shift, employee)] for shift in holiday_shifts]) <= math.floor(len(holiday_shifts) / len(self.employees)) + 1)
+        
+
+
+        # ------------------------ Objectives -> Optimization goals ---------------------------
+
+        objectives = {}
+
+        # Objective look like this:
+        # objectives = {
+            # objective name: [objective values],
+            # objective name: [objective values],
+            # ...}
+
+        # [1] Distribution of workload, Minimize the number of shifts assigned to employees on the same day, 1 shift per employee per day if possible
+        for date in self.days:
+            objectives[f'Minimize the number of shifts assigned to each employee on {date}'] = []
+            for employee in self.employees:
+                objectives[f'Minimize the number of shifts assigned to each employee on {date}'].append(sum([self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.start_time.date() == date]) <= 1)
+
+        # [2] Avoid working on the consecutive days
+        shift_group_for_distribution = [
+            ('s1', 's2', 's1+', 's2+'),
+            ('mc'),
+            ('amd', 'avd'),
+            ('avd')
+        ]
+        duration = 1 #days
+        for employee in self.employees:
+            for shift_type in shift_group_for_distribution:
+                shifts = [shift for shift in self.shifts if shift.shift_type in shift_type] # Shifts = [shift1, shift2, ...] for each shift type
+                for shift1 in shifts:
+                    for shift2 in [shift for shift in shifts if shift != shift1 and shift.start_time > shift1.start_time and shift.start_time - shift1.start_time <= timedelta(days=duration)]:
+                        objectives[f'Avoid working {shift_type} on the consecutive days for {employee.abbreviation} between {shift1.name} & {shift2.name}'] = []
+                        objectives[f'Avoid working {shift_type} on the consecutive days for {employee.abbreviation} between {shift1.name} & {shift2.name}'].append(self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1)
+
+                
+
+        # [3] Shift Preference, some employees prefer to work in the morning, some prefer to work in the afternoon
+        # shift_preference = {
+        #     'BC' : 'morning',
+        #     'KL' : None,
+        #     'UT' : 'afternoon'
+        #     ...
+        # }
+
+        shift_preference = self.__shift_preference
+        for employee in self.employees:
+            if shift_preference[employee.abbreviation] is None:
+                continue
+            morning_shifts = sum([self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['s1', 's1+']])
+            afternoon_shifts = sum([self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['s2', 's2+']])
+
+            shift_diff = morning_shifts - afternoon_shifts if shift_preference[employee.abbreviation] == 'morning' else afternoon_shifts - morning_shifts
+            objective_key = f'Shift preference for {employee.abbreviation} soft'
+
+            # Add the soft constraint directly to the objective
+            objectives[objective_key] = []
+            objectives[objective_key].append(shift_diff >= 1)
+
+            # objective_key_hard = f'Shift preference for {employee.abbreviation} hard'
+            # objectives[objective_key_hard] = []
+            # value = morning_shifts == 0 if shift_preference[employee.abbreviation] == 'morning' else afternoon_shifts == 0
+            # objectives[objective_key_hard].append(value)
+
+        # [4] Equalize holiday shifts per employee
+        holiday_shifts = [shift for shift in self.shifts if shift.date in self.holiday_dates]
+        for employee in self.employees:
+            objectives[f'Equalize holiday shifts per employee for {employee.abbreviation}'] = []
+            objectives[f'Equalize holiday shifts per employee for {employee.abbreviation}'].append(sum([self.__shift_vars[(shift, employee)] for shift in holiday_shifts]) >= math.floor(len(holiday_shifts) / len(self.employees)))
+            objectives[f'Equalize holiday shifts per employee for {employee.abbreviation}'].append(sum([self.__shift_vars[(shift, employee)] for shift in holiday_shifts]) <= math.floor(len(holiday_shifts) / len(self.employees)) + 1)
+        
+
+
+    
+        # TODO: Not work for now, fix this later
+        # [x] Equal distribution of shifts per employee (per shift type)
+        # for shift_type in self.shift_types:
+        #     shifts_by_type = [shift for shift in self.shifts if shift.shift_type == shift_type]
+        #     min_shifts = self.__model.NewIntVar(0, len(self.shifts), f'min_{shift_type}_shifts')
+        #     employee_shifts = [self.__model.NewIntVar(0, len(shifts_by_type), f'{employee.name}_{shift_type}_shifts') for employee in self.employees]
+        #     self.__model.Add(sum(employee_shifts) == len(shifts_by_type))
+        #     self.__model.AddMinEquality(min_shifts, employee_shifts)
+        #     objectives[f'Equal distribution of {shift_type} shifts per employee)'] = sum([min_shifts])
+
+        # TODO: Not work for now, fix this later
+        # [x] Distribution of workload, disperse the shift of each employee throughout the schedule, for each shift type
+        # shift_group_for_distribution = [
+        #     ('s1', 's2', 's1+', 's2+'),
+        #     ('mc'),
+        #     ('amd', 'avd'),
+        #     ('avd')
+        # ]
+        # for employee in self.employees:
+        #     for shift_type in shift_group_for_distribution:
+        #         objectives[f'Distribution of {shift_type} workload for {employee.abbreviation} soft'] = []
+        #         objectives[f'Distribution of {shift_type} workload for {employee.abbreviation} hard'] = []
+        #         # Shifts = [shift1, shift2, ...] for each shift type
+        #         shifts = [shift for shift in self.shifts if shift.shift_type in shift_type]
+        #         # Shift Strata = [[shift1, shift2, ...], [shift3, shift4, ...], ...] to 'x' groups, which x = number of shifts per employee
+        #         shift_strata = [shifts[i:i + len(shifts) // (math.floor(self.shift_per_employee(shift_type[0]))+1)] for i in range(0, len(shifts), len(shifts) // (math.floor(self.shift_per_employee(shift_type[0]))+1))]
+        #         # Slide strata by 1, to create a list of shift groups
+
+        #         for shift_group in shift_strata:
+        #             # If the shift group is not empty
+        #             if len(shift_group) > 0:
+        #                 # Add the sum of the shifts in the group to the objective
+        #                 objectives[f'Distribution of {shift_type} workload for {employee.abbreviation} soft'].append(sum([self.__shift_vars[(shift, employee)] for shift in shift_group]) <= 2)
+        #                 # Add the sum of the shifts in the group to the objective
+        #                 objectives[f'Distribution of {shift_type} workload for {employee.abbreviation} hard'].append(sum([self.__shift_vars[(shift, employee)] for shift in shift_group]) <= 1)
+                    
+
+
+        # ------------------------ Solve ---------------------------
+
+        self.__logs.append('Begin solving for the schedule, with following rules:')
+        self.__logs.append('Rule 1: Each shift must be assigned to employees more than or equal to min_employees, and less than or equal to max_employees')
+        self.__logs.append('Rule 2: If the shift is assigned to employees, fixed the shift assigned to the employees')
+        self.__logs.append('Rule 3: The shift should only be assigned to the employees who are available (Compare to employee\'s tasks), except for fixed shifts')
+        self.__logs.append('Rule 4: Some shifts cannot be assigned to the same employee in the same day, represent with a logical matrix, exclude fixed shifts')
+        self.__logs.append(f'Rule 5: Fair distribution of shifts per employee per shift type')
+        for group in shift_group_sum:
+            self.__logs.append(f'    {group[0]} shifts per employee per {group[1]}')
+        self.__logs.append(f'Rule 6: Manual set number of shifts per employee')
+        for group in shift_group_sum_employee:
+            for e in shift_group_sum_employee[group]:
+                self.__logs.append(f'    {e} = {shift_group_sum_employee[group][e]}')
+        self.__logs.append('')
+        self.__logs.append('Result:')
+
+        solver = cp_model.CpSolver()
+        solver.parameters.max_time_in_seconds = time_limit
+        solver.parameters.num_search_workers = 8
+        
+        # solve model with incremental constraints, if no solution, reset the model and add the constraints again, skip the date
+        constraint_complete = True
+        model_before_become_infeasible = cp_model.CpModel()
+
+        try: 
+            for date in self.days:
+                model_before_become_infeasible.CopyFrom(self.__model)
+                for constraint in date_constraints[date]:
+                    self.__model.Add(constraint)
+                status = solver.Solve(self.__model)
+                if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
+                    continue
+                else:
+                    self.__logs.append(f'❌ No solution found for {date}')
+                    print(f'No solution found for {date}')
+                    self.__model.CopyFrom(model_before_become_infeasible)
+                    constraint_complete = False
+                    continue 
+
+            for employee in self.employees:
+                model_before_become_infeasible.CopyFrom(self.__model)
+                for constraint in employee_constraints[employee]:
+                    self.__model.Add(constraint)
+                status = solver.Solve(self.__model)
+                if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
+                    continue
+                else:
+                    self.__logs.append(f'❌ No solution found for {employee.abbreviation}')
+                    print(f'No solution found for {employee.abbreviation}')
+                    self.__model.CopyFrom(model_before_become_infeasible)
+                    constraint_complete = False
+                    continue
+
+            # Add objectives, if no solution, reset the model and add the new objectives, skip the objective
+            if constraint_complete:
+                self.__logs.append('✅︎ All rules are satisfied, now optimizing the schedule with following objectives:')
+                print('All constraints are satisfied, adding objectives ...')
+                for objective_name, objective_group in objectives.items():
+                    model_before_become_infeasible.CopyFrom(self.__model)
+                    for objective in objective_group:
+                        self.__model.Add(objective)
+                    status = solver.Solve(self.__model)
+                    if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
+                        self.__logs.append('✅︎ Objective: {}'.format(objective_name))
+                        continue
+                    else:
+                        print(f'No solution found for {objective_name}')
+                        self.__logs.append('❌ Objective: {}'.format(objective_name))
+                        self.__model.CopyFrom(model_before_become_infeasible)
+                        continue
+            else:
+                self.__logs.append("❌ The schedule is not optimized, because the rules are not satisfied")
+
+            
+        except Exception as e:
+            self.__logs.append("❌ The program exited with an error")
+            self.__logs.append("Error: {}".format(e))
+
+        # Update the shifts and employees
+        for shift in self.shifts:
+            for employee in self.employees:
+                try:
+                    if solver.Value(self.__shift_vars[(shift, employee)]) == 1:
+                    # print(f'{shift.name} is assigned to {employee.name}')
+                        shift.add_employee(employee)
+                        employee.add_task(shift)
+                except Exception as e:
+                        pass
+                
+        self.__logs.append("")                
+        self.__logs.append("Schedule Updated!")                
+
+
+
+
+            # for objective_name, objective_value in objectives.items():
+            #     self.__model.Maximize(objective_value)
+            #     status = solver.Solve(self.__model)
+            #     print(f'Objective: {objective_name} = {solver.ObjectiveValue()}')
+
+            #     # Save objective satisfaction
+            #     self.__model.Add(objective_value >= round(solver.ObjectiveValue()))
+
+    # legacy version
+    def solve1(self, time_limit=60, verbose=True):
         """Solves the schedule using the CP-SAT solver.
 
         Args:
@@ -637,7 +995,7 @@ class Schedule:
 
     
 
-        # ------------------------ Constraint ---------------------------
+        # ------------------------ Constraints -> Rules ---------------------------
         constraints = {}
         objectives = {}
 
@@ -645,7 +1003,8 @@ class Schedule:
 
         # Each shift must be assigned to employees more than or equal to min_employees, and less than or equal to max_employees
         for shift in self.shifts:
-            self.__model.Add(sum(self.__shift_vars[(shift, employee)] for employee in self.employees) >= shift.min_employees) # type: ignore
+            constraints[f'shift_{shift.name}_min_employees'] = self.__model.NewBoolVar(f'shift_{shift.name}_min_employees_constraints')
+            self.__model.Add(sum(self.__shift_vars[(shift, employee)] for employee in self.employees) >= shift.min_employees).OnlyEnforceIf(constraints[f'shift_{shift.name}_min_employees']) # type: ignore
             self.__model.Add(sum(self.__shift_vars[(shift, employee)] for employee in self.employees) <= shift.max_employees) # type: ignore
 
         # If the shift is assigned to employees, fixed the shift assigned to the employees
@@ -673,73 +1032,73 @@ class Schedule:
         # constraints['shift_types_matrix'] = self.__model.NewBoolVar('shift_types_logical_matrix_constraints')
 
 
-        shift_types_matrix = {
-            'labels' : ['s1', 's1+', 'mc', 's2', 's2+', 'observe', 'ems', 'amd', 'avd'],
-            'matrix': [
-              # s1 s1+ mc s2 s2+ ob em amd avd
-                [0, 0, 0, 0, 0, 0, 0, 1, 0], # s1
-                [0, 0, 0, 0, 0, 1, 1, 1, 1], # s1+
-                [0, 0, 0, 1, 1, 0, 0, 1, 1], # mc
-                [0, 0, 1, 0, 0, 0, 0, 1, 0], # s2
-                [0, 0, 1, 0, 0, 1, 1, 1, 1], # s2+
-                [0, 1, 0, 0, 1, 0, 0, 1, 1], # ob
-                [0, 1, 0, 0, 1, 0, 0, 1, 1], # em
-                [1, 1, 1, 1, 1, 1, 1, 0, 1], # amd
-                [0, 1, 1, 0, 1, 1, 1, 1, 0]  # avd
-            ]
-        }
+        # shift_types_matrix = {
+        #     'labels' : ['s1', 's1+', 'mc', 's2', 's2+', 'observe', 'ems', 'amd', 'avd'],
+        #     'matrix': [
+        #       # s1 s1+ mc s2 s2+ ob em amd avd
+        #         [0, 0, 0, 0, 0, 0, 0, 1, 0], # s1
+        #         [0, 0, 0, 0, 0, 1, 1, 1, 1], # s1+
+        #         [0, 0, 0, 1, 1, 0, 0, 1, 1], # mc
+        #         [0, 0, 1, 0, 0, 0, 0, 1, 0], # s2
+        #         [0, 0, 1, 0, 0, 1, 1, 1, 1], # s2+
+        #         [0, 1, 0, 0, 1, 0, 0, 1, 1], # ob
+        #         [0, 1, 0, 0, 1, 0, 0, 1, 1], # em
+        #         [1, 1, 1, 1, 1, 1, 1, 0, 1], # amd
+        #         [0, 1, 1, 0, 1, 1, 1, 1, 0]  # avd
+        #     ]
+        # }
 
-        shift_labels = shift_types_matrix['labels']
-        matrix = shift_types_matrix['matrix']
+        # shift_labels = shift_types_matrix['labels']
+        # matrix = shift_types_matrix['matrix']
 
-        for date in [d for d in self.dates if d.day < 16]:
-            # constraints[f'shift_types_matrix_{date.date()}'] = self.__model.NewBoolVar(f'shift_types_matrix_constraints_{date.date()}')
-            shifts = self.get_shifts_by_date(date)
-            for shift1 in shifts:
-                for shift2 in shifts:
-                    if shift1 != shift2 and shift1.type in shift_labels and shift2.type in shift_labels:
-                        i = shift_labels.index(shift1.type)
-                        j = shift_labels.index(shift2.type)
-                        if not matrix[i][j]:
-                            constraints[f'shift_types_matrix_{date.date()}_{shift1.type}_{shift2.type}'] = self.__model.NewBoolVar(f'shift_types_matrix_constraints_{date.date()}_{shift1.type}_{shift2.type}')
-                            # print(f'{shift1.name} and {shift2.name} cannot be assigned to the same employee in the same day.')
-                            for employee in self.employees:
-                                # self.__model.Add(self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1)
-                                self.__model.Add(self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1).OnlyEnforceIf(constraints[f'shift_types_matrix_{date.date()}_{shift1.type}_{shift2.type}']) # type: ignore
+        # for date in [d for d in self.dates if d.day < 16]:
+        #     # constraints[f'shift_types_matrix_{date.date()}'] = self.__model.NewBoolVar(f'shift_types_matrix_constraints_{date.date()}')
+        #     shifts = self.get_shifts_by_date(date)
+        #     for shift1 in shifts:
+        #         for shift2 in shifts:
+        #             if shift1 != shift2 and shift1.type in shift_labels and shift2.type in shift_labels:
+        #                 i = shift_labels.index(shift1.type)
+        #                 j = shift_labels.index(shift2.type)
+        #                 if not matrix[i][j]:
+        #                     constraints[f'shift_types_matrix_{date.date()}_{shift1.type}_{shift2.type}'] = self.__model.NewBoolVar(f'shift_types_matrix_constraints_{date.date()}_{shift1.type}_{shift2.type}')
+        #                     # print(f'{shift1.name} and {shift2.name} cannot be assigned to the same employee in the same day.')
+        #                     for employee in self.employees:
+        #                         # self.__model.Add(self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1)
+        #                         self.__model.Add(self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1).OnlyEnforceIf(constraints[f'shift_types_matrix_{date.date()}_{shift1.type}_{shift2.type}']) # type: ignore
 
-        shift_types_matrix = {
-            'labels' : ['s1', 's1+', 'mc', 's2', 's2+', 'observe', 'ems', 'amd', 'avd'],
-            'matrix': [
-              # s1 s1+ mc s2 s2+ ob em amd avd
-                [0, 0, 0, 0, 0, 0, 0, 1, 0], # s1
-                [0, 0, 0, 0, 0, 1, 1, 1, 1], # s1+
-                [0, 0, 0, 1, 1, 0, 0, 1, 1], # mc
-                [0, 0, 1, 0, 0, 0, 0, 1, 0], # s2
-                [0, 0, 1, 0, 0, 1, 1, 1, 1], # s2+
-                [0, 1, 0, 0, 1, 0, 0, 1, 1], # ob
-                [0, 1, 0, 0, 1, 0, 0, 1, 1], # em
-                [1, 1, 1, 1, 1, 1, 1, 0, 0], # amd
-                [0, 1, 1, 0, 1, 1, 1, 0, 0]  # avd
-            ]
-        }
+        # shift_types_matrix = {
+        #     'labels' : ['s1', 's1+', 'mc', 's2', 's2+', 'observe', 'ems', 'amd', 'avd'],
+        #     'matrix': [
+        #       # s1 s1+ mc s2 s2+ ob em amd avd
+        #         [0, 0, 0, 0, 0, 0, 0, 1, 0], # s1
+        #         [0, 0, 0, 0, 0, 1, 1, 1, 1], # s1+
+        #         [0, 0, 0, 1, 1, 0, 0, 1, 1], # mc
+        #         [0, 0, 1, 0, 0, 0, 0, 1, 0], # s2
+        #         [0, 0, 1, 0, 0, 1, 1, 1, 1], # s2+
+        #         [0, 1, 0, 0, 1, 0, 0, 1, 1], # ob
+        #         [0, 1, 0, 0, 1, 0, 0, 1, 1], # em
+        #         [1, 1, 1, 1, 1, 1, 1, 0, 0], # amd
+        #         [0, 1, 1, 0, 1, 1, 1, 0, 0]  # avd
+        #     ]
+        # }
 
-        shift_labels = shift_types_matrix['labels']
-        matrix = shift_types_matrix['matrix']
+        # shift_labels = shift_types_matrix['labels']
+        # matrix = shift_types_matrix['matrix']
 
-        for date in [d for d in self.dates if d.day >= 16]:
-            # constraints[f'shift_types_matrix2_{date.date()}'] = self.__model.NewBoolVar(f'shift_types_matrix_constraints2_{date.date()}')
-            shifts = self.get_shifts_by_date(date)
-            for shift1 in shifts:
-                for shift2 in shifts:
-                    if shift1 != shift2 and shift1.type in shift_labels and shift2.type in shift_labels:
-                        i = shift_labels.index(shift1.type)
-                        j = shift_labels.index(shift2.type)
-                        if not matrix[i][j]:
-                            # print(f'{shift1.name} and {shift2.name} cannot be assigned to the same employee in the same day.')
-                            constraints[f'shift_types_matrix_{date.date()}_{shift1.type}_{shift2.type}'] = self.__model.NewBoolVar(f'shift_types_matrix_constraints_{date.date()}_{shift1.type}_{shift2.type}')
-                            for employee in self.employees:
-                                # self.__model.Add(self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1)
-                                self.__model.Add(self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1).OnlyEnforceIf(constraints[f'shift_types_matrix_{date.date()}_{shift1.type}_{shift2.type}']) # type: ignore
+        # for date in [d for d in self.dates if d.day >= 16]:
+        #     # constraints[f'shift_types_matrix2_{date.date()}'] = self.__model.NewBoolVar(f'shift_types_matrix_constraints2_{date.date()}')
+        #     shifts = self.get_shifts_by_date(date)
+        #     for shift1 in shifts:
+        #         for shift2 in shifts:
+        #             if shift1 != shift2 and shift1.type in shift_labels and shift2.type in shift_labels:
+        #                 i = shift_labels.index(shift1.type)
+        #                 j = shift_labels.index(shift2.type)
+        #                 if not matrix[i][j]:
+        #                     # print(f'{shift1.name} and {shift2.name} cannot be assigned to the same employee in the same day.')
+        #                     constraints[f'shift_types_matrix_{date.date()}_{shift1.type}_{shift2.type}'] = self.__model.NewBoolVar(f'shift_types_matrix_constraints_{date.date()}_{shift1.type}_{shift2.type}')
+        #                     for employee in self.employees:
+        #                         # self.__model.Add(self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1)
+        #                         self.__model.Add(self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1).OnlyEnforceIf(constraints[f'shift_types_matrix_{date.date()}_{shift1.type}_{shift2.type}']) # type: ignore
 
 
         # # Minimum and maximum shifts per employee per schedule per shift type
@@ -771,99 +1130,99 @@ class Schedule:
 
 
 
-        shift_group_sum = {
-            ('max',('mc')) : 2,
-            ('min',('mc')) : 1,
-            ('max',('amd')) : 2,
-            ('min',('amd')) : 1,
-            ('max',('avd')) : 3,
-            ('min',('avd')) : 2,
-            ('max',('s1', 's2')) : 4,
-            ('min',('s1', 's2')) : 3,
-            ('max',('s1', 's1+', 's2', 's2+')) : 8,
-            ('min',('s1', 's1+', 's2', 's2+')) : 7,
+        # shift_group_sum = {
+        #     ('max',('mc')) : 2,
+        #     ('min',('mc')) : 1,
+        #     ('max',('amd')) : 2,
+        #     ('min',('amd')) : 1,
+        #     ('max',('avd')) : 3,
+        #     ('min',('avd')) : 2,
+        #     ('max',('s1', 's2')) : 4,
+        #     ('min',('s1', 's2')) : 3,
+        #     ('max',('s1', 's1+', 's2', 's2+')) : 7,
+        #     ('min',('s1', 's1+', 's2', 's2+')) : 6,
             
-        }
-        for employee in self.employees:
-            for group in shift_group_sum:
-                shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in group[1]]
-                # constraints[f'shift_group_sum_max_{group[1]}'] = self.__model.NewBoolVar('shift_group_sum_max_constraints')
-                constraints[f'shift_group_sum_min_{group[1]}_{employee.first_name}'] = self.__model.NewBoolVar(f'shift_group_sum_min_constraints_{group[1]}_{employee.first_name}')
-                # print(f'{employee.first_name} {shifts}')
-                if group[0] == 'max':
-                    self.__model.Add(sum(shifts) <= shift_group_sum[group])
-                    # self.__model.Add(sum(shifts) <= shift_group_sum[group]).OnlyEnforceIf(constraints['shift_group_sum_max']) # type: ignore
-                elif group[0] == 'min':
-                    self.__model.Add(sum(shifts) >= shift_group_sum[group])
-                    # self.__model.Add(sum(shifts) >= shift_group_sum[group]).OnlyEnforceIf(constraints[f'shift_group_sum_min_{group[1]}_{employee.first_name}']) # type: ignore
+        # }
+        # for employee in self.employees:
+        #     for group in shift_group_sum:
+        #         shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in group[1]]
+        #         constraints[f'shift_group_sum_max_{group[1]}_{employee.first_name}'] = self.__model.NewBoolVar(f'shift_group_sum_max_constraints_{group[1]}_{employee.first_name}')
+        #         constraints[f'shift_group_sum_min_{group[1]}_{employee.first_name}'] = self.__model.NewBoolVar(f'shift_group_sum_min_constraints_{group[1]}_{employee.first_name}')
+        #         # print(f'{employee.first_name} {shifts}')
+        #         if group[0] == 'max':
+        #             self.__model.Add(sum(shifts) <= shift_group_sum[group]).OnlyEnforceIf(constraints[f'shift_group_sum_max_{group[1]}_{employee.first_name}']) # type: ignore
+        #             # self.__model.Add(sum(shifts) <= shift_group_sum[group]).OnlyEnforceIf(constraints['shift_group_sum_max']) # type: ignore
+        #         elif group[0] == 'min':
+        #             # self.__model.Add(sum(shifts) >= shift_group_sum[group])
+        #             self.__model.Add(sum(shifts) >= shift_group_sum[group]).OnlyEnforceIf(constraints[f'shift_group_sum_min_{group[1]}_{employee.first_name}']) # type: ignore
 
 
-        #AVD
-        for employee in self.employees:
-            constraints[f'avd_max_{employee.first_name}'] = self.__model.NewBoolVar(f'avd_constraints_{employee.first_name}')
-            constraints[f'avd_min_{employee.first_name}'] = self.__model.NewBoolVar(f'avd_constraints_{employee.first_name}')
-            # shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['avd'] and shift.day <16]
-            # self.__model.Add(sum(shifts) <= 2)
-            # self.__model.Add(sum(shifts) >= 1)
-            shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['avd'] and shift.day >=16]
-            self.__model.Add(sum(shifts) <= 2).OnlyEnforceIf(constraints[f'avd_max_{employee.first_name}']) # type: ignore
-            self.__model.Add(sum(shifts) >= 1).OnlyEnforceIf(constraints[f'avd_min_{employee.first_name}']) # type: ignore
+        # #AVD
+        # for employee in self.employees:
+        #     constraints[f'avd_max_{employee.first_name}'] = self.__model.NewBoolVar(f'avd_constraints_{employee.first_name}')
+        #     constraints[f'avd_min_{employee.first_name}'] = self.__model.NewBoolVar(f'avd_constraints_{employee.first_name}')
+        #     # shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['avd'] and shift.day <16]
+        #     # self.__model.Add(sum(shifts) <= 2)
+        #     # self.__model.Add(sum(shifts) >= 1)
+        #     shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['avd'] and shift.day >=16]
+        #     self.__model.Add(sum(shifts) <= 2).OnlyEnforceIf(constraints[f'avd_max_{employee.first_name}']) # type: ignore
+        #     self.__model.Add(sum(shifts) >= 1).OnlyEnforceIf(constraints[f'avd_min_{employee.first_name}']) # type: ignore
 
-        #Holiday
-        for employee in self.employees:
-            # constraints[f'holiday_max_{employee.first_name}'] = self.__model.NewBoolVar(f'holiday_constraints_{employee.first_name}')
-            # constraints[f'holiday_min_{employee.first_name}'] = self.__model.NewBoolVar(f'holiday_constraints_{employee.first_name}')
-            shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.date in self.holiday_dates]
-            # print(f'{employee.first_name} - {shifts}')
-            self.__model.Add(sum(shifts) <= 2)
-            self.__model.Add(sum(shifts) >= 1)
+        # #Holiday
+        # for employee in self.employees:
+        #     constraints[f'holiday_max_{employee.first_name}'] = self.__model.NewBoolVar(f'holiday_constraints_{employee.first_name}')
+        #     constraints[f'holiday_min_{employee.first_name}'] = self.__model.NewBoolVar(f'holiday_constraints_{employee.first_name}')
+        #     shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.date in self.holiday_dates]
+        #     # print(f'{employee.first_name} - {shifts}')
+        #     self.__model.Add(sum(shifts) <= 2).OnlyEnforceIf(constraints[f'holiday_max_{employee.first_name}']) # type: ignore
+        #     self.__model.Add(sum(shifts) >= 1).OnlyEnforceIf(constraints[f'holiday_min_{employee.first_name}']) # type: ignore
 
 
 
-        # TODO: Discuss กับ อจก ว่ายังอยากให้มี constraint นี้ไหม
-        shift_group_sum_employee = {
-            ('s1', 's2', 's1+', 's2+'): self.__shift_group_sum_employee,
-            ('s1','s2'): {
-            # 'BC': 2,
-            # 'BW': 3,
-            # 'KS': 3,
-            # 'PT': 3,
-            # 'PL':1,
-            # 'BT': 3,
-            # 'BK': 3,
-            # 'CC': 3,
-            # 'KL': 3,
-            # 'PU': 3,
-            # 'NM': 3,
-            # 'SS': 0,
-            # 'UT': 3,
-            },
-            ('s1+','s2+'): {
-            # 'BC': 7,
-            # 'BW': 5,
-            # 'KS': 6,
-            # 'PT': 5,
-            # 'PL': 3,
-            # 'BT': 5,
-            # 'BK': 6,
-            # 'CC': 7,
-            # 'KL': 5,
-            # 'PU': 6,
-            # 'NM': 5,
-            # 'SS': 6,
-            },
-            }
+        # # TODO: Discuss กับ อจก ว่ายังอยากให้มี constraint นี้ไหม
+        # shift_group_sum_employee = {
+        #     ('s1', 's2', 's1+', 's2+'): self.__shift_group_sum_employee,
+        #     ('s1','s2'): {
+        #     # 'BC': 2,
+        #     # 'BW': 3,
+        #     # 'KS': 3,
+        #     # 'PT': 3,
+        #     # 'PL':1,
+        #     # 'BT': 3,
+        #     # 'BK': 3,
+        #     # 'CC': 3,
+        #     # 'KL': 3,
+        #     # 'PU': 3,
+        #     # 'NM': 3,
+        #     # 'SS': 0,
+        #     # 'UT': 3,
+        #     },
+        #     ('s1+','s2+'): {
+        #     # 'BC': 7,
+        #     # 'BW': 5,
+        #     # 'KS': 6,
+        #     # 'PT': 5,
+        #     # 'PL': 3,
+        #     # 'BT': 5,
+        #     # 'BK': 6,
+        #     # 'CC': 7,
+        #     # 'KL': 5,
+        #     # 'PU': 6,
+        #     # 'NM': 5,
+        #     # 'SS': 6,
+        #     },
+        #     }
         
-        for group in shift_group_sum_employee:
-            for e in shift_group_sum_employee[group]:
+        # for group in shift_group_sum_employee:
+        #     for e in shift_group_sum_employee[group]:
                 
-                # select employee by abbreviation
-                employee = [employee for employee in self.employees if employee.abbreviation == e][0]
-                constraints[f'shift_group_sum_employee_{employee.first_name}_{group}'] = self.__model.NewBoolVar(f'shift_group_sum_employee_{employee.first_name}_{group}_constraints')
-                shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in group]
+        #         # select employee by abbreviation
+        #         employee = [employee for employee in self.employees if employee.abbreviation == e][0]
+        #         constraints[f'shift_group_sum_employee_{employee.first_name}_{group}'] = self.__model.NewBoolVar(f'shift_group_sum_employee_{employee.first_name}_{group}_constraints')
+        #         shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in group]
 
-                # self.__model.Add(sum(shifts) == shift_group_sum_employee[group][e])
-                self.__model.Add(sum(shifts) == shift_group_sum_employee[group][e]).OnlyEnforceIf(constraints[f'shift_group_sum_employee_{employee.first_name}_{group}']) # type: ignore
+        #         # self.__model.Add(sum(shifts) == shift_group_sum_employee[group][e])
+        #         self.__model.Add(sum(shifts) == shift_group_sum_employee[group][e]).OnlyEnforceIf(constraints[f'shift_group_sum_employee_{employee.first_name}_{group}']) # type: ignore
 
      
         
@@ -890,8 +1249,7 @@ class Schedule:
                 
                 self.__model.Add(sum(shifts)<=1).OnlyEnforceIf(objectives[f'max_shifts_per_day_{day}_{employee.first_name}']) # Soft constraint  # type: ignore
                 self.__model.Add(sum(shifts)<=2).OnlyEnforceIf(constraints[f'max_shifts_per_day_{day}_{employee.first_name}']) # Soft constraint  # type: ignore
-                # self.__model.Add(sum(shifts)<=3)
-                # self.__model.Add(sum(shifts)<=2).OnlyEnforceIf(constraints[f'max_shifts_per_day_{day}_{employee.first_name}']) # Hard constraint  # type: ignore
+                
                 ls_vars.append(objectives[f'max_shifts_per_day_{day}_{employee.first_name}'])
                 ls_coeff.append(1)
                 # print(f'{day} - {employee.name} - {sum(shifts)}')
@@ -1005,7 +1363,43 @@ class Schedule:
         obj_bool_vars.append(ls_vars)
         obj_bool_coeffs.append(ls_coeff)
                         
-                        
+        # Shift preference (Some staff want to work S2/S2+ more than S1/S1+)
+        ls_vars = []
+        ls_coeff = []
+        objective_names.append('Shift preference (Some staff want to work S2/S2+ more than S1/S1+)')
+        # shift_preference = {
+        #     'BC' : 'morning',
+        #     'BW' : 'morning',
+        #     'KS' : 'morning',
+        #     'PT' : 'morning',
+        #     'BK' : None,
+        #     'CC' : None,
+        #     'KL' : None,
+        #     'PU' : None,
+        #     'NM' : 'afternoon',
+        #     'SS' : 'afternoon',
+        #     'UT' : 'afternoon',
+        #     'KB' : 'morning',
+        # }
+
+        shift_preference = self.__shift_preference
+
+        print(shift_preference)
+
+
+        for employee in self.employees:
+            for shift in self.shifts:
+                if shift_preference[employee.abbreviation] == 'morning' and shift.type in ['s1', 's1+']:
+                    self.__model.Add(self.__shift_vars[(shift, employee)] == 0)
+                elif shift_preference[employee.abbreviation] == 'afternoon' and shift.type in ['s2', 's2+']:
+                    self.__model.Add(self.__shift_vars[(shift, employee)] == 0)
+
+               
+        obj_bool_vars.append(ls_vars)
+        obj_bool_coeffs.append(ls_coeff)
+    
+
+
                 
 
         # # Equalize work load between employees
@@ -1079,7 +1473,11 @@ class Schedule:
         print(f'Begin solving with constraints')
         status = solver.Solve(self.__model)
 
-        print(f'Constraints satisfaction: {solver.Value(const_penalties_var)} ({solver.Value(const_penalties_var) / len(constraints) * 100 :.2f} %)')
+        # print the number of constraints that are not satisfied
+        try:
+            print(f'Constraints satisfaction: {solver.Value(const_penalties_var)} ({solver.Value(const_penalties_var) / len(constraints) * 100 :.2f} %)')
+        except Exception as e:
+            print(e)
 
         # Save constraint satisfaction
         self.__model.Add(const_penalties_var >= round(solver.ObjectiveValue()))
@@ -1181,3 +1579,21 @@ class Schedule:
     # console command line to export requirement.txt with conda
     # conda list -e > requirements.txt
     
+    # provide a list of string logs to the user for debugging
+    def logging(self):
+        """provide a list of string logs to the user for debugging"""
+        logs = []
+        # Basic information
+        logs.append(f'Basic information:')
+        logs.append(f'Number of employees: {len(self.employees)}')
+        logs.append(f'Number of shifts: {len(self.shifts)}')
+        logs.append(f'Number of shift types: {len(self.shift_types)}')
+        logs.append(f'Number of days: {len(self.days)}')
+        logs.append(f'Number of holiday dates: {len(self.holiday_dates)}')
+        logs.append(f'')
+
+        logs.append(f'Programming logs:')       
+        logs = logs + self.__logs
+
+        return logs
+
