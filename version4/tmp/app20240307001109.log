@@ -1,0 +1,4 @@
+2024-03-07 00:11:09 - config - DEBUG - log_config() started
+2024-03-07 00:11:09 - GoogleAppAuthenticator - DEBUG - Authenticating user ...
+2024-03-07 00:11:09 - GoogleAppAuthenticator - DEBUG - Loading credentials from file
+2024-03-07 00:11:09 - GoogleAppAuthenticator - DEBUG - Credentials loaded from file

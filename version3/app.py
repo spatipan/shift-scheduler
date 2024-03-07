@@ -5,22 +5,24 @@ from googlesheetapp import GoogleSheetApp
 
 
 class SchedulerApp:
-    def __init__(self, sheet_name = "December 2023"):
+    def __init__(self, sheet_name = "March 2024"):
         self.googleSheetApp = GoogleSheetApp()
         self.__sheet_name = sheet_name
         self.__sheet_id = '1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU'
-        self.__morning_availability_range = self.__sheet_name + '!B72:M103'
-        self.__afternoon_availability_range = self.__sheet_name + '!B107:M138'
-        self.__fixed_shift_range = self.__sheet_name + '!C145:K176' # include header
+        self.__night_availability_range = self.__sheet_name + '!B73:M104'
+        self.__morning_availability_range = self.__sheet_name + '!B108:M139'
+        self.__afternoon_availability_range = self.__sheet_name + '!B143:M174'
+        self.__fixed_shift_range = self.__sheet_name + '!C181:M212' # include header
         self.__staffs_range = self.__sheet_name + '!A47:G67'
         self.__name_range = self.__sheet_name + '!E5'
-        self.__shifts_range = self.__sheet_name + '!C11:K42'
-        self.__output_range = self.__sheet_name + '!C233:K263'
+        self.__shifts_range = self.__sheet_name + '!C11:M42'
+        self.__output_range = self.__sheet_name + '!C269:M299'
         self.__holidays_range = self.__sheet_name + '!B12:B42' #exclude header
         self.__date_range = self.__sheet_name + '!A12:A42'
         self.__shift_matrix_range = self.__sheet_name + '!A210:J219' #TODO: retrieve shift matrix from sheet
-        self.__total_shift_constraint = self.__sheet_name + '!B183:C204'
-        self.__shift_preference_range = self.__sheet_name + '!E183:G204'
+        self.__total_shift_constraint = self.__sheet_name + '!B219:C240' #exclude header
+        self.__shift_constraint = self.__sheet_name + '!B218:F240' #include header
+        self.__shift_preference_range = self.__sheet_name + '!H219:J240'
 
         start_date, end_date = self.get_date()
 
@@ -35,15 +37,15 @@ class SchedulerApp:
         )
 
         # Add active employees to schedule
-        employees = self.get_staffs()
+        employees = self.get_staffs() 
         for employee in employees: #type: ignore
-            if employee['active'] == 'TRUE':
+            if employee['active'] == 'TRUE': # type: ignore
                 schedule.add_employee(
                     Employee(
-                        first_name=employee['first_name'],
-                        last_name=employee['last_name'],
-                        role=employee['role'],
-                        abbreviation=employee['abbreviation'],
+                        first_name=employee['first_name'], # type: ignore
+                        last_name=employee['last_name'], # type: ignore
+                        role=employee['role'], # type: ignore
+                        abbreviation=employee['abbreviation'], # type: ignore
                     )
                 )
         
@@ -55,12 +57,16 @@ class SchedulerApp:
         for j in range(len(shifts)): #type: ignore
             for i in range(len(shifts_header)):
                 if shifts[j][i] == 'TRUE':
-                    if shifts_header[i] in ['mc', 's1', 's1+']:
+                    if shifts_header[i] in ['mc', 'service1']:
                         start_time = self._start_date + timedelta(days=j, hours=8)
                         duration = 4 #hours
-                    elif shifts_header[i] in ['s2', 's2+']:
+                    elif shifts_header[i] in ['service2']:
                         start_time = self._start_date + timedelta(days=j, hours=12)
                         duration = 4
+                    elif shifts_header[i] in ['service night']:
+                        start_time = self._start_date + timedelta(days=j, hours=0)
+                        duration = 8
+                        # print(f'Add night shift on {start_time} - {start_time + timedelta(hours=8)}')
                     else:
                         start_time = self._start_date + timedelta(days=j, hours=8)
                         duration = 8
@@ -94,12 +100,26 @@ class SchedulerApp:
                                 schedule.assign_shift(shift, employee)
                     
 
+        # Add night availability
+        night_availability = self.get_night_availability()
+        for i in range(len(night_availability)): #type: ignore
+            for employee in schedule.employees:
+                abbreviation = employee.abbreviation
+                if night_availability[i][abbreviation] == 'FALSE' or '': #type: ignore
+                    start_time = self._start_date + timedelta(days=i, hours=0)
+                    employee.add_task(
+                        Task(name="", description="", start_time = start_time, duration = timedelta(hours=8))
+                    )
+                # else:
+                    # print(f'{employee.first_name} is available on {i+1}th night shift')
+
+
         # Add morning availability
         morning_availability = self.get_morning_availability()
         for i in range(len(morning_availability)): #type: ignore
             for employee in schedule.employees:
                 abbreviation = employee.abbreviation
-                if morning_availability[i][abbreviation] == 'FALSE': #type: ignore
+                if morning_availability[i][abbreviation] == 'FALSE' or '': #type: ignore
                     
                     start_time = self._start_date + timedelta(days=i, hours=8)
 
@@ -112,7 +132,7 @@ class SchedulerApp:
         for i in range(len(afternoon_availability)): #type: ignore
             for employee in schedule.employees:
                 abbreviation = employee.abbreviation
-                if afternoon_availability[i][abbreviation] == 'FALSE': #type: ignore
+                if afternoon_availability[i][abbreviation] == 'FALSE' or '': #type: ignore
                     start_time = self._start_date + timedelta(days=i, hours=12)
                     employee.add_task(
                         Task(name="", description="", start_time = start_time, duration = timedelta(hours=4))
@@ -128,7 +148,7 @@ class SchedulerApp:
             
         self.__schedule = schedule
 
-         #Add Total service constraint
+        #Add Total service constraint
         total_shift_constraint = self.googleSheetApp.get_sheet_values(self.__sheet_id, self.__total_shift_constraint, type = 'values')
         for row in total_shift_constraint: #type: ignore
             if len(row) == 2 and row[0] != '' and row[1] != '':
@@ -138,6 +158,23 @@ class SchedulerApp:
                 # print(f'Add total shift constraint: {staff} {total_shift}')
             else:
                 continue
+
+        #Add shift constraint
+        shift_constraint = self.googleSheetApp.get_sheet_values(self.__sheet_id, self.__shift_constraint, type = 'values')
+        # print(shift_constraint)
+        shift_constraint_header = [str.lower(i) for i in shift_constraint[0]] #type: ignore
+        shift_constraint = shift_constraint[1:] #type: ignore
+        for row in shift_constraint:
+            # print(row)
+            staff = row[0]
+            for i in range(1, len(row)):
+                if row[i] != '':
+                    shift_type = shift_constraint_header[i]
+                    shift = int(row[i])
+                    schedule.add_shift_constraint(staff, shift_type, shift)
+                    
+                
+
 
         #Add shift preference
         shift_preference = self.googleSheetApp.get_sheet_values(self.__sheet_id, self.__shift_preference_range, type = 'values')
@@ -170,6 +207,9 @@ class SchedulerApp:
 
     def get_schedule_name(self):
         return self.googleSheetApp.get_sheet_values(self.__sheet_id, self.__name_range, type = 'values')[0][0] #type: ignore
+
+    def get_night_availability(self):
+        return self.googleSheetApp.get_sheet_values(self.__sheet_id, self.__night_availability_range, type = 'dict')
 
     def get_morning_availability(self):
         result =  self.googleSheetApp.get_sheet_values(self.__sheet_id, self.__morning_availability_range, type = 'dict')
@@ -227,7 +267,7 @@ class SchedulerApp:
 
 if __name__ == '__main__':
     # schedulerApp = SchedulerApp(sheet_name="Interface demo")
-    schedulerApp = SchedulerApp(sheet_name="Test for december 2023")
+    schedulerApp = SchedulerApp(sheet_name="Template ver3.0")
     # print(schedulerApp.staffs)
     # print(schedulerApp.shifts)
 
