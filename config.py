@@ -25,11 +25,27 @@ MASTER_PATH = os.path.dirname(os.path.abspath(__file__))
 #Logging
 LOG_DATE_FORMAT = '%Y-%m-%d %H:%M:%S'
 LOG_TIME = datetime.now().strftime('%Y%m%d%H%M%S')
-LOG_FILE_PATH = f'version4/tmp/logging.log'
+LOG_FILE_PATH = f'tmp/logging.log'
 
-# Google app 
+# Google apps
 GOOGLE_SCOPES = ['https://www.googleapis.com/auth/calendar.readonly', 
                 'https://www.googleapis.com/auth/spreadsheets.readonly']
+SPREADSHEET_ID = '1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU'
+CALENDAR_ID = 'em.cmu.teacher@gmail.com'
+
+## Google Sheet config
+SHEET_NAME = 'TEST' # Default sheet name
+NAME_RANGE = 'E5'
+SHIFT_RANGE = 'C11:K42'
+EMPLOYEE_RANGE = 'A47:G67'
+FIXED_SHIFT_RANGE = 'C181:M212'
+OUTPUT_RANGE = 'C269:M299'
+HOLIDAYS_RANGE = 'B12:B42'
+DATE_RANGE = 'A12:A42'
+SHIFT_MATRIX_RANGE = 'A210:J219'
+TOTAL_SHIFT_CONSTRAINT = 'B219:C240'
+SHIFT_PREFERENCE_RANGE = 'H219:J240'
+
 
 # Paths
 GOOGLE_APP_PATH = os.path.join(MASTER_PATH, 'srcs/google_app')
@@ -43,14 +59,14 @@ TOKEN = get_value_from_json(SECRET_PATH, 'token')
 
 def config_logging():
     logging.basicConfig(level=logging.DEBUG,
-                    format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    format = '%(asctime)s [%(levelname)s] - %(name)s - %(message)s',
                     datefmt = LOG_DATE_FORMAT,
                     filename = LOG_FILE_PATH,
                     filemode = 'a',
                     force = True)
-    print(f'Logging to {LOG_FILE_PATH}')
+    # print(f'Logging to {LOG_FILE_PATH}')
     logger = logging.getLogger(__name__)
-    logger.debug('log_config() started')
+    logger.debug(f'Logging to {LOG_FILE_PATH}')
 
 
 if __name__ == '__main__':

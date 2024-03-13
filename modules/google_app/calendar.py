@@ -8,16 +8,14 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 import logging
 
-
-
-
 # Google calender app
 class CalendarApp:
-    def __init__(self, credentials: Credentials | ExternalAccountCredentials | None = None):
+    def __init__(self, credentials: dict | Credentials | ExternalAccountCredentials | None = None):
         self.credentials = credentials
         self.service = None
         self.logger = logging.getLogger(__class__.__name__)
-        self.initialize()
+        if credentials is not None:
+            self.initialize()
 
     def initialize(self):
         '''Initialize google calendar service'''
@@ -48,15 +46,14 @@ class CalendarApp:
         events = events_result.get('items', [])
         self.events = events
 
-        if not events:
-            print(f'No events found between {start} and {end}')
-        for event in events: 
-            start = event['start'].get('dateTime', event['start'].get('date'))
-            print(start, event['summary'])
+        # if not events:
+        #     print(f'No events found between {start} and {end}')
+        # for event in events: 
+        #     start = event['start'].get('dateTime', event['start'].get('date'))
+        #     print(start, event['summary'])
 
         return events
 
-
-
-        # read events from google calendar
+        # TODO: Add create, update, delete methods
     
+

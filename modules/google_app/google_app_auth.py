@@ -9,7 +9,7 @@ from googleapiclient.errors import HttpError
 import logging
 import json
 
-from config import SECRET_PATH
+from config import SECRET_PATH, CREDENTIALS, TOKEN
 
 
 
@@ -68,4 +68,11 @@ class GoogleAppAuthenticator:
 
         return self.credentials
 
+
+if __name__ == '__main__':
+    authenticator = GoogleAppAuthenticator()
+    credentials = authenticator.authenticate(
+        credentials = CREDENTIALS,
+        token = TOKEN,
+    )
 

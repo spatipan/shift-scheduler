@@ -92,6 +92,7 @@ class SchedulerApp:
                             if employee.abbreviation == row[col_index]:
                                 # print(f'    {employee.abbreviation} => {shift}')
                                 schedule.assign_shift(shift, employee)
+                                
                     
 
         # Add morning availability
@@ -128,7 +129,7 @@ class SchedulerApp:
             
         self.__schedule = schedule
 
-         #Add Total service constraint
+        #Add Total service constraint
         total_shift_constraint = self.googleSheetApp.get_sheet_values(self.__sheet_id, self.__total_shift_constraint, type = 'values')
         for row in total_shift_constraint: #type: ignore
             if len(row) == 2 and row[0] != '' and row[1] != '':
