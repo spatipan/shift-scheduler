@@ -1,13 +1,17 @@
-import os
-from flask import Flask
+import function_framework
+from main import main
+import logging
 
-app = Flask(__name__)
-
-
-@app.route("/")
-def hello_world():     
-    return "Hello World!"
-
-
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+@function_framework.http
+def handler(request):
+    logging.info('Function triggered')
+    
+    try:
+        data = request.get_json()
+        logging.info(f'Data received: {data}')
+        main()
+        return 'Success', 200
+    except Exception as e:
+        logging.error(f'Error: {e}')
+        return 'Error', 500
+    
