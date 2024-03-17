@@ -1,8 +1,11 @@
 from datetime import datetime, timedelta
 import logging
-import plotly.graph_objects as go
+import plotly.express as px
 from plotly.colors import n_colors
 import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import config
 
 class Event:
     def __init__(self, start: datetime, end: datetime, title: str, users: list = [], description: str = ''):
@@ -12,6 +15,10 @@ class Event:
         self.title = title
         self.user = users
     
+    @property
+    def date(self):
+        return self.start.date()
+
     def __repr__(self):
         start_text = self.start.strftime("%Y-%m-%d %H:%M:%S")
         end_text = self.end.strftime("%Y-%m-%d %H:%M:%S")
@@ -21,6 +28,10 @@ class Event:
         return (self.end - self.start).seconds
     
     def overlap(self, other: 'Event'):
+        assert isinstance(other, Event), 'Other must be an Event object'
+        # assert datetime start and end is offset aware
+        assert self.start.tzinfo is not None and self.end.tzinfo is not None, f'Start and end time must be offset aware {self.title}'
+        assert other.start.tzinfo is not None and other.end.tzinfo is not None, f'Start and end time must be offset aware {other.title}'
         return self.start <= other.end and self.end >= other.start
     
     def contains(self, other: 'Event'): 
@@ -38,10 +49,17 @@ class Event:
 
 class Task(Event):
     def __init__(self, start: datetime, end: datetime, title: str, users: list = [], description: str = ''):
-        super().__init__(start, end, title, users, description = description)
+        super().__init__(start, end, title, users = users.copy(), description = description)
 
     def __repr__(self):
         return f'{self.title} starts at {self.start} and ends at {self.end}'
+    
+    @staticmethod
+    def from_event(event: Event) -> 'Task':
+        start = event.start.astimezone(tz=config.TIMEZONE)
+        end = event.end.astimezone(tz=config.TIMEZONE)
+        return Task(start = start, end = end, title = event.title, users = event.user.copy(), description = '')
+    
     
 
 class Shift(Event):
@@ -99,6 +117,10 @@ class Employee:
         self.shifts = []
         self.skills = skills
         self.active = active
+
+    @property
+    def display_name(self):
+        return f'{self.first_name} {self.last_name} ({self.abbreviation})'
 
     def __repr__(self):
         return f'[Employee] - {self.first_name} {self.last_name} ({self.abbreviation})'
@@ -276,25 +298,136 @@ class Schedule:
 
     # TODO: Complete the visualization function
     def visualize(self):
-        '''Visualize schedule with color table,
-        each color represents an employee,
-        rows represent days, columns represent shift type in a day'''
+        '''Visualize schedule with timeline for each day'''
+        assert self.start is not None and self.end is not None, 'Start and end date must be set'
+        assert len(self.shifts) > 0, 'No shifts in the schedule'
 
+        shifts = self.shifts
+        shift_types = self.shift_types
+        df_shifts = pd.DataFrame({
+            'title': [shift.title for shift in shifts],
+            'start': [shift.start for shift in shifts],
+            'end': [shift.end for shift in shifts],
+            'type': [shift.type for shift in shifts]
+        }).sort_values(by='start')
+        
+        # plot shifts timeline with plotly express
+        fig = px.timeline(
+            df_shifts, 
+            x_start='start', 
+            x_end='end', 
+            y='type',
+            color='type',
+            labels={'title': 'Shifts'},
+            title='Shifts Timeline',
+            category_orders= {'type': list(shift_types)}
+        )
+        # fig.update_yaxes(categoryorder='total ascending')
+        fig.show()
+
+        tasks = self.tasks
+        df_tasks = pd.DataFrame({
+            'Task': [task.title for task in tasks],
+            'Start': [task.start for task in tasks],
+            'End': [task.end for task in tasks],
+            'Employee': [task.user[0].display_name if len(task.user) > 0 else 'Unassigned' for task in tasks],
+        }).sort_values(by='Start')
+        fig = px.timeline(
+            df_tasks, 
+            x_start='Start', 
+            x_end='End', 
+            y='Employee',
+            color='Employee',
+            labels={'Task': 'Tasks'},
+            hover_data={'Task': True, 'Start': True, 'End': True, 'Employee': True},
+            title='Tasks Timeline',
+            category_orders= {'Employee': [employee.display_name for employee in self.employees]}
+        )
+        # fig.update_yaxes(categoryorder='total ascending')
+        fig.show()
         
 
-        # create a table with plotly   
-        fig = go.Figure(data=[go.Table(
-            header=dict(values=[shift_type for shift_type in self.shift_types],
-            ),
-            cells = dict(
-                values=[],
-            ),
-            # create row index 
-
-
-
             
-        )])
+       
+
+    def display_table(self):
+        assert self.start is not None and self.end is not None, 'Start and end date must be set'
+        assert len(self.shifts) > 0, 'No shifts in the schedule'
+        dates = [date.date() for date in pd.date_range(self.start, self.end, freq='D')]
+        shifts = self.shifts
+        shift_types = self.shift_types
+        employees = self.employees
+
+
+        # Create a dataframe with the dates as the index and the shift types as the columns
+        shift_schedule = pd.DataFrame(index=dates, columns=[shift_type for shift_type in shift_types])
+        shift_by_type = {}
+        # Optimized version
+        for shift in shifts:
+            if shift.type in shift_by_type:
+                shift_by_type[shift.type].append(shift)
+            else:
+                shift_by_type[shift.type] = [shift]
+
+        # Fill the dataframe with the employees assigned to each shift, if no shift is assigned, fill with 'Unassigned'
+        for date in dates:
+            for shift_type in shift_by_type:
+                for shift in shift_by_type[shift_type]:
+                    if shift.date == date:
+                        if len(shift.employees) == 0:
+                            shift_schedule.loc[date, shift_type] = 'Unassigned'
+                        elif len(shift.employees) == 1:
+                            shift_schedule.loc[date, shift_type] = shift.employees[0].first_name
+                        elif len(shift.employees) > 1:
+                            shift_schedule.loc[date, shift_type] = [employee.first_name for employee in shift.employees]
+        
+        # Fill nan values with '' (empty string)
+        shift_schedule = shift_schedule.fillna(' ')
+
+        # Display the table
+        print(shift_schedule)
+
+    # TODO: Fix  this later
+    def to_sheet_values(self) -> list[list]:
+        '''Convert schedule to list of list for google sheet'''
+        
+
+        dates = [date.date() for date in pd.date_range(self.start, self.end, freq='D')]
+        shifts = self.shifts
+        shift_types = self.shift_types
+        employees = self.employees
+        
+        shift_schedule = pd.DataFrame(index=dates, columns=[shift_type for shift_type in shift_types])
+        shift_by_type = {}
+        # Optimized version
+        for shift in shifts:
+            if shift.type in shift_by_type:
+                shift_by_type[shift.type].append(shift)
+            else:
+                shift_by_type[shift.type] = [shift]
+
+        # Fill the dataframe with the employees assigned to each shift, if no shift is assigned, fill with 'Unassigned'
+        for date in dates:
+            for shift_type in shift_by_type:
+                for shift in shift_by_type[shift_type]:
+                    if shift.start.date() == date:
+                        if len(shift.employees) == 0:
+                            shift_schedule.loc[date, shift_type] = 'Unassigned'
+                        elif len(shift.employees) == 1:
+                            shift_schedule.loc[date, shift_type] = shift.employees[0].abbreviation
+                        elif len(shift.employees) > 1:
+                            shift_schedule.loc[date, shift_type] = str([employee.abbreviation for employee in shift.employees])
+        
+        # Fill nan values with '' (empty string)
+        shift_schedule = shift_schedule.fillna('')
+
+        # Reorder the columns
+        columns = ['service night', 'mc', 'service1', 'service1+', 'service2', 'service2+', 'ems', 'observe', 'amd', 'avd']
+        shift_schedule = shift_schedule[columns].values.tolist()
+
+        return shift_schedule
+
+        
 
 
 

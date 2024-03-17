@@ -55,4 +55,21 @@ class GoogleSheetApp:
         return self.convert_to_dict(self.read(spreadsheetId = spreadsheetId, sheetName = sheetName, range = range))
             
             
+    def update(self, spreadsheetId: str, sheetName: str, range: str, values: list[list]) -> None:
+        '''Updates the sheet values'''
+        assert self.service is not None, 'Service not initialized'
+
+        # Call the Sheets API
+        try: 
+            sheet = self.service.spreadsheets()
+            body = {
+                'values': values
+            }
+            result = sheet.values().update(spreadsheetId=spreadsheetId, range= sheetName + '!' + range, valueInputOption='RAW', body=body).execute()
+            self.logger.debug(f'{result.get("updatedCells")} cells updated')
+        except HttpError as e:
+            self.logger.error(f'Error updating sheet: {e}')
+            
+        return result
+
     # TODO: Add create, update, delete methods

@@ -5,6 +5,7 @@ import logging
 import config
 import re
 from datetime import datetime, timedelta
+import calendar
 import numpy as np 
 
 import pandas as pd
@@ -48,8 +49,9 @@ class SchedulerSheetUI:
         (Employees, Shifts, Fixed Shifts, Holidays, Constraints)'''
 
         # Get start and end date
-        start_date = datetime.strptime(self.get_sheet_values(range=config.DATE_RANGE)[0][0], '%d/%m/%Y')  
-        end_date = datetime.strptime(self.get_sheet_values(range=config.DATE_RANGE)[-1][0], '%d/%m/%Y') + timedelta(days=1)
+        start_date = datetime.strptime(self.get_sheet_values(range=config.DATE_RANGE)[0][0], '%d/%m/%Y')
+        days_in_month = calendar.monthrange(start_date.year, start_date.month)[1]
+        end_date = start_date + timedelta(days = days_in_month - 1, hours=23, minutes=59, seconds=59, microseconds= 99999)
 
         self.schedule.start = start_date
         self.schedule.title = f'Schedule of {start_date.strftime("%B %Y")}'
@@ -88,6 +90,9 @@ class SchedulerSheetUI:
                         end=start_time + timedelta(hours=duration)
                     )
                     shifts.append(new_shift)
+        for shift in shifts:
+            shift.start = shift.start.astimezone(tz= config.TIMEZONE)
+            shift.end = shift.end.astimezone(tz= config.TIMEZONE)
         self.schedule.shifts = shifts
 
         # Get fixed shifts
@@ -166,6 +171,12 @@ class SchedulerSheetUI:
         return result
 
     # Update sheet with the schedule
+    def update_sheet_values(self, schedule: Schedule):
+        '''Update the sheet values with the schedule'''
+        # Update the sheet with the schedule
+        self.sheetApp.update(spreadsheetId=self.sheetId, sheetName=self.sheetName, range=config.OUTPUT_RANGE, values=schedule.to_sheet_values())
+        self.logger.debug(f'Updated sheet values with the schedule')
+        
 
     # static method to translate A1 notation to index
     @staticmethod

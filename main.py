@@ -15,34 +15,12 @@ def main() -> None:
     
     config.config_logging()
 
-    # credentials = config.get_value_from_json(config.SECRET_PATH, 'credentials', '')
-    # authenticator = GoogleAppAuthenticator(SCOPES = config.GOOGLE_SCOPES)
-    # credentials = authenticator.authenticate(
-    #     credentials = config.CREDENTIALS,
-    #     token = config.TOKEN,
-    # )
-
-
-    # app = GoogleSheetApp(credentials)
-
-    # values = app.read(spreadsheetId=config.SPREADSHEET_ID, sheetName=config.SHEET_NAME, range='A1:Z100')
-
-    # print(values)
-
     app = SchedulerApp()
     app.fetch_information()
     app.solve()
-
-    # shifts = app.sheet_ui.schedule.shifts
-    
-    # for shift in shifts:
-        # print(f'Title: {shift.title}, Start: {shift.start}, End: {shift.end}, Duration: {shift.duration}, Employees: {shift.employees}')
-    # app.sheet_ui.schedule.summary()
-
-    # app.sheet_ui.schedule.visualize()
- 
-
-
+    app.schedule.summary()
+    app.visualize()
+    app.update_information()
 
 
 

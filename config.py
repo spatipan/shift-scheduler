@@ -1,7 +1,7 @@
 import json
 import logging
 import os
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 
 
 def get_value_from_json(path: str, key: str, subkey: str = ''):
@@ -20,6 +20,8 @@ def get_value_from_json(path: str, key: str, subkey: str = ''):
         return {}
     
 
+TIMEZONE = timezone(timedelta(hours=7))
+
 MASTER_PATH = os.path.dirname(os.path.abspath(__file__))
 
 #Logging
@@ -28,21 +30,22 @@ LOG_TIME = datetime.now().strftime('%Y%m%d%H%M%S')
 LOG_FILE_PATH = f'tmp/logging.log'
 
 # Google apps
-GOOGLE_SCOPES = ['https://www.googleapis.com/auth/calendar.readonly', 
-                'https://www.googleapis.com/auth/spreadsheets.readonly']
+GOOGLE_SCOPES = ['https://www.googleapis.com/auth/calendar', 
+                'https://www.googleapis.com/auth/spreadsheets',
+                ]
 SPREADSHEET_ID = '1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU'
 CALENDAR_ID = 'em.cmu.teacher@gmail.com'
 
 ## Google Sheet config
 SHEET_NAME = 'TEST' # Default sheet name
 NAME_RANGE = 'E5'
-SHIFT_RANGE = 'C11:K42'
+SHIFT_RANGE = 'C11:L42'
 EMPLOYEE_RANGE = 'A47:G67'
-FIXED_SHIFT_RANGE = 'C181:M212'
-OUTPUT_RANGE = 'C269:M299'
+FIXED_SHIFT_RANGE = 'C181:L212'
+OUTPUT_RANGE = 'C269:L299'
 HOLIDAYS_RANGE = 'B12:B42'
 DATE_RANGE = 'A12:A42'
-SHIFT_MATRIX_RANGE = 'A210:J219'
+# SHIFT_MATRIX_RANGE = 'A210:J219'
 TOTAL_SHIFT_CONSTRAINT = 'B219:C240'
 SHIFT_PREFERENCE_RANGE = 'H219:J240'
 

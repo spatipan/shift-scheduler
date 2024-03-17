@@ -24,6 +24,7 @@ class GoogleAppAuthenticator:
         self.SCOPES = SCOPES
         self.logger = logging.getLogger(__class__.__name__)
 
+
     def authenticate(self, credentials: dict,
                      token: dict | None = None,):
         '''Authenticate user to use google services'''
@@ -35,38 +36,57 @@ class GoogleAppAuthenticator:
         self.credentials = credentials
         self.token = token
 
+
         try:
+            # Load credentials from token
             creds = None
             if self.token:
-                self.logger.debug('Loading credentials from file')
+                self.logger.debug('Loading credentials from token')
                 creds = Credentials.from_authorized_user_info(self.token, self.SCOPES)
-                self.logger.debug('Credentials loaded from file')
-            # If there are no (valid) credentials available, let the user log in.
-            if not creds or not creds.valid:
-                if creds and creds.expired and creds.refresh_token:
-                    creds.refresh(Request())
-                    self.logger.debug('Credentials refreshed')
-                else:
-                    flow = InstalledAppFlow.from_client_config(self.credentials, self.SCOPES)
-                    creds = flow.run_local_server(port=0)
-                    self.logger.debug('Credentials generated')
-                    # Save the credentials for the next run
-                with open(SECRET_PATH, "r") as file:
-                    secret = json.load(file)
-                    secret['token'] = json.loads(creds.to_json())
-                    secret_json = json.dumps(secret)
 
-                with open(SECRET_PATH, "w") as file:
-                    file.write(secret_json)
-                    self.logger.debug('Credentials saved to file')
+            if creds and creds.valid and not creds.expired:
+                self.logger.debug('Credentials are valid')
+            else:
+                self.logger.debug(f'Credentials are not valid')
 
-            self.credentials = creds
-            self.authenticated = True
+                self.logger.debug('Deleting token...')
+                self._delete_token()
+                self.logger.debug('Generating new credentials...')
+                flow = InstalledAppFlow.from_client_config(self.credentials, self.SCOPES)
+                creds = flow.run_local_server(port=0)
+                self.logger.debug('New credentials generated')
+
+
         except Exception as e:
-            print(f'Error authenticating user: {e}')
-            self.logger.error(f'Error authenticating user: {e}')
-
+            self.logger.error(f'Error during authentication: {e}')
+            raise ValueError(f'Error during authentication: {e}')
+            
+        self._save_credentials(creds)
+        self.credentials = creds
+        self.authenticated = True
         return self.credentials
+    
+    def _save_credentials(self, creds):
+        '''Save credentials to a file'''
+        with open(SECRET_PATH, "r") as file:
+            secret = json.load(file)
+            secret['token'] = json.loads(creds.to_json())
+
+        with open(SECRET_PATH, "w") as file:
+            json.dump(secret, file)
+            self.logger.debug('Credentials saved to file')
+
+    ##TODO: Function to delete token from secret file   
+    def _delete_token(self):
+        '''Delete token from secret file'''
+        with open(SECRET_PATH, "r") as file:
+            secret = json.load(file)
+            secret['token'] = None
+
+        with open(SECRET_PATH, "w") as file:
+            json.dump(secret, file)
+            self.logger.debug('Token deleted from file')
+      
 
 
 if __name__ == '__main__':
