@@ -9,7 +9,7 @@ from modules.google_app import GoogleAppAuthenticator, CalendarApp, GoogleSheetA
 from datetime import datetime
 import config
 import logging
-from app import App
+# from app import App
 
 def main() -> None:
     
