@@ -37,7 +37,7 @@ SPREADSHEET_ID = '1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU'
 CALENDAR_ID = 'em.cmu.teacher@gmail.com'
 
 ## Google Sheet config
-SHEET_NAME = 'April 2024' # Default sheet name
+SHEET_NAME = 'Test' # Default sheet name
 NAME_RANGE = 'E5'
 SHIFT_RANGE = 'C11:L42'
 EMPLOYEE_RANGE = 'A47:G67'
@@ -65,7 +65,7 @@ def config_logging():
                     format = '%(asctime)s [%(levelname)s] - %(name)s - %(message)s',
                     datefmt = LOG_DATE_FORMAT,
                     filename = LOG_FILE_PATH,
-                    filemode = 'a',
+                    filemode = 'w',
                     force = True)
     # print(f'Logging to {LOG_FILE_PATH}')
     logger = logging.getLogger(__name__)

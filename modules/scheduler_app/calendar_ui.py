@@ -37,11 +37,12 @@ class SchedulerCalendarUI:
             pattern = r'|'.join(employee_abbreviations)
             matches = re.findall(pattern, event.title)
             if matches:
+                task = Task.from_event(event)
                 for employee_abbreviation in matches:
                     employee = [employee for employee in employee_list if employee.abbreviation == employee_abbreviation][0]
-                    task = Task.from_event(event)
                     employee.add_task(task)
                     task.user.append(employee)
+                    # self.logger.debug(f'found: {task} for employee: {employee.display_name}')
                 self.logger.debug(f'Extracted task: {task} for employee: {r", ".join([employee.display_name for employee in task.user])}')          
 
         schedule.employees = employee_list

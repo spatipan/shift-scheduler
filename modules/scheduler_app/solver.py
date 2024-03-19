@@ -107,7 +107,7 @@ class ScheduleSolver:
             self.__shift_preference[employee_abbreviation] = 'afternoon'
         else:
             self.__shift_preference[employee_abbreviation] = None
-        print(self.__shift_preference)
+        # print(self.__shift_preference)
         self.logger.debug(f'Added shift preference constraint for {employee_abbreviation} - morning: {morning_preference}, afternoon: {afternoon_preference}')
 
     def visualize(self):
@@ -176,31 +176,16 @@ class ScheduleSolver:
             for shift in self.get_shifts_by_date(date):
                 for employee in self.employees:
                     if not employee.is_available(shift) and (shift, employee) not in fixed_shifts:
-                        date_constraints[shift.date].append(self.__shift_vars[(shift, employee)] == 0)
+                        date_constraints[shift.date].append(self.__shift_vars[(shift, employee)] == 0)     
+                    elif not employee.is_available(shift) and (shift, employee) in fixed_shifts:
+                        self.logger.debug(f'{shift.title} is assigned to {employee.abbreviation} but they are not available on {date.date()}')
                     else:
-                        self.logger.debug(f"{employee.abbreviation} is not available for {shift.title} on {shift.date}, but the shift is assigned to the employee")
+                        continue
         
 
         # [4.1] Some shifts cannot be assigned to the same employee in the same day, represent with a logical matrix, exclude fixed shifts
         # TODO: Create an automatic way to feed the shift_types_matrix
         shift_types_matrix = {
-            # 'labels' : ['service night', 'service1', 'service2', 'service1+', 'service2+', 'mc', 'observe', 'ems', 'amd', 'avd'],
-            # 'matrix': [
-            #   # service night', 'service1', 'service2', 'service1+', 'service2+', 'mc', 'observe', 'ems', 'amd', 'avd'
-            #     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], # service night
-            #     [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], # service1
-            #     [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], # service2
-            #     [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0], # support
-            #     [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0], # teaching
-            #     [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0], # specialist
-            #     [0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1], # mc
-            #     [0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1], # observe
-            #     [0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1], # ems
-            #     [0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0], # amd
-            #     [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0], # avd
-            # ],
-            # 'dict': # (shift1, shift2): boolean
-            #     {
                     # service night
                     ('service night', 'service1') : False,
                     ('service night', 'service2') : False,
@@ -264,7 +249,6 @@ class ScheduleSolver:
                     # amd
                     ('amd', 'avd') : False,
 
-                # } 
         }
 
         keys = list(shift_types_matrix.keys())
@@ -277,9 +261,10 @@ class ScheduleSolver:
                 for shift2 in not_fix:
                     if shift1 == shift2:
                         continue
-                    if (shift1.type, shift2.type) in keys:
+                    if (shift1.type, shift2.type) in keys and shift_types_matrix[(shift1.type, shift2.type)] == False: # type: ignore
                         for employee in self.employees:
                             date_constraints[date.date()].append(self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1)
+                            # self.logger.debug(f'{shift1.title} and {shift2.title} cannot be assigned to the same employee {employee} on {date.date()}')
         
                         
 
@@ -319,6 +304,7 @@ class ScheduleSolver:
                 fixed = [shift for shift in shifts if shift in ls_fixed_shifts]
                 if len(fixed) < 2:
                     date_constraints[date.date()].append(sum([self.__shift_vars[(shift, employee)] for shift in self.get_shifts_by_date(date)]) <= 2)
+                    # self.logger.debug(f'{employee.abbreviation} cannot work more than 2 shifts on {date.date()}')
     
 
         #[5] Fair distribution of shifts per employee per shift type
@@ -326,8 +312,10 @@ class ScheduleSolver:
         shift_group_sum = {
             ('max', ('service night'), '') : math.floor(self.shift_per_employee('service night'))+4,
             # ('min', ('service night'), '') : math.floor(self.shift_per_employee('service night')),
-            ('max',('service1', 'service2', 'service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2') + self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))+1,
-            ('min',('service1', 'service2', 'service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2') + self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))-1,
+            # ('max',('service1', 'service2', 'service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2') + self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))+2,
+            # ('min',('service1', 'service2', 'service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2') + self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))-1,
+            ('max',('service1', 'service2'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2'))+1,
+            ('min',('service1', 'service2'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2'))-1,
 
             ('max',('mc'),'') : math.floor(self.shift_per_employee('mc'))+1,
             ('min',('mc'),'') : math.floor(self.shift_per_employee('mc')),
@@ -349,24 +337,31 @@ class ScheduleSolver:
 
        
         # [ุ6] Manual set number of shifts per employee
-        shift_sum_employee = self.__shift_sum_employee
+        shift_sum_employee = self.__shift_group_sum_employee
 
-        for e, shift_type in shift_sum_employee:
+        for e, shift_sum in shift_sum_employee.items():
             employee = [employee for employee in self.employees if employee.abbreviation == e][0]
-            shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type == shift_type]
-            if len(shifts) > 0:
-                employee_constraints[employee].append(sum(shifts) == shift_sum_employee[e, shift_type])
-            elif shift_type == 'total services':
-                employee_constraints[employee].append(sum([self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['service1', 'service2']]) == shift_sum_employee[e, shift_type])
-            self.logger.debug(f'{e} - {shift_type} - {shift_sum_employee[e, shift_type]}')
+            shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['service1', 'service2', 'service1+', 'service2+']]
+            employee_constraints[employee].append(sum(shifts) == shift_sum)
+            # self.logger.debug(f'shift_sum_employee: {shifts}')
+
+
+        # for e, shift_type in shift_sum_employee.items():
+        #     employee = [employee for employee in self.employees if employee.abbreviation == e][0]
+        #     shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type == shift_type]
+            # if len(shifts) > 0:
+            #     employee_constraints[employee].append(sum(shifts) == shift_sum_employee[e, shift_type])
+            # elif shift_type == 'total services':
+            #     employee_constraints[employee].append(sum([self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['service1', 'service2', 'service1+', 'service 2+']]) == shift_sum_employee[e, shift_type])
+            # self.logger.debug(f'{e} - {shift_type} - {shift_sum_employee[e, shift_type]}')
 
 
         # [7] Some shift required a role of employee
-        for shift in self.shifts:
-            if shift.type in ['specialist']:
-                for employee in self.employees:
-                    if employee.skills != 'specialist':
-                        date_constraints[shift.date].append(self.__shift_vars[(shift, employee)] == 0)
+        # for shift in self.shifts:
+        #     if shift.type in ['specialist']:
+        #         for employee in self.employees:
+        #             if employee.skills != 'specialist':
+        #                 date_constraints[shift.date].append(self.__shift_vars[(shift, employee)] == 0)
 
 
         # [x] Equalize holiday shifts per employee -> Moved to objective section
@@ -386,32 +381,68 @@ class ScheduleSolver:
             # objective name: [objective values],
             # objective name: [objective values],
             # ...}
-
-        # [1] Distribution of workload, Minimize the number of shifts assigned to employees on the same day, 1 shift per employee per day if possible, except for service1 and service2
-        for date in self.dates:
-            objectives[f'Minimize the number of shifts assigned to each employee on {date.date()}'] = []
+        
+        # [1] Prefer working service1, service2 on the same day & Prefer working service1+, service2+ on the same day
+        for date in self.work_dates:
+            objectives[f'Prefer working service1, service2 on the same day on {date}'] = []
+            objectives[f'Prefer working service1+, service2+ on the same day on {date}'] = []
             for employee in self.employees:
-                objectives[f'Minimize the number of shifts assigned to each employee on {date.date()}'].append(sum([self.__shift_vars[(shift, employee)] for shift in self.get_shifts_by_date(date)]) <= 1)
+                ser1 = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.date == date.date() and shift.type in ['service1']]
+                ser2 = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.date == date.date() and shift.type in ['service2']]
+                ser1p = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.date == date.date() and shift.type in ['service1+']]
+                ser2p = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.date == date.date() and shift.type in ['service2+']]
+                objectives[f'Prefer working service1, service2 on the same day on {date}'].append(sum(ser1) == sum(ser2))
+                objectives[f'Prefer working service1+, service2+ on the same day on {date}'].append(sum(ser1p) == sum(ser2p))
+
+
+        # objectives[f'Prefer working service1, service2 on the same day'] = []
+        # objectives[f'Prefer working service1+, service2+ on the same day'] = []
+        # # penalty = 1
+        # # self.__penalties = self.__model.NewIntVar(0, 100000, 'penalties')
+        # for date in self.work_dates:
+        #     for employee in self.employees:
+        #         # Give penalties if working service1, service2 on the different day
+        #         ser1 = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.date == date and shift.type in ['service1']]
+        #         ser2 = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.date == date and shift.type in ['service2']]
+        #         ser1p = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.date == date and shift.type in ['service1+']]
+        #         ser2p = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.date == date and shift.type in ['service2+']]
+        #         # objectives[f'Prefer working service1, service2 on the same day on {date}'].append(sum(ser1) == sum(ser2))
+        #         # objectives[f'Prefer working service1+, service2+ on the same day on {date}'].append(sum(ser1p) == sum(ser2p))
+        #         objectives[f'Prefer working service1, service2 on the same day'].append(sum(ser1) + sum(ser2) != 1)
+        #         objectives[f'Prefer working service1+, service2+ on the same day'].append(sum(ser1p) + sum(ser2p) != 1)
+
+
+
+
+        # [3] Distribution of workload, Minimize the number of shifts assigned to employees on the same day, 1 shift per employee per day if possible, except for service1 and service2
+        # for date in self.dates:
+        #     objectives[f'Minimize the number of shifts assigned to each employee on {date.date()}'] = []
+        #     for employee in self.employees:
+        #         objectives[f'Minimize the number of shifts assigned to each employee on {date.date()}'].append(sum([self.__shift_vars[(shift, employee)] for shift in self.get_shifts_by_date(date)]) <= 1)
                 
 
         # [2] Avoid working on the consecutive days
-        shift_group_for_distribution = [
-            ('service1', 'service2', 'service1+', 'service2+'),
-            ('mc'),
-            ('amd', 'avd'),
-            ('avd')
-        ]
-        duration = 1 #days
-        for employee in self.employees:
-            for shift_type in shift_group_for_distribution:
-                shifts = [shift for shift in self.shifts if shift.type in shift_type] # Shifts = [shift1, shift2, ...] for each shift type
-                for shift1 in shifts:
-                    for shift2 in [shift for shift in shifts if shift != shift1 and shift.start > shift1.start and shift.start - shift1.start <= timedelta(days=duration)]:
-                        objectives[f'Avoid working {shift_type} on the consecutive days for {employee.abbreviation} between {shift1.title} & {shift2.title}'] = []
-                        objectives[f'Avoid working {shift_type} on the consecutive days for {employee.abbreviation} between {shift1.title} & {shift2.title}'].append(self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1)
+        # shift_group_for_distribution = [
+        #     ('service1', 'service2', 'service1+', 'service2+'),
+        #     ('mc'),
+        #     ('amd', 'avd'),
+        #     ('avd')
+        # ]
+        # duration = 1 #days
+        # for employee in self.employees:
+        #     for shift_type in shift_group_for_distribution:
+        #         shifts = [shift for shift in self.shifts if shift.type in shift_type] # Shifts = [shift1, shift2, ...] for each shift type
+        #         for shift1 in shifts:
+        #             for shift2 in [shift for shift in shifts if shift != shift1 and shift.start > shift1.start and shift.start - shift1.start <= timedelta(days=duration)]:
+        #                 objectives[f'Avoid working {shift_type} on the consecutive days for {employee.abbreviation} between {shift1.title} & {shift2.title}'] = []
+        #                 objectives[f'Avoid working {shift_type} on the consecutive days for {employee.abbreviation} between {shift1.title} & {shift2.title}'].append(self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1)
 
         # [3.1] Prefer working service1, service2 on the same day    
         # [3.2] Prefer working service1+, service2+ on the same day
+                
+
+
+
         # for date in self.work_days:
         #     objectives[f'Prefer working service1, service2 on the same day on {date}'] = []
         #     objectives[f'Prefer working service1+, service2+ on the same day on {date}'] = []
@@ -510,9 +541,8 @@ class ScheduleSolver:
         for group in shift_group_sum:
             self.logger.info(f'    {group[0]} shifts per employee per {group[1]} = {shift_group_sum[group]}')
         self.logger.info(f'Rule 6: Manual set number of shifts per employee')
-        # for group in shift_group_sum_employee:
-        #     for e in shift_group_sum_employee[group]:
-        #         self.logger.info(f'    {e} = {shift_group_sum_employee[group][e]}')
+        for e, shift_sum in shift_sum_employee.items():
+            self.logger.info(f'    {e} - {shift_sum}')
         self.logger.info('')
         self.logger.info('Result:')
 
@@ -523,6 +553,7 @@ class ScheduleSolver:
         # solve model with incremental constraints, if no solution, reset the model and add the constraints again, skip the date
         constraint_complete = True
         model_before_become_infeasible = cp_model.CpModel()
+        solver_before_become_infeasible = cp_model.CpSolver()
 
         try: 
             for date in self.days:
@@ -543,6 +574,7 @@ class ScheduleSolver:
                 model_before_become_infeasible.CopyFrom(self.__model)
                 for constraint in employee_constraints[employee]:
                     self.__model.Add(constraint)
+                    # self.logger.debug(f'Added constraint for {employee.abbreviation} - {constraint}')
                 status = solver.Solve(self.__model)
                 if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
                     continue
@@ -552,22 +584,29 @@ class ScheduleSolver:
                     constraint_complete = False
                     continue
 
+            objective_choice = 1
             # Add objectives, if no solution, reset the model and add the new objectives, skip the objective
             if constraint_complete:
                 self.logger.info('✅︎ All rules are satisfied, now optimizing the schedule with following objectives:')
+                
                 for objective_name, objective_group in objectives.items():
                     model_before_become_infeasible.CopyFrom(self.__model)
                     for objective in objective_group:
+                        # pass
                         self.__model.Add(objective)
                     status = solver.Solve(self.__model)
                     if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
                         self.logger.info('✅︎ Objective: {}'.format(objective_name))
+                        # status = solver_before_become_infeasible.Solve(self.__model)
                         continue
                     else:
                         print(f'No solution found for {objective_name}')
                         self.logger.info('❌ Objective: {}'.format(objective_name))
                         self.__model.CopyFrom(model_before_become_infeasible)
                         continue
+            
+                status = solver.Solve(self.__model)
+                
             else:
                 self.logger.info("❌ The schedule is not optimized, because the rules are not satisfied")
 
@@ -586,7 +625,8 @@ class ScheduleSolver:
                         employee.add_shift(shift)
                         self.logger.debug(f'{shift.title} is assigned to {employee.abbreviation}')
                 except Exception as e:
-                    self.logger.debug(f'{shift.title} is not assigned to {employee.abbreviation} due to {e}')
+                    # self.logger.debug(f'{shift.title} is not assigned to {employee.abbreviation} due to {e}')
+                    continue
                 
         self.schedule.shifts = self.shifts
         self.schedule.employees = self.employees

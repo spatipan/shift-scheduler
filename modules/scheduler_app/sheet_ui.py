@@ -175,8 +175,8 @@ class SchedulerSheetUI:
         '''Update the sheet values with the schedule'''
         # Update the sheet with the schedule
         self.sheetApp.update(spreadsheetId=self.sheetId, sheetName=self.sheetName, range=config.OUTPUT_RANGE, values=schedule.to_sheet_values())
-        self.logger.debug(f'Updated sheet values with the schedule')
-        
+        self.logger.debug(f'Updated sheet values with the schedule \n  - Schedule: {schedule} \n  - Range: {config.OUTPUT_RANGE} \n  - Sheet: {self.sheetName} \n  - SheetId: {self.sheetId}')
+
 
     # static method to translate A1 notation to index
     @staticmethod
