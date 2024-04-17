@@ -11,7 +11,7 @@ import config
 import logging
 # from app import App
 
-def main() -> None:
+def main_test() -> None:
     
     config.config_logging()
 
@@ -28,11 +28,11 @@ def main() -> None:
 import function_framework
 
 @function_framework.http
-def handler(request):
+def main(request):
     try:
         data = request.get_json()
         logging.info(f'Data received: {data}')
-        main()
+        # main()
         return 'Success', 200
     except Exception as e:
         logging.error(f'Error: {e}')
@@ -57,7 +57,7 @@ def handler(request):
     
 
 if __name__ == '__main__':
-    main()
+    main_test()
     
 
     
