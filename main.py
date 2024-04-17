@@ -30,12 +30,14 @@ import function_framework
 @function_framework.http
 def main(request):
     try:
-        data = request.get_json()
-        logging.info(f'Data received: {data}')
+        # data = request.get_json()
+        # logging.info(f'Data received: {data}')
         # main()
+        print('Function triggered')
         return 'Success', 200
     except Exception as e:
-        logging.error(f'Error: {e}')
+        # logging.error(f'Error: {e}')
+        print(f'Error: {e}')
         return 'Error', 500
 
 # import function_framework
