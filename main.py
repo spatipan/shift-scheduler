@@ -31,7 +31,7 @@ def main(request):
     try:
         # data = request.get_json()
         # logging.info(f'Data received: {data}')
-        # main()
+        main_test()
         print('Function triggered')
         return 'Success', 200
     except Exception as e:
