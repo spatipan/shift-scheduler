@@ -164,7 +164,11 @@ class ScheduleSolver:
                 fixed_shifts.append((shift, employee))
                 ls_fixed_shifts.append(shift)
         for shift, employee in fixed_shifts:
-            date_constraints[shift.date].append(self.__shift_vars[(shift, employee)] == 1)
+            shift_type = shift.type
+            if shift_type in ['teaching']:
+                date_constraints[shift.date].append(self.__shift_vars[(shift, employee)] == 0)
+            else:
+                date_constraints[shift.date].append(self.__shift_vars[(shift, employee)] == 1)
         # print("Fix:", ls_fixed_shifts)
             
         ls_not_fixed_shifts = [shift for shift in self.shifts if shift not in ls_fixed_shifts]
