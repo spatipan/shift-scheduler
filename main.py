@@ -17,20 +17,18 @@ def main() -> None:
 
     app = SchedulerApp()
     app.fetch_information()
+    events = app.calendar_app.events
+
     app.solve()
     app.schedule.summary()
-    # app.visualize()
+    app.visualize()
     app.update_information()
 
 
 import function_framework
-from main import main
-import logging
 
 @function_framework.http
 def handler(request):
-    logging.info('Function triggered')
-    
     try:
         data = request.get_json()
         logging.info(f'Data received: {data}')
@@ -39,6 +37,23 @@ def handler(request):
     except Exception as e:
         logging.error(f'Error: {e}')
         return 'Error', 500
+
+# import function_framework
+# from main import main
+# import logging
+
+# @function_framework.http
+# def handler(request):
+#     logging.info('Function triggered')
+    
+#     try:
+#         data = request.get_json()
+#         logging.info(f'Data received: {data}')
+#         main()
+#         return 'Success', 200
+#     except Exception as e:
+#         logging.error(f'Error: {e}')
+#         return 'Error', 500
     
 
 if __name__ == '__main__':

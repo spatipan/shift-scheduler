@@ -266,33 +266,7 @@ class ScheduleSolver:
                             date_constraints[date.date()].append(self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1)
                             # self.logger.debug(f'{shift1.title} and {shift2.title} cannot be assigned to the same employee {employee} on {date.date()}')
         
-                        
-
-        #                 if shift1, shift2 in keys:
-        #                     if shift_types_matrix['dict'][shift1, shift2]:
-        #                         date_constraints[date.date()].append(self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1)
-
-        # shift_labels = shift_types_matrix['labels']
-        # matrix = shift_types_matrix['matrix']
-        # for date in self.dates:
-        #     shifts = self.get_shifts_by_date(date) 
-        #     not_fix = [shift for shift in shifts if shift not in ls_fixed_shifts] # exclude fixed shifts
-            
-        #     # if shifts[0].date.day == 4:
-        #     #     print("not fix2:", not_fix)
-        #     for shift1 in shifts:
-        #         for shift2 in not_fix:
-        #             if shift1 == shift2:
-        #                 continue
-        #             if shift1.type in shift_labels and shift2.type in shift_labels:
-        #                 # if shift1.date.day == 4:
-        #                 #     print(shift1, shift2)
-        #                 i = shift_labels.index(shift1.type)
-        #                 j = shift_labels.index(shift2.type)
-        #                 if not matrix[i][j]:
-        #                     for employee in self.employees:
-        #                         date_constraints[shift1.date].append(self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1)
-
+                  
 
         # [4.2] If an employee available lower than minimum number of shift, they can work s1 and s2 shifts on the same day
 
@@ -312,10 +286,13 @@ class ScheduleSolver:
         shift_group_sum = {
             ('max', ('service night'), '') : math.floor(self.shift_per_employee('service night'))+4,
             # ('min', ('service night'), '') : math.floor(self.shift_per_employee('service night')),
-            # ('max',('service1', 'service2', 'service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2') + self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))+2,
-            # ('min',('service1', 'service2', 'service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2') + self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))-1,
-            ('max',('service1', 'service2'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2'))+1,
+            ('max',('service1', 'service2', 'service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2') + self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))+2,
+            ('min',('service1', 'service2', 'service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2') + self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))-1,
+            ('max',('service1', 'service2'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2'))+2,
             ('min',('service1', 'service2'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2'))-1,
+            ('max',('service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))+2,
+            ('min',('service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))-1,
+
 
             ('max',('mc'),'') : math.floor(self.shift_per_employee('mc'))+1,
             ('min',('mc'),'') : math.floor(self.shift_per_employee('mc')),

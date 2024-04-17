@@ -422,7 +422,7 @@ class Schedule:
         shift_schedule = shift_schedule.fillna('')
 
         # Reorder the columns
-        columns = ['service night', 'mc', 'service1', 'service1+', 'service2', 'service2+', 'ems', 'observe', 'amd', 'avd']
+        columns = ['service night', 'mc', 'service1', 'service1+', 'service2', 'service2+', 'teaching', 'ems', 'observe', 'amd', 'avd']
         shift_schedule = shift_schedule[columns].values.tolist()
 
         return shift_schedule
