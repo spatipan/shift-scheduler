@@ -24,10 +24,9 @@ def main_test() -> None:
     app.visualize()
     app.update_information()
 
+import functions_framework
 
-import function_framework
-
-@function_framework.http
+@functions_framework.http
 def main(request):
     try:
         # data = request.get_json()
