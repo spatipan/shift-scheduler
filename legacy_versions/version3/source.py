@@ -723,20 +723,19 @@ class Schedule:
 
         # [4.1] Some shifts cannot be assigned to the same employee in the same day, represent with a logical matrix, exclude fixed shifts
         shift_types_matrix = {
-            'labels' : ['service night', 'service1', 'service2', 'support', 'teaching', 'specialist', 'mc', 'observe', 'ems', 'amd', 'avd'],
+            'labels' : ['service night', 'service1', 'service2', 'support', 'specialist', 'mc', 'observe', 'ems', 'amd', 'avd'],
             'matrix': [
-              # service night, service1, service2, support, teaching, specialist, mc, observe, ems, amd, avd
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], # service night
-                [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], # service1
-                [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0], # service2
-                [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0], # support
-                [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0], # teaching
-                [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0], # specialist
-                [0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1], # mc
-                [0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1], # observe
-                [0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1], # ems
-                [0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0], # amd
-                [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0], # avd
+              # service night, service1, service2, support, , specialist, mc, observe, ems, amd, avd
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], # service night
+                [0, 0, 1, 0, 0, 0, 0, 0, 0, 0], # service1
+                [0, 1, 0, 0, 0, 0, 0, 0, 0, 0], # service2
+                [0, 0, 0, 0, 0, 1, 1, 1, 1, 0], # support
+                [0, 0, 0, 0, 0, 1, 1, 1, 1, 0], # specialist
+                [0, 0, 0, 1, 1, 0, 0, 0, 1, 1], # mc
+                [0, 0, 0, 1, 1, 0, 0, 0, 1, 1], # observe
+                [0, 0, 0, 1, 1, 0, 0, 0, 1, 1], # ems
+                [0, 0, 0, 1, 1, 1, 1, 1, 0, 0], # amd
+                [0, 0, 0, 0, 0, 1, 1, 1, 0, 0], # avd
             ]
         }
 
@@ -783,8 +782,6 @@ class Schedule:
             # ('min',('service1', 'service2'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2'))-1,
             ('max',('support'),'') : math.floor(self.shift_per_employee('support'))+1,
             ('min',('support'),'') : math.floor(self.shift_per_employee('support')),
-            ('max',('teaching'),'') : math.floor(self.shift_per_employee('teaching'))+1,
-            ('min',('teaching'),'') : math.floor(self.shift_per_employee('teaching')),
             ('max',('mc'),'') : math.floor(self.shift_per_employee('mc'))+1,
             ('min',('mc'),'') : math.floor(self.shift_per_employee('mc')),
             ('max',('amd'),'') : math.floor(self.shift_per_employee('amd'))+1,
@@ -793,7 +790,7 @@ class Schedule:
             ('min',('avd'),'') : math.floor(self.shift_per_employee('avd')),
 
             # ('max', ('service1', 'service2', 'support', 'teaching', 'specialist'), '') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2')) + math.floor(self.shift_per_employee('support')) + math.floor(self.shift_per_employee('teaching')) + math.floor(self.shift_per_employee('specialist')) + 3,
-            ('min', ('service1', 'service2', 'support', 'teaching', 'specialist'), '') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2')) + math.floor(self.shift_per_employee('support')) + math.floor(self.shift_per_employee('teaching')) + math.floor(self.shift_per_employee('specialist'))+2,
+            ('min', ('service1', 'service2', 'support', 'specialist'), '') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2')) + math.floor(self.shift_per_employee('support')) + math.floor(self.shift_per_employee('specialist'))+2,
             # specialist
             ('max',('specialist'),'specialist') : math.floor(self.shift_per_employee('specialist', ['specialist'])),
             ('min',('specialist'),'specialist') : math.floor(self.shift_per_employee('specialist', ['specialist'])) - 1,
@@ -843,7 +840,7 @@ class Schedule:
                 employee_constraints[employee].append(sum(shifts) == shift_sum_employee[e, shift_type])
                 print(f'{e} - {shift_type} - {shift_sum_employee[e, shift_type]}')
             elif shift_type == 'total services':
-                employee_constraints[employee].append(sum([self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['service1', 'service2']]) == shift_sum_employee[e, shift_type])
+                employee_constraints[employee].append(sum([self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['service1', 'service2', 'service1+', 'service2+']]) == shift_sum_employee[e, shift_type])
                 print(f'{e} - {shift_type} - {shift_sum_employee[e, shift_type]}')
 
 
@@ -1146,7 +1143,7 @@ class Schedule:
         shift_schedule = shift_schedule.fillna('')
 
         # Reorder the columns
-        columns = ['service night', 'mc', 'service1', 'service2', 'support', 'teaching', 'specialist', 'ems', 'observe', 'amd', 'avd']
+        columns = ['service night', 'mc', 'service1', 'service2', 'support', 'specialist', 'ems', 'observe', 'amd', 'avd']
         shift_schedule = shift_schedule[columns].values.tolist()
 
         return shift_schedule

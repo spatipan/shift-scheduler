@@ -41,6 +41,7 @@ class ScheduleSolver:
         # Constraint
         self.__shift_group_sum_employee = {}
         self.__shift_sum_employee = {}
+        self.__shift_type_per_employee_constraint = {}
 
         # Objective
         self.__shift_preference = {}
@@ -95,9 +96,10 @@ class ScheduleSolver:
         self.__shift_group_sum_employee[employee_abbreviation] = total_shifts
         self.logger.debug(f'Added total shifts constraint for {employee_abbreviation} - {total_shifts}')
 
-    def add_total_shifts_per_employee_constraint(self):
+    def add_shift_type_per_employee_constraint(self, employee_abbreviation: str, shift_type: str, total_shifts: int):
         '''Add total shifts per employee constraint'''
-        pass
+        self.__shift_type_per_employee_constraint[(employee_abbreviation, shift_type)] = total_shifts
+        self.logger.debug(f'Added total shifts per employee constraint for {employee_abbreviation} - {shift_type} - {total_shifts}')
 
     def add_shift_preference_constraint(self, employee_abbreviation: str, morning_preference: bool, afternoon_preference: bool):
         '''Add shift preference constraint'''
@@ -152,8 +154,9 @@ class ScheduleSolver:
  
         # [1] Each shift must be assigned to employees more than or equal to min_employees, and less than or equal to max_employees
         for shift in self.shifts:
-            date_constraints[shift.date].append(sum([self.__shift_vars[(shift, employee)] for employee in self.employees]) >= shift.min_employees)
-            date_constraints[shift.date].append(sum([self.__shift_vars[(shift, employee)] for employee in self.employees]) <= shift.max_employees)
+            date_constraints[shift.date].append(sum([self.__shift_vars[(shift, employee)] for employee in self.employees]) == 1)
+            # date_constraints[shift.date].append(sum([self.__shift_vars[(shift, employee)] for employee in self.employees]) >= shift.min_employees)
+            # date_constraints[shift.date].append(sum([self.__shift_vars[(shift, employee)] for employee in self.employees]) <= shift.max_employees)
 
 
         # [2] If the shift is assigned to employees, fixed the shift assigned to the employees
@@ -164,11 +167,7 @@ class ScheduleSolver:
                 fixed_shifts.append((shift, employee))
                 ls_fixed_shifts.append(shift)
         for shift, employee in fixed_shifts:
-            shift_type = shift.type
-            if shift_type in ['teaching']:
-                date_constraints[shift.date].append(self.__shift_vars[(shift, employee)] == 0)
-            else:
-                date_constraints[shift.date].append(self.__shift_vars[(shift, employee)] == 1)
+            date_constraints[shift.date].append(self.__shift_vars[(shift, employee)] == 1)
         # print("Fix:", ls_fixed_shifts)
             
         ls_not_fixed_shifts = [shift for shift in self.shifts if shift not in ls_fixed_shifts]
@@ -276,12 +275,12 @@ class ScheduleSolver:
 
 
         # [4.3] Employee cannot work more than 2 shifts per day, unless both in fixed shifts
-        for date in self.dates:
-            for employee in self.employees:
-                shifts = self.get_shifts_by_date(date)
-                fixed = [shift for shift in shifts if shift in ls_fixed_shifts]
-                if len(fixed) < 2:
-                    date_constraints[date.date()].append(sum([self.__shift_vars[(shift, employee)] for shift in self.get_shifts_by_date(date)]) <= 2)
+        # for date in self.dates:
+        #     for employee in self.employees:
+        #         shifts = self.get_shifts_by_date(date)
+        #         fixed = [shift for shift in shifts if shift in ls_fixed_shifts]
+        #         if len(fixed) < 2:
+        #             date_constraints[date.date()].append(sum([self.__shift_vars[(shift, employee)] for shift in self.get_shifts_by_date(date)]) <= 2)
                     # self.logger.debug(f'{employee.abbreviation} cannot work more than 2 shifts on {date.date()}')
     
 
@@ -290,16 +289,16 @@ class ScheduleSolver:
         shift_group_sum = {
             ('max', ('service night'), '') : math.floor(self.shift_per_employee('service night'))+4,
             # ('min', ('service night'), '') : math.floor(self.shift_per_employee('service night')),
-            ('max',('service1', 'service2', 'service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2') + self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))+2,
-            ('min',('service1', 'service2', 'service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2') + self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))-1,
+            ('max',('service1', 'service2', 'service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2') + self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))+3,
+            # ('min',('service1', 'service2', 'service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2') + self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))-2,
             ('max',('service1', 'service2'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2'))+2,
-            ('min',('service1', 'service2'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2'))-1,
+            # ('min',('service1', 'service2'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2'))-1,
             ('max',('service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))+2,
-            ('min',('service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))-1,
+            # ('min',('service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))-1,
 
 
             ('max',('mc'),'') : math.floor(self.shift_per_employee('mc'))+1,
-            ('min',('mc'),'') : math.floor(self.shift_per_employee('mc')),
+            # ('min',('mc'),'') : math.floor(self.shift_per_employee('mc')),
             ('max',('amd'),'') : math.floor(self.shift_per_employee('amd'))+1,
             ('min',('amd'),'') : math.floor(self.shift_per_employee('amd')),
             ('max',('avd'),'') : math.floor(self.shift_per_employee('avd'))+1,
@@ -314,7 +313,12 @@ class ScheduleSolver:
                 if group[0] == 'max':
                     employee_constraints[employee].append(sum(shifts) <= shift_group_sum[group])
                 elif group[0] == 'min':
-                    employee_constraints[employee].append(sum(shifts) >= shift_group_sum[group])
+                    if group[1] == ('avd') and employee.abbreviation == 'WW':
+                        continue
+                    if group[1] == ('amd') and employee.abbreviation == 'WW':
+                        continue
+                    else:
+                        employee_constraints[employee].append(sum(shifts) >= shift_group_sum[group])
 
        
         # [ุ6] Manual set number of shifts per employee
@@ -325,6 +329,19 @@ class ScheduleSolver:
             shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['service1', 'service2', 'service1+', 'service2+']]
             employee_constraints[employee].append(sum(shifts) == shift_sum)
             # self.logger.debug(f'shift_sum_employee: {shifts}')
+
+        # [7] Manual set number of shifts per employee per shift type
+        shift_type_per_employee = self.__shift_type_per_employee_constraint
+
+        for tuple, number in shift_type_per_employee.items():
+            employee = [employee for employee in self.employees if employee.abbreviation == tuple[0]][0]
+            shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type == tuple[1]]
+
+            if len(shifts) > 0:
+                employee_constraints[employee].append(sum(shifts) == number)
+                self.logger.debug(f'{employee.abbreviation} - {tuple[1]} - {number} - {shifts}')
+
+           
 
 
         # for e, shift_type in shift_sum_employee.items():
@@ -337,7 +354,7 @@ class ScheduleSolver:
             # self.logger.debug(f'{e} - {shift_type} - {shift_sum_employee[e, shift_type]}')
 
 
-        # [7] Some shift required a role of employee
+        # [x] Some shift required a role of employee
         # for shift in self.shifts:
         #     if shift.type in ['specialist']:
         #         for employee in self.employees:
@@ -402,11 +419,11 @@ class ScheduleSolver:
         #         objectives[f'Minimize the number of shifts assigned to each employee on {date.date()}'].append(sum([self.__shift_vars[(shift, employee)] for shift in self.get_shifts_by_date(date)]) <= 1)
                 
 
-        # [2] Avoid working on the consecutive days
+        # # [2] Avoid working on the consecutive days
         # shift_group_for_distribution = [
         #     ('service1', 'service2', 'service1+', 'service2+'),
         #     ('mc'),
-        #     ('amd', 'avd'),
+        #     # ('amd', 'avd'),
         #     ('avd')
         # ]
         # duration = 1 #days
@@ -463,12 +480,12 @@ class ScheduleSolver:
 
          
 
-        # # [4] Equalize holiday shifts per employee
-        # holiday_shifts = [shift for shift in self.shifts if shift.date in self.holiday_dates]
-        # for employee in self.employees:
-        #     objectives[f'Equalize holiday shifts per employee for {employee.abbreviation}'] = []
-        #     objectives[f'Equalize holiday shifts per employee for {employee.abbreviation}'].append(sum([self.__shift_vars[(shift, employee)] for shift in holiday_shifts]) >= math.floor(len(holiday_shifts) / len(self.employees)))
-        #     objectives[f'Equalize holiday shifts per employee for {employee.abbreviation}'].append(sum([self.__shift_vars[(shift, employee)] for shift in holiday_shifts]) <= math.floor(len(holiday_shifts) / len(self.employees)) + 1)
+        # [4] Equalize holiday shifts per employee
+        holiday_shifts = [shift for shift in self.shifts if shift.date in self.holiday_dates]
+        for employee in self.employees:
+            objectives[f'Equalize holiday shifts per employee for {employee.abbreviation}'] = []
+            objectives[f'Equalize holiday shifts per employee for {employee.abbreviation}'].append(sum([self.__shift_vars[(shift, employee)] for shift in holiday_shifts]) >= math.floor(len(holiday_shifts) / len(self.employees)))
+            objectives[f'Equalize holiday shifts per employee for {employee.abbreviation}'].append(sum([self.__shift_vars[(shift, employee)] for shift in holiday_shifts]) <= math.floor(len(holiday_shifts) / len(self.employees)) + 1)
         
 
 
@@ -524,6 +541,9 @@ class ScheduleSolver:
         self.logger.info(f'Rule 6: Manual set number of shifts per employee')
         for e, shift_sum in shift_sum_employee.items():
             self.logger.info(f'    {e} - {shift_sum}')
+        self.logger.info(f'Rule 7: Manual set number of shifts per employee per shift type')
+        for tuple, num in shift_type_per_employee.items():
+            self.logger.info(f'    {tuple[0]} - {tuple[1]} - {num}')
         self.logger.info('')
         self.logger.info('Result:')
 
@@ -561,6 +581,8 @@ class ScheduleSolver:
                     continue
                 else:
                     self.logger.info(f'❌ No solution found for {employee.abbreviation}')
+                    # show the constraint that makes the model infeasible
+                    print(f'{constraint}')
                     self.__model.CopyFrom(model_before_become_infeasible)
                     constraint_complete = False
                     continue

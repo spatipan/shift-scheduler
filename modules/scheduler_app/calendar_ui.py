@@ -42,11 +42,11 @@ class SchedulerCalendarUI:
                     employee = [employee for employee in employee_list if employee.abbreviation == employee_abbreviation][0]
                     employee.add_task(task)
                     task.user.append(employee)
-                    # self.logger.debug(f'found: {task} for employee: {employee.display_name}')
+                    schedule.add_task(task)
                 self.logger.debug(f'Extracted task: {task} for employee: {r", ".join([employee.display_name for employee in task.user])}')          
 
-        schedule.employees = employee_list
-        schedule.tasks = [task for employee in employee_list for task in employee.tasks]
+        # schedule.employees = employee_list
+        # schedule.tasks = [task for employee in employee_list for task in employee.tasks]
             
         return schedule
             

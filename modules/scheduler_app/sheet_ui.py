@@ -70,10 +70,10 @@ class SchedulerSheetUI:
         for j in range(len(shift_data)): #type: ignore
             for i in range(len(shifts_header)):
                 if shift_data[j][i] == 'TRUE':
-                    if shifts_header[i] in ['mc', 'service1']:
+                    if shifts_header[i] in ['mc', 'service1', 'service1+']:
                         start_time = start_date + timedelta(days=j, hours=8)
                         duration = 4 #hours
-                    elif shifts_header[i] in ['service2']:
+                    elif shifts_header[i] in ['service2', 'service2+']:
                         start_time = start_date + timedelta(days=j, hours=12)
                         duration = 4
                     elif shifts_header[i] in ['service night']:
@@ -152,7 +152,29 @@ class SchedulerSheetUI:
             else:
                 continue
 
+        #Add shift type per employee constraint
+        shift_type_per_employee = self.get_sheet_values(range = config.SHIFT_TYPE_PER_EMPLOYEE_RANGE)
+        # delete column 1
+        shift_type_per_employee = np.delete(shift_type_per_employee, 1, 1)
+        header = shift_type_per_employee[0]
+        # shift_types = [str.lower(shift_type) for shift_type in header[1:] if str.lower(shift_type) in ['service night', 'mc', 'service1', 'service1+', 'service2', 'service2+', 'ems', 'observe', 'amd', 'avd']]
+        body = shift_type_per_employee[1:]
+        for row in body: #type: ignore
+            if row[0] != '':
+                employee_abbreviation = row[0]
+                for i in range(1, len(row)):
+                    if row[i] != '':
+                        shift_type = str.lower(header[i])
+                        self.solver.add_shift_type_per_employee_constraint(employee_abbreviation, shift_type, int(row[i]))
+                    else:
+                        continue
+
+            
+
+
         return self.schedule, self.solver
+
+
         
     def get_sheet_values(self, range: str) -> list[list]:
         '''Get sheet values from fetched values'''
