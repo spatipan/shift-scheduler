@@ -54,7 +54,6 @@ SHIFT_TYPE_PER_EMPLOYEE_RANGE = 'B217:F240'
 # Paths
 GOOGLE_APP_PATH = os.path.join(MASTER_PATH, 'srcs/google_app')
 SCHEDULER_APP_PATH = os.path.join(MASTER_PATH, 'srcs/scheduler_app')
-SECRET_PATH = os.path.join(MASTER_PATH, 'secret.json')
 
 #Secrets
 CREDENTIALS = CRED
