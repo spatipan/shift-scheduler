@@ -61,7 +61,6 @@ class GoogleAppAuthenticator:
             self.logger.error(f'Error during authentication: {e}')
             raise ValueError(f'Error during authentication: {e}')
             
-        self._save_credentials(creds)
         self.credentials = creds
         self.authenticated = True
         return self.credentials
