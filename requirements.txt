@@ -48,6 +48,7 @@ nest-asyncio==1.5.6
 numexpr==2.8.7
 numpy==1.26.2
 oauthlib==3.2.2
+ortools
 packaging==23.1
 pandas==2.1.4
 parso==0.8.3
