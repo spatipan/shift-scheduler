@@ -48,9 +48,6 @@ class GoogleAppAuthenticator:
                 self.logger.debug('Credentials are valid')
             else:
                 self.logger.debug(f'Credentials are not valid')
-
-                self.logger.debug('Deleting token...')
-                self._delete_token()
                 self.logger.debug('Generating new credentials...')
                 flow = InstalledAppFlow.from_client_config(self.credentials, self.SCOPES)
                 creds = flow.run_local_server(port=0)
