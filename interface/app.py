@@ -1,9 +1,12 @@
 import streamlit as st
 import re
 import json
-import os
 from modules.scheduler_app.app import SchedulerApp
 from config import config_logging
+
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 
 CONFIG_PATH = 'config.json'
