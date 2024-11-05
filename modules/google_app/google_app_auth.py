@@ -9,7 +9,7 @@ from googleapiclient.errors import HttpError
 import logging
 import json
 
-from config import SECRET_PATH, CREDENTIALS, TOKEN
+from config import CREDENTIALS, TOKEN
 
 
 
@@ -62,29 +62,7 @@ class GoogleAppAuthenticator:
         self.authenticated = True
         return self.credentials
     
-    def _save_credentials(self, creds):
-        '''Save credentials to a file'''
-        with open(SECRET_PATH, "r") as file:
-            secret = json.load(file)
-            secret['token'] = json.loads(creds.to_json())
-
-        with open(SECRET_PATH, "w") as file:
-            json.dump(secret, file)
-            self.logger.debug('Credentials saved to file')
-
-    ##TODO: Function to delete token from secret file   
-    def _delete_token(self):
-        '''Delete token from secret file'''
-        with open(SECRET_PATH, "r") as file:
-            secret = json.load(file)
-            secret['token'] = None
-
-        with open(SECRET_PATH, "w") as file:
-            json.dump(secret, file)
-            self.logger.debug('Token deleted from file')
-      
-
-
+ 
 if __name__ == '__main__':
     authenticator = GoogleAppAuthenticator()
     credentials = authenticator.authenticate(
