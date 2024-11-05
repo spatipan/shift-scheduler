@@ -1,301 +1,262 @@
-2024-11-05 07:41:00 [DEBUG] - config - Logging to tmp/logging.log
-2024-11-05 07:41:00 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/tmp/logging.log", inode=25058079, flags=11400, id=27549594): is_file, is_inode_meta_mod, is_modified
-2024-11-05 07:41:00 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/tmp/logging.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
-2024-11-05 07:41:01 [DEBUG] - ScheduleSolver - WW - amd - 0 - [shift_Amd - 2024-12-16_employee_WW(0..1), shift_Amd - 2024-12-17_employee_WW(0..1), shift_Amd - 2024-12-18_employee_WW(0..1), shift_Amd - 2024-12-19_employee_WW(0..1), shift_Amd - 2024-12-20_employee_WW(0..1), shift_Amd - 2024-12-21_employee_WW(0..1), shift_Amd - 2024-12-22_employee_WW(0..1), shift_Amd - 2024-12-23_employee_WW(0..1), shift_Amd - 2024-12-24_employee_WW(0..1), shift_Amd - 2024-12-25_employee_WW(0..1), shift_Amd - 2024-12-26_employee_WW(0..1), shift_Amd - 2024-12-27_employee_WW(0..1), shift_Amd - 2024-12-28_employee_WW(0..1), shift_Amd - 2024-12-29_employee_WW(0..1), shift_Amd - 2024-12-30_employee_WW(0..1), shift_Amd - 2024-12-31_employee_WW(0..1)]
-2024-11-05 07:41:01 [DEBUG] - ScheduleSolver - WW - avd - 0 - [shift_Avd - 2024-12-01_employee_WW(0..1), shift_Avd - 2024-12-02_employee_WW(0..1), shift_Avd - 2024-12-03_employee_WW(0..1), shift_Avd - 2024-12-04_employee_WW(0..1), shift_Avd - 2024-12-05_employee_WW(0..1), shift_Avd - 2024-12-06_employee_WW(0..1), shift_Avd - 2024-12-07_employee_WW(0..1), shift_Avd - 2024-12-08_employee_WW(0..1), shift_Avd - 2024-12-09_employee_WW(0..1), shift_Avd - 2024-12-10_employee_WW(0..1), shift_Avd - 2024-12-11_employee_WW(0..1), shift_Avd - 2024-12-12_employee_WW(0..1), shift_Avd - 2024-12-13_employee_WW(0..1), shift_Avd - 2024-12-14_employee_WW(0..1), shift_Avd - 2024-12-15_employee_WW(0..1), shift_Avd - 2024-12-16_employee_WW(0..1), shift_Avd - 2024-12-17_employee_WW(0..1), shift_Avd - 2024-12-18_employee_WW(0..1), shift_Avd - 2024-12-19_employee_WW(0..1), shift_Avd - 2024-12-20_employee_WW(0..1), shift_Avd - 2024-12-21_employee_WW(0..1), shift_Avd - 2024-12-22_employee_WW(0..1), shift_Avd - 2024-12-23_employee_WW(0..1), shift_Avd - 2024-12-24_employee_WW(0..1), shift_Avd - 2024-12-25_employee_WW(0..1), shift_Avd - 2024-12-26_employee_WW(0..1), shift_Avd - 2024-12-27_employee_WW(0..1), shift_Avd - 2024-12-28_employee_WW(0..1), shift_Avd - 2024-12-29_employee_WW(0..1), shift_Avd - 2024-12-30_employee_WW(0..1), shift_Avd - 2024-12-31_employee_WW(0..1)]
-2024-11-05 07:41:01 [INFO] - ScheduleSolver - Begin solving for the schedule, with following rules:
-2024-11-05 07:41:01 [INFO] - ScheduleSolver - Rule 1: Each shift must be assigned to employees more than or equal to min_employees, and less than or equal to max_employees
-2024-11-05 07:41:01 [INFO] - ScheduleSolver - Rule 2: If the shift is assigned to employees, fixed the shift assigned to the employees
-2024-11-05 07:41:01 [INFO] - ScheduleSolver - Rule 3: The shift should only be assigned to the employees who are available (Compare to employee's tasks), except for fixed shifts
-2024-11-05 07:41:01 [INFO] - ScheduleSolver - Rule 4: Some shifts cannot be assigned to the same employee in the same day, represent with a logical matrix, exclude fixed shifts
-2024-11-05 07:41:01 [INFO] - ScheduleSolver - Rule 5: Fair distribution of shifts per employee per shift type
-2024-11-05 07:41:01 [INFO] - ScheduleSolver -     max shifts per employee per service night = 5
-2024-11-05 07:41:01 [INFO] - ScheduleSolver -     max shifts per employee per ('service1', 'service2', 'service1+', 'service2+') = 8
-2024-11-05 07:41:01 [INFO] - ScheduleSolver -     max shifts per employee per ('service1', 'service2') = 4
-2024-11-05 07:41:01 [INFO] - ScheduleSolver -     max shifts per employee per ('service1+', 'service2+') = 4
-2024-11-05 07:41:01 [INFO] - ScheduleSolver -     max shifts per employee per mc = 2
-2024-11-05 07:41:01 [INFO] - ScheduleSolver -     max shifts per employee per amd = 2
-2024-11-05 07:41:01 [INFO] - ScheduleSolver -     min shifts per employee per amd = 1
-2024-11-05 07:41:01 [INFO] - ScheduleSolver -     max shifts per employee per avd = 3
-2024-11-05 07:41:01 [INFO] - ScheduleSolver -     min shifts per employee per avd = 2
-2024-11-05 07:41:01 [INFO] - ScheduleSolver - Rule 6: Manual set number of shifts per employee
-2024-11-05 07:41:01 [INFO] - ScheduleSolver - Rule 7: Manual set number of shifts per employee per shift type
-2024-11-05 07:41:01 [INFO] - ScheduleSolver -     WW - amd - 0
-2024-11-05 07:41:01 [INFO] - ScheduleSolver -     WW - avd - 0
-2024-11-05 07:41:01 [INFO] - ScheduleSolver - 
-2024-11-05 07:41:01 [INFO] - ScheduleSolver - Result:
-2024-11-05 07:41:03 [INFO] - ScheduleSolver - ✅︎ All rules are satisfied, now optimizing the schedule with following objectives:
-2024-11-05 07:41:03 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-01 00:00:00
-2024-11-05 07:41:04 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-01 00:00:00
-2024-11-05 07:41:04 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-02 00:00:00
-2024-11-05 07:41:04 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-02 00:00:00
-2024-11-05 07:41:04 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-03 00:00:00
-2024-11-05 07:41:04 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-03 00:00:00
-2024-11-05 07:41:04 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-04 00:00:00
-2024-11-05 07:41:04 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-04 00:00:00
-2024-11-05 07:41:04 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-05 00:00:00
-2024-11-05 07:41:04 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-05 00:00:00
-2024-11-05 07:41:04 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-06 00:00:00
-2024-11-05 07:41:04 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-06 00:00:00
-2024-11-05 07:41:04 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-07 00:00:00
-2024-11-05 07:41:04 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-07 00:00:00
-2024-11-05 07:41:05 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-08 00:00:00
-2024-11-05 07:41:05 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-08 00:00:00
-2024-11-05 07:41:05 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-09 00:00:00
-2024-11-05 07:41:05 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-09 00:00:00
-2024-11-05 07:41:05 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-10 00:00:00
-2024-11-05 07:41:05 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-10 00:00:00
-2024-11-05 07:41:05 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-11 00:00:00
-2024-11-05 07:41:05 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-11 00:00:00
-2024-11-05 07:41:05 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-12 00:00:00
-2024-11-05 07:41:05 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-12 00:00:00
-2024-11-05 07:41:05 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-13 00:00:00
-2024-11-05 07:41:05 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-13 00:00:00
-2024-11-05 07:41:05 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-14 00:00:00
-2024-11-05 07:41:06 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-14 00:00:00
-2024-11-05 07:41:06 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-15 00:00:00
-2024-11-05 07:41:06 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-15 00:00:00
-2024-11-05 07:41:06 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-16 00:00:00
-2024-11-05 07:41:06 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-16 00:00:00
-2024-11-05 07:41:06 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-17 00:00:00
-2024-11-05 07:41:06 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-17 00:00:00
-2024-11-05 07:41:06 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-18 00:00:00
-2024-11-05 07:41:06 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-18 00:00:00
-2024-11-05 07:41:06 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-19 00:00:00
-2024-11-05 07:41:06 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-19 00:00:00
-2024-11-05 07:41:06 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-20 00:00:00
-2024-11-05 07:41:06 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-20 00:00:00
-2024-11-05 07:41:07 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-21 00:00:00
-2024-11-05 07:41:07 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-21 00:00:00
-2024-11-05 07:41:07 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-22 00:00:00
-2024-11-05 07:41:07 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-22 00:00:00
-2024-11-05 07:41:07 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-23 00:00:00
-2024-11-05 07:41:07 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-23 00:00:00
-2024-11-05 07:41:07 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-24 00:00:00
-2024-11-05 07:41:07 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-24 00:00:00
-2024-11-05 07:41:07 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-25 00:00:00
-2024-11-05 07:41:07 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-25 00:00:00
-2024-11-05 07:41:07 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-26 00:00:00
-2024-11-05 07:41:07 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-26 00:00:00
-2024-11-05 07:41:07 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-27 00:00:00
-2024-11-05 07:41:07 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-27 00:00:00
-2024-11-05 07:41:07 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-28 00:00:00
-2024-11-05 07:41:08 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-28 00:00:00
-2024-11-05 07:41:08 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-29 00:00:00
-2024-11-05 07:41:08 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-29 00:00:00
-2024-11-05 07:41:08 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-30 00:00:00
-2024-11-05 07:41:08 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-30 00:00:00
-2024-11-05 07:41:08 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-31 00:00:00
-2024-11-05 07:41:08 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-31 00:00:00
-2024-11-05 07:41:08 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for BC
-2024-11-05 07:41:08 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for BW
-2024-11-05 07:41:08 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for KS
-2024-11-05 07:41:08 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for PT
-2024-11-05 07:41:08 [INFO] - ScheduleSolver - ❌ Objective: Equalize holiday shifts per employee for WW
-2024-11-05 07:41:08 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for BK
-2024-11-05 07:41:08 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for CC
-2024-11-05 07:41:08 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for KL
-2024-11-05 07:41:09 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for PU
-2024-11-05 07:41:09 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for NM
-2024-11-05 07:41:09 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for SS
-2024-11-05 07:41:09 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for WL
-2024-11-05 07:41:09 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for KK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-01 is assigned to KK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-02 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-02 is assigned to KL
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-02 is assigned to PU
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-02 is assigned to CC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-02 is assigned to PU
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-02 is assigned to CC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-02 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-02 is assigned to CC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-02 is assigned to KK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-03 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-03 is assigned to NM
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-03 is assigned to KL
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-03 is assigned to PU
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-03 is assigned to KL
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-03 is assigned to PU
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-03 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-03 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-03 is assigned to SS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-04 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-04 is assigned to CC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-04 is assigned to BK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-04 is assigned to PU
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-04 is assigned to BK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-04 is assigned to PU
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-04 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-04 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-04 is assigned to WL
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-05 is assigned to BK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-06 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-06 is assigned to CC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-06 is assigned to BK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-06 is assigned to KL
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-06 is assigned to BK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-06 is assigned to KL
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-06 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-06 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-06 is assigned to WL
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-07 is assigned to SS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-08 is assigned to PU
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-09 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-09 is assigned to KK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-09 is assigned to SS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-09 is assigned to CC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-09 is assigned to SS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-09 is assigned to CC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-09 is assigned to WW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-09 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-09 is assigned to KL
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-10 is assigned to KL
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-11 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-11 is assigned to WW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-11 is assigned to WL
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-11 is assigned to BK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-11 is assigned to WL
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-11 is assigned to BK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-11 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-11 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-11 is assigned to NM
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-12 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-12 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-12 is assigned to WW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-12 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-12 is assigned to WW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-12 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-12 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-12 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-12 is assigned to CC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-13 is assigned to NM
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-13 is assigned to KL
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-13 is assigned to PU
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-13 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-13 is assigned to PU
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-13 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-13 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-13 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-13 is assigned to BK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-14 is assigned to NM
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-15 is assigned to PU
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-16 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-16 is assigned to PU
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-16 is assigned to KK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-16 is assigned to KL
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-16 is assigned to KK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-16 is assigned to KL
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-16 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-16 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Amd - 2024-12-16 is assigned to PU
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-16 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-17 is assigned to BK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-17 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-17 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-17 is assigned to WW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-17 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-17 is assigned to WW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-17 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-17 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Amd - 2024-12-17 is assigned to KK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-17 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-18 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-18 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-18 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-18 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-18 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-18 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-18 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-18 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Amd - 2024-12-18 is assigned to SS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-18 is assigned to BK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-19 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-19 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-19 is assigned to WW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-19 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-19 is assigned to WW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-19 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-19 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-19 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Amd - 2024-12-19 is assigned to CC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-19 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-20 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-20 is assigned to BK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-20 is assigned to CC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-20 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-20 is assigned to CC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-20 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-20 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-20 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Amd - 2024-12-20 is assigned to BK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-20 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Amd - 2024-12-21 is assigned to WL
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-21 is assigned to CC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Amd - 2024-12-22 is assigned to KL
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-22 is assigned to CC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-23 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-23 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-23 is assigned to SS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-23 is assigned to WW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-23 is assigned to SS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-23 is assigned to WW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-23 is assigned to WW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-23 is assigned to WW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Amd - 2024-12-23 is assigned to NM
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-23 is assigned to KL
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-24 is assigned to WW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-24 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-24 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-24 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-24 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-24 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-24 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-24 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Amd - 2024-12-24 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-24 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-25 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-25 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-25 is assigned to CC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-25 is assigned to BK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-25 is assigned to CC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-25 is assigned to BK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-25 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-25 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Amd - 2024-12-25 is assigned to BK
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-25 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-26 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-26 is assigned to WW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-26 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-26 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-26 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-26 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-26 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-26 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Amd - 2024-12-26 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-26 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service night - 2024-12-27 is assigned to WW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Mc - 2024-12-27 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1 - 2024-12-27 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-27 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2 - 2024-12-27 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-27 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Ems - 2024-12-27 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Observe - 2024-12-27 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Amd - 2024-12-27 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-27 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Amd - 2024-12-28 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-28 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Amd - 2024-12-29 is assigned to PT
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-29 is assigned to KS
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Amd - 2024-12-30 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-30 is assigned to BC
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Amd - 2024-12-31 is assigned to BW
-2024-11-05 07:41:09 [DEBUG] - ScheduleSolver - Avd - 2024-12-31 is assigned to BC
-2024-11-05 07:41:09 [INFO] - ScheduleSolver - Schedule Updated!
-2024-11-05 07:41:09 [DEBUG] - googleapiclient.discovery - URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU/values/December%202024%21C269%3AL299?valueInputOption=RAW&alt=json
-2024-11-05 07:41:10 [DEBUG] - GoogleSheetApp - 310 cells updated
-2024-11-05 07:41:10 [DEBUG] - SchedulerSheetUI - Updated sheet values with the schedule 
-  - Schedule: <modules.scheduler_app.models.models.Schedule object at 0x130a7ce20> 
-  - Range: C269:L299 
-  - Sheet: December 2024 
-  - SheetId: 1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU
+2024-11-05 10:42:23 [DEBUG] - config - Logging to tmp/logging.log
+2024-11-05 10:42:23 [DEBUG] - GoogleAppAuthenticator - Authenticating user ...
+2024-11-05 10:42:23 [DEBUG] - GoogleAppAuthenticator - Loading credentials from token
+2024-11-05 10:42:23 [DEBUG] - GoogleAppAuthenticator - Credentials are not valid
+2024-11-05 10:42:23 [DEBUG] - GoogleAppAuthenticator - Deleting token...
+2024-11-05 10:42:23 [DEBUG] - GoogleAppAuthenticator - Token deleted from file
+2024-11-05 10:42:23 [DEBUG] - GoogleAppAuthenticator - Generating new credentials...
+2024-11-05 10:42:23 [DEBUG] - requests_oauthlib.oauth2_session - Generated new state lw2lNRaaoDOzbFNrrZwLobF8U0hTuR.
+2024-11-05 10:42:33 [INFO] - google_auth_oauthlib.flow - "GET /?state=lw2lNRaaoDOzbFNrrZwLobF8U0hTuR&code=4/0AVG7fiRH0ftAjt98atkXeY0AQqOBVCyGwDZTJm0rrcT74XUog8ckI_keFzRVITI9ixcBOw&scope=https://www.googleapis.com/auth/spreadsheets%20https://www.googleapis.com/auth/calendar HTTP/1.1" 200 65
+2024-11-05 10:42:33 [DEBUG] - requests_oauthlib.oauth2_session - Encoding `client_id` "691458340667-jeh6bfkes4m1ohpgp2hk6bnt8k6vb5ff.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+2024-11-05 10:42:33 [DEBUG] - requests_oauthlib.oauth2_session - Requesting url https://oauth2.googleapis.com/token using method POST.
+2024-11-05 10:42:33 [DEBUG] - requests_oauthlib.oauth2_session - Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AVG7fiRH0ftAjt98atkXeY0AQqOBVCyGwDZTJm0rrcT74XUog8ckI_keFzRVITI9ixcBOw', 'redirect_uri': 'http://localhost:49242/'}
+2024-11-05 10:42:33 [DEBUG] - requests_oauthlib.oauth2_session - Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x103a60730>, 'verify': True, 'proxies': None, 'cert': None}.
+2024-11-05 10:42:33 [DEBUG] - urllib3.connectionpool - Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2024-11-05 10:42:34 [DEBUG] - urllib3.connectionpool - https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2024-11-05 10:42:34 [DEBUG] - requests_oauthlib.oauth2_session - Request to fetch token completed with status 200.
+2024-11-05 10:42:34 [DEBUG] - requests_oauthlib.oauth2_session - Request url was https://oauth2.googleapis.com/token
+2024-11-05 10:42:34 [DEBUG] - requests_oauthlib.oauth2_session - Request headers were {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '157', 'Authorization': 'Basic NjkxNDU4MzQwNjY3LWplaDZiZmtlczRtMW9ocGdwMmhrNmJudDhrNnZiNWZmLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1pNUFSdUpmTW9mOEZnTWtrNmItVWlqcDNncTVf'}
+2024-11-05 10:42:34 [DEBUG] - requests_oauthlib.oauth2_session - Request body was grant_type=authorization_code&code=4%2F0AVG7fiRH0ftAjt98atkXeY0AQqOBVCyGwDZTJm0rrcT74XUog8ckI_keFzRVITI9ixcBOw&redirect_uri=http%3A%2F%2Flocalhost%3A49242%2F
+2024-11-05 10:42:34 [DEBUG] - requests_oauthlib.oauth2_session - Response headers were {'Date': 'Tue, 05 Nov 2024 03:42:34 GMT', 'Pragma': 'no-cache', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.a0AeDClZCRwqBJcF-QI11DNWnnaSiNzY6_B4jLT2GlGoeBySm3MgJlWoOwMkHY3HoC8SWAe0ofVndzAK5X9xhOQM7O3n-7lYMyt8PriTJhdsTl_YNgwZmlcsOg9ihe4Mo2K-S07NGuZSU0bn0NuOc4tDQBNImDaZx1pZ7UKpkcaCgYKAXkSARISFQHGX2Mie5EMcjovqPDYE9Bn_GWdew0175",
+  "expires_in": 3599,
+  "refresh_token": "1//0gwFwj6bUnm6_CgYIARAAGBASNwF-L9IricJ91fV7K7r5sXuIsqeF4uEEX9BniHVBTeeoqOcVnmP4jfuZrG5cHNmYmexBRgaluJ8",
+  "scope": "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/spreadsheets",
+  "token_type": "Bearer"
+}.
+2024-11-05 10:42:34 [DEBUG] - requests_oauthlib.oauth2_session - Invoking 0 token response hooks.
+2024-11-05 10:42:34 [DEBUG] - requests_oauthlib.oauth2_session - Obtained token {'access_token': 'ya29.a0AeDClZCRwqBJcF-QI11DNWnnaSiNzY6_B4jLT2GlGoeBySm3MgJlWoOwMkHY3HoC8SWAe0ofVndzAK5X9xhOQM7O3n-7lYMyt8PriTJhdsTl_YNgwZmlcsOg9ihe4Mo2K-S07NGuZSU0bn0NuOc4tDQBNImDaZx1pZ7UKpkcaCgYKAXkSARISFQHGX2Mie5EMcjovqPDYE9Bn_GWdew0175', 'expires_in': 3599, 'refresh_token': '1//0gwFwj6bUnm6_CgYIARAAGBASNwF-L9IricJ91fV7K7r5sXuIsqeF4uEEX9BniHVBTeeoqOcVnmP4jfuZrG5cHNmYmexBRgaluJ8', 'scope': ['https://www.googleapis.com/auth/calendar', 'https://www.googleapis.com/auth/spreadsheets'], 'token_type': 'Bearer', 'expires_at': 1730781753.002663}.
+2024-11-05 10:42:34 [DEBUG] - GoogleAppAuthenticator - New credentials generated
+2024-11-05 10:42:34 [DEBUG] - GoogleAppAuthenticator - Credentials saved to file
+2024-11-05 10:42:34 [INFO] - googleapiclient.discovery_cache - file_cache is only supported with oauth2client<4.0.0
+2024-11-05 10:42:34 [DEBUG] - CalendarApp - Service initialized successfully
+2024-11-05 10:42:34 [INFO] - googleapiclient.discovery_cache - file_cache is only supported with oauth2client<4.0.0
+2024-11-05 10:42:34 [DEBUG] - GoogleSheetApp - Service initialized successfully
+2024-11-05 10:42:34 [DEBUG] - SchedulerSheetUI - SchedulerSheetUI initialized - sheetId: 1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU
+2024-11-05 10:42:34 [DEBUG] - googleapiclient.discovery - URL being requested: GET https://sheets.googleapis.com/v4/spreadsheets/1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU/values/December%202024%21A1%3AV?alt=json
+2024-11-05 10:42:35 [DEBUG] - git.cmd - Popen(['git', 'version'], cwd=/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler, stdin=None, shell=False, universal_newlines=False)
+2024-11-05 10:42:35 [DEBUG] - git.cmd - Popen(['git', 'rev-parse', '--show-toplevel'], cwd=/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler, stdin=None, shell=False, universal_newlines=False)
+2024-11-05 10:42:35 [DEBUG] - git.cmd - Popen(['git', 'remote', 'get-url', '--all', 'origin'], cwd=/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler, stdin=None, shell=False, universal_newlines=False)
+2024-11-05 10:42:35 [DEBUG] - git.cmd - Popen(['git', 'status', '--porcelain', '--untracked-files'], cwd=/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler, stdin=None, shell=False, universal_newlines=False)
+2024-11-05 10:42:35 [DEBUG] - git.cmd - Popen(['git', 'diff', '--abbrev=40', '--full-index', '-M', '--raw', '-z', '--no-color'], cwd=/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler, stdin=None, shell=False, universal_newlines=False)
+2024-11-05 10:42:35 [DEBUG] - git.cmd - Popen(['git', 'cat-file', '--batch-check'], cwd=/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler, stdin=<valid stream>, shell=False, universal_newlines=False)
+2024-11-05 10:42:35 [DEBUG] - git.cmd - Popen(['git', 'rev-list', 'origin/interface-update..interface-update', '--'], cwd=/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler, stdin=None, shell=False, universal_newlines=False)
+2024-11-05 10:42:38 [DEBUG] - SchedulerSheetUI - Fetched sheet values from A1:V
+2024-11-05 10:42:38 [DEBUG] - SchedulerCalendarUI - SchedulerCalendarUI initialized - calendarId: em.cmu.teacher@gmail.com
+2024-11-05 10:46:30 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD", inode=7316501, flags=10400, id=28021912): is_file, is_inode_meta_mod
+2024-11-05 10:46:30 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:46:30 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD", inode=7316501, flags=410000, id=28021943): is_cloned, is_file
+2024-11-05 10:46:31 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD", inode=7316501, flags=11400, id=28022012): is_file, is_inode_meta_mod, is_modified
+2024-11-05 10:46:31 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:46:31 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/maintenance.lock", inode=25191954, flags=18300, id=28022021): is_coalesced, is_created, is_file, is_removed, is_xattr_mod
+2024-11-05 10:46:31 [DEBUG] - fsevents - queue_event FileCreatedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/maintenance.lock', dest_path='', event_type='created', is_directory=False, is_synthetic=False)
+2024-11-05 10:46:31 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:46:31 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/maintenance.lock', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:46:31 [DEBUG] - fsevents - queue_event FileDeletedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/maintenance.lock', dest_path='', event_type='deleted', is_directory=False, is_synthetic=False)
+2024-11-05 10:46:31 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:46:31 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD", inode=7316501, flags=410000, id=28022036): is_cloned, is_file
+2024-11-05 10:47:23 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/33", inode=25190292, flags=20400, id=28024877): is_directory, is_inode_meta_mod
+2024-11-05 10:47:23 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects", inode=1372158, flags=20400, id=28024883): is_directory, is_inode_meta_mod
+2024-11-05 10:47:23 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/fd/e6355c28edb8177886b1e8585f1e6f645b1a55", inode=25057675, flags=18000, id=28024886): is_file, is_xattr_mod
+2024-11-05 10:47:23 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/42", inode=25190306, flags=20400, id=28024889): is_directory, is_inode_meta_mod
+2024-11-05 10:47:23 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/33', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:23 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:23 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/fd/e6355c28edb8177886b1e8585f1e6f645b1a55', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:23 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/42', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:23 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/85", inode=25190302, flags=20400, id=28024892): is_directory, is_inode_meta_mod
+2024-11-05 10:47:23 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/6f", inode=25190261, flags=20400, id=28024895): is_directory, is_inode_meta_mod
+2024-11-05 10:47:23 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/ff", inode=25190265, flags=20400, id=28024898): is_directory, is_inode_meta_mod
+2024-11-05 10:47:23 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/a5", inode=25190314, flags=20400, id=28024901): is_directory, is_inode_meta_mod
+2024-11-05 10:47:23 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/27", inode=25190281, flags=20400, id=28024904): is_directory, is_inode_meta_mod
+2024-11-05 10:47:23 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/85', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:23 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/6f', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:23 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/ff', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:23 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/a5', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:23 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/27', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:25 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/a5", inode=25190314, flags=20400, id=28025353): is_directory, is_inode_meta_mod
+2024-11-05 10:47:25 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects", inode=1372158, flags=20400, id=28025356): is_directory, is_inode_meta_mod
+2024-11-05 10:47:25 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/a5/0fd73d19c36a0d129c2b4ebe7ce8e2cf63859b", inode=25190315, flags=118000, id=28025359): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:25 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git", inode=1372127, flags=20400, id=28025365): is_directory, is_inode_meta_mod
+2024-11-05 10:47:25 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/a5', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:25 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:25 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/a5/0fd73d19c36a0d129c2b4ebe7ce8e2cf63859b', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:25 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:25 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler", inode=1372126, flags=20400, id=28025368): is_directory, is_inode_meta_mod
+2024-11-05 10:47:25 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/33/30906bbd52773fb7aa2136faf91eb2e389a66f", inode=25190293, flags=118000, id=28026781): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index", inode=25190288, flags=18000, id=28026787): is_file, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/6f/a708ce21bb053f82ec68d1908ecc55082dbeb3", inode=25190262, flags=118000, id=28026790): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs/refs/heads/interface-update", inode=25058224, flags=18000, id=28026793): is_file, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/33/30906bbd52773fb7aa2136faf91eb2e389a66f', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/6f/a708ce21bb053f82ec68d1908ecc55082dbeb3', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs/refs/heads/interface-update', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/1b/72073b49865a6f10b10ce02d3569a160675912", inode=25190278, flags=118000, id=28026796): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/24/8d0bc047afeb720af0032bc4cb1a171223b643", inode=25191182, flags=118000, id=28026799): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/27/ca993f4f86ea52a75a877ec28704d793b9a043", inode=25190289, flags=118000, id=28026802): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/refs/remotes/origin/interface-update", inode=25190446, flags=18000, id=28026805): is_file, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/1b/72073b49865a6f10b10ce02d3569a160675912', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/24/8d0bc047afeb720af0032bc4cb1a171223b643', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/27/ca993f4f86ea52a75a877ec28704d793b9a043', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/refs/remotes/origin/interface-update', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs/refs", inode=1372277, flags=20400, id=28026808): is_directory, is_inode_meta_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/41", inode=8966771, flags=20400, id=28026811): is_directory, is_inode_meta_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs/refs', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/41', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/c3/ccc841b0497668c68e1094ade95b27d3b877de", inode=25190310, flags=118000, id=28026814): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/39", inode=9505790, flags=20400, id=28026817): is_directory, is_inode_meta_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/4e/03d33c30916bbcde41535f7d197f61a5886e32", inode=25190275, flags=118000, id=28026820): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/24", inode=8966168, flags=20400, id=28026823): is_directory, is_inode_meta_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/c3/ccc841b0497668c68e1094ade95b27d3b877de', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/39', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/4e/03d33c30916bbcde41535f7d197f61a5886e32', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/24', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD", inode=7316501, flags=18000, id=28026826): is_file, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/ea/18d538ac6a44c9daaad3cec74a837d19e099fe", inode=25190272, flags=118000, id=28026835): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/ff/186266d5e814591aacae759b4b4524c33e90fe", inode=25190266, flags=118000, id=28026838): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/2d/213b34351c4d63c5f1059c5e0465742aaad09b", inode=25190285, flags=118000, id=28026841): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects", inode=1372158, flags=20400, id=28026844): is_directory, is_inode_meta_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/ea/18d538ac6a44c9daaad3cec74a837d19e099fe', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/ff/186266d5e814591aacae759b4b4524c33e90fe', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/2d/213b34351c4d63c5f1059c5e0465742aaad09b', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs/HEAD", inode=1372284, flags=18000, id=28026847): is_file, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/ORIG_HEAD", inode=25190407, flags=18000, id=28026850): is_file, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/1b", inode=9505774, flags=20400, id=28026853): is_directory, is_inode_meta_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/91/a2cab0f22633609afb1df27de52b5cfdf55ea8", inode=25190299, flags=118000, id=28026856): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/42/087748f56cc645299cee247773b553d8e62b14", inode=25190307, flags=118000, id=28026859): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs/HEAD', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/ORIG_HEAD', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/1b', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/91/a2cab0f22633609afb1df27de52b5cfdf55ea8', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/42/087748f56cc645299cee247773b553d8e62b14', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/85/b7d1bf0c8da8d87956379c52981ffcb00af29d", inode=25190303, flags=118000, id=28026862): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs/refs/remotes/origin/master", inode=9838725, flags=18000, id=28026865): is_file, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/c3", inode=9505899, flags=20400, id=28026868): is_directory, is_inode_meta_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/refs/heads/interface-update", inode=25190319, flags=18000, id=28026874): is_file, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler", inode=1372126, flags=20400, id=28026877): is_directory, is_inode_meta_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/85/b7d1bf0c8da8d87956379c52981ffcb00af29d', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs/refs/remotes/origin/master', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/c3', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/refs/heads/interface-update', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git", inode=1372127, flags=20400, id=28026880): is_directory, is_inode_meta_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/27/38960cdf3108a1465a829ee341edb114e04b9c", inode=25190282, flags=118000, id=28026886): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/41/2312bec5ba7f8f74edff653a10616f91e458cb", inode=25190269, flags=118000, id=28026889): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/refs/remotes/origin/master", inode=25191185, flags=18000, id=28026892): is_file, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/2f/411901b333d42bf4fe33957ad993e814619aa7", inode=25190296, flags=118000, id=28026895): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/27/38960cdf3108a1465a829ee341edb114e04b9c', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/41/2312bec5ba7f8f74edff653a10616f91e458cb', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/refs/remotes/origin/master', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/2f/411901b333d42bf4fe33957ad993e814619aa7', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.gitignore", inode=8967609, flags=18000, id=28026898): is_file, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/39/4e5169bef7af8130a6cec6bfed642b53821c95", inode=25191179, flags=118000, id=28026901): is_file, is_hardlink, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/secret.json", inode=25190232, flags=18000, id=28026904): is_file, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs", inode=1372276, flags=20400, id=28026907): is_directory, is_inode_meta_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.gitignore', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/39/4e5169bef7af8130a6cec6bfed642b53821c95', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/secret.json', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs/refs/remotes/origin/interface-update", inode=25058276, flags=18000, id=28026910): is_file, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/COMMIT_EDITMSG", inode=8966770, flags=18000, id=28026913): is_file, is_xattr_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/ea", inode=9505941, flags=20400, id=28026916): is_directory, is_inode_meta_mod
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs/refs/remotes/origin/interface-update', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/COMMIT_EDITMSG', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:47:32 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/ea', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:33 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/2f", inode=9841981, flags=20400, id=28026940): is_directory, is_inode_meta_mod
+2024-11-05 10:47:33 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/ff", inode=25190265, flags=20400, id=28026951): is_directory, is_inode_meta_mod
+2024-11-05 10:47:33 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/42", inode=25190306, flags=20400, id=28026954): is_directory, is_inode_meta_mod
+2024-11-05 10:47:33 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/2f', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:33 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/ff', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:33 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/42', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:33 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/85", inode=25190302, flags=20400, id=28026957): is_directory, is_inode_meta_mod
+2024-11-05 10:47:33 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs/refs/heads", inode=1372285, flags=20400, id=28026960): is_directory, is_inode_meta_mod
+2024-11-05 10:47:33 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs/refs/remotes", inode=1372278, flags=20400, id=28026963): is_directory, is_inode_meta_mod
+2024-11-05 10:47:33 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/4e", inode=9828705, flags=20400, id=28026966): is_directory, is_inode_meta_mod
+2024-11-05 10:47:33 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/91", inode=9842592, flags=20400, id=28026969): is_directory, is_inode_meta_mod
+2024-11-05 10:47:33 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/85', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:33 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs/refs/heads', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:33 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs/refs/remotes', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:33 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/4e', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:33 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/91', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:33 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/2d", inode=9842583, flags=20400, id=28026972): is_directory, is_inode_meta_mod
+2024-11-05 10:47:33 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/6f", inode=25190261, flags=20400, id=28026975): is_directory, is_inode_meta_mod
+2024-11-05 10:47:33 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/27", inode=25190281, flags=20400, id=28026978): is_directory, is_inode_meta_mod
+2024-11-05 10:47:33 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/33", inode=25190292, flags=20400, id=28026981): is_directory, is_inode_meta_mod
+2024-11-05 10:47:33 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs/refs/remotes/origin", inode=1372279, flags=20400, id=28026984): is_directory, is_inode_meta_mod
+2024-11-05 10:47:33 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/2d', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:33 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/6f', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:33 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/27', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:33 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/33', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:47:33 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/logs/refs/remotes/origin', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:48:04 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/requirements.txt", inode=1486131, flags=19400, id=28028237): is_file, is_inode_meta_mod, is_modified, is_xattr_mod
+2024-11-05 10:48:04 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/requirements.txt', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:48:05 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/requirements.txt", inode=1486131, flags=410000, id=28028276): is_cloned, is_file
+2024-11-05 10:48:12 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler", inode=1372126, flags=20400, id=28028541): is_directory, is_inode_meta_mod
+2024-11-05 10:48:12 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/requirements.txt", inode=1486131, flags=18000, id=28028547): is_file, is_xattr_mod
+2024-11-05 10:48:12 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:48:12 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/requirements.txt', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:47 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD", inode=7316501, flags=10400, id=28051765): is_file, is_inode_meta_mod
+2024-11-05 10:49:47 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:47 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD", inode=7316501, flags=410000, id=28051768): is_cloned, is_file
+2024-11-05 10:49:48 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD", inode=7316501, flags=11400, id=28051989): is_file, is_inode_meta_mod, is_modified
+2024-11-05 10:49:48 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:48 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/maintenance.lock", inode=25194249, flags=18300, id=28051998): is_coalesced, is_created, is_file, is_removed, is_xattr_mod
+2024-11-05 10:49:48 [DEBUG] - fsevents - queue_event FileCreatedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/maintenance.lock', dest_path='', event_type='created', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:48 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:49:48 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/maintenance.lock', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:48 [DEBUG] - fsevents - queue_event FileDeletedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects/maintenance.lock', dest_path='', event_type='deleted', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:48 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/objects', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:49:48 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD", inode=7316501, flags=410000, id=28052001): is_cloned, is_file
+2024-11-05 10:49:50 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler", inode=1372126, flags=20400, id=28052148): is_directory, is_inode_meta_mod
+2024-11-05 10:49:50 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git", inode=1372127, flags=20400, id=28052154): is_directory, is_inode_meta_mod
+2024-11-05 10:49:50 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:49:50 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:49:53 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD", inode=7316501, flags=418000, id=28052301): is_cloned, is_file, is_xattr_mod
+2024-11-05 10:49:53 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:54 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/requirements.txt", inode=1486131, flags=11400, id=28052411): is_file, is_inode_meta_mod, is_modified
+2024-11-05 10:49:54 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/requirements.txt', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:54 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/requirements.txt", inode=1486131, flags=410000, id=28052429): is_cloned, is_file
+2024-11-05 10:49:56 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler", inode=1372126, flags=20400, id=28052574): is_directory, is_inode_meta_mod
+2024-11-05 10:49:56 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD", inode=7316501, flags=418000, id=28052577): is_cloned, is_file, is_xattr_mod
+2024-11-05 10:49:56 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git", inode=1372127, flags=20400, id=28052583): is_directory, is_inode_meta_mod
+2024-11-05 10:49:56 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:49:56 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/FETCH_HEAD', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:56 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:49:58 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler", inode=1372126, flags=20400, id=28052730): is_directory, is_inode_meta_mod
+2024-11-05 10:49:58 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/requirements.txt", inode=1486131, flags=418000, id=28052736): is_cloned, is_file, is_xattr_mod
+2024-11-05 10:49:58 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:49:58 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/requirements.txt', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:59 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/secret.json", inode=25190232, flags=10200, id=28052765): is_file, is_removed
+2024-11-05 10:49:59 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/secret.json", inode=25194286, flags=19100, id=28052779): is_created, is_file, is_modified, is_xattr_mod
+2024-11-05 10:49:59 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index.lock", inode=25194285, flags=19100, id=28052782): is_created, is_file, is_modified, is_xattr_mod
+2024-11-05 10:49:59 [DEBUG] - fsevents - queue_event FileDeletedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/secret.json', dest_path='', event_type='deleted', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:59 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:49:59 [DEBUG] - fsevents - queue_event FileCreatedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/secret.json', dest_path='', event_type='created', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:59 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:49:59 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/secret.json', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:59 [DEBUG] - fsevents - queue_event FileCreatedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index.lock', dest_path='', event_type='created', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:59 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:49:59 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index.lock', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:59 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index.lock", inode=25194285, flags=19900, id=28052790): is_coalesced, is_created, is_file, is_modified, is_renamed, is_xattr_mod
+2024-11-05 10:49:59 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index", inode=25194285, flags=10800, id=28052791): is_file, is_renamed
+2024-11-05 10:49:59 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index", inode=25190288, flags=10800, id=28052792): is_file, is_renamed
+2024-11-05 10:49:59 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index.lock', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:59 [DEBUG] - fsevents - Destination event for rename is NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index", inode=25194285, flags=10800, id=28052791)
+2024-11-05 10:49:59 [DEBUG] - fsevents - queue_event FileMovedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index.lock', dest_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index', event_type='moved', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:59 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:49:59 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:49:59 [DEBUG] - fsevents - queue_event FileDeletedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index', dest_path='', event_type='deleted', is_directory=False, is_synthetic=False)
+2024-11-05 10:49:59 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:49:59 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/secret.json", inode=25194286, flags=410000, id=28052816): is_cloned, is_file
+2024-11-05 10:49:59 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index", inode=25194285, flags=410000, id=28052834): is_cloned, is_file
+2024-11-05 10:50:00 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index", inode=25194285, flags=410400, id=28052954): is_cloned, is_file, is_inode_meta_mod
+2024-11-05 10:50:00 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:50:02 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler", inode=1372126, flags=20400, id=28053076): is_directory, is_inode_meta_mod
+2024-11-05 10:50:02 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/secret.json", inode=25194286, flags=418000, id=28053085): is_cloned, is_file, is_xattr_mod
+2024-11-05 10:50:02 [DEBUG] - fsevents - queue_event DirModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2024-11-05 10:50:02 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/secret.json', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2024-11-05 10:50:04 [DEBUG] - fsevents - NativeEvent(path="/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index", inode=25194285, flags=418400, id=28053180): is_cloned, is_file, is_inode_meta_mod, is_xattr_mod
+2024-11-05 10:50:04 [DEBUG] - fsevents - queue_event FileModifiedEvent(src_path='/Users/patipansittiprawiat/Library/Mobile Documents/com~apple~CloudDocs/Documents/Documents - PatipanMBA/shift-scheduler/.git/index', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
