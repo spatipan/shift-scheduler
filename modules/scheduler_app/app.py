@@ -5,7 +5,7 @@ from modules.scheduler_app.models.models import Event, Task, Employee, Shift, Sc
 from modules.scheduler_app.solver import ScheduleSolver, SchedulerConstraint, SchedulerConstraintGroup
 from modules.scheduler_app.sheet_ui import SchedulerSheetUI
 from modules.scheduler_app.calendar_ui import SchedulerCalendarUI
-
+import json
 
 class SchedulerApp:
     def __init__(self):
@@ -13,7 +13,7 @@ class SchedulerApp:
         credentials = self.google_app_authenticator.authenticate(
             credentials = config.CREDENTIALS,
             token = config.TOKEN,
-        )
+        ) 
         self.calendar_app = CalendarApp(credentials) # init calendar app
         self.sheet_app = GoogleSheetApp(credentials) # init sheet app
         self.schedule = Schedule() # create a schedule
@@ -22,6 +22,15 @@ class SchedulerApp:
         self.calendar_ui = SchedulerCalendarUI(calendarApp=self.calendar_app, calendarId=config.CALENDAR_ID)
 
         self.logger = logging.getLogger(__class__.__name__)
+    
+    def _update_config(self):
+        # self.config = config.load_config()
+        
+        self.sheet_ui = SchedulerSheetUI(sheetApp=self.sheet_app, sheetId=config.SPREADSHEET_ID, sheetName=config.SHEET_NAME)
+        self.calendar_ui = SchedulerCalendarUI(calendarApp=self.calendar_app, calendarId=config.CALENDAR_ID)
+        self.logger.info('Config updated')
+
+
 
 
     # [1] Fetch information from google apps (calendar, sheet)

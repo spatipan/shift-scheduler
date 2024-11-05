@@ -4,12 +4,12 @@ import json
 import os
 from modules.scheduler_app.app import SchedulerApp
 from config import config_logging
+import logging
 
 
 CONFIG_PATH = 'config.json'
 
 config_logging()
-
 
 # Function to load config
 def load_config():
@@ -46,6 +46,7 @@ with tab1:
     if st.button("Fetch Information"):
         app.fetch_information()
         # events = app.calendar_app.events
+        app._update_config()
         st.success("Information fetched successfully!")
         start = app.schedule.start
         end = app.schedule.end
@@ -97,6 +98,7 @@ with tab2:
     # Save the config
     if st.button("Save Config"):
         save_config(config)
+        logging.info("Configuration saved successfully! with values: {}".format(config))
 
 
     # button to authorize google credentials

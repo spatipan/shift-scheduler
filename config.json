@@ -1,12 +1,12 @@
 {
-    "TIMEZONE_OFFSET": "7",
+    "TIMEZONE_OFFSET": 7,
     "GOOGLE_SCOPES": [
         "https://www.googleapis.com/auth/calendar",
         "https://www.googleapis.com/auth/spreadsheets"
     ],
     "CALENDAR_ID": "em.cmu.teacher@gmail.com",
     "SPREADSHEET_ID": "1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU",
-    "SHEET_NAME": "November 2024",
+    "SHEET_NAME": "December 2024",
     "RANGES": {
         "NAME_RANGE": "E5",
         "SHIFT_RANGE": "C11:L42",
