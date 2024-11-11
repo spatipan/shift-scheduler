@@ -88,4 +88,4 @@ urllib3==2.1.0
 wcwidth==0.2.5
 Werkzeug==3.0.1
 wheel==0.41.2
-ortools==9.9.3963
+ortools
