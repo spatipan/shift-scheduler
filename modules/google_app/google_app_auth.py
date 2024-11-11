@@ -23,7 +23,7 @@ class GoogleAppAuthenticator:
         self.logger = logging.getLogger(__class__.__name__)
 
     def authenticate(self, credentials: dict, token: dict | None = None):
-        '''Authenticate user to use google services'''
+        '''Authenticate user to use Google services'''
         if self.authenticated:
             self.logger.debug('User already authenticated')
             return self.credentials 
@@ -33,7 +33,6 @@ class GoogleAppAuthenticator:
         self.token = token
 
         try:
-            # Load credentials from token
             creds = None
             if self.token:
                 self.logger.debug('Loading credentials from token')
@@ -42,17 +41,22 @@ class GoogleAppAuthenticator:
             if creds and creds.valid and not creds.expired:
                 self.logger.debug('Credentials are valid')
             else:
-                self.logger.debug('Credentials are not valid or expired')
                 if creds and creds.expired and creds.refresh_token:
                     try:
                         self.logger.debug('Refreshing expired credentials...')
                         creds.refresh(Request())
                         self.logger.debug('Credentials refreshed successfully')
                     except RefreshError:
-                        self.logger.warning('Refresh failed, re-authentication required')
+                        st.warning("Token expired or revoked. Please re-authenticate.")
                         self._handle_reauthentication_flow()
                 else:
+                    st.warning("No valid token found. Re-authentication is required.")
                     self._handle_reauthentication_flow()
+
+        except RefreshError as e:
+            self.logger.error("RefreshError encountered: Token has expired or been revoked.")
+            st.error("Token has been expired or revoked. Please re-authenticate.")
+            self._handle_reauthentication_flow()
 
         except Exception as e:
             self.logger.error(f'Error during authentication: {e}')
@@ -64,15 +68,24 @@ class GoogleAppAuthenticator:
         return self.credentials
 
     def _handle_reauthentication_flow(self):
-        """Handle re-authentication flow using a console flow for Streamlit."""
+        """Handle re-authentication flow for Streamlit."""
         self.logger.debug('Deleting token...')
         self._delete_token()
         self.logger.debug('Starting re-authentication flow...')
         flow = InstalledAppFlow.from_client_config(self.credentials, self.SCOPES)
-        creds = flow.run_console()  # Changed from run_local_server to run_console
-        self.logger.debug('New credentials generated')
-        self._save_credentials(creds)
-        self.credentials = creds
+        auth_url, _ = flow.authorization_url(prompt='consent')
+        st.markdown(f"[Click here to authorize]({auth_url})")
+        auth_code = st.text_input("Paste the authorization code here:")
+
+        if auth_code:
+            try:
+                creds = flow.fetch_token(code=auth_code)
+                st.success("Authentication successful!")
+                self._save_credentials(creds)
+                self.credentials = creds
+            except Exception as e:
+                st.error(f"Failed to fetch token: {e}")
+                self.logger.error(f"Error fetching token: {e}")
     
     def _save_credentials(self, creds):
         '''Save credentials to a file'''
