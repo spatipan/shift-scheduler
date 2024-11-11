@@ -53,7 +53,7 @@ class GoogleAppAuthenticator:
                 self._delete_token()
                 self.logger.debug('Generating new credentials...')
                 flow = InstalledAppFlow.from_client_config(self.credentials, self.SCOPES)
-                creds = flow.run_local_server(port=0)
+                # creds = flow.run_local_server(port=0)
                 self.logger.debug('New credentials generated')
 
 
