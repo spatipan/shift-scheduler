@@ -12,21 +12,16 @@ import json
 from config import SECRET_PATH, CREDENTIALS, TOKEN
 
 
-
-# GoogleCloud app
 class GoogleAppAuthenticator:
     def __init__(self, SCOPES: list = ['https://www.googleapis.com/auth/calendar.readonly', 
                                       'https://www.googleapis.com/auth/spreadsheets.readonly']):
         self.credentials = None
         self.token = None
         self.authenticated = False
-        self.service = None
         self.SCOPES = SCOPES
         self.logger = logging.getLogger(__class__.__name__)
 
-
-    def authenticate(self, credentials: dict,
-                     token: dict | None = None,):
+    def authenticate(self, credentials: dict, token: dict | None = None):
         '''Authenticate user to use google services'''
         if self.authenticated:
             self.logger.debug('User already authenticated')
@@ -35,7 +30,6 @@ class GoogleAppAuthenticator:
         self.logger.debug('Authenticating user ...')
         self.credentials = credentials
         self.token = token
-
 
         try:
             # Load credentials from token
@@ -47,15 +41,17 @@ class GoogleAppAuthenticator:
             if creds and creds.valid and not creds.expired:
                 self.logger.debug('Credentials are valid')
             else:
-                self.logger.debug(f'Credentials are not valid')
-
-                self.logger.debug('Deleting token...')
-                self._delete_token()
-                self.logger.debug('Generating new credentials...')
-                flow = InstalledAppFlow.from_client_config(self.credentials, self.SCOPES)
-                # creds = flow.run_local_server(port=0)
-                self.logger.debug('New credentials generated')
-
+                self.logger.debug('Credentials are not valid or expired')
+                if creds and creds.expired and creds.refresh_token:
+                    try:
+                        self.logger.debug('Refreshing expired credentials...')
+                        creds.refresh(Request())
+                        self.logger.debug('Credentials refreshed successfully')
+                    except RefreshError:
+                        self.logger.warning('Refresh failed, re-authentication required')
+                        self._handle_reauthentication_flow()
+                else:
+                    self._handle_reauthentication_flow()
 
         except Exception as e:
             self.logger.error(f'Error during authentication: {e}')
@@ -65,6 +61,17 @@ class GoogleAppAuthenticator:
         self.credentials = creds
         self.authenticated = True
         return self.credentials
+
+    def _handle_reauthentication_flow(self):
+        """Handle re-authentication flow using a console flow for Streamlit."""
+        self.logger.debug('Deleting token...')
+        self._delete_token()
+        self.logger.debug('Starting re-authentication flow...')
+        flow = InstalledAppFlow.from_client_config(self.credentials, self.SCOPES)
+        creds = flow.run_console()  # Changed from run_local_server to run_console
+        self.logger.debug('New credentials generated')
+        self._save_credentials(creds)
+        self.credentials = creds
     
     def _save_credentials(self, creds):
         '''Save credentials to a file'''
