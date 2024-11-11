@@ -66,8 +66,8 @@ SCHEDULER_APP_PATH = os.path.join(MASTER_PATH, 'srcs/scheduler_app')
 SECRET_PATH = os.path.join(MASTER_PATH, 'secret.json')
 
 #Secrets
-CREDENTIALS = get_value_from_json(SECRET_PATH, 'credentials')
-TOKEN = get_value_from_json(SECRET_PATH, 'token')
+CREDENTIALS = st.secrets['CRED']
+TOKEN = st.secrets['TOKEN']
 
 
 #Logging
