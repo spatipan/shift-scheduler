@@ -6,6 +6,7 @@ from google.auth.external_account_authorized_user import Credentials as External
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+from google.auth.exceptions import RefreshError
 import logging
 import json
 
