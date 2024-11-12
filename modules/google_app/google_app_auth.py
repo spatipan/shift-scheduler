@@ -9,7 +9,7 @@ from googleapiclient.errors import HttpError
 import logging
 import json
 
-from config import SECRET_PATH, CREDENTIALS, TOKEN
+# from config import SECRET_PATH, CREDENTIALS, TOKEN
 
 
 import json
