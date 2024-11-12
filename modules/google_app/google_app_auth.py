@@ -18,7 +18,7 @@ class GoogleAppAuthenticator:
         self.logger = logging.getLogger(__class__.__name__)
 
     def authenticate(self, credentials: dict, token: dict | None = None):
-        '''Authenticate user to use Google services'''
+    '''Authenticate user to use Google services'''
         if self.authenticated:
             self.logger.debug('User already authenticated')
             return self.credentials 
@@ -36,16 +36,20 @@ class GoogleAppAuthenticator:
             if creds and creds.valid and not creds.expired:
                 self.logger.debug('Credentials are valid')
             else:
-                if creds and creds.expired and creds.refresh_token:
-                    try:
-                        self.logger.debug('Refreshing expired credentials...')
-                        creds.refresh(Request())
-                        self.logger.debug('Credentials refreshed successfully')
-                    except RefreshError:
-                        self.logger.error("Token expired or revoked. Re-authentication required.")
-                        raise ValueError("Token expired or revoked.")
+                if creds and creds.expired:
+                    if creds.refresh_token:
+                        try:
+                            self.logger.debug('Refreshing expired credentials...')
+                            creds.refresh(Request())
+                            self.logger.debug('Credentials refreshed successfully')
+                        except RefreshError:
+                            self.logger.error("Token refresh failed: Token expired or revoked. Re-authentication required.")
+                            raise ValueError("Token refresh failed: Token expired or revoked.")
+                    else:
+                        self.logger.error("No refresh token available. Re-authentication required.")
+                        raise ValueError("No refresh token available. Re-authentication required.")
                 else:
-                    self.logger.error("No valid token found, re-authentication required.")
+                    self.logger.error("Invalid or expired credentials without a refresh token.")
                     raise ValueError("Re-authentication required due to invalid or expired credentials.")
 
         except RefreshError as e:
@@ -60,6 +64,7 @@ class GoogleAppAuthenticator:
         self.credentials = creds
         self.authenticated = True
         return self.credentials
+
 
     def _save_credentials(self, creds):
         '''Save credentials to a file'''
