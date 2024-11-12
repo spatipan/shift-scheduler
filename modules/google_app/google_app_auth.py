@@ -44,7 +44,7 @@ class GoogleAppAuthenticator:
         self.credentials = None
         self.authenticated = False
 
-    def authenticate_from_client_secrets(self):
+    def authenticate(self):
         '''Authenticate user to use Google services'''
         try:
             self.client_secrets = json.loads(st.secrets["google_oauth"]["client_secrets"])
