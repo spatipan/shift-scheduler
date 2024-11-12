@@ -63,7 +63,7 @@ class GoogleAppAuthenticator:
                 with open("temp_client_secrets.json", "w") as temp_file:
                     json.dump(self.client_secrets, temp_file)
                 flow = InstalledAppFlow.from_client_secrets_file("temp_client_secrets.json", scopes=self.SCOPES)
-                creds = flow.run_console()
+                creds = flow.run_local_server(port=0)
                 self.logger.debug('New credentials generated')
         except Exception as e:
             self.logger.error(f'Error during authentication: {e}')
