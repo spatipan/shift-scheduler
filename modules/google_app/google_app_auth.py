@@ -68,8 +68,10 @@ class GoogleAppAuthenticator:
                     json.dump(self.client_secrets, temp_file)
 
                 # Generate an authorization URL
-                flow = InstalledAppFlow.from_client_secrets_file("temp_client_secrets.json", scopes=self.SCOPES)
-                auth_url, _ = flow.authorization_url(prompt='consent')
+                flow = InstalledAppFlow.from_client_secrets_file("temp_client_secrets.json", scopes=self.SCOPES, redirect_uri='http://localhost:8501')
+                auth_url, _ = flow.authorization_url(
+                    access_type="offline", include_granted_scopes="true"
+                )
 
                 st.write("Visit the following URL to authorize the app:")
                 st.write(auth_url)
