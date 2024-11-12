@@ -29,6 +29,14 @@ from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 import streamlit as st
 
+
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
+import json
+import logging
+import streamlit as st
+
 class GoogleAppAuthenticator:
     def __init__(self, SCOPES):
         self.SCOPES = SCOPES
@@ -38,7 +46,6 @@ class GoogleAppAuthenticator:
 
     def authenticate_from_client_secrets(self):
         '''Authenticate user to use Google services'''
-        # Load client secrets and token from Streamlit secrets
         try:
             self.client_secrets = json.loads(st.secrets["google_oauth"]["client_secrets"])
             token_data = json.loads(st.secrets["google_oauth"].get("token", "{}"))
@@ -46,33 +53,39 @@ class GoogleAppAuthenticator:
             self.logger.error(f'Missing key in secrets: {e}')
             raise ValueError(f'Missing key in secrets: {e}')
         
-        # Initialize credentials from token data if available
         creds = None
         if token_data:
             creds = Credentials.from_authorized_user_info(token_data, scopes=self.SCOPES)
             self.logger.debug('Loaded credentials from token data')
 
         try:
-            # Refresh credentials if expired and refresh token is available
             if creds and creds.expired and creds.refresh_token:
                 self.logger.debug('Refreshing expired credentials...')
                 creds.refresh(Request())
                 self.logger.debug('Credentials refreshed successfully')
             elif not creds or (creds and not creds.valid):
-                # Save client secrets temporarily to file for the OAuth flow
                 with open("temp_client_secrets.json", "w") as temp_file:
                     json.dump(self.client_secrets, temp_file)
-                
+
+                # Generate an authorization URL
                 flow = InstalledAppFlow.from_client_secrets_file("temp_client_secrets.json", scopes=self.SCOPES)
-                creds = flow.run_local_server(port=0)
-                
-                self.logger.debug('New credentials generated')
+                auth_url, _ = flow.authorization_url(prompt='consent')
+
+                st.write("Visit the following URL to authorize the app:")
+                st.write(auth_url)
+
+                # Input field for the authorization code
+                auth_code = st.text_input("Enter the authorization code:")
+
+                if auth_code:
+                    # Exchange the authorization code for credentials
+                    creds = flow.fetch_token(code=auth_code)
+                    self.logger.debug('New credentials generated')
         
         except Exception as e:
             self.logger.error(f'Error during authentication: {e}')
-            raise ValueError(f'Error during authentication: {e}') 
+            raise ValueError(f'Error during authentication: {e}')
 
-        # Save and mark as authenticated if successful
         if creds:
             self._save_credentials(creds)
             self.credentials = creds
