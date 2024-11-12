@@ -18,7 +18,7 @@ class GoogleAppAuthenticator:
         self.logger = logging.getLogger(__class__.__name__)
 
     def authenticate(self, credentials: dict, token: dict | None = None):
-    '''Authenticate user to use Google services'''
+        '''Authenticate user to use Google services'''
         if self.authenticated:
             self.logger.debug('User already authenticated')
             return self.credentials 
