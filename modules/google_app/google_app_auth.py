@@ -63,9 +63,8 @@ class GoogleAppAuthenticator:
                 with open("temp_client_secrets.json", "w") as temp_file:
                     json.dump(self.client_secrets, temp_file)
                 
-                # Use InstalledAppFlow for headless environment with `run_console`
                 flow = InstalledAppFlow.from_client_secrets_file("temp_client_secrets.json", scopes=self.SCOPES)
-                creds = flow.run_console()  # Use `run_console` for headless environments
+                creds = flow.run_local_server(port=0)
                 
                 self.logger.debug('New credentials generated')
         
