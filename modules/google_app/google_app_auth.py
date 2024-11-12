@@ -19,25 +19,26 @@ from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
 
+
+
+
+import json
+import logging
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+from google.oauth2.credentials import Credentials
+import streamlit as st
+
 class GoogleAppAuthenticator:
-    def __init__(self, SCOPES: list = ['https://www.googleapis.com/auth/calendar.readonly', 
-                                      'https://www.googleapis.com/auth/spreadsheets.readonly']):
-        self.credentials = None
-        self.token = None
-        self.client_secrets = None
-        self.authenticated = False
+    def __init__(self, SCOPES):
         self.SCOPES = SCOPES
         self.logger = logging.getLogger(__class__.__name__)
+        self.credentials = None
+        self.authenticated = False
 
-    def authenticate(self):
+    def authenticate_from_client_secrets(self):
         '''Authenticate user to use Google services'''
-        if self.authenticated:
-            self.logger.debug('User already authenticated')
-            return self.credentials
-        
-        self.logger.debug('Authenticating user ...')
-
-        # Load client secrets from Streamlit secrets
+        # Load client secrets and token from Streamlit secrets
         try:
             self.client_secrets = json.loads(st.secrets["google_oauth"]["client_secrets"])
             token_data = json.loads(st.secrets["google_oauth"].get("token", "{}"))
@@ -45,31 +46,34 @@ class GoogleAppAuthenticator:
             self.logger.error(f'Missing key in secrets: {e}')
             raise ValueError(f'Missing key in secrets: {e}')
         
-        # Create credentials from existing token data if available
+        # Initialize credentials from token data if available
+        creds = None
         if token_data:
             creds = Credentials.from_authorized_user_info(token_data, scopes=self.SCOPES)
-            self.logger.debug('Credentials loaded from existing token data')
-        else:
-            creds = None
-        
-        # Refresh credentials if expired or create new credentials if none exist
+            self.logger.debug('Loaded credentials from token data')
+
         try:
+            # Refresh credentials if expired and refresh token is available
             if creds and creds.expired and creds.refresh_token:
                 self.logger.debug('Refreshing expired credentials...')
                 creds.refresh(Request())
                 self.logger.debug('Credentials refreshed successfully')
-            elif not creds:
-                # Authenticate using the client secrets for a new token
+            elif not creds or (creds and not creds.valid):
+                # Save client secrets temporarily to file for the OAuth flow
                 with open("temp_client_secrets.json", "w") as temp_file:
                     json.dump(self.client_secrets, temp_file)
+                
+                # Use InstalledAppFlow for headless environment with `run_console`
                 flow = InstalledAppFlow.from_client_secrets_file("temp_client_secrets.json", scopes=self.SCOPES)
-                creds = flow.run_local_server(port=9000, prompt='consent')
+                creds = flow.run_console()  # Use `run_console` for headless environments
+                
                 self.logger.debug('New credentials generated')
+        
         except Exception as e:
             self.logger.error(f'Error during authentication: {e}')
-            raise ValueError(f'Error during authentication: {e}')
+            raise ValueError(f'Error during authentication: {e}') 
 
-        # Save credentials if authenticated successfully
+        # Save and mark as authenticated if successful
         if creds:
             self._save_credentials(creds)
             self.credentials = creds
@@ -77,11 +81,76 @@ class GoogleAppAuthenticator:
             return self.credentials
 
     def _save_credentials(self, creds):
-        '''Save credentials to a file'''
+        '''Save credentials to a secure location or temporary file'''
         new_token_data = json.loads(creds.to_json())
         with open('updated_token.json', 'w') as token_file:
             json.dump(new_token_data, token_file)
         self.logger.debug('Updated credentials saved to file')
+
+
+# class GoogleAppAuthenticator:
+#     def __init__(self, SCOPES: list = ['https://www.googleapis.com/auth/calendar.readonly', 
+#                                       'https://www.googleapis.com/auth/spreadsheets.readonly']):
+#         self.credentials = None
+#         self.token = None
+#         self.client_secrets = None
+#         self.authenticated = False
+#         self.SCOPES = SCOPES
+#         self.logger = logging.getLogger(__class__.__name__)
+
+#     def authenticate(self):
+#         '''Authenticate user to use Google services'''
+#         if self.authenticated:
+#             self.logger.debug('User already authenticated')
+#             return self.credentials
+        
+#         self.logger.debug('Authenticating user ...')
+
+#         # Load client secrets from Streamlit secrets
+#         try:
+#             self.client_secrets = json.loads(st.secrets["google_oauth"]["client_secrets"])
+#             token_data = json.loads(st.secrets["google_oauth"].get("token", "{}"))
+#         except KeyError as e:
+#             self.logger.error(f'Missing key in secrets: {e}')
+#             raise ValueError(f'Missing key in secrets: {e}')
+        
+#         # Create credentials from existing token data if available
+#         if token_data:
+#             creds = Credentials.from_authorized_user_info(token_data, scopes=self.SCOPES)
+#             self.logger.debug('Credentials loaded from existing token data')
+#         else:
+#             creds = None
+        
+#         # Refresh credentials if expired or create new credentials if none exist
+#         try:
+#             if creds and creds.expired and creds.refresh_token:
+#                 self.logger.debug('Refreshing expired credentials...')
+#                 creds.refresh(Request())
+#                 self.logger.debug('Credentials refreshed successfully')
+#             elif not creds:
+#                 # Authenticate using the client secrets for a new token
+#                 with open("temp_client_secrets.json", "w") as temp_file:
+#                     json.dump(self.client_secrets, temp_file)
+#                 flow = InstalledAppFlow.from_client_secrets_file("temp_client_secrets.json", scopes=self.SCOPES)
+#                 creds = flow.run_local_server(port=9000, prompt='consent')
+#                 self.logger.debug('New credentials generated')
+#         except Exception as e:
+#             self.logger.error(f'Error during authentication: {e}')
+#             raise ValueError(f'Error during authentication: {e}')
+
+#         # Save credentials if authenticated successfully
+#         if creds:
+#             self._save_credentials(creds)
+#             self.credentials = creds
+#             self.authenticated = True
+#             return self.credentials
+
+#     def _save_credentials(self, creds):
+#         '''Save credentials to a file'''
+#         new_token_data = json.loads(creds.to_json())
+#         with open('updated_token.json', 'w') as token_file:
+#             json.dump(new_token_data, token_file)
+#         self.logger.debug('Updated credentials saved to file')
 
 
 
