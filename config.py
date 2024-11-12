@@ -65,13 +65,23 @@ GOOGLE_APP_PATH = os.path.join(MASTER_PATH, 'srcs/google_app')
 SCHEDULER_APP_PATH = os.path.join(MASTER_PATH, 'srcs/scheduler_app')
 SECRET_PATH = os.path.join(MASTER_PATH, 'secret.json')
 
-#Secrets
-CREDENTIALS = st.secrets['CRED'] 
-# TOKEN = st.secrets['TOKEN'] # handle case when secret is not found
-try:
-    TOKEN = st.secrets['TOKEN']
-except Exception as e:
-    TOKEN = None
+# #Secrets
+# CREDENTIALS = st.secrets['CRED'] 
+# # TOKEN = st.secrets['TOKEN'] # handle case when secret is not found
+# try:
+#     TOKEN = st.secrets['TOKEN']
+# except Exception as e:
+#     TOKEN = None
+
+
+# Load the client secrets from Streamlit secrets
+client_secrets = st.secrets["google_oauth"]["client_secrets"]
+client_secrets_dict = json.loads(client_secrets)
+
+# Save the client secrets to a temporary file (optional if needed)
+with open("temp_client_secrets.json", "w") as temp_file:
+    json.dump(client_secrets_dict, temp_file)
+
 
 
 #Logging
