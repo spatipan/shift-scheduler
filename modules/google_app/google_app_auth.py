@@ -29,7 +29,7 @@ class GoogleAppAuthenticator:
         self.SCOPES = SCOPES
         self.logger = logging.getLogger(__class__.__name__)
 
-    def authenticate_from_client_secrets(self):
+    def authenticate(self):
         '''Authenticate user to use Google services'''
         if self.authenticated:
             self.logger.debug('User already authenticated')
