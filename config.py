@@ -66,8 +66,12 @@ SCHEDULER_APP_PATH = os.path.join(MASTER_PATH, 'srcs/scheduler_app')
 SECRET_PATH = os.path.join(MASTER_PATH, 'secret.json')
 
 #Secrets
-CREDENTIALS = st.secrets['CRED']
-TOKEN = st.secrets['TOKEN']
+CREDENTIALS = st.secrets['CRED'] 
+# TOKEN = st.secrets['TOKEN'] # handle case when secret is not found
+try:
+    TOKEN = st.secrets['TOKEN']
+except Exception as e:
+    TOKEN = None
 
 
 #Logging
