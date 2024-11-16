@@ -47,8 +47,12 @@ app = get_app()
 with tab1:
     st.title("Main")
 
-    # Button to run the main function
-    if st.button("Fetch Information"):
+    # # Button to run the main function
+    # if st.button("Fetch Information"):
+        
+
+    
+    if st.button("Solve Schedule"):
         app.fetch_information()
         # events = app.calendar_app.events
         app._update_config()
@@ -57,8 +61,8 @@ with tab1:
         end = app.schedule.end
         st.write(f"Start date: {start}")
         st.write(f"End date: {end}")
-    
-    if st.button("Solve Schedule"):
+        # Solving the schedule, circular loading bar
+        st.write("Solving the schedule...")
         app.solve()
         st.success("Schedule solved successfully!")
         app.update_information()
