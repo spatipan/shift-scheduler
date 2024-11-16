@@ -1,408 +1,572 @@
-2024-11-17 06:09:13 [DEBUG] - config - Logging to tmp/logging.log
-2024-11-17 06:09:13 [DEBUG] - GoogleAppAuthenticator - Authenticating user ...
-2024-11-17 06:09:13 [DEBUG] - GoogleAppAuthenticator - Loading credentials from token
-2024-11-17 06:09:13 [DEBUG] - GoogleAppAuthenticator - Credentials are not valid
-2024-11-17 06:09:13 [DEBUG] - GoogleAppAuthenticator - Deleting token...
-2024-11-17 06:09:13 [DEBUG] - GoogleAppAuthenticator - Token deleted from file
-2024-11-17 06:09:13 [DEBUG] - GoogleAppAuthenticator - Generating new credentials...
-2024-11-17 06:09:13 [DEBUG] - requests_oauthlib.oauth2_session - Generated new state FCtiZrxVYzxClH7V1jrntzr3Q3O7Ni.
-2024-11-17 06:09:25 [INFO] - google_auth_oauthlib.flow - "GET /?state=FCtiZrxVYzxClH7V1jrntzr3Q3O7Ni&code=4/0AeanS0YSZ_JvyVoSc65W-Kg8xuvQguCt-Afm_GKN942fwsvj_YIRpMklG3qNiGeiGA9mRw&scope=https://www.googleapis.com/auth/spreadsheets%20https://www.googleapis.com/auth/calendar HTTP/1.1" 200 65
-2024-11-17 06:09:25 [DEBUG] - requests_oauthlib.oauth2_session - Encoding `client_id` "691458340667-jeh6bfkes4m1ohpgp2hk6bnt8k6vb5ff.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
-2024-11-17 06:09:25 [DEBUG] - requests_oauthlib.oauth2_session - Requesting url https://oauth2.googleapis.com/token using method POST.
-2024-11-17 06:09:25 [DEBUG] - requests_oauthlib.oauth2_session - Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AeanS0YSZ_JvyVoSc65W-Kg8xuvQguCt-Afm_GKN942fwsvj_YIRpMklG3qNiGeiGA9mRw', 'redirect_uri': 'http://localhost:59095/'}
-2024-11-17 06:09:25 [DEBUG] - requests_oauthlib.oauth2_session - Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x15782c100>, 'verify': True, 'proxies': None, 'cert': None}.
-2024-11-17 06:09:25 [DEBUG] - urllib3.connectionpool - Starting new HTTPS connection (1): oauth2.googleapis.com:443
-2024-11-17 06:09:26 [DEBUG] - urllib3.connectionpool - https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
-2024-11-17 06:09:26 [DEBUG] - requests_oauthlib.oauth2_session - Request to fetch token completed with status 200.
-2024-11-17 06:09:26 [DEBUG] - requests_oauthlib.oauth2_session - Request url was https://oauth2.googleapis.com/token
-2024-11-17 06:09:26 [DEBUG] - requests_oauthlib.oauth2_session - Request headers were {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '157', 'Authorization': 'Basic NjkxNDU4MzQwNjY3LWplaDZiZmtlczRtMW9ocGdwMmhrNmJudDhrNnZiNWZmLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tOkdPQ1NQWC1pNUFSdUpmTW9mOEZnTWtrNmItVWlqcDNncTVf'}
-2024-11-17 06:09:26 [DEBUG] - requests_oauthlib.oauth2_session - Request body was grant_type=authorization_code&code=4%2F0AeanS0YSZ_JvyVoSc65W-Kg8xuvQguCt-Afm_GKN942fwsvj_YIRpMklG3qNiGeiGA9mRw&redirect_uri=http%3A%2F%2Flocalhost%3A59095%2F
-2024-11-17 06:09:26 [DEBUG] - requests_oauthlib.oauth2_session - Response headers were {'Pragma': 'no-cache', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Date': 'Sat, 16 Nov 2024 23:09:26 GMT', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'Transfer-Encoding': 'chunked'} and content {
-  "access_token": "ya29.a0AeDClZB15joOcvaLy7l8UdL6vvhXAKWWiLIzyYcovWKYnqF36yRzo0tLt-0tJ9--9RrPWAPQOPuhgo59ypKY083LzOw5y4X-AJS7qFbeDRZkET1T0AE4Yue6uP-_MGHP7xzElMgyCLrPGosvvHcizwLdeh0azNKY2MW-7N6IaCgYKAT4SARISFQHGX2MioJ_tEGLOZXoPzEZjwcAn6w0175",
-  "expires_in": 3599,
-  "refresh_token": "1//0gVf_0lJ2xbhVCgYIARAAGBASNwF-L9IruNp2HSWy8R7cTc8U379QKXLOkScOF9rEXendG3rwkdH5hcLqtcQs_RQ8j4l29wtekWI",
-  "scope": "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/spreadsheets",
-  "token_type": "Bearer"
-}.
-2024-11-17 06:09:26 [DEBUG] - requests_oauthlib.oauth2_session - Invoking 0 token response hooks.
-2024-11-17 06:09:26 [DEBUG] - requests_oauthlib.oauth2_session - Obtained token {'access_token': 'ya29.a0AeDClZB15joOcvaLy7l8UdL6vvhXAKWWiLIzyYcovWKYnqF36yRzo0tLt-0tJ9--9RrPWAPQOPuhgo59ypKY083LzOw5y4X-AJS7qFbeDRZkET1T0AE4Yue6uP-_MGHP7xzElMgyCLrPGosvvHcizwLdeh0azNKY2MW-7N6IaCgYKAT4SARISFQHGX2MioJ_tEGLOZXoPzEZjwcAn6w0175', 'expires_in': 3599, 'refresh_token': '1//0gVf_0lJ2xbhVCgYIARAAGBASNwF-L9IruNp2HSWy8R7cTc8U379QKXLOkScOF9rEXendG3rwkdH5hcLqtcQs_RQ8j4l29wtekWI', 'scope': ['https://www.googleapis.com/auth/calendar', 'https://www.googleapis.com/auth/spreadsheets'], 'token_type': 'Bearer', 'expires_at': 1731802165.263811}.
-2024-11-17 06:09:26 [DEBUG] - GoogleAppAuthenticator - New credentials generated
-2024-11-17 06:09:26 [DEBUG] - GoogleAppAuthenticator - Credentials saved to file
-2024-11-17 06:09:26 [INFO] - googleapiclient.discovery_cache - file_cache is only supported with oauth2client<4.0.0
-2024-11-17 06:09:26 [DEBUG] - CalendarApp - Service initialized successfully
-2024-11-17 06:09:26 [INFO] - googleapiclient.discovery_cache - file_cache is only supported with oauth2client<4.0.0
-2024-11-17 06:09:26 [DEBUG] - GoogleSheetApp - Service initialized successfully
-2024-11-17 06:09:26 [DEBUG] - SchedulerSheetUI - SchedulerSheetUI initialized - sheetId: 1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU
-2024-11-17 06:09:26 [DEBUG] - googleapiclient.discovery - URL being requested: GET https://sheets.googleapis.com/v4/spreadsheets/1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU/values/December%202024%21A1%3AV?alt=json
-2024-11-17 06:09:31 [DEBUG] - SchedulerSheetUI - Fetched sheet values from A1:V
-2024-11-17 06:09:31 [DEBUG] - SchedulerCalendarUI - SchedulerCalendarUI initialized - calendarId: em.cmu.teacher@gmail.com
-2024-11-17 06:09:31 [DEBUG] - root - Converted A12 to 11, 0
-2024-11-17 06:09:31 [DEBUG] - root - Converted A42 to 41, 0
-2024-11-17 06:09:31 [DEBUG] - SchedulerSheetUI - Got sheet values from A12:A42, start: (11, 0), end: (41, 0)
-2024-11-17 06:09:31 [DEBUG] - root - Converted A47 to 46, 0
-2024-11-17 06:09:31 [DEBUG] - root - Converted G67 to 66, 6
-2024-11-17 06:09:31 [DEBUG] - SchedulerSheetUI - Got sheet values from A47:G67, start: (46, 0), end: (66, 6)
-2024-11-17 06:09:31 [DEBUG] - root - Converted C11 to 10, 2
-2024-11-17 06:09:31 [DEBUG] - root - Converted L42 to 41, 11
-2024-11-17 06:09:31 [DEBUG] - SchedulerSheetUI - Got sheet values from C11:L42, start: (10, 2), end: (41, 11)
-2024-11-17 06:09:31 [DEBUG] - root - Converted C181 to 180, 2
-2024-11-17 06:09:31 [DEBUG] - root - Converted L212 to 211, 11
-2024-11-17 06:09:31 [DEBUG] - SchedulerSheetUI - Got sheet values from C181:L212, start: (180, 2), end: (211, 11)
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-01 to กรีฑา คำเนียม
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-02 to บุญฤทธิ์ คำทิพย์
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service1 - 2024-12-02 to บวร วิทยชำนาญกุล
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service2 - 2024-12-02 to บวร วิทยชำนาญกุล
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-02 to วิพุธ เล้าสุขศรี
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-02 to กรองกาญจน์ สุธรรม
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-03 to วชิระ วงศ์ธนสารสิน
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-03 to วิพุธ เล้าสุขศรี
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-03 to กรองกาญจน์ สุธรรม
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-04 to กอสิน เลาหะวิสุทธิ์
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-04 to วิพุธ เล้าสุขศรี
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-04 to กรองกาญจน์ สุธรรม
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-05 to บวร วิทยชำนาญกุล
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-06 to วิพุธ เล้าสุขศรี
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-06 to กรองกาญจน์ สุธรรม
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-09 to กอสิน เลาหะวิสุทธิ์
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-09 to บริบูรณ์ เชนธนากิจ
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-10 to กรองกาญจน์ สุธรรม
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-11 to ปริญญา เทียนวิบูลย์
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-11 to กอสิน เลาหะวิสุทธิ์
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-11 to บริบูรณ์ เชนธนากิจ
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-12 to ณัฐฐิกานต์ มีลาภ
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-12 to กอสิน เลาหะวิสุทธิ์
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-12 to บริบูรณ์ เชนธนากิจ
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-13 to กอสิน เลาหะวิสุทธิ์
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-13 to บริบูรณ์ เชนธนากิจ
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-16 to บวร วิทยชำนาญกุล
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-16 to ปริญญา เทียนวิบูลย์
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-17 to ชานนท์ ช่างรัตนากร
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service1 - 2024-12-17 to สริยา เสือแซมเสริม
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service1+ - 2024-12-17 to กอสิน เลาหะวิสุทธิ์
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service2 - 2024-12-17 to ชานนท์ ช่างรัตนากร
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service2+ - 2024-12-17 to กอสิน เลาหะวิสุทธิ์
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-17 to บวร วิทยชำนาญกุล
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-17 to ปริญญา เทียนวิบูลย์
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Amd - 2024-12-17 to บวร วิทยชำนาญกุล
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Avd - 2024-12-17 to พิมพ์พรรณ อัศวสุรอิน
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-18 to วชิระ วงศ์ธนสารสิน
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-18 to บวร วิทยชำนาญกุล
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-18 to ปริญญา เทียนวิบูลย์
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-19 to ปริญญา เทียนวิบูลย์
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-19 to บวร วิทยชำนาญกุล
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-19 to ปริญญา เทียนวิบูลย์
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-20 to บวร วิทยชำนาญกุล
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-20 to ปริญญา เทียนวิบูลย์
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-23 to บริบูรณ์ เชนธนากิจ
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-23 to ชานนท์ ช่างรัตนากร
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-24 to สริยา เสือแซมเสริม
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-24 to บริบูรณ์ เชนธนากิจ
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-24 to ชานนท์ ช่างรัตนากร
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-25 to วิพุธ เล้าสุขศรี
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Mc - 2024-12-25 to กรองกาญจน์ สุธรรม
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service1 - 2024-12-25 to บริบูรณ์ เชนธนากิจ
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service1+ - 2024-12-25 to สริยา เสือแซมเสริม
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service2 - 2024-12-25 to บริบูรณ์ เชนธนากิจ
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service2+ - 2024-12-25 to สริยา เสือแซมเสริม
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-25 to บริบูรณ์ เชนธนากิจ
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-25 to ชานนท์ ช่างรัตนากร
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Amd - 2024-12-25 to บริบูรณ์ เชนธนากิจ
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Avd - 2024-12-25 to ชานนท์ ช่างรัตนากร
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-26 to พิมพ์พรรณ อัศวสุรอิน
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-26 to บริบูรณ์ เชนธนากิจ
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-26 to ชานนท์ ช่างรัตนากร
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-27 to บริบูรณ์ เชนธนากิจ
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-27 to ชานนท์ ช่างรัตนากร
-2024-11-17 06:09:31 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-31 to พิมพ์พรรณ อัศวสุรอิน
-2024-11-17 06:09:31 [DEBUG] - root - Converted B12 to 11, 1
-2024-11-17 06:09:31 [DEBUG] - root - Converted B42 to 41, 1
-2024-11-17 06:09:31 [DEBUG] - SchedulerSheetUI - Got sheet values from B12:B42, start: (11, 1), end: (41, 1)
-2024-11-17 06:09:31 [DEBUG] - root - Converted B218 to 217, 1
-2024-11-17 06:09:31 [DEBUG] - root - Converted C240 to 239, 2
-2024-11-17 06:09:31 [DEBUG] - SchedulerSheetUI - Got sheet values from B218:C240, start: (217, 1), end: (239, 2)
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added total shifts constraint for BC - 4
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added total shifts constraint for BW - 2
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added total shifts constraint for KS - 4
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added total shifts constraint for PT - 6
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added total shifts constraint for WW - 7
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added total shifts constraint for BK - 2
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added total shifts constraint for CC - 8
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added total shifts constraint for KL - 8
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added total shifts constraint for PU - 8
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added total shifts constraint for NM - 7
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added total shifts constraint for SS - 4
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added total shifts constraint for WL - 8
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added total shifts constraint for KK - 4
-2024-11-17 06:09:31 [DEBUG] - root - Converted H218 to 217, 7
-2024-11-17 06:09:31 [DEBUG] - root - Converted J240 to 239, 9
-2024-11-17 06:09:31 [DEBUG] - SchedulerSheetUI - Got sheet values from H218:J240, start: (217, 7), end: (239, 9)
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added shift preference constraint for BC - morning: False, afternoon: False
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added shift preference constraint for BW - morning: False, afternoon: False
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added shift preference constraint for KS - morning: False, afternoon: False
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added shift preference constraint for PT - morning: False, afternoon: False
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added shift preference constraint for WW - morning: False, afternoon: False
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added shift preference constraint for BK - morning: False, afternoon: False
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added shift preference constraint for CC - morning: False, afternoon: False
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added shift preference constraint for KL - morning: False, afternoon: False
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added shift preference constraint for PU - morning: False, afternoon: False
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added shift preference constraint for NM - morning: False, afternoon: False
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added shift preference constraint for SS - morning: False, afternoon: False
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added shift preference constraint for WL - morning: False, afternoon: False
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added shift preference constraint for KK - morning: False, afternoon: False
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added shift preference constraint for None - morning: False, afternoon: False
-2024-11-17 06:09:31 [DEBUG] - root - Converted B217 to 216, 1
-2024-11-17 06:09:31 [DEBUG] - root - Converted F240 to 239, 5
-2024-11-17 06:09:31 [DEBUG] - SchedulerSheetUI - Got sheet values from B217:F240, start: (216, 1), end: (239, 5)
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added total shifts per employee constraint for WW - amd - 0
-2024-11-17 06:09:31 [DEBUG] - ScheduleSolver - Added total shifts per employee constraint for WW - avd - 0
-2024-11-17 06:09:31 [DEBUG] - googleapiclient.discovery - URL being requested: GET https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events?timeMin=2024-12-01T00%3A00%3A00Z&timeMax=2024-12-31T23%3A59%3A59.099999Z&singleEvents=true&orderBy=startTime&alt=json
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Sample event: {'kind': 'calendar#event', 'etag': '"3463286709134000"', 'id': '_6oq36or268s6cd326ksj8dhk65gm8p1o6ko3gd9jcgoj4oj260s0_20241130', 'status': 'confirmed', 'htmlLink': 'https://www.google.com/calendar/event?eid=XzZvcTM2b3IyNjhzNmNkMzI2a3NqOGRoazY1Z204cDFvNmtvM2dkOWpjZ29qNG9qMjYwczBfMjAyNDExMzAgZW0uY211LnRlYWNoZXJAbQ', 'created': '2024-08-13T03:01:27.000Z', 'updated': '2024-11-15T04:02:34.567Z', 'summary': 'BK เรียน', 'creator': {'email': 'bkamthip@gmail.com'}, 'organizer': {'email': 'em.cmu.teacher@gmail.com', 'self': True}, 'start': {'date': '2024-11-30'}, 'end': {'date': '2024-12-02'}, 'recurringEventId': '_6oq36or268s6cd326ksj8dhk65gm8p1o6ko3gd9jcgoj4oj260s0', 'originalStartTime': {'date': '2024-11-30'}, 'transparency': 'transparent', 'iCalUID': '643cb28f4b594641add850853d12bb08', 'sequence': 0, 'attendees': [{'email': 'bkamthip@gmail.com', 'responseStatus': 'accepted'}, {'email': 'em.cmu.teacher@gmail.com', 'organizer': True, 'self': True, 'responseStatus': 'accepted'}], 'extendedProperties': {'private': {'TASKPARTCOMPLETED': 'false'}}, 'reminders': {'useDefault': False}, 'eventType': 'default'}
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK เรียน starts at 2024-11-30 00:00:00+07:00 and ends at 2024-12-02 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KK(SMC) starts at 2024-12-02 00:00:00+07:00 and ends at 2024-12-03 00:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BC NM WW BW WL SS ประชุมยุทธศาสตร์ Postgrad EMCMU starts at 2024-12-02 09:00:00+07:00 and ends at 2024-12-02 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC), ณัฐฐิกานต์ มีลาภ (NM), วชิระ วงศ์ธนสารสิน (WW), บวร วิทยชำนาญกุล (BW), วิพุธ เล้าสุขศรี (WL), สริยา เสือแซมเสริม (SS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK weekly meeting SMC starts at 2024-12-02 09:00:00+07:00 and ends at 2024-12-02 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KS สอน CVS I ปี 5 starts at 2024-12-02 10:00:00+07:00 and ends at 2024-12-02 12:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BW สอน ACLS ปี 5 (ชั้น 9 ราชนครินทร์) starts at 2024-12-02 13:00:00+07:00 and ends at 2024-12-02 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2024-12-03 00:00:00+07:00 and ends at 2024-12-04 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: SS(SMC) starts at 2024-12-03 00:00:00+07:00 and ends at 2024-12-04 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KL สอน Toxicology+ATLS Review ปี 5 starts at 2024-12-03 10:00:00+07:00 and ends at 2024-12-03 12:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK CQI-Skydoctor ประจำเดือน starts at 2024-12-03 10:00:00+07:00 and ends at 2024-12-03 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: PT สอน Simulation Disaster ปี 5 starts at 2024-12-03 13:00:00+07:00 and ends at 2024-12-03 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KL BK Conference EMCMU resident starts at 2024-12-03 13:00:00+07:00 and ends at 2024-12-03 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL), บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BW PU คุยกับเมด flow CO poisoning (zoom) starts at 2024-12-03 15:00:00+07:00 and ends at 2024-12-03 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW), พิมพ์พรรณ อัศวสุรอิน (PU)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2024-12-04 00:00:00+07:00 and ends at 2024-12-05 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: CC สอน CVS II Syncope & Dyspnea ปี 5 starts at 2024-12-04 10:00:00+07:00 and ends at 2024-12-04 12:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: NM,พ.ไกรวี: SES Ext. starts at 2024-12-04 13:00:00+07:00 and ends at 2024-12-04 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: SS+WL สอน ATLS ปี 5 (ชั้น 9 ราชนครินทร์) starts at 2024-12-04 13:00:00+07:00 and ends at 2024-12-04 16:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS), วิพุธ เล้าสุขศรี (WL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WW BW Rudklao (BT) RU meeting starts at 2024-12-04 14:00:00+07:00 and ends at 2024-12-04 16:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW), บวร วิทยชำนาญกุล (BW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: NM PU not available starts at 2024-12-05 00:00:00+07:00 and ends at 2024-12-06 00:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM), พิมพ์พรรณ อัศวสุรอิน (PU)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: SS(SMC) starts at 2024-12-06 00:00:00+07:00 and ends at 2024-12-07 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ตัดสินผลวิจัย งานประกวดพนักงานมหาลัย starts at 2024-12-06 00:00:00+07:00 and ends at 2024-12-08 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK BW KK UTMB starts at 2024-12-06 00:00:00+07:00 and ends at 2024-12-09 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK), บวร วิทยชำนาญกุล (BW), กรีฑา คำเนียม (KK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Clinic starts at 2024-12-06 09:00:00+07:00 and ends at 2024-12-06 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KS MSL Part 3 Project based Learning ครั้งที่ 4  หัวข้อ Mastering Project Management: Approaches for Effective Execution and Monitoring  starts at 2024-12-06 09:00:00+07:00 and ends at 2024-12-06 12:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BC สอน GI Emergency ปี 5 starts at 2024-12-06 10:00:00+07:00 and ends at 2024-12-06 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: ประชุมฝ่าย วิชาการ วฉท BW WW starts at 2024-12-06 12:15:00+07:00 and ends at 2024-12-06 13:15:00+07:00 for employee: บวร วิทยชำนาญกุล (BW), วชิระ วงศ์ธนสารสิน (WW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WW สอน  Neuro Emer CT brain ปี 5 starts at 2024-12-06 13:00:00+07:00 and ends at 2024-12-06 16:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK เรียน starts at 2024-12-07 00:00:00+07:00 and ends at 2024-12-09 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: NM Sriphat Medical Expo starts at 2024-12-07 00:00:00+07:00 and ends at 2024-12-10 00:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: PU KL unavailable starts at 2024-12-07 00:00:00+07:00 and ends at 2024-12-09 00:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU), กอสิน เลาหะวิสุทธิ์ (KL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WL ขอลา 7-9 ธค starts at 2024-12-07 00:00:00+07:00 and ends at 2024-12-10 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KK(SMC) starts at 2024-12-09 00:00:00+07:00 and ends at 2024-12-10 00:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: NM น้องฟ้า พี่เมย์ ประชุมรับทราบผลการประชุม อฝส.  starts at 2024-12-09 09:00:00+07:00 and ends at 2024-12-09 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK weekly meeting SMC starts at 2024-12-09 09:00:00+07:00 and ends at 2024-12-09 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BC สอน EMS System ปี 5 starts at 2024-12-09 10:00:00+07:00 and ends at 2024-12-09 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: PU ประชุม Case Observe KPI starts at 2024-12-09 11:00:00+07:00 and ends at 2024-12-09 12:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: PU สอน Environmental injuries & Animal bites ปี 5 starts at 2024-12-09 13:00:00+07:00 and ends at 2024-12-09 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2024-12-10 00:00:00+07:00 and ends at 2024-12-11 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: SS ขอลา starts at 2024-12-10 00:00:00+07:00 and ends at 2024-12-12 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: NM not available starts at 2024-12-10 00:00:00+07:00 and ends at 2024-12-11 00:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2024-12-11 00:00:00+07:00 and ends at 2024-12-12 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: PT สอน ER Learning  ปี 5 starts at 2024-12-11 10:00:00+07:00 and ends at 2024-12-11 12:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KS,PU,KL,CC หวาน,หมิว: ประชุมundergrad starts at 2024-12-11 10:00:00+07:00 and ends at 2024-12-11 12:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), พิมพ์พรรณ อัศวสุรอิน (PU), กอสิน เลาหะวิสุทธิ์ (KL), ชานนท์ ช่างรัตนากร (CC)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Lunch: Discussion Dojo: The art of the arguments starts at 2024-12-11 12:30:00+07:00 and ends at 2024-12-11 13:30:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WW + WL Tutorial ปี 5 starts at 2024-12-11 13:00:00+07:00 and ends at 2024-12-11 16:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW), วิพุธ เล้าสุขศรี (WL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK ลา starts at 2024-12-12 00:00:00+07:00 and ends at 2024-12-13 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KK(SMC) starts at 2024-12-12 00:00:00+07:00 and ends at 2024-12-13 00:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BC Conference EMCMU resident starts at 2024-12-12 08:45:00+07:00 and ends at 2024-12-12 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BW สอน ER Learning  ปี 5 starts at 2024-12-12 10:00:00+07:00 and ends at 2024-12-12 12:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KS: สอบลงกองปี6 starts at 2024-12-12 13:00:00+07:00 and ends at 2024-12-12 15:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK คุมสอบ Skills ศรว. ซ่อมครั้งที่ 2 (ถ้ามี) starts at 2024-12-12 13:00:00+07:00 and ends at 2024-12-12 16:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุมยุทธศาสตร์ (วฉท) starts at 2024-12-12 13:00:00+07:00 and ends at 2024-12-12 15:30:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KS,BC: คุมสอบAdvice Ext. starts at 2024-12-12 15:00:00+07:00 and ends at 2024-12-12 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), บริบูรณ์ เชนธนากิจ (BC)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2024-12-13 00:00:00+07:00 and ends at 2024-12-14 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KS POCCUS starts at 2024-12-13 00:00:00+07:00 and ends at 2024-12-15 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), ชานนท์ ช่างรัตนากร (CC)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุม OTQA starts at 2024-12-13 00:00:00+07:00 and ends at 2024-12-14 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WL คุมสอบ Skills ศรว. ครั้งที่ 3 starts at 2024-12-13 08:00:00+07:00 and ends at 2024-12-13 16:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WW + WL สอบลงกอง+ปิดกองปี 5 (ช2) starts at 2024-12-13 08:00:00+07:00 and ends at 2024-12-13 16:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW), วิพุธ เล้าสุขศรี (WL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Clinic starts at 2024-12-13 09:00:00+07:00 and ends at 2024-12-13 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KL ช่วยคุมสอบ OSCE ปี 5 starts at 2024-12-13 13:00:00+07:00 and ends at 2024-12-13 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KS: ปิดกอง ปี6 starts at 2024-12-13 15:00:00+07:00 and ends at 2024-12-13 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2024-12-14 00:00:00+07:00 and ends at 2024-12-16 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK เรียน starts at 2024-12-14 00:00:00+07:00 and ends at 2024-12-16 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: PU KL เรียน chula EP starts at 2024-12-14 00:00:00+07:00 and ends at 2024-12-15 00:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU), กอสิน เลาหะวิสุทธิ์ (KL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: NM not available starts at 2024-12-14 00:00:00+07:00 and ends at 2024-12-15 00:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: UT KL คุมสอบ Comprehensive OSCE starts at 2024-12-15 00:00:00+07:00 and ends at 2024-12-16 00:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WW ลาพักผ่อน starts at 2024-12-16 00:00:00+07:00 and ends at 2024-12-17 00:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2024-12-16 00:00:00+07:00 and ends at 2024-12-17 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: CC เปิดกอง ปี 5(ช1) starts at 2024-12-16 08:00:00+07:00 and ends at 2024-12-16 09:30:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WL: เปิดกอง ปี6 starts at 2024-12-16 08:00:00+07:00 and ends at 2024-12-16 10:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: NM BW CC SS WL WW พี่เก๋ พี่เมย์ น้องฟ้า ประชุม Postgrad starts at 2024-12-16 09:00:00+07:00 and ends at 2024-12-16 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM), บวร วิทยชำนาญกุล (BW), ชานนท์ ช่างรัตนากร (CC), สริยา เสือแซมเสริม (SS), วิพุธ เล้าสุขศรี (WL), วชิระ วงศ์ธนสารสิน (WW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK weekly meeting SMC starts at 2024-12-16 09:00:00+07:00 and ends at 2024-12-16 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุมงานคุณภาพโรงพยาบาลฯ ร่วมกับคณบดี starts at 2024-12-16 12:00:00+07:00 and ends at 2024-12-16 13:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BW สอน Basic Resuscitation/ Basic Monitoring ปี 5 starts at 2024-12-16 13:00:00+07:00 and ends at 2024-12-16 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2024-12-17 00:00:00+07:00 and ends at 2024-12-18 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KK(SMC) starts at 2024-12-17 00:00:00+07:00 and ends at 2024-12-18 00:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: NM สัมภาษณ์ทุนคณะแพทย์ starts at 2024-12-17 09:30:00+07:00 and ends at 2024-12-17 12:30:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: ER team (MM) WW NM BC PT KS starts at 2024-12-17 12:00:00+07:00 and ends at 2024-12-17 15:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW), ณัฐฐิกานต์ มีลาภ (NM), บริบูรณ์ เชนธนากิจ (BC), ปริญญา เทียนวิบูลย์ (PT), กรองกาญจน์ สุธรรม (KS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KS+SS สอน Ultrasound POCUS ปี 5 starts at 2024-12-17 13:00:00+07:00 and ends at 2024-12-17 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), สริยา เสือแซมเสริม (SS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK BHEMS สพฉ starts at 2024-12-17 13:00:00+07:00 and ends at 2024-12-17 16:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: PT สอน HAZMAT starts at 2024-12-17 13:00:00+07:00 and ends at 2024-12-17 14:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2024-12-18 00:00:00+07:00 and ends at 2024-12-21 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: SS(SMC) starts at 2024-12-18 00:00:00+07:00 and ends at 2024-12-19 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: NM BK meeting EMS ASIA starts at 2024-12-18 09:00:00+07:00 and ends at 2024-12-18 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM), บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: NM BK ประชุม Scientific EMS ASIA starts at 2024-12-18 09:00:00+07:00 and ends at 2024-12-18 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM), บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BW คุยกับหมอสวนดอก starts at 2024-12-18 10:00:00+07:00 and ends at 2024-12-18 12:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: PT สอน Triage ปี5 starts at 2024-12-18 10:00:00+07:00 and ends at 2024-12-18 12:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: CC สอน Essential ECG in ED ปี 5 starts at 2024-12-18 14:00:00+07:00 and ends at 2024-12-18 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK NM สอน BHEMS starts at 2024-12-18 16:00:00+07:00 and ends at 2024-12-20 18:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK), ณัฐฐิกานต์ มีลาภ (NM)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: SS(SMC) starts at 2024-12-19 00:00:00+07:00 and ends at 2024-12-20 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KL สอน Toxicology+ATLS Review ปี 5 starts at 2024-12-19 09:00:00+07:00 and ends at 2024-12-19 12:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุมคณะฯ (801) starts at 2024-12-19 13:00:00+07:00 and ends at 2024-12-19 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุมยุทธศาสตร์ starts at 2024-12-19 13:00:00+07:00 and ends at 2024-12-19 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: SS(SMC) starts at 2024-12-20 00:00:00+07:00 and ends at 2024-12-21 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KS อบรมโครงการอบรมเชิงปฏิบัติการ (MSL) starts at 2024-12-20 08:30:00+07:00 and ends at 2024-12-20 16:30:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Clinic starts at 2024-12-20 09:00:00+07:00 and ends at 2024-12-20 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BC สอน ER Learning  ปี 5 starts at 2024-12-20 10:00:00+07:00 and ends at 2024-12-20 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: PU สอน Environmental injuries & Animal bites ปี 5 starts at 2024-12-20 13:00:00+07:00 and ends at 2024-12-20 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK เรียน starts at 2024-12-21 00:00:00+07:00 and ends at 2024-12-23 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2024-12-23 00:00:00+07:00 and ends at 2024-12-24 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BC ประชุม อฝส วฉ (เดินทางไป กทม) starts at 2024-12-23 09:00:00+07:00 and ends at 2024-12-23 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK weekly meeting SMC starts at 2024-12-23 09:00:00+07:00 and ends at 2024-12-23 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KS สอน CVS I ปี 5 starts at 2024-12-23 10:00:00+07:00 and ends at 2024-12-23 12:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: PT ประชุม อฝส onsite starts at 2024-12-23 13:00:00+07:00 and ends at 2024-12-23 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: ฺBK สอน ACLS ปี 5 (ชั้น 9 ราชนครินทร์) starts at 2024-12-23 13:00:00+07:00 and ends at 2024-12-23 16:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: PU ประชุม Case Observe KPI starts at 2024-12-23 13:00:00+07:00 and ends at 2024-12-23 14:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: PT ประชุม สฉนท. starts at 2024-12-23 15:00:00+07:00 and ends at 2024-12-23 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2024-12-24 00:00:00+07:00 and ends at 2024-12-25 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ลา starts at 2024-12-24 00:00:00+07:00 and ends at 2024-12-25 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KK(SMC) starts at 2024-12-24 00:00:00+07:00 and ends at 2024-12-25 00:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: NM น้องฟ้า พี่เมย์ ประชุมรับทราบผลการประชุม อฝส. starts at 2024-12-24 09:00:00+07:00 and ends at 2024-12-24 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: CC สอน CVS II Syncope & Dyspnea ปี 5 starts at 2024-12-24 10:00:00+07:00 and ends at 2024-12-24 12:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KL PU KS BC : Simulation Resident starts at 2024-12-24 13:00:00+07:00 and ends at 2024-12-24 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL), พิมพ์พรรณ อัศวสุรอิน (PU), กรองกาญจน์ สุธรรม (KS), บริบูรณ์ เชนธนากิจ (BC)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: NM สอน Neuro Emer CT brain ปี 5 starts at 2024-12-24 13:00:00+07:00 and ends at 2024-12-24 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ตรวจประเมิน CMU-EdPEx  starts at 2024-12-25 00:00:00+07:00 and ends at 2024-12-26 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KK(SMC) starts at 2024-12-25 00:00:00+07:00 and ends at 2024-12-26 00:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: NM สอน ER Learning  ปี 5 starts at 2024-12-25 10:00:00+07:00 and ends at 2024-12-25 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Lunch: Demystifying Regression: I got you !! starts at 2024-12-25 12:30:00+07:00 and ends at 2024-12-25 13:30:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: PT สอน Simulation Disaster ปี 5 starts at 2024-12-25 13:00:00+07:00 and ends at 2024-12-25 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: PU,KL,KS,หวาน,หมิว MEDed KMday starts at 2024-12-25 13:00:00+07:00 and ends at 2024-12-25 16:30:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU), กอสิน เลาหะวิสุทธิ์ (KL), กรองกาญจน์ สุธรรม (KS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: SS(SMC) starts at 2024-12-26 00:00:00+07:00 and ends at 2024-12-27 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WL NM PT Conference EMCMU resident starts at 2024-12-26 08:45:00+07:00 and ends at 2024-12-26 12:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL), ณัฐฐิกานต์ มีลาภ (NM), ปริญญา เทียนวิบูลย์ (PT)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BC สอน GI Emergency ปี 5 starts at 2024-12-26 10:00:00+07:00 and ends at 2024-12-26 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KK สอน ATLS ปี 5 (ชั้น 9 ราชนครินทร์) starts at 2024-12-26 13:00:00+07:00 and ends at 2024-12-26 16:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WL: Innovation&Formative Ext. starts at 2024-12-26 13:00:00+07:00 and ends at 2024-12-26 15:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2024-12-27 00:00:00+07:00 and ends at 2024-12-28 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Clinic starts at 2024-12-27 09:00:00+07:00 and ends at 2024-12-27 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WW สอน ER Learning ปี 5 starts at 2024-12-27 10:00:00+07:00 and ends at 2024-12-27 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BC สอน EMS System ปี 5 starts at 2024-12-27 13:00:00+07:00 and ends at 2024-12-27 16:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: NM งานแต่งญาติต่างจังหวัด starts at 2024-12-28 00:00:00+07:00 and ends at 2024-12-31 00:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: KK ลา starts at 2024-12-28 00:00:00+07:00 and ends at 2025-01-03 00:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK เรียน starts at 2024-12-28 00:00:00+07:00 and ends at 2024-12-30 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: SS unavailable starts at 2024-12-29 00:00:00+07:00 and ends at 2024-12-31 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2024-12-30 00:00:00+07:00 and ends at 2024-12-31 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: BK weekly meeting SMC starts at 2024-12-30 09:00:00+07:00 and ends at 2024-12-30 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
-2024-11-17 06:09:32 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2024-12-31 00:00:00+07:00 and ends at 2025-01-01 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service night - 2024-12-01 is assigned to KK but they are not available on 2024-12-01
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service night - 2024-12-02 is assigned to BK but they are not available on 2024-12-02
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service1 - 2024-12-02 is assigned to BW but they are not available on 2024-12-02
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service2 - 2024-12-02 is assigned to BW but they are not available on 2024-12-02
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-02 is assigned to WL but they are not available on 2024-12-02
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-02 is assigned to KS but they are not available on 2024-12-02
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service night - 2024-12-03 is assigned to WW but they are not available on 2024-12-03
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-03 is assigned to WL but they are not available on 2024-12-03
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-03 is assigned to KS but they are not available on 2024-12-03
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service night - 2024-12-04 is assigned to KL but they are not available on 2024-12-04
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-04 is assigned to WL but they are not available on 2024-12-04
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-04 is assigned to KS but they are not available on 2024-12-04
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service night - 2024-12-05 is assigned to BW but they are not available on 2024-12-05
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-06 is assigned to WL but they are not available on 2024-12-06
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-06 is assigned to KS but they are not available on 2024-12-06
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-09 is assigned to KL but they are not available on 2024-12-09
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-09 is assigned to BC but they are not available on 2024-12-09
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service night - 2024-12-10 is assigned to KS but they are not available on 2024-12-10
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service night - 2024-12-11 is assigned to PT but they are not available on 2024-12-11
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-11 is assigned to KL but they are not available on 2024-12-11
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-11 is assigned to BC but they are not available on 2024-12-11
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service night - 2024-12-12 is assigned to NM but they are not available on 2024-12-12
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-12 is assigned to KL but they are not available on 2024-12-12
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-12 is assigned to BC but they are not available on 2024-12-12
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-13 is assigned to KL but they are not available on 2024-12-13
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-13 is assigned to BC but they are not available on 2024-12-13
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-16 is assigned to BW but they are not available on 2024-12-16
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-16 is assigned to PT but they are not available on 2024-12-16
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service night - 2024-12-17 is assigned to CC but they are not available on 2024-12-17
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service1 - 2024-12-17 is assigned to SS but they are not available on 2024-12-17
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-17 is assigned to KL but they are not available on 2024-12-17
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service2 - 2024-12-17 is assigned to CC but they are not available on 2024-12-17
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-17 is assigned to KL but they are not available on 2024-12-17
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-17 is assigned to BW but they are not available on 2024-12-17
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-17 is assigned to PT but they are not available on 2024-12-17
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Amd - 2024-12-17 is assigned to BW but they are not available on 2024-12-17
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Avd - 2024-12-17 is assigned to PU but they are not available on 2024-12-17
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service night - 2024-12-18 is assigned to WW but they are not available on 2024-12-18
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-18 is assigned to BW but they are not available on 2024-12-18
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-18 is assigned to PT but they are not available on 2024-12-18
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service night - 2024-12-19 is assigned to PT but they are not available on 2024-12-19
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-19 is assigned to BW but they are not available on 2024-12-19
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-19 is assigned to PT but they are not available on 2024-12-19
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-20 is assigned to BW but they are not available on 2024-12-20
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-20 is assigned to PT but they are not available on 2024-12-20
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-23 is assigned to BC but they are not available on 2024-12-23
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-23 is assigned to CC but they are not available on 2024-12-23
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service night - 2024-12-24 is assigned to SS but they are not available on 2024-12-24
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-24 is assigned to BC but they are not available on 2024-12-24
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-24 is assigned to CC but they are not available on 2024-12-24
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service night - 2024-12-25 is assigned to WL but they are not available on 2024-12-25
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Mc - 2024-12-25 is assigned to KS but they are not available on 2024-12-25
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service1 - 2024-12-25 is assigned to BC but they are not available on 2024-12-25
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-25 is assigned to SS but they are not available on 2024-12-25
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service2 - 2024-12-25 is assigned to BC but they are not available on 2024-12-25
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-25 is assigned to SS but they are not available on 2024-12-25
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-25 is assigned to BC but they are not available on 2024-12-25
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-25 is assigned to CC but they are not available on 2024-12-25
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Amd - 2024-12-25 is assigned to BC but they are not available on 2024-12-25
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Avd - 2024-12-25 is assigned to CC but they are not available on 2024-12-25
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service night - 2024-12-26 is assigned to PU but they are not available on 2024-12-26
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-26 is assigned to BC but they are not available on 2024-12-26
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-26 is assigned to CC but they are not available on 2024-12-26
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Ems - 2024-12-27 is assigned to BC but they are not available on 2024-12-27
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Observe - 2024-12-27 is assigned to CC but they are not available on 2024-12-27
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - Service night - 2024-12-31 is assigned to PU but they are not available on 2024-12-31
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - WW - amd - 0 - [shift_Amd - 2024-12-16_employee_WW(0..1), shift_Amd - 2024-12-17_employee_WW(0..1), shift_Amd - 2024-12-18_employee_WW(0..1), shift_Amd - 2024-12-19_employee_WW(0..1), shift_Amd - 2024-12-20_employee_WW(0..1), shift_Amd - 2024-12-21_employee_WW(0..1), shift_Amd - 2024-12-22_employee_WW(0..1), shift_Amd - 2024-12-23_employee_WW(0..1), shift_Amd - 2024-12-24_employee_WW(0..1), shift_Amd - 2024-12-25_employee_WW(0..1), shift_Amd - 2024-12-26_employee_WW(0..1), shift_Amd - 2024-12-27_employee_WW(0..1), shift_Amd - 2024-12-28_employee_WW(0..1), shift_Amd - 2024-12-29_employee_WW(0..1), shift_Amd - 2024-12-30_employee_WW(0..1), shift_Amd - 2024-12-31_employee_WW(0..1)]
-2024-11-17 06:09:32 [DEBUG] - ScheduleSolver - WW - avd - 0 - [shift_Avd - 2024-12-01_employee_WW(0..1), shift_Avd - 2024-12-02_employee_WW(0..1), shift_Avd - 2024-12-03_employee_WW(0..1), shift_Avd - 2024-12-04_employee_WW(0..1), shift_Avd - 2024-12-05_employee_WW(0..1), shift_Avd - 2024-12-06_employee_WW(0..1), shift_Avd - 2024-12-07_employee_WW(0..1), shift_Avd - 2024-12-08_employee_WW(0..1), shift_Avd - 2024-12-09_employee_WW(0..1), shift_Avd - 2024-12-10_employee_WW(0..1), shift_Avd - 2024-12-11_employee_WW(0..1), shift_Avd - 2024-12-12_employee_WW(0..1), shift_Avd - 2024-12-13_employee_WW(0..1), shift_Avd - 2024-12-14_employee_WW(0..1), shift_Avd - 2024-12-15_employee_WW(0..1), shift_Avd - 2024-12-16_employee_WW(0..1), shift_Avd - 2024-12-17_employee_WW(0..1), shift_Avd - 2024-12-18_employee_WW(0..1), shift_Avd - 2024-12-19_employee_WW(0..1), shift_Avd - 2024-12-20_employee_WW(0..1), shift_Avd - 2024-12-21_employee_WW(0..1), shift_Avd - 2024-12-22_employee_WW(0..1), shift_Avd - 2024-12-23_employee_WW(0..1), shift_Avd - 2024-12-24_employee_WW(0..1), shift_Avd - 2024-12-25_employee_WW(0..1), shift_Avd - 2024-12-26_employee_WW(0..1), shift_Avd - 2024-12-27_employee_WW(0..1), shift_Avd - 2024-12-28_employee_WW(0..1), shift_Avd - 2024-12-29_employee_WW(0..1), shift_Avd - 2024-12-30_employee_WW(0..1), shift_Avd - 2024-12-31_employee_WW(0..1)]
-2024-11-17 06:09:33 [INFO] - ScheduleSolver - Begin solving for the schedule, with following rules:
-2024-11-17 06:09:33 [INFO] - ScheduleSolver - Rule 1: Each shift must be assigned to employees more than or equal to min_employees, and less than or equal to max_employees
-2024-11-17 06:09:33 [INFO] - ScheduleSolver - Rule 2: If the shift is assigned to employees, fixed the shift assigned to the employees
-2024-11-17 06:09:33 [INFO] - ScheduleSolver - Rule 3: The shift should only be assigned to the employees who are available (Compare to employee's tasks), except for fixed shifts
-2024-11-17 06:09:33 [INFO] - ScheduleSolver - Rule 4: Some shifts cannot be assigned to the same employee in the same day, represent with a logical matrix, exclude fixed shifts
-2024-11-17 06:09:33 [INFO] - ScheduleSolver - Rule 5: Fair distribution of shifts per employee per shift type
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     max shifts per employee per service night = 5
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     max shifts per employee per ('service1', 'service2', 'service1+', 'service2+') = 8
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     max shifts per employee per ('service1', 'service2') = 4
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     max shifts per employee per ('service1+', 'service2+') = 4
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     max shifts per employee per mc = 2
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     max shifts per employee per amd = 2
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     min shifts per employee per amd = 1
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     max shifts per employee per avd = 3
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     min shifts per employee per avd = 2
-2024-11-17 06:09:33 [INFO] - ScheduleSolver - Rule 6: Manual set number of shifts per employee
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     BC - 4
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     BW - 2
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     KS - 4
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     PT - 6
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     WW - 7
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     BK - 2
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     CC - 8
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     KL - 8
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     PU - 8
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     NM - 7
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     SS - 4
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     WL - 8
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     KK - 4
-2024-11-17 06:09:33 [INFO] - ScheduleSolver - Rule 7: Manual set number of shifts per employee per shift type
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     WW - amd - 0
-2024-11-17 06:09:33 [INFO] - ScheduleSolver -     WW - avd - 0
-2024-11-17 06:09:33 [INFO] - ScheduleSolver - 
-2024-11-17 06:09:33 [INFO] - ScheduleSolver - Result:
-2024-11-17 06:09:36 [INFO] - ScheduleSolver - ❌ No solution found for WL
-2024-11-17 06:09:36 [INFO] - ScheduleSolver - ❌ No solution found for KK
-2024-11-17 06:09:36 [INFO] - ScheduleSolver - ❌ The schedule is not optimized, because the rules are not satisfied
-2024-11-17 06:09:36 [INFO] - ScheduleSolver - Schedule Updated!
-2024-11-17 06:09:39 [DEBUG] - googleapiclient.discovery - URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU/values/December%202024%21C269%3AL299?valueInputOption=RAW&alt=json
-2024-11-17 06:09:40 [DEBUG] - GoogleSheetApp - 310 cells updated
-2024-11-17 06:09:40 [DEBUG] - SchedulerSheetUI - Updated sheet values with the schedule 
-  - Schedule: <modules.scheduler_app.models.models.Schedule object at 0x15784ce80> 
+2024-11-17 06:23:22 [DEBUG] - config - Logging to tmp/logging.log
+2024-11-17 06:23:22 [DEBUG] - GoogleAppAuthenticator - Authenticating user ...
+2024-11-17 06:23:22 [DEBUG] - GoogleAppAuthenticator - Loading credentials from token
+2024-11-17 06:23:22 [DEBUG] - GoogleAppAuthenticator - Credentials are valid
+2024-11-17 06:23:22 [INFO] - googleapiclient.discovery_cache - file_cache is only supported with oauth2client<4.0.0
+2024-11-17 06:23:22 [DEBUG] - CalendarApp - Service initialized successfully
+2024-11-17 06:23:22 [INFO] - googleapiclient.discovery_cache - file_cache is only supported with oauth2client<4.0.0
+2024-11-17 06:23:22 [DEBUG] - GoogleSheetApp - Service initialized successfully
+2024-11-17 06:23:22 [DEBUG] - SchedulerSheetUI - SchedulerSheetUI initialized - sheetId: 1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU
+2024-11-17 06:23:23 [DEBUG] - googleapiclient.discovery - URL being requested: GET https://sheets.googleapis.com/v4/spreadsheets/1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU/values/December%202024%21A1%3AV?alt=json
+2024-11-17 06:23:23 [DEBUG] - SchedulerSheetUI - Fetched sheet values from A1:V
+2024-11-17 06:23:23 [DEBUG] - SchedulerCalendarUI - SchedulerCalendarUI initialized - calendarId: em.cmu.teacher@gmail.com
+2024-11-17 06:23:23 [DEBUG] - root - Converted A12 to 11, 0
+2024-11-17 06:23:23 [DEBUG] - root - Converted A42 to 41, 0
+2024-11-17 06:23:23 [DEBUG] - SchedulerSheetUI - Got sheet values from A12:A42, start: (11, 0), end: (41, 0)
+2024-11-17 06:23:23 [DEBUG] - root - Converted A47 to 46, 0
+2024-11-17 06:23:23 [DEBUG] - root - Converted G67 to 66, 6
+2024-11-17 06:23:23 [DEBUG] - SchedulerSheetUI - Got sheet values from A47:G67, start: (46, 0), end: (66, 6)
+2024-11-17 06:23:23 [DEBUG] - root - Converted C11 to 10, 2
+2024-11-17 06:23:23 [DEBUG] - root - Converted L42 to 41, 11
+2024-11-17 06:23:23 [DEBUG] - SchedulerSheetUI - Got sheet values from C11:L42, start: (10, 2), end: (41, 11)
+2024-11-17 06:23:23 [DEBUG] - root - Converted C181 to 180, 2
+2024-11-17 06:23:23 [DEBUG] - root - Converted L212 to 211, 11
+2024-11-17 06:23:23 [DEBUG] - SchedulerSheetUI - Got sheet values from C181:L212, start: (180, 2), end: (211, 11)
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-01 to กรีฑา คำเนียม
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-02 to บุญฤทธิ์ คำทิพย์
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service1 - 2024-12-02 to บวร วิทยชำนาญกุล
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service2 - 2024-12-02 to บวร วิทยชำนาญกุล
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-02 to วิพุธ เล้าสุขศรี
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-02 to กรองกาญจน์ สุธรรม
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-03 to วชิระ วงศ์ธนสารสิน
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-03 to วิพุธ เล้าสุขศรี
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-03 to กรองกาญจน์ สุธรรม
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-04 to กอสิน เลาหะวิสุทธิ์
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-04 to วิพุธ เล้าสุขศรี
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-04 to กรองกาญจน์ สุธรรม
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-05 to บวร วิทยชำนาญกุล
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-06 to วิพุธ เล้าสุขศรี
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-06 to กรองกาญจน์ สุธรรม
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-09 to กอสิน เลาหะวิสุทธิ์
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-09 to บริบูรณ์ เชนธนากิจ
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-10 to กรองกาญจน์ สุธรรม
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-11 to ปริญญา เทียนวิบูลย์
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-11 to กอสิน เลาหะวิสุทธิ์
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-11 to บริบูรณ์ เชนธนากิจ
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-12 to ณัฐฐิกานต์ มีลาภ
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-12 to กอสิน เลาหะวิสุทธิ์
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-12 to บริบูรณ์ เชนธนากิจ
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-13 to กอสิน เลาหะวิสุทธิ์
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-13 to บริบูรณ์ เชนธนากิจ
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-16 to บวร วิทยชำนาญกุล
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-16 to ปริญญา เทียนวิบูลย์
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-17 to ชานนท์ ช่างรัตนากร
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service1 - 2024-12-17 to สริยา เสือแซมเสริม
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service1+ - 2024-12-17 to กอสิน เลาหะวิสุทธิ์
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service2 - 2024-12-17 to ชานนท์ ช่างรัตนากร
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service2+ - 2024-12-17 to กอสิน เลาหะวิสุทธิ์
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-17 to บวร วิทยชำนาญกุล
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-17 to ปริญญา เทียนวิบูลย์
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Amd - 2024-12-17 to บวร วิทยชำนาญกุล
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Avd - 2024-12-17 to พิมพ์พรรณ อัศวสุรอิน
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-18 to วชิระ วงศ์ธนสารสิน
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-18 to บวร วิทยชำนาญกุล
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-18 to ปริญญา เทียนวิบูลย์
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-19 to ปริญญา เทียนวิบูลย์
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-19 to บวร วิทยชำนาญกุล
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-19 to ปริญญา เทียนวิบูลย์
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-20 to บวร วิทยชำนาญกุล
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-20 to ปริญญา เทียนวิบูลย์
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-23 to บริบูรณ์ เชนธนากิจ
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-23 to ชานนท์ ช่างรัตนากร
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-24 to สริยา เสือแซมเสริม
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-24 to บริบูรณ์ เชนธนากิจ
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-24 to ชานนท์ ช่างรัตนากร
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-25 to วิพุธ เล้าสุขศรี
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Mc - 2024-12-25 to กรองกาญจน์ สุธรรม
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service1 - 2024-12-25 to บริบูรณ์ เชนธนากิจ
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service1+ - 2024-12-25 to สริยา เสือแซมเสริม
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service2 - 2024-12-25 to บริบูรณ์ เชนธนากิจ
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service2+ - 2024-12-25 to สริยา เสือแซมเสริม
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-25 to บริบูรณ์ เชนธนากิจ
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-25 to ชานนท์ ช่างรัตนากร
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Amd - 2024-12-25 to บริบูรณ์ เชนธนากิจ
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Avd - 2024-12-25 to ชานนท์ ช่างรัตนากร
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-26 to พิมพ์พรรณ อัศวสุรอิน
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-26 to บริบูรณ์ เชนธนากิจ
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-26 to ชานนท์ ช่างรัตนากร
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Ems - 2024-12-27 to บริบูรณ์ เชนธนากิจ
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Observe - 2024-12-27 to ชานนท์ ช่างรัตนากร
+2024-11-17 06:23:23 [DEBUG] - Schedule - Assigned shift Service night - 2024-12-31 to พิมพ์พรรณ อัศวสุรอิน
+2024-11-17 06:23:23 [DEBUG] - root - Converted B12 to 11, 1
+2024-11-17 06:23:23 [DEBUG] - root - Converted B42 to 41, 1
+2024-11-17 06:23:23 [DEBUG] - SchedulerSheetUI - Got sheet values from B12:B42, start: (11, 1), end: (41, 1)
+2024-11-17 06:23:23 [DEBUG] - root - Converted B218 to 217, 1
+2024-11-17 06:23:23 [DEBUG] - root - Converted C240 to 239, 2
+2024-11-17 06:23:23 [DEBUG] - SchedulerSheetUI - Got sheet values from B218:C240, start: (217, 1), end: (239, 2)
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added total shifts constraint for BC - 4
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added total shifts constraint for BW - 2
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added total shifts constraint for KS - 4
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added total shifts constraint for PT - 6
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added total shifts constraint for WW - 7
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added total shifts constraint for BK - 2
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added total shifts constraint for CC - 8
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added total shifts constraint for KL - 8
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added total shifts constraint for PU - 8
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added total shifts constraint for NM - 7
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added total shifts constraint for SS - 4
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added total shifts constraint for WL - 6
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added total shifts constraint for KK - 6
+2024-11-17 06:23:23 [DEBUG] - root - Converted H218 to 217, 7
+2024-11-17 06:23:23 [DEBUG] - root - Converted J240 to 239, 9
+2024-11-17 06:23:23 [DEBUG] - SchedulerSheetUI - Got sheet values from H218:J240, start: (217, 7), end: (239, 9)
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added shift preference constraint for BC - morning: False, afternoon: False
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added shift preference constraint for BW - morning: False, afternoon: False
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added shift preference constraint for KS - morning: False, afternoon: False
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added shift preference constraint for PT - morning: False, afternoon: False
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added shift preference constraint for WW - morning: False, afternoon: False
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added shift preference constraint for BK - morning: False, afternoon: False
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added shift preference constraint for CC - morning: False, afternoon: False
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added shift preference constraint for KL - morning: False, afternoon: False
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added shift preference constraint for PU - morning: False, afternoon: False
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added shift preference constraint for NM - morning: False, afternoon: False
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added shift preference constraint for SS - morning: False, afternoon: False
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added shift preference constraint for WL - morning: False, afternoon: False
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added shift preference constraint for KK - morning: False, afternoon: False
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added shift preference constraint for None - morning: False, afternoon: False
+2024-11-17 06:23:23 [DEBUG] - root - Converted B217 to 216, 1
+2024-11-17 06:23:23 [DEBUG] - root - Converted F240 to 239, 5
+2024-11-17 06:23:23 [DEBUG] - SchedulerSheetUI - Got sheet values from B217:F240, start: (216, 1), end: (239, 5)
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added total shifts per employee constraint for WW - amd - 0
+2024-11-17 06:23:23 [DEBUG] - ScheduleSolver - Added total shifts per employee constraint for WW - avd - 0
+2024-11-17 06:23:23 [DEBUG] - googleapiclient.discovery - URL being requested: GET https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events?timeMin=2024-12-01T00%3A00%3A00Z&timeMax=2024-12-31T23%3A59%3A59.099999Z&singleEvents=true&orderBy=startTime&alt=json
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Sample event: {'kind': 'calendar#event', 'etag': '"3463286709134000"', 'id': '_6oq36or268s6cd326ksj8dhk65gm8p1o6ko3gd9jcgoj4oj260s0_20241130', 'status': 'confirmed', 'htmlLink': 'https://www.google.com/calendar/event?eid=XzZvcTM2b3IyNjhzNmNkMzI2a3NqOGRoazY1Z204cDFvNmtvM2dkOWpjZ29qNG9qMjYwczBfMjAyNDExMzAgZW0uY211LnRlYWNoZXJAbQ', 'created': '2024-08-13T03:01:27.000Z', 'updated': '2024-11-15T04:02:34.567Z', 'summary': 'BK เรียน', 'creator': {'email': 'bkamthip@gmail.com'}, 'organizer': {'email': 'em.cmu.teacher@gmail.com', 'self': True}, 'start': {'date': '2024-11-30'}, 'end': {'date': '2024-12-02'}, 'recurringEventId': '_6oq36or268s6cd326ksj8dhk65gm8p1o6ko3gd9jcgoj4oj260s0', 'originalStartTime': {'date': '2024-11-30'}, 'transparency': 'transparent', 'iCalUID': '643cb28f4b594641add850853d12bb08', 'sequence': 0, 'attendees': [{'email': 'bkamthip@gmail.com', 'responseStatus': 'accepted'}, {'email': 'em.cmu.teacher@gmail.com', 'organizer': True, 'self': True, 'responseStatus': 'accepted'}], 'extendedProperties': {'private': {'TASKPARTCOMPLETED': 'false'}}, 'reminders': {'useDefault': False}, 'eventType': 'default'}
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK เรียน starts at 2024-11-30 00:00:00+07:00 and ends at 2024-12-02 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KK(SMC) starts at 2024-12-02 00:00:00+07:00 and ends at 2024-12-03 00:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BC NM WW BW WL SS ประชุมยุทธศาสตร์ Postgrad EMCMU starts at 2024-12-02 09:00:00+07:00 and ends at 2024-12-02 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC), ณัฐฐิกานต์ มีลาภ (NM), วชิระ วงศ์ธนสารสิน (WW), บวร วิทยชำนาญกุล (BW), วิพุธ เล้าสุขศรี (WL), สริยา เสือแซมเสริม (SS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK weekly meeting SMC starts at 2024-12-02 09:00:00+07:00 and ends at 2024-12-02 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KS สอน CVS I ปี 5 starts at 2024-12-02 10:00:00+07:00 and ends at 2024-12-02 12:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BW สอน ACLS ปี 5 (ชั้น 9 ราชนครินทร์) starts at 2024-12-02 13:00:00+07:00 and ends at 2024-12-02 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2024-12-03 00:00:00+07:00 and ends at 2024-12-04 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: SS(SMC) starts at 2024-12-03 00:00:00+07:00 and ends at 2024-12-04 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KL สอน Toxicology+ATLS Review ปี 5 starts at 2024-12-03 10:00:00+07:00 and ends at 2024-12-03 12:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK CQI-Skydoctor ประจำเดือน starts at 2024-12-03 10:00:00+07:00 and ends at 2024-12-03 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: PT สอน Simulation Disaster ปี 5 starts at 2024-12-03 13:00:00+07:00 and ends at 2024-12-03 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KL BK Conference EMCMU resident starts at 2024-12-03 13:00:00+07:00 and ends at 2024-12-03 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL), บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BW PU คุยกับเมด flow CO poisoning (zoom) starts at 2024-12-03 15:00:00+07:00 and ends at 2024-12-03 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW), พิมพ์พรรณ อัศวสุรอิน (PU)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2024-12-04 00:00:00+07:00 and ends at 2024-12-05 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: CC สอน CVS II Syncope & Dyspnea ปี 5 starts at 2024-12-04 10:00:00+07:00 and ends at 2024-12-04 12:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: NM,พ.ไกรวี: SES Ext. starts at 2024-12-04 13:00:00+07:00 and ends at 2024-12-04 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: SS+WL สอน ATLS ปี 5 (ชั้น 9 ราชนครินทร์) starts at 2024-12-04 13:00:00+07:00 and ends at 2024-12-04 16:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS), วิพุธ เล้าสุขศรี (WL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WW BW Rudklao (BT) RU meeting starts at 2024-12-04 14:00:00+07:00 and ends at 2024-12-04 16:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW), บวร วิทยชำนาญกุล (BW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: NM PU not available starts at 2024-12-05 00:00:00+07:00 and ends at 2024-12-06 00:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM), พิมพ์พรรณ อัศวสุรอิน (PU)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: SS(SMC) starts at 2024-12-06 00:00:00+07:00 and ends at 2024-12-07 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ตัดสินผลวิจัย งานประกวดพนักงานมหาลัย starts at 2024-12-06 00:00:00+07:00 and ends at 2024-12-08 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK BW KK UTMB starts at 2024-12-06 00:00:00+07:00 and ends at 2024-12-09 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK), บวร วิทยชำนาญกุล (BW), กรีฑา คำเนียม (KK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Clinic starts at 2024-12-06 09:00:00+07:00 and ends at 2024-12-06 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KS MSL Part 3 Project based Learning ครั้งที่ 4  หัวข้อ Mastering Project Management: Approaches for Effective Execution and Monitoring  starts at 2024-12-06 09:00:00+07:00 and ends at 2024-12-06 12:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BC สอน GI Emergency ปี 5 starts at 2024-12-06 10:00:00+07:00 and ends at 2024-12-06 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: ประชุมฝ่าย วิชาการ วฉท BW WW starts at 2024-12-06 12:15:00+07:00 and ends at 2024-12-06 13:15:00+07:00 for employee: บวร วิทยชำนาญกุล (BW), วชิระ วงศ์ธนสารสิน (WW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WW สอน  Neuro Emer CT brain ปี 5 starts at 2024-12-06 13:00:00+07:00 and ends at 2024-12-06 16:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK เรียน starts at 2024-12-07 00:00:00+07:00 and ends at 2024-12-09 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: NM Sriphat Medical Expo starts at 2024-12-07 00:00:00+07:00 and ends at 2024-12-10 00:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: PU KL unavailable starts at 2024-12-07 00:00:00+07:00 and ends at 2024-12-09 00:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU), กอสิน เลาหะวิสุทธิ์ (KL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WL ขอลา 7-9 ธค starts at 2024-12-07 00:00:00+07:00 and ends at 2024-12-10 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KK(SMC) starts at 2024-12-09 00:00:00+07:00 and ends at 2024-12-10 00:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: NM น้องฟ้า พี่เมย์ ประชุมรับทราบผลการประชุม อฝส.  starts at 2024-12-09 09:00:00+07:00 and ends at 2024-12-09 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK weekly meeting SMC starts at 2024-12-09 09:00:00+07:00 and ends at 2024-12-09 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BC สอน EMS System ปี 5 starts at 2024-12-09 10:00:00+07:00 and ends at 2024-12-09 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: PU ประชุม Case Observe KPI starts at 2024-12-09 11:00:00+07:00 and ends at 2024-12-09 12:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: PU สอน Environmental injuries & Animal bites ปี 5 starts at 2024-12-09 13:00:00+07:00 and ends at 2024-12-09 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2024-12-10 00:00:00+07:00 and ends at 2024-12-11 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: SS ขอลา starts at 2024-12-10 00:00:00+07:00 and ends at 2024-12-12 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: NM not available starts at 2024-12-10 00:00:00+07:00 and ends at 2024-12-11 00:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2024-12-11 00:00:00+07:00 and ends at 2024-12-12 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: PT สอน ER Learning  ปี 5 starts at 2024-12-11 10:00:00+07:00 and ends at 2024-12-11 12:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KS,PU,KL,CC หวาน,หมิว: ประชุมundergrad starts at 2024-12-11 10:00:00+07:00 and ends at 2024-12-11 12:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), พิมพ์พรรณ อัศวสุรอิน (PU), กอสิน เลาหะวิสุทธิ์ (KL), ชานนท์ ช่างรัตนากร (CC)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Lunch: Discussion Dojo: The art of the arguments starts at 2024-12-11 12:30:00+07:00 and ends at 2024-12-11 13:30:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WW + WL Tutorial ปี 5 starts at 2024-12-11 13:00:00+07:00 and ends at 2024-12-11 16:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW), วิพุธ เล้าสุขศรี (WL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK ลา starts at 2024-12-12 00:00:00+07:00 and ends at 2024-12-13 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KK(SMC) starts at 2024-12-12 00:00:00+07:00 and ends at 2024-12-13 00:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BC Conference EMCMU resident starts at 2024-12-12 08:45:00+07:00 and ends at 2024-12-12 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BW สอน ER Learning  ปี 5 starts at 2024-12-12 10:00:00+07:00 and ends at 2024-12-12 12:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KS: สอบลงกองปี6 starts at 2024-12-12 13:00:00+07:00 and ends at 2024-12-12 15:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK คุมสอบ Skills ศรว. ซ่อมครั้งที่ 2 (ถ้ามี) starts at 2024-12-12 13:00:00+07:00 and ends at 2024-12-12 16:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุมยุทธศาสตร์ (วฉท) starts at 2024-12-12 13:00:00+07:00 and ends at 2024-12-12 15:30:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KS,BC: คุมสอบAdvice Ext. starts at 2024-12-12 15:00:00+07:00 and ends at 2024-12-12 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), บริบูรณ์ เชนธนากิจ (BC)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2024-12-13 00:00:00+07:00 and ends at 2024-12-14 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KS POCCUS starts at 2024-12-13 00:00:00+07:00 and ends at 2024-12-15 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), ชานนท์ ช่างรัตนากร (CC)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุม OTQA starts at 2024-12-13 00:00:00+07:00 and ends at 2024-12-14 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WL คุมสอบ Skills ศรว. ครั้งที่ 3 starts at 2024-12-13 08:00:00+07:00 and ends at 2024-12-13 16:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WW + WL สอบลงกอง+ปิดกองปี 5 (ช2) starts at 2024-12-13 08:00:00+07:00 and ends at 2024-12-13 16:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW), วิพุธ เล้าสุขศรี (WL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Clinic starts at 2024-12-13 09:00:00+07:00 and ends at 2024-12-13 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KL ช่วยคุมสอบ OSCE ปี 5 starts at 2024-12-13 13:00:00+07:00 and ends at 2024-12-13 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KS: ปิดกอง ปี6 starts at 2024-12-13 15:00:00+07:00 and ends at 2024-12-13 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2024-12-14 00:00:00+07:00 and ends at 2024-12-16 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK เรียน starts at 2024-12-14 00:00:00+07:00 and ends at 2024-12-16 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: PU KL เรียน chula EP starts at 2024-12-14 00:00:00+07:00 and ends at 2024-12-15 00:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU), กอสิน เลาหะวิสุทธิ์ (KL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: NM not available starts at 2024-12-14 00:00:00+07:00 and ends at 2024-12-15 00:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: UT KL คุมสอบ Comprehensive OSCE starts at 2024-12-15 00:00:00+07:00 and ends at 2024-12-16 00:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WW ลาพักผ่อน starts at 2024-12-16 00:00:00+07:00 and ends at 2024-12-17 00:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2024-12-16 00:00:00+07:00 and ends at 2024-12-17 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: CC เปิดกอง ปี 5(ช1) starts at 2024-12-16 08:00:00+07:00 and ends at 2024-12-16 09:30:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WL: เปิดกอง ปี6 starts at 2024-12-16 08:00:00+07:00 and ends at 2024-12-16 10:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: NM BW CC SS WL WW พี่เก๋ พี่เมย์ น้องฟ้า ประชุม Postgrad starts at 2024-12-16 09:00:00+07:00 and ends at 2024-12-16 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM), บวร วิทยชำนาญกุล (BW), ชานนท์ ช่างรัตนากร (CC), สริยา เสือแซมเสริม (SS), วิพุธ เล้าสุขศรี (WL), วชิระ วงศ์ธนสารสิน (WW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK weekly meeting SMC starts at 2024-12-16 09:00:00+07:00 and ends at 2024-12-16 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุมงานคุณภาพโรงพยาบาลฯ ร่วมกับคณบดี starts at 2024-12-16 12:00:00+07:00 and ends at 2024-12-16 13:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BW สอน Basic Resuscitation/ Basic Monitoring ปี 5 starts at 2024-12-16 13:00:00+07:00 and ends at 2024-12-16 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2024-12-17 00:00:00+07:00 and ends at 2024-12-18 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KK(SMC) starts at 2024-12-17 00:00:00+07:00 and ends at 2024-12-18 00:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: NM สัมภาษณ์ทุนคณะแพทย์ starts at 2024-12-17 09:30:00+07:00 and ends at 2024-12-17 12:30:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: ER team (MM) WW NM BC PT KS starts at 2024-12-17 12:00:00+07:00 and ends at 2024-12-17 15:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW), ณัฐฐิกานต์ มีลาภ (NM), บริบูรณ์ เชนธนากิจ (BC), ปริญญา เทียนวิบูลย์ (PT), กรองกาญจน์ สุธรรม (KS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KS+SS สอน Ultrasound POCUS ปี 5 starts at 2024-12-17 13:00:00+07:00 and ends at 2024-12-17 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), สริยา เสือแซมเสริม (SS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK BHEMS สพฉ starts at 2024-12-17 13:00:00+07:00 and ends at 2024-12-17 16:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: PT สอน HAZMAT starts at 2024-12-17 13:00:00+07:00 and ends at 2024-12-17 14:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2024-12-18 00:00:00+07:00 and ends at 2024-12-21 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: SS(SMC) starts at 2024-12-18 00:00:00+07:00 and ends at 2024-12-19 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: NM BK meeting EMS ASIA starts at 2024-12-18 09:00:00+07:00 and ends at 2024-12-18 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM), บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: NM BK ประชุม Scientific EMS ASIA starts at 2024-12-18 09:00:00+07:00 and ends at 2024-12-18 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM), บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BW คุยกับหมอสวนดอก starts at 2024-12-18 10:00:00+07:00 and ends at 2024-12-18 12:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: PT สอน Triage ปี5 starts at 2024-12-18 10:00:00+07:00 and ends at 2024-12-18 12:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: CC สอน Essential ECG in ED ปี 5 starts at 2024-12-18 14:00:00+07:00 and ends at 2024-12-18 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK NM สอน BHEMS starts at 2024-12-18 16:00:00+07:00 and ends at 2024-12-20 18:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK), ณัฐฐิกานต์ มีลาภ (NM)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: SS(SMC) starts at 2024-12-19 00:00:00+07:00 and ends at 2024-12-20 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KL สอน Toxicology+ATLS Review ปี 5 starts at 2024-12-19 09:00:00+07:00 and ends at 2024-12-19 12:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุมคณะฯ (801) starts at 2024-12-19 13:00:00+07:00 and ends at 2024-12-19 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุมยุทธศาสตร์ starts at 2024-12-19 13:00:00+07:00 and ends at 2024-12-19 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: SS(SMC) starts at 2024-12-20 00:00:00+07:00 and ends at 2024-12-21 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KS อบรมโครงการอบรมเชิงปฏิบัติการ (MSL) starts at 2024-12-20 08:30:00+07:00 and ends at 2024-12-20 16:30:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Clinic starts at 2024-12-20 09:00:00+07:00 and ends at 2024-12-20 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BC สอน ER Learning  ปี 5 starts at 2024-12-20 10:00:00+07:00 and ends at 2024-12-20 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: PU สอน Environmental injuries & Animal bites ปี 5 starts at 2024-12-20 13:00:00+07:00 and ends at 2024-12-20 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK เรียน starts at 2024-12-21 00:00:00+07:00 and ends at 2024-12-23 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2024-12-23 00:00:00+07:00 and ends at 2024-12-24 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BC ประชุม อฝส วฉ (เดินทางไป กทม) starts at 2024-12-23 09:00:00+07:00 and ends at 2024-12-23 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK weekly meeting SMC starts at 2024-12-23 09:00:00+07:00 and ends at 2024-12-23 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KS สอน CVS I ปี 5 starts at 2024-12-23 10:00:00+07:00 and ends at 2024-12-23 12:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: PT ประชุม อฝส onsite starts at 2024-12-23 13:00:00+07:00 and ends at 2024-12-23 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: ฺBK สอน ACLS ปี 5 (ชั้น 9 ราชนครินทร์) starts at 2024-12-23 13:00:00+07:00 and ends at 2024-12-23 16:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: PU ประชุม Case Observe KPI starts at 2024-12-23 13:00:00+07:00 and ends at 2024-12-23 14:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: PT ประชุม สฉนท. starts at 2024-12-23 15:00:00+07:00 and ends at 2024-12-23 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2024-12-24 00:00:00+07:00 and ends at 2024-12-25 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ลา starts at 2024-12-24 00:00:00+07:00 and ends at 2024-12-25 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KK(SMC) starts at 2024-12-24 00:00:00+07:00 and ends at 2024-12-25 00:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: NM น้องฟ้า พี่เมย์ ประชุมรับทราบผลการประชุม อฝส. starts at 2024-12-24 09:00:00+07:00 and ends at 2024-12-24 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: CC สอน CVS II Syncope & Dyspnea ปี 5 starts at 2024-12-24 10:00:00+07:00 and ends at 2024-12-24 12:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KL PU KS BC : Simulation Resident starts at 2024-12-24 13:00:00+07:00 and ends at 2024-12-24 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL), พิมพ์พรรณ อัศวสุรอิน (PU), กรองกาญจน์ สุธรรม (KS), บริบูรณ์ เชนธนากิจ (BC)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: NM สอน Neuro Emer CT brain ปี 5 starts at 2024-12-24 13:00:00+07:00 and ends at 2024-12-24 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ตรวจประเมิน CMU-EdPEx  starts at 2024-12-25 00:00:00+07:00 and ends at 2024-12-26 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KK(SMC) starts at 2024-12-25 00:00:00+07:00 and ends at 2024-12-26 00:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: NM สอน ER Learning  ปี 5 starts at 2024-12-25 10:00:00+07:00 and ends at 2024-12-25 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Lunch: Demystifying Regression: I got you !! starts at 2024-12-25 12:30:00+07:00 and ends at 2024-12-25 13:30:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: PT สอน Simulation Disaster ปี 5 starts at 2024-12-25 13:00:00+07:00 and ends at 2024-12-25 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: PU,KL,KS,หวาน,หมิว MEDed KMday starts at 2024-12-25 13:00:00+07:00 and ends at 2024-12-25 16:30:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU), กอสิน เลาหะวิสุทธิ์ (KL), กรองกาญจน์ สุธรรม (KS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: SS(SMC) starts at 2024-12-26 00:00:00+07:00 and ends at 2024-12-27 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WL NM PT Conference EMCMU resident starts at 2024-12-26 08:45:00+07:00 and ends at 2024-12-26 12:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL), ณัฐฐิกานต์ มีลาภ (NM), ปริญญา เทียนวิบูลย์ (PT)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BC สอน GI Emergency ปี 5 starts at 2024-12-26 10:00:00+07:00 and ends at 2024-12-26 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KK สอน ATLS ปี 5 (ชั้น 9 ราชนครินทร์) starts at 2024-12-26 13:00:00+07:00 and ends at 2024-12-26 16:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WL: Innovation&Formative Ext. starts at 2024-12-26 13:00:00+07:00 and ends at 2024-12-26 15:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2024-12-27 00:00:00+07:00 and ends at 2024-12-28 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Clinic starts at 2024-12-27 09:00:00+07:00 and ends at 2024-12-27 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WW สอน ER Learning ปี 5 starts at 2024-12-27 10:00:00+07:00 and ends at 2024-12-27 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BC สอน EMS System ปี 5 starts at 2024-12-27 13:00:00+07:00 and ends at 2024-12-27 16:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: NM งานแต่งญาติต่างจังหวัด starts at 2024-12-28 00:00:00+07:00 and ends at 2024-12-31 00:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: KK ลา starts at 2024-12-28 00:00:00+07:00 and ends at 2025-01-03 00:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK เรียน starts at 2024-12-28 00:00:00+07:00 and ends at 2024-12-30 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: SS unavailable starts at 2024-12-29 00:00:00+07:00 and ends at 2024-12-31 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2024-12-30 00:00:00+07:00 and ends at 2024-12-31 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: BK weekly meeting SMC starts at 2024-12-30 09:00:00+07:00 and ends at 2024-12-30 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2024-11-17 06:23:25 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2024-12-31 00:00:00+07:00 and ends at 2025-01-01 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service night - 2024-12-01 is assigned to KK but they are not available on 2024-12-01
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service night - 2024-12-02 is assigned to BK but they are not available on 2024-12-02
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service1 - 2024-12-02 is assigned to BW but they are not available on 2024-12-02
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service2 - 2024-12-02 is assigned to BW but they are not available on 2024-12-02
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-02 is assigned to WL but they are not available on 2024-12-02
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-02 is assigned to KS but they are not available on 2024-12-02
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service night - 2024-12-03 is assigned to WW but they are not available on 2024-12-03
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-03 is assigned to WL but they are not available on 2024-12-03
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-03 is assigned to KS but they are not available on 2024-12-03
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service night - 2024-12-04 is assigned to KL but they are not available on 2024-12-04
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-04 is assigned to WL but they are not available on 2024-12-04
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-04 is assigned to KS but they are not available on 2024-12-04
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service night - 2024-12-05 is assigned to BW but they are not available on 2024-12-05
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-06 is assigned to WL but they are not available on 2024-12-06
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-06 is assigned to KS but they are not available on 2024-12-06
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-09 is assigned to KL but they are not available on 2024-12-09
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-09 is assigned to BC but they are not available on 2024-12-09
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service night - 2024-12-10 is assigned to KS but they are not available on 2024-12-10
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service night - 2024-12-11 is assigned to PT but they are not available on 2024-12-11
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-11 is assigned to KL but they are not available on 2024-12-11
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-11 is assigned to BC but they are not available on 2024-12-11
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service night - 2024-12-12 is assigned to NM but they are not available on 2024-12-12
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-12 is assigned to KL but they are not available on 2024-12-12
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-12 is assigned to BC but they are not available on 2024-12-12
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-13 is assigned to KL but they are not available on 2024-12-13
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-13 is assigned to BC but they are not available on 2024-12-13
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-16 is assigned to BW but they are not available on 2024-12-16
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-16 is assigned to PT but they are not available on 2024-12-16
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service night - 2024-12-17 is assigned to CC but they are not available on 2024-12-17
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service1 - 2024-12-17 is assigned to SS but they are not available on 2024-12-17
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-17 is assigned to KL but they are not available on 2024-12-17
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service2 - 2024-12-17 is assigned to CC but they are not available on 2024-12-17
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-17 is assigned to KL but they are not available on 2024-12-17
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-17 is assigned to BW but they are not available on 2024-12-17
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-17 is assigned to PT but they are not available on 2024-12-17
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Amd - 2024-12-17 is assigned to BW but they are not available on 2024-12-17
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Avd - 2024-12-17 is assigned to PU but they are not available on 2024-12-17
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service night - 2024-12-18 is assigned to WW but they are not available on 2024-12-18
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-18 is assigned to BW but they are not available on 2024-12-18
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-18 is assigned to PT but they are not available on 2024-12-18
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service night - 2024-12-19 is assigned to PT but they are not available on 2024-12-19
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-19 is assigned to BW but they are not available on 2024-12-19
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-19 is assigned to PT but they are not available on 2024-12-19
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-20 is assigned to BW but they are not available on 2024-12-20
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-20 is assigned to PT but they are not available on 2024-12-20
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-23 is assigned to BC but they are not available on 2024-12-23
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-23 is assigned to CC but they are not available on 2024-12-23
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service night - 2024-12-24 is assigned to SS but they are not available on 2024-12-24
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-24 is assigned to BC but they are not available on 2024-12-24
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-24 is assigned to CC but they are not available on 2024-12-24
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service night - 2024-12-25 is assigned to WL but they are not available on 2024-12-25
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Mc - 2024-12-25 is assigned to KS but they are not available on 2024-12-25
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service1 - 2024-12-25 is assigned to BC but they are not available on 2024-12-25
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-25 is assigned to SS but they are not available on 2024-12-25
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service2 - 2024-12-25 is assigned to BC but they are not available on 2024-12-25
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-25 is assigned to SS but they are not available on 2024-12-25
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-25 is assigned to BC but they are not available on 2024-12-25
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-25 is assigned to CC but they are not available on 2024-12-25
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Amd - 2024-12-25 is assigned to BC but they are not available on 2024-12-25
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Avd - 2024-12-25 is assigned to CC but they are not available on 2024-12-25
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service night - 2024-12-26 is assigned to PU but they are not available on 2024-12-26
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-26 is assigned to BC but they are not available on 2024-12-26
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-26 is assigned to CC but they are not available on 2024-12-26
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Ems - 2024-12-27 is assigned to BC but they are not available on 2024-12-27
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Observe - 2024-12-27 is assigned to CC but they are not available on 2024-12-27
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - Service night - 2024-12-31 is assigned to PU but they are not available on 2024-12-31
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - WW - amd - 0 - [shift_Amd - 2024-12-16_employee_WW(0..1), shift_Amd - 2024-12-17_employee_WW(0..1), shift_Amd - 2024-12-18_employee_WW(0..1), shift_Amd - 2024-12-19_employee_WW(0..1), shift_Amd - 2024-12-20_employee_WW(0..1), shift_Amd - 2024-12-21_employee_WW(0..1), shift_Amd - 2024-12-22_employee_WW(0..1), shift_Amd - 2024-12-23_employee_WW(0..1), shift_Amd - 2024-12-24_employee_WW(0..1), shift_Amd - 2024-12-25_employee_WW(0..1), shift_Amd - 2024-12-26_employee_WW(0..1), shift_Amd - 2024-12-27_employee_WW(0..1), shift_Amd - 2024-12-28_employee_WW(0..1), shift_Amd - 2024-12-29_employee_WW(0..1), shift_Amd - 2024-12-30_employee_WW(0..1), shift_Amd - 2024-12-31_employee_WW(0..1)]
+2024-11-17 06:23:25 [DEBUG] - ScheduleSolver - WW - avd - 0 - [shift_Avd - 2024-12-01_employee_WW(0..1), shift_Avd - 2024-12-02_employee_WW(0..1), shift_Avd - 2024-12-03_employee_WW(0..1), shift_Avd - 2024-12-04_employee_WW(0..1), shift_Avd - 2024-12-05_employee_WW(0..1), shift_Avd - 2024-12-06_employee_WW(0..1), shift_Avd - 2024-12-07_employee_WW(0..1), shift_Avd - 2024-12-08_employee_WW(0..1), shift_Avd - 2024-12-09_employee_WW(0..1), shift_Avd - 2024-12-10_employee_WW(0..1), shift_Avd - 2024-12-11_employee_WW(0..1), shift_Avd - 2024-12-12_employee_WW(0..1), shift_Avd - 2024-12-13_employee_WW(0..1), shift_Avd - 2024-12-14_employee_WW(0..1), shift_Avd - 2024-12-15_employee_WW(0..1), shift_Avd - 2024-12-16_employee_WW(0..1), shift_Avd - 2024-12-17_employee_WW(0..1), shift_Avd - 2024-12-18_employee_WW(0..1), shift_Avd - 2024-12-19_employee_WW(0..1), shift_Avd - 2024-12-20_employee_WW(0..1), shift_Avd - 2024-12-21_employee_WW(0..1), shift_Avd - 2024-12-22_employee_WW(0..1), shift_Avd - 2024-12-23_employee_WW(0..1), shift_Avd - 2024-12-24_employee_WW(0..1), shift_Avd - 2024-12-25_employee_WW(0..1), shift_Avd - 2024-12-26_employee_WW(0..1), shift_Avd - 2024-12-27_employee_WW(0..1), shift_Avd - 2024-12-28_employee_WW(0..1), shift_Avd - 2024-12-29_employee_WW(0..1), shift_Avd - 2024-12-30_employee_WW(0..1), shift_Avd - 2024-12-31_employee_WW(0..1)]
+2024-11-17 06:23:25 [INFO] - ScheduleSolver - Begin solving for the schedule, with following rules:
+2024-11-17 06:23:25 [INFO] - ScheduleSolver - Rule 1: Each shift must be assigned to employees more than or equal to min_employees, and less than or equal to max_employees
+2024-11-17 06:23:25 [INFO] - ScheduleSolver - Rule 2: If the shift is assigned to employees, fixed the shift assigned to the employees
+2024-11-17 06:23:25 [INFO] - ScheduleSolver - Rule 3: The shift should only be assigned to the employees who are available (Compare to employee's tasks), except for fixed shifts
+2024-11-17 06:23:25 [INFO] - ScheduleSolver - Rule 4: Some shifts cannot be assigned to the same employee in the same day, represent with a logical matrix, exclude fixed shifts
+2024-11-17 06:23:25 [INFO] - ScheduleSolver - Rule 5: Fair distribution of shifts per employee per shift type
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     max shifts per employee per service night = 5
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     max shifts per employee per ('service1', 'service2', 'service1+', 'service2+') = 8
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     max shifts per employee per ('service1', 'service2') = 4
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     max shifts per employee per ('service1+', 'service2+') = 4
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     max shifts per employee per mc = 2
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     max shifts per employee per amd = 2
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     min shifts per employee per amd = 1
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     max shifts per employee per avd = 3
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     min shifts per employee per avd = 2
+2024-11-17 06:23:25 [INFO] - ScheduleSolver - Rule 6: Manual set number of shifts per employee
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     BC - 4
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     BW - 2
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     KS - 4
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     PT - 6
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     WW - 7
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     BK - 2
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     CC - 8
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     KL - 8
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     PU - 8
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     NM - 7
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     SS - 4
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     WL - 6
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     KK - 6
+2024-11-17 06:23:25 [INFO] - ScheduleSolver - Rule 7: Manual set number of shifts per employee per shift type
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     WW - amd - 0
+2024-11-17 06:23:25 [INFO] - ScheduleSolver -     WW - avd - 0
+2024-11-17 06:23:25 [INFO] - ScheduleSolver - 
+2024-11-17 06:23:25 [INFO] - ScheduleSolver - Result:
+2024-11-17 06:23:27 [INFO] - ScheduleSolver - ✅︎ All rules are satisfied, now optimizing the schedule with following objectives:
+2024-11-17 06:23:28 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-01 00:00:00
+2024-11-17 06:23:28 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-01 00:00:00
+2024-11-17 06:23:28 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-02 00:00:00
+2024-11-17 06:23:28 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-02 00:00:00
+2024-11-17 06:23:28 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-03 00:00:00
+2024-11-17 06:23:28 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-03 00:00:00
+2024-11-17 06:23:28 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-04 00:00:00
+2024-11-17 06:23:28 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-04 00:00:00
+2024-11-17 06:23:28 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-05 00:00:00
+2024-11-17 06:23:28 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-05 00:00:00
+2024-11-17 06:23:29 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-06 00:00:00
+2024-11-17 06:23:29 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-06 00:00:00
+2024-11-17 06:23:29 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-07 00:00:00
+2024-11-17 06:23:29 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-07 00:00:00
+2024-11-17 06:23:29 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-08 00:00:00
+2024-11-17 06:23:29 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-08 00:00:00
+2024-11-17 06:23:29 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-09 00:00:00
+2024-11-17 06:23:29 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-09 00:00:00
+2024-11-17 06:23:29 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-10 00:00:00
+2024-11-17 06:23:30 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-10 00:00:00
+2024-11-17 06:23:30 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-11 00:00:00
+2024-11-17 06:23:30 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-11 00:00:00
+2024-11-17 06:23:30 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-12 00:00:00
+2024-11-17 06:23:30 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-12 00:00:00
+2024-11-17 06:23:30 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-13 00:00:00
+2024-11-17 06:23:30 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-13 00:00:00
+2024-11-17 06:23:30 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-14 00:00:00
+2024-11-17 06:23:30 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-14 00:00:00
+2024-11-17 06:23:30 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-15 00:00:00
+2024-11-17 06:23:30 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-15 00:00:00
+2024-11-17 06:23:30 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-16 00:00:00
+2024-11-17 06:23:31 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-16 00:00:00
+2024-11-17 06:23:31 [INFO] - ScheduleSolver - ❌ Objective: Prefer working service1, service2 on the same day on 2024-12-17 00:00:00
+2024-11-17 06:23:31 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-17 00:00:00
+2024-11-17 06:23:31 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-18 00:00:00
+2024-11-17 06:23:31 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-18 00:00:00
+2024-11-17 06:23:31 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-19 00:00:00
+2024-11-17 06:23:31 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-19 00:00:00
+2024-11-17 06:23:31 [INFO] - ScheduleSolver - ❌ Objective: Prefer working service1, service2 on the same day on 2024-12-20 00:00:00
+2024-11-17 06:23:31 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-20 00:00:00
+2024-11-17 06:23:31 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-21 00:00:00
+2024-11-17 06:23:31 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-21 00:00:00
+2024-11-17 06:23:31 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-22 00:00:00
+2024-11-17 06:23:32 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-22 00:00:00
+2024-11-17 06:23:32 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-23 00:00:00
+2024-11-17 06:23:32 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-23 00:00:00
+2024-11-17 06:23:32 [INFO] - ScheduleSolver - ❌ Objective: Prefer working service1, service2 on the same day on 2024-12-24 00:00:00
+2024-11-17 06:23:32 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-24 00:00:00
+2024-11-17 06:23:32 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-25 00:00:00
+2024-11-17 06:23:32 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-25 00:00:00
+2024-11-17 06:23:32 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-26 00:00:00
+2024-11-17 06:23:32 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-26 00:00:00
+2024-11-17 06:23:32 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-27 00:00:00
+2024-11-17 06:23:32 [INFO] - ScheduleSolver - ❌ Objective: Prefer working service1+, service2+ on the same day on 2024-12-27 00:00:00
+2024-11-17 06:23:32 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-28 00:00:00
+2024-11-17 06:23:32 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-28 00:00:00
+2024-11-17 06:23:32 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-29 00:00:00
+2024-11-17 06:23:33 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-29 00:00:00
+2024-11-17 06:23:33 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-30 00:00:00
+2024-11-17 06:23:33 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-30 00:00:00
+2024-11-17 06:23:33 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1, service2 on the same day on 2024-12-31 00:00:00
+2024-11-17 06:23:33 [INFO] - ScheduleSolver - ✅︎ Objective: Prefer working service1+, service2+ on the same day on 2024-12-31 00:00:00
+2024-11-17 06:23:33 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for BC
+2024-11-17 06:23:33 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for BW
+2024-11-17 06:23:33 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for KS
+2024-11-17 06:23:33 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for PT
+2024-11-17 06:23:33 [INFO] - ScheduleSolver - ❌ Objective: Equalize holiday shifts per employee for WW
+2024-11-17 06:23:33 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for BK
+2024-11-17 06:23:33 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for CC
+2024-11-17 06:23:33 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for KL
+2024-11-17 06:23:33 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for PU
+2024-11-17 06:23:34 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for NM
+2024-11-17 06:23:34 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for SS
+2024-11-17 06:23:34 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for WL
+2024-11-17 06:23:34 [INFO] - ScheduleSolver - ✅︎ Objective: Equalize holiday shifts per employee for KK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-01 is assigned to WL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Mc - 2024-12-02 is assigned to CC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-02 is assigned to KL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-02 is assigned to KL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-02 is assigned to PU
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Mc - 2024-12-03 is assigned to KK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1 - 2024-12-03 is assigned to NM
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-03 is assigned to CC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2 - 2024-12-03 is assigned to NM
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-03 is assigned to CC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-03 is assigned to BC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Mc - 2024-12-04 is assigned to NM
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1 - 2024-12-04 is assigned to BC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-04 is assigned to PT
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2 - 2024-12-04 is assigned to BC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-04 is assigned to PT
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-04 is assigned to KK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-05 is assigned to BK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Mc - 2024-12-06 is assigned to PU
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1 - 2024-12-06 is assigned to KL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-06 is assigned to CC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2 - 2024-12-06 is assigned to KL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-06 is assigned to CC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-06 is assigned to PT
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-07 is assigned to KS
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-08 is assigned to BC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Mc - 2024-12-09 is assigned to SS
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1 - 2024-12-09 is assigned to PT
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-09 is assigned to WW
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2 - 2024-12-09 is assigned to PT
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-09 is assigned to WW
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-09 is assigned to KS
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-10 is assigned to CC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Mc - 2024-12-11 is assigned to WL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1 - 2024-12-11 is assigned to NM
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-11 is assigned to KK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2 - 2024-12-11 is assigned to NM
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-11 is assigned to KK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-11 is assigned to BW
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Mc - 2024-12-12 is assigned to PT
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1 - 2024-12-12 is assigned to CC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-12 is assigned to WL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2 - 2024-12-12 is assigned to CC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-12 is assigned to WL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-12 is assigned to SS
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1 - 2024-12-13 is assigned to PT
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-13 is assigned to NM
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2 - 2024-12-13 is assigned to PT
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-13 is assigned to NM
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-13 is assigned to KK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-14 is assigned to KK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-15 is assigned to SS
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1 - 2024-12-16 is assigned to KS
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-16 is assigned to PU
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2 - 2024-12-16 is assigned to KS
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-16 is assigned to PU
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Amd - 2024-12-16 is assigned to PU
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-16 is assigned to KL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1 - 2024-12-18 is assigned to PU
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-18 is assigned to KS
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2 - 2024-12-18 is assigned to PU
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-18 is assigned to KS
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Amd - 2024-12-18 is assigned to KS
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-18 is assigned to BC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1 - 2024-12-19 is assigned to WW
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-19 is assigned to PU
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2 - 2024-12-19 is assigned to WW
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-19 is assigned to PU
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Amd - 2024-12-19 is assigned to KS
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-19 is assigned to CC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Mc - 2024-12-20 is assigned to CC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1 - 2024-12-20 is assigned to PU
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-20 is assigned to KK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2 - 2024-12-20 is assigned to CC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-20 is assigned to KK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Amd - 2024-12-20 is assigned to KK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-20 is assigned to KL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Amd - 2024-12-21 is assigned to NM
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-21 is assigned to BW
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Amd - 2024-12-22 is assigned to SS
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-22 is assigned to NM
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Mc - 2024-12-23 is assigned to PU
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1 - 2024-12-23 is assigned to KK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-23 is assigned to WL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2 - 2024-12-23 is assigned to KK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-23 is assigned to WL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Amd - 2024-12-23 is assigned to WL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-23 is assigned to NM
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Mc - 2024-12-24 is assigned to KL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1 - 2024-12-24 is assigned to PU
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-24 is assigned to BK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2 - 2024-12-24 is assigned to WW
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-24 is assigned to BK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Amd - 2024-12-24 is assigned to BK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-24 is assigned to PT
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Mc - 2024-12-26 is assigned to KK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1 - 2024-12-26 is assigned to KL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-26 is assigned to WW
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2 - 2024-12-26 is assigned to KL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-26 is assigned to WW
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Amd - 2024-12-26 is assigned to BW
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-26 is assigned to BK
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Mc - 2024-12-27 is assigned to PT
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1 - 2024-12-27 is assigned to WL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service1+ - 2024-12-27 is assigned to SS
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2 - 2024-12-27 is assigned to WL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Service2+ - 2024-12-27 is assigned to NM
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Amd - 2024-12-27 is assigned to KL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-27 is assigned to PU
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Amd - 2024-12-28 is assigned to BC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-28 is assigned to PT
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Amd - 2024-12-29 is assigned to PU
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-29 is assigned to KL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Amd - 2024-12-30 is assigned to PT
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-30 is assigned to WL
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Amd - 2024-12-31 is assigned to CC
+2024-11-17 06:23:34 [DEBUG] - ScheduleSolver - Avd - 2024-12-31 is assigned to BK
+2024-11-17 06:23:34 [INFO] - ScheduleSolver - Schedule Updated!
+2024-11-17 06:23:34 [DEBUG] - googleapiclient.discovery - URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU/values/December%202024%21C269%3AL299?valueInputOption=RAW&alt=json
+2024-11-17 06:23:34 [DEBUG] - GoogleSheetApp - 310 cells updated
+2024-11-17 06:23:34 [DEBUG] - SchedulerSheetUI - Updated sheet values with the schedule 
+  - Schedule: <modules.scheduler_app.models.models.Schedule object at 0x136590190> 
   - Range: C269:L299 
   - Sheet: December 2024 
   - SheetId: 1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU

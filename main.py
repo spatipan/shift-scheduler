@@ -21,7 +21,7 @@ def main_test() -> None:
 
     app.solve()
     app.schedule.summary()
-    app.visualize()
+    # app.visualize()
     app.update_information()
 
 import functions_framework
