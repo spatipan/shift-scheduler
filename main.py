@@ -1,6 +1,4 @@
 from modules.scheduler_app import SchedulerApp
-
-
 from datetime import datetime
 import config
 import logging
@@ -13,7 +11,7 @@ def main() -> None:
     app = SchedulerApp()
     app.fetch_information()
     app.solve()
-    app.schedule.summary()
+    # app.schedule.summary()
     app.visualize()
     app.update_information()
 
