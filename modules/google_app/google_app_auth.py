@@ -9,90 +9,96 @@ from googleapiclient.errors import HttpError
 import logging
 import json
 
-from config import SECRET_PATH, CREDENTIALS, TOKEN
-
-
+from config import CREDS_PATH, TOKEN_PATH
 
 # GoogleCloud app
 class GoogleAppAuthenticator:
-    def __init__(self, SCOPES: list = ['https://www.googleapis.com/auth/calendar.readonly', 
-                                      'https://www.googleapis.com/auth/spreadsheets.readonly']):
+    def __init__(self, credentials_path: str, token_path: str, scopes: list):
+        self.credentials_path = credentials_path
+        self.token_path = token_path
+        self.scopes = scopes
         self.credentials = None
-        self.token = None
-        self.authenticated = False
-        self.service = None
-        self.SCOPES = SCOPES
-        self.logger = logging.getLogger(__class__.__name__)
+        self.logger = logging.getLogger(self.__class__.__name__)
 
 
-    def authenticate(self, credentials: dict,
-                     token: dict | None = None,):
-        '''Authenticate user to use google services'''
-        if self.authenticated:
-            self.logger.debug('User already authenticated')
-            return self.credentials 
+    def authenticate(self):
+        """Authenticate the user using credentials and token files."""
+        creds = None
+
+        # Try loading existing token
+        if os.path.exists(self.token_path):
+            try:
+                self.logger.debug('Attempting to load credentials from token file')
+                with open(self.token_path, 'r') as token_file:
+                    token_info = json.load(token_file)
+                    creds = Credentials.from_authorized_user_info(token_info, self.scopes)
+                
+                if creds.valid:
+                    self.logger.info('Loaded valid credentials from token file.')
+                elif creds.expired and creds.refresh_token:
+                    self.logger.info('Credentials expired. Refreshing...')
+                    creds.refresh(Request())
+                    self._save_credentials(creds)
+                else:
+                    self.logger.warning('Credentials invalid or expired without refresh token.')
+                    creds = None
+            except:
+                self.logger.info('Token file not found or invalid.')
+
+            if not creds or not creds.valid:
+                creds = self.authenticate_user()
+
+            self.credentials = creds
+
+            return self.credentials
         
-        self.logger.debug('Authenticating user ...')
-        self.credentials = credentials
-        self.token = token
-
-
-        try:
-            # Load credentials from token
-            creds = None
-            if self.token:
-                self.logger.debug('Loading credentials from token')
-                creds = Credentials.from_authorized_user_info(self.token, self.SCOPES)
-
-            if creds and creds.valid and not creds.expired:
-                self.logger.debug('Credentials are valid')
-            else:
-                self.logger.debug(f'Credentials are not valid')
-
-                self.logger.debug('Deleting token...')
-                self._delete_token()
-                self.logger.debug('Generating new credentials...')
-                flow = InstalledAppFlow.from_client_config(self.credentials, self.SCOPES)
-                creds = flow.run_local_server(port=0)
-                self.logger.debug('New credentials generated')
-
-
-        except Exception as e:
-            self.logger.error(f'Error during authentication: {e}')
-            raise ValueError(f'Error during authentication: {e}')
-            
-        self._save_credentials(creds)
-        self.credentials = creds
-        self.authenticated = True
-        return self.credentials
+    def authenticate_user(self):
+        """Initiate OAuth2 authentication flow."""
+        self.logger.info('Initiating OAuth2 user authentication flow.')
+        flow = InstalledAppFlow.from_client_secrets_file(
+            self.credentials_path, self.scopes
+        )
+        creds = flow.run_local_server(port=0)
+        self._save_credentials(creds) # type: ignore
+        return creds
     
-    def _save_credentials(self, creds):
-        '''Save credentials to a file'''
-        with open(SECRET_PATH, "r") as file:
-            secret = json.load(file)
-            secret['token'] = json.loads(creds.to_json())
+    def _save_credentials(self, creds: Credentials):
+        """Save credentials to token file."""
+        token_info = json.loads(creds.to_json())
+        with open(self.token_path, 'w') as token_file:
+            json.dump(token_info, token_file, indent=4)
+        self.logger.info('Saved credentials to token file.')
 
-        with open(SECRET_PATH, "w") as file:
-            json.dump(secret, file)
-            self.logger.debug('Credentials saved to file')
-
-    ##TODO: Function to delete token from secret file   
-    def _delete_token(self):
-        '''Delete token from secret file'''
-        with open(SECRET_PATH, "r") as file:
-            secret = json.load(file)
-            secret['token'] = None
-
-        with open(SECRET_PATH, "w") as file:
-            json.dump(secret, file)
-            self.logger.debug('Token deleted from file')
+    def delete_token(self):
+        """Delete existing token."""
+        try:
+            os.remove(self.token_path)
+            self.logger.info('Deleted token file successfully.')
+        except FileNotFoundError:
+            self.logger.warning('Token file not found. Nothing to delete.')
+        except Exception as e:
+            self.logger.error(f'Error deleting token file: {e}')
+            raise
       
+import logging
+from config import CREDS_PATH, TOKEN_PATH, GOOGLE_SCOPES
 
+logging.basicConfig(level=logging.INFO)
 
 if __name__ == '__main__':
-    authenticator = GoogleAppAuthenticator()
-    credentials = authenticator.authenticate(
-        credentials = CREDENTIALS,
-        token = TOKEN,
+    authenticator = GoogleAppAuthenticator(
+        credentials_path=CREDS_PATH,
+        token_path=TOKEN_PATH,
+        scopes=GOOGLE_SCOPES
     )
+
+    credentials = authenticator.authenticate()
+
+    # Example usage: Google Calendar API
+    try:
+        service = build('calendar', 'v3', credentials=credentials)
+        events = service.events().list(calendarId='primary').execute()
+        print(events)
+    except HttpError as e:
+        logging.error(f'HTTP error occurred: {e}')
 

@@ -53,11 +53,13 @@ SHIFT_PREFERENCE_RANGE = 'H219:J240'
 # Paths
 GOOGLE_APP_PATH = os.path.join(MASTER_PATH, 'srcs/google_app')
 SCHEDULER_APP_PATH = os.path.join(MASTER_PATH, 'srcs/scheduler_app')
-SECRET_PATH = os.path.join(MASTER_PATH, 'secret.json')
+# SECRET_PATH = os.path.join(MASTER_PATH, 'secret.json')
 
 #Secrets
-CREDENTIALS = get_value_from_json(SECRET_PATH, 'credentials')
-TOKEN = get_value_from_json(SECRET_PATH, 'token')
+# CREDENTIALS = get_value_from_json(SECRET_PATH, 'credentials')
+# TOKEN = get_value_from_json(SECRET_PATH, 'token')
+CREDS_PATH = os.path.join(MASTER_PATH, 'credentials.json')
+TOKEN_PATH = os.path.join(MASTER_PATH, 'token.json')
 
 
 def config_logging():

@@ -1,4 +1,4 @@
-from modules.google_app.sheet import GoogleSheetApp
+from modules.google_app.sheet_app import GoogleSheetApp
 from modules.scheduler_app.models.models import Employee, Shift, Task, Event, Schedule
 from modules.scheduler_app.solver import ScheduleSolver
 import logging
@@ -26,7 +26,7 @@ class SchedulerSheetUI:
         self.logger.debug(f'SchedulerSheetUI initialized - sheetId: {sheetId}')
 
         self.schedule = Schedule()
-        self.solver = ScheduleSolver()
+        self.solver = ScheduleSolver(self.schedule)
 
         self.fetch_sheet_values()
 
