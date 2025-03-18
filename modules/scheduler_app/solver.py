@@ -12,18 +12,18 @@ class SchedulerConstraint:
         self.description = description
 
 
-
 class ScheduleSolver:
-    def __init__(self, schedule):
+    def __init__(self, schedule: Schedule):
         self.schedule = schedule
         self.model = cp_model.CpModel()
-        self.shift_vars = {}
+        self.__shift_vars = {}
         self.logger = logging.getLogger(self.__class__.__name__)
         self.constraints: list[SchedulerConstraint] = []
         self.solver = cp_model.CpSolver()
         self.solver.parameters.max_time_in_seconds = 300
         self.solver.parameters.num_search_workers = 8
         # Constraint
+        self.constraints = []
         self.__shift_group_sum_employee = {}
         self.__shift_sum_employee = {}
 
@@ -35,15 +35,11 @@ class ScheduleSolver:
         return self.schedule.shifts
 
     @property
-    def employees(self):
+    def employees(self) -> list[Employee]:
         return self.schedule.employees
 
-    def add_constraint(self, constraint, group: str, description: str):
-        self.model.Add(constraint)
-        return SchedulerConstraint(constraint, group, description)
-
     def setup_variables(self):
-        self.shift_vars = {
+        self.__shift_vars = {
             (shift, emp): self.model.NewBoolVar(f'shift_{shift.title}_{emp.abbreviation}')
             for shift in self.shifts
             for emp in self.employees
@@ -54,23 +50,86 @@ class ScheduleSolver:
         self.setup_variables()
 
         assumptions = []
-
-        # Example Constraint 1: Shifts assigned to exactly one employee
+        #[1] Shifts assigned to exactly one employee
         for shift in self.shifts:
-            self.model.AddExactlyOne(self.shift_vars[(shift, emp)] for emp in self.employees)
+            assumption = self.model.NewBoolVar(f'Constraint [1]: Shifts assigned to exactly one employee for {shift.title}')
+            self.model.Add(sum(self.__shift_vars[(shift, emp)] for emp in self.employees) == 1).OnlyEnforceIf(assumption)
+            assumptions.append(assumption)
 
-        # Add other constraints here similarly...
+        #[2] If the shift is assigned to employees, fixed the shift assigned to the employees
+        fixed_shifts = []
+        ls_fixed_shifts = []
+        for shift in self.shifts:
+            for employee in shift.employees:
+                fixed_shifts.append((shift, employee))
+                ls_fixed_shifts.append(shift)
+        for shift, employee in fixed_shifts:
+            self.model.Add(self.__shift_vars[(shift, employee)] == 1)
+        ls_not_fixed_shifts = [shift for shift in self.shifts if shift not in ls_fixed_shifts]
+
+        #[3] Employee availability (excluded fixed shifts)
+        for shift in ls_not_fixed_shifts:
+            for emp in self.employees:
+                if not emp.is_available(shift):
+                    self.model.Add(self.__shift_vars[(shift, employee)] == 0)
+        
+        #[4] Logical matrix constraints (incompatible shift within the same day)
+        for date in self.schedule.dates:
+            shifts_on_date = self.schedule.get_shifts_by_date(date)
+            for emp in self.schedule.employees:
+                incompatible_pairs = [
+                    ('service night', 'service1'), 
+                    ('service night', 'service2'), 
+                    ('service night', 'service1+'), 
+                    ('service night', 'service2+'), 
+                    ('service night', 'mc'), 
+                    ('service night', 'ems'), 
+                    ('service night', 'observe'), 
+                    ('service night', 'amd'),
+                    ('service night', 'avd'), 
+                    ('service1', 'service1+'), 
+                    #('service1', 'service2+'), 
+                    ('service1', 'mc'), 
+                    ('service1', 'observe'), 
+                    ('service1', 'ems'), 
+                    ('service1', 'amd'), 
+                    ('service1', 'avd'), 
+                    # ('service1+', 'service2'), 
+                    ('service1+', 'mc'), 
+                    ('service1+', 'avd'),
+                    ('service2', 'service2+'),
+                    ('service2', 'mc'),
+                    ('service2', 'ems'), 
+                    ('service2', 'observe'), 
+                    ('service2', 'amd'), 
+                    ('service2', 'avd'),
+                    ('service2+', 'avd'),
+                    ('mc', 'avd'),
+                    ('observe', 'avd'),
+                    ('ems', 'avd'),
+                    ('amd', 'avd'),
+                ]
+                for s1 in shifts_on_date:
+                     for s2 in shifts_on_date:
+                         if s1 != s2 and (s1.type, s2.type) in incompatible_pairs:
+                             self.model.Add(self.__shift_vars[(s1, emp)] + self.__shift_vars[(s2, emp)] <= 1)
+
+        #[5]
+        #[6]
 
         # Assume constraints for debugging (Example usage of assumptions):
-        assumptions = []
-        for constraint in self.constraints:
-            bvar = self.model.NewBoolVar('')
-            constraint.constraint.OnlyEnforceIf(bvar)
-            assumptions.append(bvar)
+        # assumptions = []
+        # for constraint in self.constraints:
+        #     bvar = self.model.NewBoolVar('')
+        #     constraint.constraint.OnlyEnforceIf(bvar)
+        #     assumptions.append(bvar)
 
-        status = self.solver.SolveWithAssumptions(self.model, assumptions) # type: ignore #
+
+        self.model.AddAssumptions(assumptions)
+        status = self.solver.Solve(model = self.model)
 
         if status not in [cp_model.FEASIBLE, cp_model.OPTIMAL]:
+            self.logger.info('The result is not feasible...')
             core = self.solver.SufficientAssumptionsForInfeasibility()
             infeasible_constraints = [self.constraints[i] for i in core]
             for c in infeasible_constraints:
@@ -80,14 +139,14 @@ class ScheduleSolver:
 
 
     def add_objectives(self):
-        objectives = []
-        # Example objective: Equalize shifts among employees
-        shift_counts = [sum(self.shift_vars[(shift, emp)] for shift in self.shifts) for emp in self.employees]
-        max_shifts = self.model.NewIntVar(0, len(self.shifts), 'max_shifts')
-        min_shifts = self.model.NewIntVar(0, len(self.shifts), 'min_shifts')
-        self.model.AddMaxEquality(max_shifts, shift_counts := [sum(self.shift_vars[shift, emp] for shift in self.shifts) for emp in self.employees])
-        self.model.AddMinEquality(min_shifts, shift_counts)
-        self.model.Minimize(max_shifts - min_shifts)
+        # objectives = []
+        # # TODO: change out  Example objective: Equalize shifts among employees
+        # shift_counts = [sum(self.shift_vars[(shift, emp)] for shift in self.shifts) for emp in self.employees]
+        # max_shifts = self.model.NewIntVar(0, len(self.shifts), 'max_shifts')
+        # min_shifts = self.model.NewIntVar(0, len(self.shifts), 'min_shifts')
+        # self.model.AddMaxEquality(max_shifts, shift_counts := [sum(self.__shift_vars[shift, emp] for shift in self.shifts) for emp in self.employees])
+        # self.model.AddMinEquality(min_shifts, shift_counts)
+        # self.model.Minimize(max_shifts - min_shifts)
 
         return True, None
 
@@ -100,6 +159,8 @@ class ScheduleSolver:
 
         self.setup_model()
         feasible, infeasible_constraints = self.add_constraints()
+
+        print(infeasible_constraints)
         
         if not feasible:
             self.logger.error("❌ Model infeasible due to constraints. See logs.")
@@ -121,10 +182,14 @@ class ScheduleSolver:
     def extract_solution(self):
         for shift in self.shifts:
             for employee in self.employees:
-                if self.solver.Value(self.shift_vars[(shift, employee)]) == 1:
-                    shift.add_employee(employee)
-                    employee.add_shift(shift)
-                    self.logger.debug(f'Shift {shift.title} assigned to {employee.abbreviation}')
+                if self.solver.Value(self.__shift_vars[(shift, employee)]) == 1:
+                    try:
+                        self.logger.debug(f'Shift {shift.title} assigned to {employee.abbreviation}')
+                        shift.add_employee(employee)
+                        employee.add_shift(shift)
+                    except:
+                        pass
+
 
     def setup_logging(self):
         import logging

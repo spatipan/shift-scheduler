@@ -17,8 +17,8 @@ class GoogleAppAuthenticator:
         self.credentials_path = credentials_path
         self.token_path = token_path
         self.scopes = scopes
-        self.credentials = None
         self.logger = logging.getLogger(self.__class__.__name__)
+        self.credentials = self.authenticate()
 
 
     def authenticate(self):

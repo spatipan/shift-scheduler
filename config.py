@@ -37,7 +37,7 @@ SPREADSHEET_ID = '1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU'
 CALENDAR_ID = 'em.cmu.teacher@gmail.com'
 
 ## Google Sheet config
-SHEET_NAME = 'TEST' # Default sheet name
+SHEET_NAME = 'April 2025' # Default sheet name
 NAME_RANGE = 'E5'
 SHIFT_RANGE = 'C11:L42'
 EMPLOYEE_RANGE = 'A47:G67'

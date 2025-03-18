@@ -27,8 +27,6 @@ class GoogleSheetApp:
             print(f'Error initializing service: {e}')
             self.logger.error(f'Error initializing service: {e}')
 
-
-
     # Convert respond to dictionary
     @staticmethod
     def convert_to_dict(respond):

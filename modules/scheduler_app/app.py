@@ -13,9 +13,9 @@ class SchedulerApp:
             token_path=config.TOKEN_PATH,
             scopes=config.GOOGLE_SCOPES)
         
-        credentials = self.google_app_authenticator.credentials
-        self.calendar_app = CalendarApp(credentials) # init calendar app
-        self.sheet_app = GoogleSheetApp(credentials) # init sheet app
+        self.credentials = self.google_app_authenticator.credentials
+        self.calendar_app = CalendarApp(self.credentials) # init calendar app
+        self.sheet_app = GoogleSheetApp(self.credentials) # init sheet app
         self.schedule = Schedule() # create a schedule
         self.schedule_solver = ScheduleSolver(self.schedule) # init solver app
         self.sheet_ui = SchedulerSheetUI(sheetApp=self.sheet_app, sheetId=config.SPREADSHEET_ID, sheetName=config.SHEET_NAME) # init sheet ui app
@@ -33,7 +33,8 @@ class SchedulerApp:
         
     # [3] Call solver to solve the schedule
     def solve(self):
-        self.schedule = self.schedule_solver.solve()
+        self.schedule_solver.solve()
+        self.schedule = self.schedule_solver.schedule
         
     # [4] Visualize the schedule (analyze and visualize results)
     def visualize(self):
