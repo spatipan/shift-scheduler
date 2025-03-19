@@ -27,7 +27,7 @@ MASTER_PATH = os.path.dirname(os.path.abspath(__file__))
 #Logging
 LOG_DATE_FORMAT = '%Y-%m-%d %H:%M:%S'
 LOG_TIME = datetime.now().strftime('%Y%m%d%H%M%S')
-LOG_FILE_PATH = f'tmp/logging.log'
+LOG_FILE_PATH = 'tmp/'
 
 # Google apps
 GOOGLE_SCOPES = ['https://www.googleapis.com/auth/calendar', 
@@ -37,7 +37,7 @@ SPREADSHEET_ID = '1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU'
 CALENDAR_ID = 'em.cmu.teacher@gmail.com'
 
 ## Google Sheet config
-SHEET_NAME = 'December 2024' # Default sheet name
+SHEET_NAME = 'April 2025' # Default sheet name
 NAME_RANGE = 'E5'
 SHIFT_RANGE = 'C11:L42'
 EMPLOYEE_RANGE = 'A47:G67'
@@ -47,7 +47,7 @@ HOLIDAYS_RANGE = 'B12:B42'
 DATE_RANGE = 'A12:A42'
 # SHIFT_MATRIX_RANGE = 'A210:J219'
 TOTAL_SHIFT_CONSTRAINT = 'B218:C240'
-SHIFT_PREFERENCE_RANGE = 'H218:J240'
+SHIFT_PREFERENCE_RANGE = 'H218:M239'
 SHIFT_TYPE_PER_EMPLOYEE_RANGE = 'B217:F240'
 
 
@@ -61,16 +61,33 @@ CREDENTIALS = get_value_from_json(SECRET_PATH, 'credentials')
 TOKEN = get_value_from_json(SECRET_PATH, 'token')
 
 
+# def config_logging():
+#     logging.basicConfig(level=logging.DEBUG,
+#                     format = '%(asctime)s [%(levelname)s] - %(name)s - %(message)s',
+#                     datefmt = LOG_DATE_FORMAT,
+#                     filename = LOG_FILE_PATH,
+#                     filemode = 'w',
+#                     force = True)
+#     # print(f'Logging to {LOG_FILE_PATH}')
+#     logger = logging.getLogger(__name__)
+#     logger.debug(f'Logging to {LOG_FILE_PATH}')
+
 def config_logging():
-    logging.basicConfig(level=logging.DEBUG,
-                    format = '%(asctime)s [%(levelname)s] - %(name)s - %(message)s',
-                    datefmt = LOG_DATE_FORMAT,
-                    filename = LOG_FILE_PATH,
-                    filemode = 'w',
-                    force = True)
-    # print(f'Logging to {LOG_FILE_PATH}')
+    log_dir = 'tmp'
+    os.makedirs(log_dir, exist_ok=True)
+    log_filename = datetime.now().strftime(f'{log_dir}/log_%Y%m%d_%H%M%S.log')
+
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format='%(asctime)s [%(levelname)s] - %(name)s - %(message)s',
+        datefmt=LOG_DATE_FORMAT,
+        filename= log_filename,
+        filemode='w',
+        force=True
+    )
+
     logger = logging.getLogger(__name__)
-    logger.debug(f'Logging to {LOG_FILE_PATH}')
+    logger.debug(f'Logging to {log_filename}')
 
 
 if __name__ == '__main__':

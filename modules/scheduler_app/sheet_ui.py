@@ -135,22 +135,18 @@ class SchedulerSheetUI:
             else:
                 continue
 
-        #Add shift preference
+        #Add shift preference (week day)
         shift_preference = self.get_sheet_values(range = config.SHIFT_PREFERENCE_RANGE)
-        for row in shift_preference: #type: ignore
-            if len(row) == 3 and row[0] != '' and row[1] != '' and row[2] != '':
-                employee_abbreviation = row[0]
-                morning_preference = True if row[1] == 'TRUE' else False
-                afternoon_preference = True if row[2] == 'TRUE' else False
-                # print(f'Add shift preference: {employee_abbreviation} {morning_preference} {afternoon_preference}')
-                # If both true -> set both to false, because it is not a preference
-                if morning_preference and afternoon_preference:
-                    morning_preference = False
-                    afternoon_preference = False
-
-                self.solver.add_shift_preference_constraint(employee_abbreviation, morning_preference, afternoon_preference)
-            else:
-                continue
+        for row in shift_preference:
+            if len(row) == 6 and row[0] != '':
+                staff_abbreviation = row[0]
+                monday = True if row[1] == 'TRUE' else False
+                tuesday = True if row[1] == 'TRUE' else False
+                wednesday = True if row[1] == 'TRUE' else False
+                thursday = True if row[1] == 'TRUE' else False
+                friday = True if row[1] == 'TRUE' else False
+                self.solver.add_shift_preference_constraint(staff_abbreviation, monday, tuesday, wednesday, thursday, friday)
+        
 
         #Add shift type per employee constraint
         shift_type_per_employee = self.get_sheet_values(range = config.SHIFT_TYPE_PER_EMPLOYEE_RANGE)

@@ -23,6 +23,7 @@ class SchedulerConstraintGroup:
         self.constraints = constraints
         self.status = status
     
+
 # Schedule solver
 class ScheduleSolver:
     def __init__(self):
@@ -101,16 +102,23 @@ class ScheduleSolver:
         self.__shift_type_per_employee_constraint[(employee_abbreviation, shift_type)] = total_shifts
         self.logger.debug(f'Added total shifts per employee constraint for {employee_abbreviation} - {shift_type} - {total_shifts}')
 
-    def add_shift_preference_constraint(self, employee_abbreviation: str, morning_preference: bool, afternoon_preference: bool):
+    def add_shift_preference_constraint(self, employee_abbreviation: str, monday: bool, tuesday: bool, wednesday: bool, thursday: bool, friday: bool):
         '''Add shift preference constraint'''
-        if morning_preference:
-            self.__shift_preference[employee_abbreviation] = 'morning'
-        elif afternoon_preference:
-            self.__shift_preference[employee_abbreviation] = 'afternoon'
-        else:
-            self.__shift_preference[employee_abbreviation] = None
+        preferences = {
+            'mon': monday,
+            'tue': tuesday,
+            'wed': wednesday,
+            'thu': thursday,
+            'fri': friday
+        }
+
+        person_dict = {}
+        person_dict[employee_abbreviation] = {k: v for k, v in preferences.items()}
+         
+        self.__shift_preference[employee_abbreviation] = person_dict
+        
         # print(self.__shift_preference)
-        self.logger.debug(f'Added shift preference constraint for {employee_abbreviation} - morning: {morning_preference}, afternoon: {afternoon_preference}')
+        self.logger.debug(f'Added shift preference constraint for {employee_abbreviation} - {person_dict}')
 
     def visualize(self):
         '''Visualize schedule using matplotlib, plotly, etc.'''
@@ -151,13 +159,16 @@ class ScheduleSolver:
         for employee in self.employees:
             employee_constraints[employee] = []
         
+        shift_allocation_constraints = {}
+            
+        shift_constraints = []
+
  
         # [1] Each shift must be assigned to employees more than or equal to min_employees, and less than or equal to max_employees
         for shift in self.shifts:
-            date_constraints[shift.date].append(sum([self.__shift_vars[(shift, employee)] for employee in self.employees]) == 1)
-            # date_constraints[shift.date].append(sum([self.__shift_vars[(shift, employee)] for employee in self.employees]) >= shift.min_employees)
-            # date_constraints[shift.date].append(sum([self.__shift_vars[(shift, employee)] for employee in self.employees]) <= shift.max_employees)
-
+            c = sum([self.__shift_vars[(shift, employee)] for employee in self.employees]) == 1
+            date_constraints[shift.date].append(c)
+            shift_allocation_constraints[shift] = c
 
         # [2] If the shift is assigned to employees, fixed the shift assigned to the employees
         fixed_shifts = []
@@ -167,7 +178,9 @@ class ScheduleSolver:
                 fixed_shifts.append((shift, employee))
                 ls_fixed_shifts.append(shift)
         for shift, employee in fixed_shifts:
-            date_constraints[shift.date].append(self.__shift_vars[(shift, employee)] == 1)
+            c = self.__shift_vars[(shift, employee)] == 1
+            date_constraints[shift.date].append(c)
+            shift_constraints.append(c)
         # print("Fix:", ls_fixed_shifts)
             
         ls_not_fixed_shifts = [shift for shift in self.shifts if shift not in ls_fixed_shifts]
@@ -179,7 +192,9 @@ class ScheduleSolver:
             for shift in self.get_shifts_by_date(date):
                 for employee in self.employees:
                     if not employee.is_available(shift) and (shift, employee) not in fixed_shifts:
-                        date_constraints[shift.date].append(self.__shift_vars[(shift, employee)] == 0)     
+                        c = self.__shift_vars[(shift, employee)] == 0
+                        date_constraints[shift.date].append(c)    
+                        shift_constraints.append(c) 
                     elif not employee.is_available(shift) and (shift, employee) in fixed_shifts:
                         self.logger.debug(f'{shift.title} is assigned to {employee.abbreviation} but they are not available on {date.date()}')
                     else:
@@ -199,6 +214,7 @@ class ScheduleSolver:
                     ('service night', 'ems') : False,
                     ('service night', 'amd') : False,
                     ('service night', 'avd') : False,
+                    ('service night', 'service nt') : True,
 
                     # service1
                     ('service1', 'service2') : True,
@@ -209,6 +225,7 @@ class ScheduleSolver:
                     ('service1', 'ems') : False,
                     ('service1', 'amd') : False,
                     ('service1', 'avd') : False,
+                    ('service1', 'service nt') : False,
 
                     # service2
                     ('service2', 'service1+') : False,
@@ -218,6 +235,7 @@ class ScheduleSolver:
                     ('service2', 'ems') : False,
                     ('service2', 'amd') : False,
                     ('service2', 'avd') : False,
+                    ('service2', 'service nt') : False,
 
                     # service1+
                     ('service1+', 'service2+') : True,
@@ -226,6 +244,7 @@ class ScheduleSolver:
                     ('service1+', 'ems') : True,
                     ('service1+', 'amd') : True,
                     ('service1+', 'avd') : False,
+                    ('service1+', 'service nt') : False,
 
                     # service2+
                     ('service2+', 'mc') : True,
@@ -233,24 +252,32 @@ class ScheduleSolver:
                     ('service2+', 'ems') : True,
                     ('service2+', 'amd') : True,
                     ('service2+', 'avd') : False,
+                    ('service2+', 'service nt') : False,
 
                     # mc
                     ('mc', 'observe') : True,
                     ('mc', 'ems') : True,
                     ('mc', 'amd') : True,
-                    ('mc', 'avd') : False,
+                    ('mc', 'avd') : True,
+                    ('mc', 'service nt') : True,
 
                     # observe
                     ('observe', 'ems') : True,
                     ('observe', 'amd') : True,
                     ('observe', 'avd') : False,
+                    ('observe', 'service nt') : True,
 
                     # ems
                     ('ems', 'amd') : True,
                     ('ems', 'avd') : False,
+                    ('ems', 'service nt') : True,
 
                     # amd
                     ('amd', 'avd') : False,
+                    ('amd', 'service nt') : True,
+
+                    #avd
+                    ('avd', 'service nt') : True,
 
         }
 
@@ -264,9 +291,11 @@ class ScheduleSolver:
                 for shift2 in not_fix:
                     if shift1 == shift2:
                         continue
-                    if (shift1.type, shift2.type) in keys and shift_types_matrix[(shift1.type, shift2.type)] == False: # type: ignore
+                    if (shift1.type, shift2.type) in keys and (shift_types_matrix[(shift1.type, shift2.type)] == False): # type: ignore
                         for employee in self.employees:
-                            date_constraints[date.date()].append(self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1)
+                            c = self.__shift_vars[(shift1, employee)] + self.__shift_vars[(shift2, employee)] <= 1
+                            date_constraints[date.date()].append(c)
+                            shift_constraints.append(c)
                             # self.logger.debug(f'{shift1.title} and {shift2.title} cannot be assigned to the same employee {employee} on {date.date()}')
         
                   
@@ -289,7 +318,7 @@ class ScheduleSolver:
         shift_group_sum = {
             ('max', ('service night'), '') : math.floor(self.shift_per_employee('service night'))+4,
             # ('min', ('service night'), '') : math.floor(self.shift_per_employee('service night')),
-            ('max',('service1', 'service2', 'service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2') + self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))+3,
+            ('max',('service1', 'service2', 'service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2') + self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))+4,
             # ('min',('service1', 'service2', 'service1+', 'service2+'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2') + self.shift_per_employee('service1+') + self.shift_per_employee('service2+'))-2,
             ('max',('service1', 'service2'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2'))+2,
             # ('min',('service1', 'service2'),'') : math.floor(self.shift_per_employee('service1') + self.shift_per_employee('service2'))-1,
@@ -298,7 +327,7 @@ class ScheduleSolver:
 
 
             ('max',('mc'),'') : math.floor(self.shift_per_employee('mc'))+1,
-            # ('min',('mc'),'') : math.floor(self.shift_per_employee('mc')),
+            ('min',('mc'),'') : math.floor(self.shift_per_employee('mc')),
             ('max',('amd'),'') : math.floor(self.shift_per_employee('amd'))+1,
             ('min',('amd'),'') : math.floor(self.shift_per_employee('amd')),
             ('max',('avd'),'') : math.floor(self.shift_per_employee('avd'))+1,
@@ -311,14 +340,18 @@ class ScheduleSolver:
             for group in shift_group_sum:
                 shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in group[1]]
                 if group[0] == 'max':
-                    employee_constraints[employee].append(sum(shifts) <= shift_group_sum[group])
+                    c = sum(shifts) <= shift_group_sum[group]
+                    employee_constraints[employee].append(c)
+                    shift_constraints.append(c)
                 elif group[0] == 'min':
                     if group[1] == ('avd') and employee.abbreviation == 'WW':
                         continue
                     if group[1] == ('amd') and employee.abbreviation == 'WW':
                         continue
                     else:
-                        employee_constraints[employee].append(sum(shifts) >= shift_group_sum[group])
+                        c = sum(shifts) >= shift_group_sum[group]
+                        employee_constraints[employee].append(c)
+                        shift_constraints.append(c)
 
        
         # [ุ6] Manual set number of shifts per employee
@@ -327,7 +360,10 @@ class ScheduleSolver:
         for e, shift_sum in shift_sum_employee.items():
             employee = [employee for employee in self.employees if employee.abbreviation == e][0]
             shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['service1', 'service2', 'service1+', 'service2+']]
-            employee_constraints[employee].append(sum(shifts) == shift_sum)
+            c = sum(shifts) == shift_sum
+            employee_constraints[employee].append(c)
+            shift_constraints.append(c)
+
             # self.logger.debug(f'shift_sum_employee: {shifts}')
 
         # [7] Manual set number of shifts per employee per shift type
@@ -338,36 +374,35 @@ class ScheduleSolver:
             shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type == tuple[1]]
 
             if len(shifts) > 0:
-                employee_constraints[employee].append(sum(shifts) == number)
+                c = sum(shifts) == number
+                employee_constraints[employee].append(c)
+                shift_constraints.append(c)
                 self.logger.debug(f'{employee.abbreviation} - {tuple[1]} - {number} - {shifts}')
 
-           
+        # [8] Service shift preference on weekday
+        shift_preference = self.__shift_preference
 
+        # Filter service shifts that are not fixed
+        service_shifts = [shift for shift in self.shifts if shift.type in ['service1', 'service2', 'service1+', 'service2+']]
+        not_fixed_service_shifts = [shift for shift in service_shifts if shift in ls_not_fixed_shifts]
 
-        # for e, shift_type in shift_sum_employee.items():
-        #     employee = [employee for employee in self.employees if employee.abbreviation == e][0]
-        #     shifts = [self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type == shift_type]
-            # if len(shifts) > 0:
-            #     employee_constraints[employee].append(sum(shifts) == shift_sum_employee[e, shift_type])
-            # elif shift_type == 'total services':
-            #     employee_constraints[employee].append(sum([self.__shift_vars[(shift, employee)] for shift in self.shifts if shift.type in ['service1', 'service2', 'service1+', 'service 2+']]) == shift_sum_employee[e, shift_type])
-            # self.logger.debug(f'{e} - {shift_type} - {shift_sum_employee[e, shift_type]}')
+        # Iterate over each employee's shift preference
+        for e, pref in shift_preference.items():
+            employee = next((emp for emp in self.employees if emp.abbreviation == e), None)
+            if employee:
+                for wd, value in pref.items():  # Extract employee's weekday preferences
+                    for shift in not_fixed_service_shifts:
+                        # Match weekday abbreviation
+                        if shift.start.strftime('%a').lower()[:3] == wd:  
+                            if not value:  # If the employee does NOT prefer this weekday shift
+                                c = self.__shift_vars[(shift, employee)] == 0
+                                employee_constraints[employee].append(c)
+                                shift_constraints.append(c)
+                                self.logger.debug(f'Preference: {employee.abbreviation} does NOT prefer shift {shift.title} on {wd}')
+                            else:  # If the employee prefers this weekday shift
+                                # employee_constraints[employee].append(self.__shift_vars[(shift, employee)] >= 0)
+                                self.logger.debug(f'Preference: {employee.abbreviation} prefers shift {shift.title} on {wd}')
 
-
-        # [x] Some shift required a role of employee
-        # for shift in self.shifts:
-        #     if shift.type in ['specialist']:
-        #         for employee in self.employees:
-        #             if employee.skills != 'specialist':
-        #                 date_constraints[shift.date].append(self.__shift_vars[(shift, employee)] == 0)
-
-
-        # [x] Equalize holiday shifts per employee -> Moved to objective section
-        # holiday_shifts = [shift for shift in self.shifts if shift.date in self.holiday_dates]
-        # for employee in self.employees:
-        #     employee_constraints[employee].append(sum([self.__shift_vars[(shift, employee)] for shift in holiday_shifts]) >= math.floor(len(holiday_shifts) / len(self.employees)))
-        #     employee_constraints[employee].append(sum([self.__shift_vars[(shift, employee)] for shift in holiday_shifts]) <= math.floor(len(holiday_shifts) / len(self.employees)) + 1)
-        
 
 
         # ------------------------ Objectives -> Optimization goals ---------------------------
@@ -528,6 +563,8 @@ class ScheduleSolver:
                     
 
 
+
+        
         # ------------------------ Solve ---------------------------
 
         self.logger.info('Begin solving for the schedule, with following rules:')
@@ -547,94 +584,223 @@ class ScheduleSolver:
         self.logger.info('')
         self.logger.info('Result:')
 
+
         solver = cp_model.CpSolver()
         solver.parameters.max_time_in_seconds = 300
         solver.parameters.num_search_workers = 8
         
-        # solve model with incremental constraints, if no solution, reset the model and add the constraints again, skip the date
-        constraint_complete = True
-        model_before_become_infeasible = cp_model.CpModel()
-        solver_before_become_infeasible = cp_model.CpSolver()
+        version = 1
 
-        try: 
-            for date in self.days:
-                model_before_become_infeasible.CopyFrom(self.__model)
-                for constraint in date_constraints[date]:
-                    self.__model.Add(constraint)
-                status = solver.Solve(self.__model)
-                if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
-                    continue
-                else:
-                    self.logger.info(f'❌ No solution found for {date}')
-                    print(f'No solution found for {date}')
-                    self.__model.CopyFrom(model_before_become_infeasible)
-                    constraint_complete = False
-                    continue 
+        self.logger.info(f"Solving using verison {version}")
+        if version == 1:
+            # solve model with incremental constraints, if no solution, reset the model and add the constraints again, skip the date
+            constraint_complete = True
 
-            for employee in self.employees:
-                model_before_become_infeasible.CopyFrom(self.__model)
-                for constraint in employee_constraints[employee]:
-                    self.__model.Add(constraint)
-                    # self.logger.debug(f'Added constraint for {employee.abbreviation} - {constraint}')
-                status = solver.Solve(self.__model)
-                if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
-                    continue
-                else:
-                    self.logger.info(f'❌ No solution found for {employee.abbreviation}')
-                    # show the constraint that makes the model infeasible
-                    print(f'{constraint}')
-                    self.__model.CopyFrom(model_before_become_infeasible)
-                    constraint_complete = False
-                    continue
+            try:
+                last_feasible_model = cp_model.CpModel()
+                last_feasible_model.CopyFrom(self.__model)
 
-            objective_choice = 1
-            # Add objectives, if no solution, reset the model and add the new objectives, skip the objective
-            if constraint_complete:
-                self.logger.info('✅︎ All rules are satisfied, now optimizing the schedule with following objectives:')
+                constraint_complete = True
+                not_feasible_constraints = []
+
+                # Adding constraints by employee
+                for employee in self.employees:
+                    temp_model = cp_model.CpModel()
+                    temp_model.CopyFrom(self.__model)
+
+                    for constraint in employee_constraints[employee]:
+                        temp_model.Add(constraint)
+
+                    status = solver.Solve(temp_model)
+
+                    if status in [cp_model.OPTIMAL, cp_model.FEASIBLE]:
+                        self.__model.CopyFrom(temp_model)
+                        last_feasible_model.CopyFrom(self.__model)
+                    else:
+                        self.logger.info(f'❌ No solution found after adding constraints for {employee.abbreviation}')
+                        constraint_complete = False
+                        not_feasible_constraints.append((employee, constraint))
+                        self.__model.CopyFrom(last_feasible_model)  # restore last good state
+
+                # Adding constraints by date
+                not_feasible_date = []
+                if constraint_complete:
+                    for date in self.days:
+                        temp_model = cp_model.CpModel()
+                        temp_model.CopyFrom(self.__model)
+
+                        for constraint in date_constraints[date]:
+                            temp_model.Add(constraint)
+
+                        status = solver.Solve(temp_model)
+
+                        if status in [cp_model.OPTIMAL, cp_model.FEASIBLE]:
+                            self.__model.CopyFrom(temp_model)
+                            last_feasible_model.CopyFrom(self.__model)
+                        else:
+                            self.logger.info(f'❌ No solution found after adding constraints for date {date}')
+                            constraint_complete = False
+                            not_feasible_constraints.append((date, constraint))
+                            not_feasible_date.append(date)
+                            self.__model.CopyFrom(last_feasible_model)  # restore last good state
+
+                # Clearly identify problematic constraints:
+                for problematic_entity, problematic_constraint in not_feasible_constraints:
+                    self.logger.warning(f"Infeasible constraint detected: {problematic_entity}, {problematic_constraint}")
+
+                # Proceed with objectives only if constraints were completely successful:
+                if constraint_complete:
+                    for objective_name, objective_group in objectives.items():
+                        temp_model = cp_model.CpModel()
+                        temp_model.CopyFrom(self.__model)
+
+                        for objective in objective_group:
+                            temp_model.Add(objective)
+
+                        status = solver.Solve(temp_model)
+
+                        if status in [cp_model.OPTIMAL, cp_model.FEASIBLE]:
+                            self.__model.CopyFrom(temp_model)
+                            last_feasible_model.CopyFrom(self.__model)
+                            self.logger.info(f'✅ Objective satisfied: {objective_name}')
+                        else:
+                            self.logger.info(f'❌ Objective "{objective_name}" made the model infeasible; skipping.')
+                            self.__model.CopyFrom(last_feasible_model)
+
+                # Final solve to ensure we're returning the last feasible model:
+                final_status = solver.Solve(last_feasible_model)
+
+                # last_feasible_model = cp_model.CpModel()
                 
-                for objective_name, objective_group in objectives.items():
-                    model_before_become_infeasible.CopyFrom(self.__model)
-                    for objective in objective_group:
-                        # pass
-                        self.__model.Add(objective)
+                # # Employee Constraints
+                # for employee in self.employees:
+                #     last_feasible_model.CopyFrom(self.__model)
+                #     for constraint in employee_constraints[employee]:
+                #         self.__model.Add(constraint)
+                #     status = solver.Solve(self.__model)
+                #     if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
+                #         last_feasible_model.CopyFrom(self.__model) # Store the last feasible model
+                #         continue
+                #     else:
+                #         self.logger.info(f'❌ No solution found for {employee.abbreviation}')
+                #         print(f'Constraint causing infeasibility for {employee.abbreviation}: {constraint}')
+                #         self.__model.CopyFrom(last_feasible_model)
+                #         constraint_complete = False
+                #         break # exit the employee loop if not found feasible
+                
+                # not_feasible_date = []
+                # # Date Constraints
+                # if constraint_complete:
+                #     for date in self.days:
+                #         last_feasible_model.CopyFrom(self.__model)
+                #         for constraint in date_constraints[date]:
+                #             self.__model.Add(constraint)
+                #         status = solver.Solve(self.__model)
+                #         if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
+                #             last_feasible_model.CopyFrom(self.__model) # Store the last feasible model
+                #             continue
+                #         else:
+                #             self.logger.info(f'❌ No solution found for {date}')
+                #             print(f'No solution found for {date}')
+                #             not_feasible_date.append(date)
+                #             self.__model.CopyFrom(last_feasible_model)
+                #             constraint_complete = False
+                #             break # exit the date loop if not found feasible
+
+                # # If date constraint is not satisfied -> try solve one by one to see which one is making the model infeasible
+                # for date in not_feasible_date:
+                #     for c in date_constraints[date]:
+                #         self.__model.Add(c)
+                #         status = solver.Solve(self.__model)
+                #         if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
+                #             last_feasible_model.CopyFrom(self.__model) # Store the last feasible model
+                #             continue
+                #         else:
+                #             self.logger.info(f'❌ No solution found for {c}')
+                #             self.__model.CopyFrom(last_feasible_model)
+         
+                # # Objectives (only if everything is feasible until now)
+                # if constraint_complete:
+                #     self.logger.info('✅︎ All rules are satisfied, now optimizing the schedule with following objectives:')
+                #     for objective_name, objective_group in objectives.items():
+                #         last_feasible_model.CopyFrom(self.__model)
+                #         for objective in objective_group:
+                #             self.__model.Add(objective)
+                #         status = solver.Solve(self.__model)
+                #         if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
+                #             self.logger.info('✅︎ Objective: {}'.format(objective_name))
+                #             last_feasible_model.CopyFrom(self.__model) # Store the last feasible model
+                #             continue
+                #         else:
+                #             print(f'No solution found for {objective_name}')
+                #             self.logger.info('❌ Objective: {}'.format(objective_name))
+                #             self.__model.CopyFrom(last_feasible_model)
+                #             continue
+                #     status = solver.Solve(self.__model)
+                # else:
+                #     self.logger.info("❌ The schedule is not optimized, because the rules are not satisfied")
+                #     self.__model.CopyFrom(last_feasible_model) # Recover the last feasible model if any constraint group is infeasible
+                #     status = solver.Solve(self.__model)
+
+            except Exception as e:
+                self.logger.info("❌ The program exited with an error")
+                self.logger.info("Error: {}".format(e))
+
+        elif version == 2:
+            
+            last_feasible_model = cp_model.CpModel()
+
+            not_feasible_constraint = []
+            
+            # Add all constraints except for constraint [1]
+            for c in shift_constraints:
+                self.__model.Add(c)
+                status = solver.Solve(self.__model)
+                if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
+                    last_feasible_model.CopyFrom(self.__model) # Store the last feasible model
+                    continue
+                else:
+                    not_feasible_constraint.append(c)
+                    self.__model.CopyFrom(last_feasible_model)
+
+
+            if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
+                last_feasible_model.CopyFrom(self.__model) # Store the last feasible model
+                self.logger.info(f"✅︎ all constraints are set up")
+                # Increment solving by shift
+                for shift, c in shift_allocation_constraints.items():
+                    last_feasible_model.CopyFrom(self.__model) # Check point
+                    self.__model.Add(c)
                     status = solver.Solve(self.__model)
                     if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
-                        self.logger.info('✅︎ Objective: {}'.format(objective_name))
-                        # status = solver_before_become_infeasible.Solve(self.__model)
-                        continue
+                        last_feasible_model.CopyFrom(self.__model) # Store the last feasible model
+                        self.logger.info(f"✅︎ {shift.title} is assigned")
                     else:
-                        print(f'No solution found for {objective_name}')
-                        self.logger.info('❌ Objective: {}'.format(objective_name))
-                        self.__model.CopyFrom(model_before_become_infeasible)
-                        continue
-            
-                status = solver.Solve(self.__model)
-                
+                        self.logger.info(f"❌ {shift.title} is not assigned to any employee")
+                        self.__model.CopyFrom(last_feasible_model) # Restore the last feasible model
             else:
-                self.logger.info("❌ The schedule is not optimized, because the rules are not satisfied")
+                self.logger.info(f"❌ the model is failed to set up all constraints")
+                self.__model.CopyFrom(last_feasible_model) # Restore the last feasible model
 
             
-        except Exception as e:
-            self.logger.info("❌ The program exited with an error")
-            self.logger.info("Error: {}".format(e))
 
-        # Update the shifts and employees
+
+        # Update the shifts and employees (using the final model, either the optimized or last feasible one)
         for shift in self.shifts:
             for employee in self.employees:
                 try:
-                    if solver.Value(self.__shift_vars[(shift, employee)]) == 1:
-                    # print(f'{shift.name} is assigned to {employee.name}')
+                    if (solver.Value(self.__shift_vars[(shift, employee)]) == 1) and shift.date not in not_feasible_date:
                         shift.add_employee(employee)
                         employee.add_shift(shift)
                         self.logger.debug(f'{shift.title} is assigned to {employee.abbreviation}')
                 except Exception as e:
-                    # self.logger.debug(f'{shift.title} is not assigned to {employee.abbreviation} due to {e}')
                     continue
-                
+
+
         self.schedule.shifts = self.shifts
         self.schedule.employees = self.employees
         self.logger.info("Schedule Updated!")
-        return self.schedule          
+        return self.schedule                  
 
     
     def get_solution(self):
