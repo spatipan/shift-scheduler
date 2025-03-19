@@ -26,7 +26,7 @@ class SchedulerSheetUI:
         self.logger.debug(f'SchedulerSheetUI initialized - sheetId: {sheetId}')
 
         self.schedule = Schedule()
-        self.solver = ScheduleSolver(self.schedule)
+        self.solver = ScheduleSolver()
 
         self.fetch_sheet_values()
 

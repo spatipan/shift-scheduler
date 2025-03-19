@@ -9,11 +9,9 @@ from modules.scheduler_app.calendar_ui import SchedulerCalendarUI
 
 class SchedulerApp:
     def __init__(self):
-        self.google_app_authenticator = GoogleAppAuthenticator(SCOPES = config.GOOGLE_SCOPES)
-        credentials = self.google_app_authenticator.authenticate(
-            credentials = config.CREDENTIALS,
-            token = config.TOKEN,
-        )
+        self.google_app_authenticator = GoogleAppAuthenticator(config.CREDS_PATH, config.TOKEN_PATH, config.GOOGLE_SCOPES)
+
+        credentials = self.google_app_authenticator.authenticate()
         self.calendar_app = CalendarApp(credentials) # init calendar app
         self.sheet_app = GoogleSheetApp(credentials) # init sheet app
         self.schedule = Schedule() # create a schedule

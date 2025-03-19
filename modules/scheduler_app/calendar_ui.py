@@ -1,4 +1,4 @@
-from modules.google_app.calendar import CalendarApp
+from modules.google_app.calendar_app import CalendarApp
 from datetime import datetime
 from modules.scheduler_app.models.models import Event, Task, Employee, Shift, Schedule
 import logging
