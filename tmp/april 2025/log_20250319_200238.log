@@ -1,0 +1,869 @@
+2025-03-19 20:02:38 [DEBUG] - config - Logging to tmp/april 2025/log_20250319_200238.log
+2025-03-19 20:02:38 [DEBUG] - GoogleAppAuthenticator - Attempting to load credentials from token file
+2025-03-19 20:02:38 [INFO] - GoogleAppAuthenticator - Loaded valid credentials from token file.
+2025-03-19 20:02:38 [INFO] - GoogleAppAuthenticator - Authenticate successfully
+2025-03-19 20:02:38 [DEBUG] - GoogleAppAuthenticator - Attempting to load credentials from token file
+2025-03-19 20:02:38 [INFO] - GoogleAppAuthenticator - Loaded valid credentials from token file.
+2025-03-19 20:02:38 [INFO] - googleapiclient.discovery_cache - file_cache is only supported with oauth2client<4.0.0
+2025-03-19 20:02:38 [DEBUG] - CalendarApp - Service initialized successfully
+2025-03-19 20:02:38 [INFO] - googleapiclient.discovery_cache - file_cache is only supported with oauth2client<4.0.0
+2025-03-19 20:02:38 [DEBUG] - GoogleSheetApp - Service initialized successfully
+2025-03-19 20:02:38 [DEBUG] - SchedulerSheetUI - SchedulerSheetUI initialized - sheetId: 1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU
+2025-03-19 20:02:39 [DEBUG] - googleapiclient.discovery - URL being requested: GET https://sheets.googleapis.com/v4/spreadsheets/1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU/values/April%202025%21A1%3AV?alt=json
+2025-03-19 20:02:39 [DEBUG] - SchedulerSheetUI - Fetched sheet values from A1:V
+2025-03-19 20:02:39 [DEBUG] - SchedulerCalendarUI - SchedulerCalendarUI initialized - calendarId: em.cmu.teacher@gmail.com
+2025-03-19 20:02:39 [DEBUG] - root - Converted A12 to 11, 0
+2025-03-19 20:02:39 [DEBUG] - root - Converted A42 to 41, 0
+2025-03-19 20:02:39 [DEBUG] - SchedulerSheetUI - Got sheet values from A12:A42, start: (11, 0), end: (41, 0)
+2025-03-19 20:02:39 [DEBUG] - root - Converted A47 to 46, 0
+2025-03-19 20:02:39 [DEBUG] - root - Converted G67 to 66, 6
+2025-03-19 20:02:39 [DEBUG] - SchedulerSheetUI - Got sheet values from A47:G67, start: (46, 0), end: (66, 6)
+2025-03-19 20:02:39 [DEBUG] - root - Converted C11 to 10, 2
+2025-03-19 20:02:39 [DEBUG] - root - Converted L42 to 41, 11
+2025-03-19 20:02:39 [DEBUG] - SchedulerSheetUI - Got sheet values from C11:L42, start: (10, 2), end: (41, 11)
+2025-03-19 20:02:39 [DEBUG] - root - Converted C268 to 267, 2
+2025-03-19 20:02:39 [DEBUG] - root - Converted M299 to 298, 12
+2025-03-19 20:02:39 [DEBUG] - SchedulerSheetUI - Got sheet values from C268:M299, start: (267, 2), end: (298, 12)
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-01 to กอสิน เลาหะวิสุทธิ์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-01 to กรีฑา คำเนียม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-01 to พัณณ์ชิตา ชำนาญกิจวณิชย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-01 to กรีฑา คำเนียม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-01 to พัณณ์ชิตา ชำนาญกิจวณิชย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-01 to ชานนท์ ช่างรัตนากร
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-01 to ณัฐฐิกานต์ มีลาภ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-01 to สริยา เสือแซมเสริม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-02 to ปริญญา เทียนวิบูลย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-02 to พัณณ์ชิตา ชำนาญกิจวณิชย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-02 to กรีฑา คำเนียม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-02 to พัณณ์ชิตา ชำนาญกิจวณิชย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-02 to กรีฑา คำเนียม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-02 to ชานนท์ ช่างรัตนากร
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-02 to ณัฐฐิกานต์ มีลาภ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-02 to บวร วิทยชำนาญกุล
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-03 to ชานนท์ ช่างรัตนากร
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-03 to กรีฑา คำเนียม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-03 to วิพุธ เล้าสุขศรี
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-03 to กรีฑา คำเนียม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-03 to วิพุธ เล้าสุขศรี
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-03 to ชานนท์ ช่างรัตนากร
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-03 to ณัฐฐิกานต์ มีลาภ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-03 to พัณณ์ชิตา ชำนาญกิจวณิชย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-04 to ปริญญา เทียนวิบูลย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-04 to สริยา เสือแซมเสริม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-04 to ปริญญา เทียนวิบูลย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-04 to สริยา เสือแซมเสริม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-04 to ชานนท์ ช่างรัตนากร
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-04 to ณัฐฐิกานต์ มีลาภ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-04 to กรีฑา คำเนียม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-05 to บวร วิทยชำนาญกุล
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-06 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-07 to ปริญญา เทียนวิบูลย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-08 to วิพุธ เล้าสุขศรี
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-08 to สริยา เสือแซมเสริม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-08 to ปริญญา เทียนวิบูลย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-08 to สริยา เสือแซมเสริม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-08 to ปริญญา เทียนวิบูลย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-08 to บวร วิทยชำนาญกุล
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-08 to วชิระ วงศ์ธนสารสิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-08 to ณัฐฐิกานต์ มีลาภ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-09 to ณัฐฐิกานต์ มีลาภ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-09 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-09 to วิพุธ เล้าสุขศรี
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-09 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-09 to วิพุธ เล้าสุขศรี
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-09 to บวร วิทยชำนาญกุล
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-09 to วชิระ วงศ์ธนสารสิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-09 to ปริญญา เทียนวิบูลย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-10 to พัณณ์ชิตา ชำนาญกิจวณิชย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-10 to วิพุธ เล้าสุขศรี
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-10 to สริยา เสือแซมเสริม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-10 to วิพุธ เล้าสุขศรี
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-10 to สริยา เสือแซมเสริม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-10 to บวร วิทยชำนาญกุล
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-10 to วชิระ วงศ์ธนสารสิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-10 to บริบูรณ์ เชนธนากิจ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-11 to ณัฐฐิกานต์ มีลาภ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-11 to ปริญญา เทียนวิบูลย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-11 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-11 to ปริญญา เทียนวิบูลย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-11 to บวร วิทยชำนาญกุล
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-11 to วชิระ วงศ์ธนสารสิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-11 to วิพุธ เล้าสุขศรี
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-12 to สริยา เสือแซมเสริม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-13 to กรีฑา คำเนียม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-14 to บุญฤทธิ์ คำทิพย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-15 to กรองกาญจน์ สุธรรม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-15 to ณัฐฐิกานต์ มีลาภ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-16 to วชิระ วงศ์ธนสารสิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-16 to ณัฐฐิกานต์ มีลาภ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-16 to พัณณ์ชิตา ชำนาญกิจวณิชย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-17 to สริยา เสือแซมเสริม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-17 to บุญฤทธิ์ คำทิพย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-17 to บริบูรณ์ เชนธนากิจ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-17 to บุญฤทธิ์ คำทิพย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-17 to บริบูรณ์ เชนธนากิจ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-17 to กอสิน เลาหะวิสุทธิ์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-17 to ปริญญา เทียนวิบูลย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-17 to บริบูรณ์ เชนธนากิจ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-17 to กรองกาญจน์ สุธรรม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-18 to ชานนท์ ช่างรัตนากร
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-18 to กรองกาญจน์ สุธรรม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-18 to ชานนท์ ช่างรัตนากร
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-18 to กรองกาญจน์ สุธรรม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-18 to กอสิน เลาหะวิสุทธิ์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-18 to ปริญญา เทียนวิบูลย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-18 to กรองกาญจน์ สุธรรม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-18 to บริบูรณ์ เชนธนากิจ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-19 to กรีฑา คำเนียม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-19 to วิพุธ เล้าสุขศรี
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-20 to ปริญญา เทียนวิบูลย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-20 to กอสิน เลาหะวิสุทธิ์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-21 to ชานนท์ ช่างรัตนากร
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-21 to กอสิน เลาหะวิสุทธิ์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-21 to ชานนท์ ช่างรัตนากร
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-21 to กอสิน เลาหะวิสุทธิ์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-21 to วิพุธ เล้าสุขศรี
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-21 to บริบูรณ์ เชนธนากิจ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-21 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-21 to กรองกาญจน์ สุธรรม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-22 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-22 to กอสิน เลาหะวิสุทธิ์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-22 to ณัฐฐิกานต์ มีลาภ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-22 to กอสิน เลาหะวิสุทธิ์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-22 to ณัฐฐิกานต์ มีลาภ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-22 to วิพุธ เล้าสุขศรี
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-22 to บริบูรณ์ เชนธนากิจ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-22 to บวร วิทยชำนาญกุล
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-22 to ชานนท์ ช่างรัตนากร
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-23 to พัณณ์ชิตา ชำนาญกิจวณิชย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-23 to ณัฐฐิกานต์ มีลาภ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-23 to ชานนท์ ช่างรัตนากร
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-23 to ณัฐฐิกานต์ มีลาภ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-23 to ชานนท์ ช่างรัตนากร
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-23 to วิพุธ เล้าสุขศรี
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-23 to บริบูรณ์ เชนธนากิจ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-23 to สริยา เสือแซมเสริม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-23 to บุญฤทธิ์ คำทิพย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-24 to กรีฑา คำเนียม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-24 to พัณณ์ชิตา ชำนาญกิจวณิชย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-24 to วชิระ วงศ์ธนสารสิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-24 to พัณณ์ชิตา ชำนาญกิจวณิชย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-24 to วชิระ วงศ์ธนสารสิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-24 to วิพุธ เล้าสุขศรี
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-24 to บริบูรณ์ เชนธนากิจ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-24 to บุญฤทธิ์ คำทิพย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-24 to ณัฐฐิกานต์ มีลาภ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-25 to กอสิน เลาหะวิสุทธิ์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-25 to ณัฐฐิกานต์ มีลาภ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-25 to กอสิน เลาหะวิสุทธิ์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-25 to ณัฐฐิกานต์ มีลาภ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-25 to วิพุธ เล้าสุขศรี
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-25 to บริบูรณ์ เชนธนากิจ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-25 to พัณณ์ชิตา ชำนาญกิจวณิชย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-25 to กรีฑา คำเนียม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-26 to ชานนท์ ช่างรัตนากร
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-26 to บริบูรณ์ เชนธนากิจ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-27 to กอสิน เลาหะวิสุทธิ์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-27 to ชานนท์ ช่างรัตนากร
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-28 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-28 to วชิระ วงศ์ธนสารสิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-28 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-28 to วชิระ วงศ์ธนสารสิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-28 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-28 to กรองกาญจน์ สุธรรม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-28 to ชานนท์ ช่างรัตนากร
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-28 to ปริญญา เทียนวิบูลย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-29 to กอสิน เลาหะวิสุทธิ์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-29 to วชิระ วงศ์ธนสารสิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-29 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-29 to ชานนท์ ช่างรัตนากร
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-29 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-29 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-29 to กรองกาญจน์ สุธรรม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-29 to ปริญญา เทียนวิบูลย์
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-29 to บวร วิทยชำนาญกุล
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-30 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-30 to บวร วิทยชำนาญกุล
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-30 to บริบูรณ์ เชนธนากิจ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-30 to บวร วิทยชำนาญกุล
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-30 to บริบูรณ์ เชนธนากิจ
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-30 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-30 to กรองกาญจน์ สุธรรม
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-30 to วิพุธ เล้าสุขศรี
+2025-03-19 20:02:39 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-30 to กอสิน เลาหะวิสุทธิ์
+2025-03-19 20:02:39 [DEBUG] - root - Converted B12 to 11, 1
+2025-03-19 20:02:39 [DEBUG] - root - Converted B42 to 41, 1
+2025-03-19 20:02:39 [DEBUG] - SchedulerSheetUI - Got sheet values from B12:B42, start: (11, 1), end: (41, 1)
+2025-03-19 20:02:39 [DEBUG] - root - Converted B218 to 217, 1
+2025-03-19 20:02:39 [DEBUG] - root - Converted C240 to 239, 2
+2025-03-19 20:02:39 [DEBUG] - SchedulerSheetUI - Got sheet values from B218:C240, start: (217, 1), end: (239, 2)
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added total shifts constraint for BC - 4
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added total shifts constraint for BW - 2
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added total shifts constraint for KS - 2
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added total shifts constraint for PT - 6
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added total shifts constraint for WW - 6
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added total shifts constraint for BK - 2
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added total shifts constraint for CC - 6
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added total shifts constraint for KL - 6
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added total shifts constraint for PU - 6
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added total shifts constraint for NM - 8
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added total shifts constraint for SS - 6
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added total shifts constraint for WL - 6
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added total shifts constraint for KK - 6
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added total shifts constraint for PC - 6
+2025-03-19 20:02:39 [DEBUG] - root - Converted H218 to 217, 7
+2025-03-19 20:02:39 [DEBUG] - root - Converted M239 to 238, 12
+2025-03-19 20:02:39 [DEBUG] - SchedulerSheetUI - Got sheet values from H218:M239, start: (217, 7), end: (238, 12)
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added shift preference constraint for BC - {'BC': {'mon': True, 'tue': True, 'wed': True, 'thu': True, 'fri': True}}
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added shift preference constraint for BW - {'BW': {'mon': True, 'tue': True, 'wed': True, 'thu': True, 'fri': True}}
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added shift preference constraint for KS - {'KS': {'mon': False, 'tue': False, 'wed': False, 'thu': False, 'fri': False}}
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added shift preference constraint for PT - {'PT': {'mon': False, 'tue': False, 'wed': False, 'thu': False, 'fri': False}}
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added shift preference constraint for WW - {'WW': {'mon': True, 'tue': True, 'wed': True, 'thu': True, 'fri': True}}
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added shift preference constraint for BK - {'BK': {'mon': False, 'tue': False, 'wed': False, 'thu': False, 'fri': False}}
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added shift preference constraint for CC - {'CC': {'mon': False, 'tue': False, 'wed': False, 'thu': False, 'fri': False}}
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added shift preference constraint for KL - {'KL': {'mon': True, 'tue': True, 'wed': True, 'thu': True, 'fri': True}}
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added shift preference constraint for PU - {'PU': {'mon': True, 'tue': True, 'wed': True, 'thu': True, 'fri': True}}
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added shift preference constraint for NM - {'NM': {'mon': False, 'tue': False, 'wed': False, 'thu': False, 'fri': False}}
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added shift preference constraint for SS - {'SS': {'mon': False, 'tue': False, 'wed': False, 'thu': False, 'fri': False}}
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added shift preference constraint for WL - {'WL': {'mon': True, 'tue': True, 'wed': True, 'thu': True, 'fri': True}}
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added shift preference constraint for KK - {'KK': {'mon': False, 'tue': False, 'wed': False, 'thu': False, 'fri': False}}
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added shift preference constraint for PC - {'PC': {'mon': True, 'tue': True, 'wed': True, 'thu': True, 'fri': True}}
+2025-03-19 20:02:39 [DEBUG] - root - Converted B217 to 216, 1
+2025-03-19 20:02:39 [DEBUG] - root - Converted F240 to 239, 5
+2025-03-19 20:02:39 [DEBUG] - SchedulerSheetUI - Got sheet values from B217:F240, start: (216, 1), end: (239, 5)
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added total shifts per employee constraint for WW - amd - 0
+2025-03-19 20:02:39 [DEBUG] - ScheduleSolver - Added total shifts per employee constraint for WW - avd - 0
+2025-03-19 20:02:39 [DEBUG] - googleapiclient.discovery - URL being requested: GET https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events?timeMin=2025-04-01T00%3A00%3A00Z&timeMax=2025-04-30T23%3A59%3A59.099999Z&singleEvents=true&orderBy=startTime&alt=json
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Sample event: {'kind': 'calendar#event', 'etag': '"3479527596836000"', 'id': '6oqsrt8tubsd9vmk54vd5so5dp', 'status': 'confirmed', 'htmlLink': 'https://www.google.com/calendar/event?eid=Nm9xc3J0OHR1YnNkOXZtazU0dmQ1c281ZHAgZW0uY211LnRlYWNoZXJAbQ', 'created': '2025-02-17T03:41:55.000Z', 'updated': '2025-02-17T03:43:18.418Z', 'summary': 'BC Director ACLS ', 'location': 'บรรยาย ชั้น 9 อาคารราชนครินทร์ 08.00 น. วันที่ 31 ', 'creator': {'email': 'nareerat9664@gmail.com'}, 'organizer': {'email': 'em.cmu.teacher@gmail.com', 'self': True}, 'start': {'date': '2025-03-31'}, 'end': {'date': '2025-04-02'}, 'transparency': 'transparent', 'iCalUID': '6oqsrt8tubsd9vmk54vd5so5dp@google.com', 'sequence': 0, 'reminders': {'useDefault': False}, 'eventType': 'default'}
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BC Director ACLS  starts at 2025-03-31 00:00:00+07:00 and ends at 2025-04-02 00:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK ดูงาน ป.โท starts at 2025-03-31 00:00:00+07:00 and ends at 2025-04-10 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW KL WW พี่เมย์ หมิวพารา ประชุมกรรมการภาค starts at 2025-04-01 00:00:00+07:00 and ends at 2025-04-02 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW), กอสิน เลาหะวิสุทธิ์ (KL), วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PU NM present global health starts at 2025-04-01 00:00:00+07:00 and ends at 2025-04-02 00:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU), ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2025-04-01 00:00:00+07:00 and ends at 2025-04-02 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KL (SERVICE NIGHT) starts at 2025-04-01 00:00:00+07:00 and ends at 2025-04-01 08:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PC (SERVICE1+) starts at 2025-04-01 08:00:00+07:00 and ends at 2025-04-01 12:00:00+07:00 for employee: พัณณ์ชิตา ชำนาญกิจวณิชย์ (PC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: SS (AVD) starts at 2025-04-01 08:00:00+07:00 and ends at 2025-04-01 16:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM (OBSERVE) starts at 2025-04-01 08:00:00+07:00 and ends at 2025-04-01 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KK (SERVICE1) starts at 2025-04-01 08:00:00+07:00 and ends at 2025-04-01 12:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (EMS) starts at 2025-04-01 08:00:00+07:00 and ends at 2025-04-01 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK CQI-Skydoctor ประจำเดือน starts at 2025-04-01 10:00:00+07:00 and ends at 2025-04-01 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PC (SERVICE2+) starts at 2025-04-01 12:00:00+07:00 and ends at 2025-04-01 16:00:00+07:00 for employee: พัณณ์ชิตา ชำนาญกิจวณิชย์ (PC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KK (SERVICE2) starts at 2025-04-01 12:00:00+07:00 and ends at 2025-04-01 16:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BC ร่วมนำเสนอข้อมูล CLT ในการอบรม First react AHA presentation starts at 2025-04-01 13:00:00+07:00 and ends at 2025-04-01 15:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM ตรวจ follow up US breast starts at 2025-04-01 13:00:00+07:00 and ends at 2025-04-01 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PT (SERVICE NIGHT) starts at 2025-04-02 00:00:00+07:00 and ends at 2025-04-02 08:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KS KL PU พี่หวาน หมิว ประชุม undergrad starts at 2025-04-02 00:00:00+07:00 and ends at 2025-04-03 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), กอสิน เลาหะวิสุทธิ์ (KL), พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (EMS) starts at 2025-04-02 08:00:00+07:00 and ends at 2025-04-02 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PC (SERVICE1) starts at 2025-04-02 08:00:00+07:00 and ends at 2025-04-02 12:00:00+07:00 for employee: พัณณ์ชิตา ชำนาญกิจวณิชย์ (PC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KK (SERVICE1+) starts at 2025-04-02 08:00:00+07:00 and ends at 2025-04-02 12:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM (OBSERVE) starts at 2025-04-02 08:00:00+07:00 and ends at 2025-04-02 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW (AVD) starts at 2025-04-02 08:00:00+07:00 and ends at 2025-04-02 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KK (SERVICE2+) starts at 2025-04-02 12:00:00+07:00 and ends at 2025-04-02 16:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PC (SERVICE2) starts at 2025-04-02 12:00:00+07:00 and ends at 2025-04-02 16:00:00+07:00 for employee: พัณณ์ชิตา ชำนาญกิจวณิชย์ (PC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL อ.น้องเอิน สอน MedEd starts at 2025-04-02 13:00:00+07:00 and ends at 2025-04-02 16:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KS PT ประชุทสรรหา starts at 2025-04-02 15:00:00+07:00 and ends at 2025-04-02 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), ปริญญา เทียนวิบูลย์ (PT)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW Lecture TQA starts at 2025-04-03 00:00:00+07:00 and ends at 2025-04-04 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KS KL PU พี่หวาน พี่หมิว ตัดเกรดปี 5 starts at 2025-04-03 00:00:00+07:00 and ends at 2025-04-05 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), กอสิน เลาหะวิสุทธิ์ (KL), พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KS คุมสอบ Compre NL starts at 2025-04-03 00:00:00+07:00 and ends at 2025-04-04 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BC ร่วมประชุม จัดทำร่างเกณฑ์ติดตามคุณภาพ หน่วยปฏิบัติการแพทย์ starts at 2025-04-03 00:00:00+07:00 and ends at 2025-04-05 00:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (SERVICE NIGHT) starts at 2025-04-03 00:00:00+07:00 and ends at 2025-04-03 08:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KK (SERVICE1) starts at 2025-04-03 08:00:00+07:00 and ends at 2025-04-03 12:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL (SERVICE1+) starts at 2025-04-03 08:00:00+07:00 and ends at 2025-04-03 12:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (EMS) starts at 2025-04-03 08:00:00+07:00 and ends at 2025-04-03 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM (OBSERVE) starts at 2025-04-03 08:00:00+07:00 and ends at 2025-04-03 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PC (AVD) starts at 2025-04-03 08:00:00+07:00 and ends at 2025-04-03 16:00:00+07:00 for employee: พัณณ์ชิตา ชำนาญกิจวณิชย์ (PC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL (SERVICE2+) starts at 2025-04-03 12:00:00+07:00 and ends at 2025-04-03 16:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KK (SERVICE2) starts at 2025-04-03 12:00:00+07:00 and ends at 2025-04-03 16:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KL: สอบลงกองปี6 starts at 2025-04-03 13:00:00+07:00 and ends at 2025-04-03 15:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KL,WW: คุมสอบAdvice Ext. starts at 2025-04-03 15:00:00+07:00 and ends at 2025-04-03 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL), วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: CC ลาพักผ่อน starts at 2025-04-04 00:00:00+07:00 and ends at 2025-04-09 00:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KS ดูงาน ตปท  starts at 2025-04-04 00:00:00+07:00 and ends at 2025-04-10 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KK (AVD) starts at 2025-04-04 08:00:00+07:00 and ends at 2025-04-04 16:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: SS (SERVICE1+) starts at 2025-04-04 08:00:00+07:00 and ends at 2025-04-04 12:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PT (SERVICE1) starts at 2025-04-04 08:00:00+07:00 and ends at 2025-04-04 12:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM (OBSERVE) starts at 2025-04-04 08:00:00+07:00 and ends at 2025-04-04 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (EMS) starts at 2025-04-04 08:00:00+07:00 and ends at 2025-04-04 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Clinic starts at 2025-04-04 09:00:00+07:00 and ends at 2025-04-04 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: SS (SERVICE2+) starts at 2025-04-04 12:00:00+07:00 and ends at 2025-04-04 16:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PT (SERVICE2) starts at 2025-04-04 12:00:00+07:00 and ends at 2025-04-04 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: ประชุมฝ่าย วิชาการ วฉท BW WW starts at 2025-04-04 12:15:00+07:00 and ends at 2025-04-04 13:15:00+07:00 for employee: บวร วิทยชำนาญกุล (BW), วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM WL BW จัดอาจารย์ร่วมพิธี farewell R3 starts at 2025-04-04 13:00:00+07:00 and ends at 2025-04-04 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM), วิพุธ เล้าสุขศรี (WL), บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW พี่เก๋ COPD TCEP progression Meeting starts at 2025-04-04 13:00:00+07:00 and ends at 2025-04-04 14:30:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุม HR starts at 2025-04-04 13:30:00+07:00 and ends at 2025-04-04 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KL: ปิดกอง ปี6 starts at 2025-04-04 15:00:00+07:00 and ends at 2025-04-04 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: SS unavailable starts at 2025-04-05 00:00:00+07:00 and ends at 2025-04-08 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK เรียน starts at 2025-04-05 00:00:00+07:00 and ends at 2025-04-07 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW (AVD) starts at 2025-04-05 08:00:00+07:00 and ends at 2025-04-05 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (AVD) starts at 2025-04-06 08:00:00+07:00 and ends at 2025-04-06 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WW vacation starts at 2025-04-07 00:00:00+07:00 and ends at 2025-04-12 00:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PT (AVD) starts at 2025-04-07 08:00:00+07:00 and ends at 2025-04-07 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK weekly meeting SMC starts at 2025-04-07 09:00:00+07:00 and ends at 2025-04-07 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุม HR starts at 2025-04-07 13:30:00+07:00 and ends at 2025-04-07 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: Elective ต่างชาติ 7-20 เม.ย. 68 - CC ดูแล starts at 2025-04-08 00:00:00+07:00 and ends at 2025-04-09 00:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2025-04-08 00:00:00+07:00 and ends at 2025-04-09 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL (SERVICE NIGHT) starts at 2025-04-08 00:00:00+07:00 and ends at 2025-04-08 08:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW (EMS) starts at 2025-04-08 08:00:00+07:00 and ends at 2025-04-08 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: SS (SERVICE1) starts at 2025-04-08 08:00:00+07:00 and ends at 2025-04-08 12:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM (AVD) starts at 2025-04-08 08:00:00+07:00 and ends at 2025-04-08 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PT (SERVICE1+) starts at 2025-04-08 08:00:00+07:00 and ends at 2025-04-08 12:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WW (OBSERVE) starts at 2025-04-08 08:00:00+07:00 and ends at 2025-04-08 16:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KS,PU,KL,หวาน,หมิว: ประชุมundergrad starts at 2025-04-08 10:00:00+07:00 and ends at 2025-04-08 12:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), พิมพ์พรรณ อัศวสุรอิน (PU), กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BC เป็นวิทยากร พยาบาล ระบบส่งต่อทารกแรกเกิด starts at 2025-04-08 10:30:00+07:00 and ends at 2025-04-08 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PT (SERVICE2+) starts at 2025-04-08 12:00:00+07:00 and ends at 2025-04-08 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: SS (SERVICE2) starts at 2025-04-08 12:00:00+07:00 and ends at 2025-04-08 16:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KL BW WW พี่เมย์ เข้าประชุม TQA หน่วยงาน starts at 2025-04-08 13:00:00+07:00 and ends at 2025-04-08 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL), บวร วิทยชำนาญกุล (BW), วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KS Research day MedEdu starts at 2025-04-09 00:00:00+07:00 and ends at 2025-04-10 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM (SERVICE NIGHT) starts at 2025-04-09 00:00:00+07:00 and ends at 2025-04-09 08:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (SERVICE1) starts at 2025-04-09 08:00:00+07:00 and ends at 2025-04-09 12:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW renew BLS พยาบาล starts at 2025-04-09 08:00:00+07:00 and ends at 2025-04-09 09:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WW (OBSERVE) starts at 2025-04-09 08:00:00+07:00 and ends at 2025-04-09 16:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW (EMS) starts at 2025-04-09 08:00:00+07:00 and ends at 2025-04-09 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PT (AVD) starts at 2025-04-09 08:00:00+07:00 and ends at 2025-04-09 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL (SERVICE1+) starts at 2025-04-09 08:00:00+07:00 and ends at 2025-04-09 12:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KL กรรมการตัดสินวิจัยนศพ ผ่าน Zoom (9-10 น) starts at 2025-04-09 09:00:00+07:00 and ends at 2025-04-09 10:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: CC กรรมการตัดสินวิจัยนศพ ผ่าน Zoom (10-12 น) starts at 2025-04-09 10:00:00+07:00 and ends at 2025-04-09 12:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (SERVICE2) starts at 2025-04-09 12:00:00+07:00 and ends at 2025-04-09 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL (SERVICE2+) starts at 2025-04-09 12:00:00+07:00 and ends at 2025-04-09 16:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KS KL PU พี่หวาน พี่หมิว ตัดเกรดปี 6 starts at 2025-04-10 00:00:00+07:00 and ends at 2025-04-12 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), กอสิน เลาหะวิสุทธิ์ (KL), พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PC (SERVICE NIGHT) starts at 2025-04-10 00:00:00+07:00 and ends at 2025-04-10 08:00:00+07:00 for employee: พัณณ์ชิตา ชำนาญกิจวณิชย์ (PC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WW (OBSERVE) starts at 2025-04-10 08:00:00+07:00 and ends at 2025-04-10 16:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW (EMS) starts at 2025-04-10 08:00:00+07:00 and ends at 2025-04-10 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: SS (SERVICE1+) starts at 2025-04-10 08:00:00+07:00 and ends at 2025-04-10 12:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL (SERVICE1) starts at 2025-04-10 08:00:00+07:00 and ends at 2025-04-10 12:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BC (AVD) starts at 2025-04-10 08:00:00+07:00 and ends at 2025-04-10 16:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: SS (SERVICE2+) starts at 2025-04-10 12:00:00+07:00 and ends at 2025-04-10 16:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL (SERVICE2) starts at 2025-04-10 12:00:00+07:00 and ends at 2025-04-10 16:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุมยุทธศาสตร์ (วฉท) starts at 2025-04-10 13:00:00+07:00 and ends at 2025-04-10 15:30:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2025-04-11 00:00:00+07:00 and ends at 2025-04-12 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PC unavailable starts at 2025-04-11 00:00:00+07:00 and ends at 2025-04-15 00:00:00+07:00 for employee: พัณณ์ชิตา ชำนาญกิจวณิชย์ (PC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PT (SERVICE1+) starts at 2025-04-11 08:00:00+07:00 and ends at 2025-04-11 12:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM (SERVICE1) starts at 2025-04-11 08:00:00+07:00 and ends at 2025-04-11 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW (EMS) starts at 2025-04-11 08:00:00+07:00 and ends at 2025-04-11 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL (AVD) starts at 2025-04-11 08:00:00+07:00 and ends at 2025-04-11 16:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WW (OBSERVE) starts at 2025-04-11 08:00:00+07:00 and ends at 2025-04-11 16:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Clinic starts at 2025-04-11 09:00:00+07:00 and ends at 2025-04-11 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PT (SERVICE2+) starts at 2025-04-11 12:00:00+07:00 and ends at 2025-04-11 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (SERVICE2) starts at 2025-04-11 12:00:00+07:00 and ends at 2025-04-11 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุม HR starts at 2025-04-11 13:30:00+07:00 and ends at 2025-04-11 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK เรียน starts at 2025-04-12 00:00:00+07:00 and ends at 2025-04-14 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW vac starts at 2025-04-12 00:00:00+07:00 and ends at 2025-04-21 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: SS (AVD) starts at 2025-04-12 08:00:00+07:00 and ends at 2025-04-12 16:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KK (AVD) starts at 2025-04-13 08:00:00+07:00 and ends at 2025-04-13 16:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK ลากลับบ้าน starts at 2025-04-14 00:00:00+07:00 and ends at 2025-04-17 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (AVD) starts at 2025-04-14 08:00:00+07:00 and ends at 2025-04-14 16:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM WL น้องอีฟ พี่เมย์ ประชุมรับทราบผลการประชุม อฝส.  starts at 2025-04-14 09:00:00+07:00 and ends at 2025-04-14 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM), วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK weekly meeting SMC starts at 2025-04-14 09:00:00+07:00 and ends at 2025-04-14 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุม HR starts at 2025-04-14 13:30:00+07:00 and ends at 2025-04-14 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2025-04-15 00:00:00+07:00 and ends at 2025-04-16 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KS (SERVICE NIGHT) starts at 2025-04-15 00:00:00+07:00 and ends at 2025-04-15 08:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM (AVD) starts at 2025-04-15 08:00:00+07:00 and ends at 2025-04-15 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WW (SERVICE NIGHT) starts at 2025-04-16 00:00:00+07:00 and ends at 2025-04-16 08:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PC (AVD) starts at 2025-04-16 08:00:00+07:00 and ends at 2025-04-16 16:00:00+07:00 for employee: พัณณ์ชิตา ชำนาญกิจวณิชย์ (PC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM (AMD) starts at 2025-04-16 08:00:00+07:00 and ends at 2025-04-16 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PUลา starts at 2025-04-17 00:00:00+07:00 and ends at 2025-04-19 00:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: SS (SERVICE NIGHT) starts at 2025-04-17 00:00:00+07:00 and ends at 2025-04-17 08:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KS (AVD) starts at 2025-04-17 08:00:00+07:00 and ends at 2025-04-17 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PT (OBSERVE) starts at 2025-04-17 08:00:00+07:00 and ends at 2025-04-17 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BC (AMD) starts at 2025-04-17 08:00:00+07:00 and ends at 2025-04-17 16:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SERVICE1) starts at 2025-04-17 08:00:00+07:00 and ends at 2025-04-17 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BC (SERVICE1+) starts at 2025-04-17 08:00:00+07:00 and ends at 2025-04-17 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KL (EMS) starts at 2025-04-17 08:00:00+07:00 and ends at 2025-04-17 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BC (SERVICE2+) starts at 2025-04-17 12:00:00+07:00 and ends at 2025-04-17 16:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SERVICE2) starts at 2025-04-17 12:00:00+07:00 and ends at 2025-04-17 16:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุมคณะฯ (801) starts at 2025-04-17 13:00:00+07:00 and ends at 2025-04-17 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2025-04-18 00:00:00+07:00 and ends at 2025-04-19 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KS (SERVICE1+) starts at 2025-04-18 08:00:00+07:00 and ends at 2025-04-18 12:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BC (AVD) starts at 2025-04-18 08:00:00+07:00 and ends at 2025-04-18 16:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PT (OBSERVE) starts at 2025-04-18 08:00:00+07:00 and ends at 2025-04-18 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (SERVICE1) starts at 2025-04-18 08:00:00+07:00 and ends at 2025-04-18 12:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KS (AMD) starts at 2025-04-18 08:00:00+07:00 and ends at 2025-04-18 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KL (EMS) starts at 2025-04-18 08:00:00+07:00 and ends at 2025-04-18 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Clinic starts at 2025-04-18 09:00:00+07:00 and ends at 2025-04-18 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (SERVICE2) starts at 2025-04-18 12:00:00+07:00 and ends at 2025-04-18 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KS (SERVICE2+) starts at 2025-04-18 12:00:00+07:00 and ends at 2025-04-18 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุม HR starts at 2025-04-18 13:30:00+07:00 and ends at 2025-04-18 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK เรียน starts at 2025-04-19 00:00:00+07:00 and ends at 2025-04-21 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KK (AMD) starts at 2025-04-19 08:00:00+07:00 and ends at 2025-04-19 16:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL (AVD) starts at 2025-04-19 08:00:00+07:00 and ends at 2025-04-19 16:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KS พิธีรับกาวน์  starts at 2025-04-20 00:00:00+07:00 and ends at 2025-04-21 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PT (AMD) starts at 2025-04-20 08:00:00+07:00 and ends at 2025-04-20 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KL (AVD) starts at 2025-04-20 08:00:00+07:00 and ends at 2025-04-20 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PT สอน ACLS renewal starts at 2025-04-21 00:00:00+07:00 and ends at 2025-04-22 00:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WW 1st meeting นศ ช่วยวิจัย x4 กลุ่ม starts at 2025-04-21 00:00:00+07:00 and ends at 2025-04-22 00:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: Elective ต่างชาติ 21 เม.ย.- 9 พค 68 -WW ดูแล starts at 2025-04-21 00:00:00+07:00 and ends at 2025-04-22 00:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WW BW อบรมทุนวิจัย starts at 2025-04-21 00:00:00+07:00 and ends at 2025-04-22 00:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW), บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KS (AVD) starts at 2025-04-21 08:00:00+07:00 and ends at 2025-04-21 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BC (OBSERVE) starts at 2025-04-21 08:00:00+07:00 and ends at 2025-04-21 16:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (SERVICE1) starts at 2025-04-21 08:00:00+07:00 and ends at 2025-04-21 12:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (AMD) starts at 2025-04-21 08:00:00+07:00 and ends at 2025-04-21 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL (EMS) starts at 2025-04-21 08:00:00+07:00 and ends at 2025-04-21 16:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KL (SERVICE1+) starts at 2025-04-21 08:00:00+07:00 and ends at 2025-04-21 12:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK weekly meeting SMC starts at 2025-04-21 09:00:00+07:00 and ends at 2025-04-21 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KL (SERVICE2+) starts at 2025-04-21 12:00:00+07:00 and ends at 2025-04-21 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (SERVICE2) starts at 2025-04-21 12:00:00+07:00 and ends at 2025-04-21 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PU ประชุม Case Observe KPI starts at 2025-04-21 13:00:00+07:00 and ends at 2025-04-21 14:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุม HR starts at 2025-04-21 13:30:00+07:00 and ends at 2025-04-21 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (SERVICE NIGHT) starts at 2025-04-22 00:00:00+07:00 and ends at 2025-04-22 08:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2025-04-22 00:00:00+07:00 and ends at 2025-04-23 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2025-04-22 00:00:00+07:00 and ends at 2025-04-23 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW (AMD) starts at 2025-04-22 08:00:00+07:00 and ends at 2025-04-22 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM (SERVICE1+) starts at 2025-04-22 08:00:00+07:00 and ends at 2025-04-22 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KL (SERVICE1) starts at 2025-04-22 08:00:00+07:00 and ends at 2025-04-22 12:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL (EMS) starts at 2025-04-22 08:00:00+07:00 and ends at 2025-04-22 16:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (AVD) starts at 2025-04-22 08:00:00+07:00 and ends at 2025-04-22 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BC (OBSERVE) starts at 2025-04-22 08:00:00+07:00 and ends at 2025-04-22 16:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: Lunch DKSH (sanofi vaccine) starts at 2025-04-22 12:00:00+07:00 and ends at 2025-04-22 13:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM (SERVICE2+) starts at 2025-04-22 12:00:00+07:00 and ends at 2025-04-22 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KL (SERVICE2) starts at 2025-04-22 12:00:00+07:00 and ends at 2025-04-22 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KS PT คกก สรรหา starts at 2025-04-22 14:30:00+07:00 and ends at 2025-04-22 15:30:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), ปริญญา เทียนวิบูลย์ (PT)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW KS PU KL WL พี่หวาน หมิว ประชุม 3 สถาบัน ครั้งที่ 2/67 LPH starts at 2025-04-23 00:00:00+07:00 and ends at 2025-04-24 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW), กรองกาญจน์ สุธรรม (KS), พิมพ์พรรณ อัศวสุรอิน (PU), กอสิน เลาหะวิสุทธิ์ (KL), วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PT ลา starts at 2025-04-23 00:00:00+07:00 and ends at 2025-04-24 00:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PC (SERVICE NIGHT) starts at 2025-04-23 00:00:00+07:00 and ends at 2025-04-23 08:00:00+07:00 for employee: พัณณ์ชิตา ชำนาญกิจวณิชย์ (PC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM (SERVICE1) starts at 2025-04-23 08:00:00+07:00 and ends at 2025-04-23 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL (EMS) starts at 2025-04-23 08:00:00+07:00 and ends at 2025-04-23 16:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (AVD) starts at 2025-04-23 08:00:00+07:00 and ends at 2025-04-23 16:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BC (OBSERVE) starts at 2025-04-23 08:00:00+07:00 and ends at 2025-04-23 16:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: SS (AMD) starts at 2025-04-23 08:00:00+07:00 and ends at 2025-04-23 16:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (SERVICE1+) starts at 2025-04-23 08:00:00+07:00 and ends at 2025-04-23 12:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (SERVICE2+) starts at 2025-04-23 12:00:00+07:00 and ends at 2025-04-23 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM (SERVICE2) starts at 2025-04-23 12:00:00+07:00 and ends at 2025-04-23 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW Director ACLS renewal starts at 2025-04-24 00:00:00+07:00 and ends at 2025-04-25 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL ACLS นครสวรรค์ starts at 2025-04-24 00:00:00+07:00 and ends at 2025-04-30 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KS POCCUS  starts at 2025-04-24 00:00:00+07:00 and ends at 2025-04-26 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), ชานนท์ ช่างรัตนากร (CC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PU renew ACLS + Instructor starts at 2025-04-24 00:00:00+07:00 and ends at 2025-04-26 00:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KL ACLS instructor starts at 2025-04-24 00:00:00+07:00 and ends at 2025-04-25 00:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KK (SERVICE NIGHT) starts at 2025-04-24 00:00:00+07:00 and ends at 2025-04-24 08:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PT SS EMS director starts at 2025-04-24 00:00:00+07:00 and ends at 2025-04-26 00:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT), สริยา เสือแซมเสริม (SS)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM (AVD) starts at 2025-04-24 08:00:00+07:00 and ends at 2025-04-24 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL (EMS) starts at 2025-04-24 08:00:00+07:00 and ends at 2025-04-24 16:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BC (OBSERVE) starts at 2025-04-24 08:00:00+07:00 and ends at 2025-04-24 16:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WW (SERVICE1+) starts at 2025-04-24 08:00:00+07:00 and ends at 2025-04-24 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PC (SERVICE1) starts at 2025-04-24 08:00:00+07:00 and ends at 2025-04-24 12:00:00+07:00 for employee: พัณณ์ชิตา ชำนาญกิจวณิชย์ (PC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (AMD) starts at 2025-04-24 08:00:00+07:00 and ends at 2025-04-24 16:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PC (SERVICE2) starts at 2025-04-24 12:00:00+07:00 and ends at 2025-04-24 16:00:00+07:00 for employee: พัณณ์ชิตา ชำนาญกิจวณิชย์ (PC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WW (SERVICE2+) starts at 2025-04-24 12:00:00+07:00 and ends at 2025-04-24 16:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW Director Inst. starts at 2025-04-25 00:00:00+07:00 and ends at 2025-04-26 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2025-04-25 00:00:00+07:00 and ends at 2025-04-26 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PC (AMD) starts at 2025-04-25 08:00:00+07:00 and ends at 2025-04-25 16:00:00+07:00 for employee: พัณณ์ชิตา ชำนาญกิจวณิชย์ (PC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KK (AVD) starts at 2025-04-25 08:00:00+07:00 and ends at 2025-04-25 16:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WL (EMS) starts at 2025-04-25 08:00:00+07:00 and ends at 2025-04-25 16:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BC (OBSERVE) starts at 2025-04-25 08:00:00+07:00 and ends at 2025-04-25 16:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM (SERVICE1+) starts at 2025-04-25 08:00:00+07:00 and ends at 2025-04-25 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KL (SERVICE1) starts at 2025-04-25 08:00:00+07:00 and ends at 2025-04-25 12:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Clinic starts at 2025-04-25 09:00:00+07:00 and ends at 2025-04-25 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: NM (SERVICE2+) starts at 2025-04-25 12:00:00+07:00 and ends at 2025-04-25 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: KL (SERVICE2) starts at 2025-04-25 12:00:00+07:00 and ends at 2025-04-25 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุม HR starts at 2025-04-25 13:30:00+07:00 and ends at 2025-04-25 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-19 20:02:40 [DEBUG] - SchedulerCalendarUI - Extracted task: PU unavailable starts at 2025-04-26 00:00:00+07:00 and ends at 2025-04-28 00:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-19 20:02:40 [DEBUG] - googleapiclient.discovery - URL being requested: GET https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events?timeMin=2025-04-01T00%3A00%3A00Z&timeMax=2025-04-30T23%3A59%3A59.099999Z&singleEvents=true&orderBy=startTime&alt=json
+2025-03-19 20:02:41 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/gb3rh30cavspsuaqc81h3d18jg?
+2025-03-19 20:02:42 [INFO] - CalendarApp - Event deleted: gb3rh30cavspsuaqc81h3d18jg
+2025-03-19 20:02:42 [INFO] - SchedulerCalendarUI - Event deleted: KL (SERVICE NIGHT)
+2025-03-19 20:02:42 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/1vgejr61cn165g2ge042sgd6i8?
+2025-03-19 20:02:42 [INFO] - CalendarApp - Event deleted: 1vgejr61cn165g2ge042sgd6i8
+2025-03-19 20:02:42 [INFO] - SchedulerCalendarUI - Event deleted: PC (SERVICE1+)
+2025-03-19 20:02:42 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/5rfofvclii1dcda0spsoq3rimg?
+2025-03-19 20:02:43 [INFO] - CalendarApp - Event deleted: 5rfofvclii1dcda0spsoq3rimg
+2025-03-19 20:02:43 [INFO] - SchedulerCalendarUI - Event deleted: SS (AVD)
+2025-03-19 20:02:43 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/bmtba02praspcl1jfeg5sti530?
+2025-03-19 20:02:44 [INFO] - CalendarApp - Event deleted: bmtba02praspcl1jfeg5sti530
+2025-03-19 20:02:44 [INFO] - SchedulerCalendarUI - Event deleted: NM (OBSERVE)
+2025-03-19 20:02:44 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/o2g1to5mbjjq14d21vaqao0chs?
+2025-03-19 20:02:44 [INFO] - CalendarApp - Event deleted: o2g1to5mbjjq14d21vaqao0chs
+2025-03-19 20:02:44 [INFO] - SchedulerCalendarUI - Event deleted: KK (SERVICE1)
+2025-03-19 20:02:44 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/oum3lj5pu7rog0qgp68sni06ls?
+2025-03-19 20:02:45 [INFO] - CalendarApp - Event deleted: oum3lj5pu7rog0qgp68sni06ls
+2025-03-19 20:02:45 [INFO] - SchedulerCalendarUI - Event deleted: CC (EMS)
+2025-03-19 20:02:45 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/30lgmt7qrl82hsghf8f6sja7i8?
+2025-03-19 20:02:46 [INFO] - CalendarApp - Event deleted: 30lgmt7qrl82hsghf8f6sja7i8
+2025-03-19 20:02:46 [INFO] - SchedulerCalendarUI - Event deleted: PC (SERVICE2+)
+2025-03-19 20:02:46 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/u50qee29mgu70arp0k9r3171a0?
+2025-03-19 20:02:46 [INFO] - CalendarApp - Event deleted: u50qee29mgu70arp0k9r3171a0
+2025-03-19 20:02:46 [INFO] - SchedulerCalendarUI - Event deleted: KK (SERVICE2)
+2025-03-19 20:02:46 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/8s50nhm56kkqc5a3123a3ib5p0?
+2025-03-19 20:02:47 [INFO] - CalendarApp - Event deleted: 8s50nhm56kkqc5a3123a3ib5p0
+2025-03-19 20:02:47 [INFO] - SchedulerCalendarUI - Event deleted: PT (SERVICE NIGHT)
+2025-03-19 20:02:47 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/cc49gmcmtfb03ofcm8lhp2hhl8?
+2025-03-19 20:02:47 [INFO] - CalendarApp - Event deleted: cc49gmcmtfb03ofcm8lhp2hhl8
+2025-03-19 20:02:47 [INFO] - SchedulerCalendarUI - Event deleted: CC (EMS)
+2025-03-19 20:02:47 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/j01j40f023q5lrg658gf00moa8?
+2025-03-19 20:02:48 [INFO] - CalendarApp - Event deleted: j01j40f023q5lrg658gf00moa8
+2025-03-19 20:02:48 [INFO] - SchedulerCalendarUI - Event deleted: PC (SERVICE1)
+2025-03-19 20:02:48 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/j5jsghi1b42po11o05quc3jnj4?
+2025-03-19 20:02:49 [INFO] - CalendarApp - Event deleted: j5jsghi1b42po11o05quc3jnj4
+2025-03-19 20:02:49 [INFO] - SchedulerCalendarUI - Event deleted: KK (SERVICE1+)
+2025-03-19 20:02:49 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/nr3sht1o8pj9qprdfpv2mvvgb4?
+2025-03-19 20:02:49 [INFO] - CalendarApp - Event deleted: nr3sht1o8pj9qprdfpv2mvvgb4
+2025-03-19 20:02:49 [INFO] - SchedulerCalendarUI - Event deleted: NM (OBSERVE)
+2025-03-19 20:02:49 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/o1d05k39978n4r64o856cok6a4?
+2025-03-19 20:02:50 [INFO] - CalendarApp - Event deleted: o1d05k39978n4r64o856cok6a4
+2025-03-19 20:02:50 [INFO] - SchedulerCalendarUI - Event deleted: BW (AVD)
+2025-03-19 20:02:50 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/8bttfsado0li4cc9bh5mris98c?
+2025-03-19 20:02:51 [INFO] - CalendarApp - Event deleted: 8bttfsado0li4cc9bh5mris98c
+2025-03-19 20:02:51 [INFO] - SchedulerCalendarUI - Event deleted: KK (SERVICE2+)
+2025-03-19 20:02:51 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/v7f304uhl9n93ofs2m40rdkpl8?
+2025-03-19 20:02:52 [INFO] - CalendarApp - Event deleted: v7f304uhl9n93ofs2m40rdkpl8
+2025-03-19 20:02:52 [INFO] - SchedulerCalendarUI - Event deleted: PC (SERVICE2)
+2025-03-19 20:02:52 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/jt7g9l3u532jgu43grpb6kcbeo?
+2025-03-19 20:02:52 [INFO] - CalendarApp - Event deleted: jt7g9l3u532jgu43grpb6kcbeo
+2025-03-19 20:02:52 [INFO] - SchedulerCalendarUI - Event deleted: CC (SERVICE NIGHT)
+2025-03-19 20:02:52 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/0fgebt9va0gkk61u1e1q5rthrs?
+2025-03-19 20:02:53 [INFO] - CalendarApp - Event deleted: 0fgebt9va0gkk61u1e1q5rthrs
+2025-03-19 20:02:53 [INFO] - SchedulerCalendarUI - Event deleted: KK (SERVICE1)
+2025-03-19 20:02:53 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/53ol24sbe4hj2h8qhj1opcsb1c?
+2025-03-19 20:02:54 [INFO] - CalendarApp - Event deleted: 53ol24sbe4hj2h8qhj1opcsb1c
+2025-03-19 20:02:54 [INFO] - SchedulerCalendarUI - Event deleted: WL (SERVICE1+)
+2025-03-19 20:02:54 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/6jc8ac1m50o4svdi649277io5o?
+2025-03-19 20:02:54 [INFO] - CalendarApp - Event deleted: 6jc8ac1m50o4svdi649277io5o
+2025-03-19 20:02:54 [INFO] - SchedulerCalendarUI - Event deleted: CC (EMS)
+2025-03-19 20:02:54 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/f64hrv5f665fafhd26cmombf78?
+2025-03-19 20:02:55 [INFO] - CalendarApp - Event deleted: f64hrv5f665fafhd26cmombf78
+2025-03-19 20:02:55 [INFO] - SchedulerCalendarUI - Event deleted: NM (OBSERVE)
+2025-03-19 20:02:55 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/li1lq5tbo0lsbgprkk2trcgj6s?
+2025-03-19 20:02:56 [INFO] - CalendarApp - Event deleted: li1lq5tbo0lsbgprkk2trcgj6s
+2025-03-19 20:02:56 [INFO] - SchedulerCalendarUI - Event deleted: PC (AVD)
+2025-03-19 20:02:56 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/7ubcsv7cf3ld5kmk3eff1bn940?
+2025-03-19 20:02:57 [INFO] - CalendarApp - Event deleted: 7ubcsv7cf3ld5kmk3eff1bn940
+2025-03-19 20:02:57 [INFO] - SchedulerCalendarUI - Event deleted: WL (SERVICE2+)
+2025-03-19 20:02:57 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/v7sq57iks6ur89ku48hgi36kro?
+2025-03-19 20:02:57 [INFO] - CalendarApp - Event deleted: v7sq57iks6ur89ku48hgi36kro
+2025-03-19 20:02:57 [INFO] - SchedulerCalendarUI - Event deleted: KK (SERVICE2)
+2025-03-19 20:02:57 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/2n4t6sej0dt0a130r2mne9oaks?
+2025-03-19 20:02:58 [INFO] - CalendarApp - Event deleted: 2n4t6sej0dt0a130r2mne9oaks
+2025-03-19 20:02:58 [INFO] - SchedulerCalendarUI - Event deleted: KK (AVD)
+2025-03-19 20:02:58 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/leb7ao6eau78pe2isdiedgbh3c?
+2025-03-19 20:02:59 [INFO] - CalendarApp - Event deleted: leb7ao6eau78pe2isdiedgbh3c
+2025-03-19 20:02:59 [INFO] - SchedulerCalendarUI - Event deleted: SS (SERVICE1+)
+2025-03-19 20:02:59 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/m4dildcrc67cmrqaiiv1c83qmk?
+2025-03-19 20:02:59 [INFO] - CalendarApp - Event deleted: m4dildcrc67cmrqaiiv1c83qmk
+2025-03-19 20:02:59 [INFO] - SchedulerCalendarUI - Event deleted: PT (SERVICE1)
+2025-03-19 20:02:59 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/m8dt4re9vhhfujjnkcj82me90s?
+2025-03-19 20:03:00 [INFO] - CalendarApp - Event deleted: m8dt4re9vhhfujjnkcj82me90s
+2025-03-19 20:03:00 [INFO] - SchedulerCalendarUI - Event deleted: NM (OBSERVE)
+2025-03-19 20:03:00 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/t5pt1ksjer6m186sbgd52gf7cg?
+2025-03-19 20:03:01 [INFO] - CalendarApp - Event deleted: t5pt1ksjer6m186sbgd52gf7cg
+2025-03-19 20:03:01 [INFO] - SchedulerCalendarUI - Event deleted: CC (EMS)
+2025-03-19 20:03:01 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/811kmr5iqo375ijn62j76ivr4o?
+2025-03-19 20:03:01 [INFO] - CalendarApp - Event deleted: 811kmr5iqo375ijn62j76ivr4o
+2025-03-19 20:03:01 [INFO] - SchedulerCalendarUI - Event deleted: SS (SERVICE2+)
+2025-03-19 20:03:01 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/vqsd4qt8qjrtuepqkadhdlalfc?
+2025-03-19 20:03:02 [INFO] - CalendarApp - Event deleted: vqsd4qt8qjrtuepqkadhdlalfc
+2025-03-19 20:03:02 [INFO] - SchedulerCalendarUI - Event deleted: PT (SERVICE2)
+2025-03-19 20:03:02 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/mld2oohtrifp1hle595oet6urk?
+2025-03-19 20:03:03 [INFO] - CalendarApp - Event deleted: mld2oohtrifp1hle595oet6urk
+2025-03-19 20:03:03 [INFO] - SchedulerCalendarUI - Event deleted: BW (AVD)
+2025-03-19 20:03:03 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/3kde6l4ae1jgr7dbi7q6u70djg?
+2025-03-19 20:03:03 [INFO] - CalendarApp - Event deleted: 3kde6l4ae1jgr7dbi7q6u70djg
+2025-03-19 20:03:03 [INFO] - SchedulerCalendarUI - Event deleted: PU (AVD)
+2025-03-19 20:03:03 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/m4tn4t4sa5t5ik5vofo41pi8os?
+2025-03-19 20:03:04 [INFO] - CalendarApp - Event deleted: m4tn4t4sa5t5ik5vofo41pi8os
+2025-03-19 20:03:04 [INFO] - SchedulerCalendarUI - Event deleted: PT (AVD)
+2025-03-19 20:03:04 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/k5ct4nl7tla4t76vgetff7ikmc?
+2025-03-19 20:03:05 [INFO] - CalendarApp - Event deleted: k5ct4nl7tla4t76vgetff7ikmc
+2025-03-19 20:03:05 [INFO] - SchedulerCalendarUI - Event deleted: WL (SERVICE NIGHT)
+2025-03-19 20:03:05 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/7mlrnpgggu4vli41jj5ei95m10?
+2025-03-19 20:03:06 [INFO] - CalendarApp - Event deleted: 7mlrnpgggu4vli41jj5ei95m10
+2025-03-19 20:03:06 [INFO] - SchedulerCalendarUI - Event deleted: BW (EMS)
+2025-03-19 20:03:06 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/cijemmc239vt213b4007q1bs60?
+2025-03-19 20:03:06 [INFO] - CalendarApp - Event deleted: cijemmc239vt213b4007q1bs60
+2025-03-19 20:03:06 [INFO] - SchedulerCalendarUI - Event deleted: SS (SERVICE1)
+2025-03-19 20:03:06 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/ec59u51fh3q49ki6r4q9hoae2o?
+2025-03-19 20:03:07 [INFO] - CalendarApp - Event deleted: ec59u51fh3q49ki6r4q9hoae2o
+2025-03-19 20:03:07 [INFO] - SchedulerCalendarUI - Event deleted: NM (AVD)
+2025-03-19 20:03:07 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/jq72hhh195blk5hh3tpe1b973k?
+2025-03-19 20:03:08 [INFO] - CalendarApp - Event deleted: jq72hhh195blk5hh3tpe1b973k
+2025-03-19 20:03:08 [INFO] - SchedulerCalendarUI - Event deleted: PT (SERVICE1+)
+2025-03-19 20:03:08 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/orhoollm6j31472eqrjq1qjjao?
+2025-03-19 20:03:08 [INFO] - CalendarApp - Event deleted: orhoollm6j31472eqrjq1qjjao
+2025-03-19 20:03:08 [INFO] - SchedulerCalendarUI - Event deleted: WW (OBSERVE)
+2025-03-19 20:03:08 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/9kf00p2ct03lvded61an6c1kb4?
+2025-03-19 20:03:09 [INFO] - CalendarApp - Event deleted: 9kf00p2ct03lvded61an6c1kb4
+2025-03-19 20:03:09 [INFO] - SchedulerCalendarUI - Event deleted: PT (SERVICE2+)
+2025-03-19 20:03:09 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/b889tr3sp16tik2uajmie2ncgk?
+2025-03-19 20:03:10 [INFO] - CalendarApp - Event deleted: b889tr3sp16tik2uajmie2ncgk
+2025-03-19 20:03:10 [INFO] - SchedulerCalendarUI - Event deleted: SS (SERVICE2)
+2025-03-19 20:03:10 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/jdv58qtv9h1tbkdouvibc7h86k?
+2025-03-19 20:03:10 [INFO] - CalendarApp - Event deleted: jdv58qtv9h1tbkdouvibc7h86k
+2025-03-19 20:03:10 [INFO] - SchedulerCalendarUI - Event deleted: NM (SERVICE NIGHT)
+2025-03-19 20:03:10 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/1b6kcar6vq14vp6ifh5hvte5jo?
+2025-03-19 20:03:12 [INFO] - CalendarApp - Event deleted: 1b6kcar6vq14vp6ifh5hvte5jo
+2025-03-19 20:03:12 [INFO] - SchedulerCalendarUI - Event deleted: PU (SERVICE1)
+2025-03-19 20:03:12 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/irrsrjkm0aco4k5i1fqraqq6j8?
+2025-03-19 20:03:12 [INFO] - CalendarApp - Event deleted: irrsrjkm0aco4k5i1fqraqq6j8
+2025-03-19 20:03:12 [INFO] - SchedulerCalendarUI - Event deleted: WW (OBSERVE)
+2025-03-19 20:03:12 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/j3dl8vffoujsh59qpp0d2ef3jo?
+2025-03-19 20:03:13 [INFO] - CalendarApp - Event deleted: j3dl8vffoujsh59qpp0d2ef3jo
+2025-03-19 20:03:13 [INFO] - SchedulerCalendarUI - Event deleted: BW (EMS)
+2025-03-19 20:03:13 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/qii3p7eerf8mfrjjqbeno9ib2k?
+2025-03-19 20:03:14 [INFO] - CalendarApp - Event deleted: qii3p7eerf8mfrjjqbeno9ib2k
+2025-03-19 20:03:14 [INFO] - SchedulerCalendarUI - Event deleted: PT (AVD)
+2025-03-19 20:03:14 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/t9hrbchambj8q0hdb33uhacmbs?
+2025-03-19 20:03:15 [INFO] - CalendarApp - Event deleted: t9hrbchambj8q0hdb33uhacmbs
+2025-03-19 20:03:15 [INFO] - SchedulerCalendarUI - Event deleted: WL (SERVICE1+)
+2025-03-19 20:03:15 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/8mcqc8eoepi2ri4afh4p6qinp4?
+2025-03-19 20:03:15 [INFO] - CalendarApp - Event deleted: 8mcqc8eoepi2ri4afh4p6qinp4
+2025-03-19 20:03:15 [INFO] - SchedulerCalendarUI - Event deleted: PU (SERVICE2)
+2025-03-19 20:03:15 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/utin67sodst32eiu3dcc5sofck?
+2025-03-19 20:03:16 [INFO] - CalendarApp - Event deleted: utin67sodst32eiu3dcc5sofck
+2025-03-19 20:03:16 [INFO] - SchedulerCalendarUI - Event deleted: WL (SERVICE2+)
+2025-03-19 20:03:16 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/rb65m840l2nhslis42hb9kqh28?
+2025-03-19 20:03:16 [INFO] - CalendarApp - Event deleted: rb65m840l2nhslis42hb9kqh28
+2025-03-19 20:03:16 [INFO] - SchedulerCalendarUI - Event deleted: PC (SERVICE NIGHT)
+2025-03-19 20:03:16 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/2nudtjav6nao85emda3968j9kg?
+2025-03-19 20:03:17 [INFO] - CalendarApp - Event deleted: 2nudtjav6nao85emda3968j9kg
+2025-03-19 20:03:17 [INFO] - SchedulerCalendarUI - Event deleted: WW (OBSERVE)
+2025-03-19 20:03:17 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/cvotli9inopsgqvkr7jgiue6cg?
+2025-03-19 20:03:18 [INFO] - CalendarApp - Event deleted: cvotli9inopsgqvkr7jgiue6cg
+2025-03-19 20:03:18 [INFO] - SchedulerCalendarUI - Event deleted: BW (EMS)
+2025-03-19 20:03:18 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/dhsluugfldjvpiq8el3m9ecd4o?
+2025-03-19 20:03:18 [INFO] - CalendarApp - Event deleted: dhsluugfldjvpiq8el3m9ecd4o
+2025-03-19 20:03:18 [INFO] - SchedulerCalendarUI - Event deleted: SS (SERVICE1+)
+2025-03-19 20:03:18 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/fgt2aq8r599fj53v0plojpfnos?
+2025-03-19 20:03:19 [INFO] - CalendarApp - Event deleted: fgt2aq8r599fj53v0plojpfnos
+2025-03-19 20:03:19 [INFO] - SchedulerCalendarUI - Event deleted: WL (SERVICE1)
+2025-03-19 20:03:19 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/r0r430b0ihav4q6veu0jfpgots?
+2025-03-19 20:03:20 [INFO] - CalendarApp - Event deleted: r0r430b0ihav4q6veu0jfpgots
+2025-03-19 20:03:20 [INFO] - SchedulerCalendarUI - Event deleted: BC (AVD)
+2025-03-19 20:03:20 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/013iuovm9ujjrch9mvm90sm6ek?
+2025-03-19 20:03:20 [INFO] - CalendarApp - Event deleted: 013iuovm9ujjrch9mvm90sm6ek
+2025-03-19 20:03:20 [INFO] - SchedulerCalendarUI - Event deleted: SS (SERVICE2+)
+2025-03-19 20:03:20 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/48lqqvm82l2a199tsfmfsnt3o4?
+2025-03-19 20:03:21 [INFO] - CalendarApp - Event deleted: 48lqqvm82l2a199tsfmfsnt3o4
+2025-03-19 20:03:21 [INFO] - SchedulerCalendarUI - Event deleted: WL (SERVICE2)
+2025-03-19 20:03:21 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/16h6b780juupbfbjpramhbvb8g?
+2025-03-19 20:03:22 [INFO] - CalendarApp - Event deleted: 16h6b780juupbfbjpramhbvb8g
+2025-03-19 20:03:22 [INFO] - SchedulerCalendarUI - Event deleted: PT (SERVICE1+)
+2025-03-19 20:03:22 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/57rej2bsvr94mhp3410q1q445c?
+2025-03-19 20:03:22 [INFO] - CalendarApp - Event deleted: 57rej2bsvr94mhp3410q1q445c
+2025-03-19 20:03:22 [INFO] - SchedulerCalendarUI - Event deleted: NM (SERVICE1)
+2025-03-19 20:03:22 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/g8km9d2klm2aikfjia3n2koh68?
+2025-03-19 20:03:23 [INFO] - CalendarApp - Event deleted: g8km9d2klm2aikfjia3n2koh68
+2025-03-19 20:03:23 [INFO] - SchedulerCalendarUI - Event deleted: BW (EMS)
+2025-03-19 20:03:23 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/q2d49vrhis8osfbrom1jjkhq2g?
+2025-03-19 20:03:24 [INFO] - CalendarApp - Event deleted: q2d49vrhis8osfbrom1jjkhq2g
+2025-03-19 20:03:24 [INFO] - SchedulerCalendarUI - Event deleted: WL (AVD)
+2025-03-19 20:03:24 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/t3339pulq6lg2tpclrr68ofc98?
+2025-03-19 20:03:24 [INFO] - CalendarApp - Event deleted: t3339pulq6lg2tpclrr68ofc98
+2025-03-19 20:03:24 [INFO] - SchedulerCalendarUI - Event deleted: WW (OBSERVE)
+2025-03-19 20:03:24 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/2g121u6gou8kkh55nnih405jsg?
+2025-03-19 20:03:25 [INFO] - CalendarApp - Event deleted: 2g121u6gou8kkh55nnih405jsg
+2025-03-19 20:03:25 [INFO] - SchedulerCalendarUI - Event deleted: PT (SERVICE2+)
+2025-03-19 20:03:25 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/gn9nkp98s3r29blp5k24lhr1ho?
+2025-03-19 20:03:26 [INFO] - CalendarApp - Event deleted: gn9nkp98s3r29blp5k24lhr1ho
+2025-03-19 20:03:26 [INFO] - SchedulerCalendarUI - Event deleted: PU (SERVICE2)
+2025-03-19 20:03:26 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/4m1pg4k6k96g4j8ijqee5s3hj4?
+2025-03-19 20:03:26 [INFO] - CalendarApp - Event deleted: 4m1pg4k6k96g4j8ijqee5s3hj4
+2025-03-19 20:03:26 [INFO] - SchedulerCalendarUI - Event deleted: SS (AVD)
+2025-03-19 20:03:26 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/qgr4qgtl6efid8pip540bc5aag?
+2025-03-19 20:03:27 [INFO] - CalendarApp - Event deleted: qgr4qgtl6efid8pip540bc5aag
+2025-03-19 20:03:27 [INFO] - SchedulerCalendarUI - Event deleted: KK (AVD)
+2025-03-19 20:03:27 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/j2ru9qa0lii3lf0euukak3o5kg?
+2025-03-19 20:03:28 [INFO] - CalendarApp - Event deleted: j2ru9qa0lii3lf0euukak3o5kg
+2025-03-19 20:03:28 [INFO] - SchedulerCalendarUI - Event deleted: BK (AVD)
+2025-03-19 20:03:28 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/9dnlcprf83vb6rilrhqt1chro0?
+2025-03-19 20:03:28 [INFO] - CalendarApp - Event deleted: 9dnlcprf83vb6rilrhqt1chro0
+2025-03-19 20:03:28 [INFO] - SchedulerCalendarUI - Event deleted: KS (SERVICE NIGHT)
+2025-03-19 20:03:28 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/88hsbnq7c034bulciv30pmbcik?
+2025-03-19 20:03:29 [INFO] - CalendarApp - Event deleted: 88hsbnq7c034bulciv30pmbcik
+2025-03-19 20:03:29 [INFO] - SchedulerCalendarUI - Event deleted: NM (AVD)
+2025-03-19 20:03:29 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/vaag7hqi1tr90tmitvuqviag1s?
+2025-03-19 20:03:30 [INFO] - CalendarApp - Event deleted: vaag7hqi1tr90tmitvuqviag1s
+2025-03-19 20:03:30 [INFO] - SchedulerCalendarUI - Event deleted: WW (SERVICE NIGHT)
+2025-03-19 20:03:30 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/6l0ikf3lgoq5s2646kanflu5d0?
+2025-03-19 20:03:31 [INFO] - CalendarApp - Event deleted: 6l0ikf3lgoq5s2646kanflu5d0
+2025-03-19 20:03:31 [INFO] - SchedulerCalendarUI - Event deleted: PC (AVD)
+2025-03-19 20:03:31 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/8jf9pfjoki516dv1g5rkrm7n6k?
+2025-03-19 20:03:31 [INFO] - CalendarApp - Event deleted: 8jf9pfjoki516dv1g5rkrm7n6k
+2025-03-19 20:03:31 [INFO] - SchedulerCalendarUI - Event deleted: NM (AMD)
+2025-03-19 20:03:31 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/pmvtidqv6oo10clqcu2istgic4?
+2025-03-19 20:03:32 [INFO] - CalendarApp - Event deleted: pmvtidqv6oo10clqcu2istgic4
+2025-03-19 20:03:32 [INFO] - SchedulerCalendarUI - Event deleted: SS (SERVICE NIGHT)
+2025-03-19 20:03:32 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/7hja9k83a6l401q298odn7gfng?
+2025-03-19 20:03:32 [INFO] - CalendarApp - Event deleted: 7hja9k83a6l401q298odn7gfng
+2025-03-19 20:03:32 [INFO] - SchedulerCalendarUI - Event deleted: KS (AVD)
+2025-03-19 20:03:32 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/c1nludic3nmmqbp5vd14o7rek8?
+2025-03-19 20:03:33 [INFO] - CalendarApp - Event deleted: c1nludic3nmmqbp5vd14o7rek8
+2025-03-19 20:03:33 [INFO] - SchedulerCalendarUI - Event deleted: PT (OBSERVE)
+2025-03-19 20:03:33 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/i3ktj4k469k7afku7en331duk4?
+2025-03-19 20:03:34 [INFO] - CalendarApp - Event deleted: i3ktj4k469k7afku7en331duk4
+2025-03-19 20:03:34 [INFO] - SchedulerCalendarUI - Event deleted: BC (AMD)
+2025-03-19 20:03:34 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/mqlt2tgm3evneooqrjhd8ngrt0?
+2025-03-19 20:03:34 [INFO] - CalendarApp - Event deleted: mqlt2tgm3evneooqrjhd8ngrt0
+2025-03-19 20:03:34 [INFO] - SchedulerCalendarUI - Event deleted: BK (SERVICE1)
+2025-03-19 20:03:34 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/ob8o2gstf2hirennft0856qau8?
+2025-03-19 20:03:35 [INFO] - CalendarApp - Event deleted: ob8o2gstf2hirennft0856qau8
+2025-03-19 20:03:35 [INFO] - SchedulerCalendarUI - Event deleted: BC (SERVICE1+)
+2025-03-19 20:03:35 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/v7ucuhc41uu459qj21uha8hemg?
+2025-03-19 20:03:36 [INFO] - CalendarApp - Event deleted: v7ucuhc41uu459qj21uha8hemg
+2025-03-19 20:03:36 [INFO] - SchedulerCalendarUI - Event deleted: KL (EMS)
+2025-03-19 20:03:36 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/jqueokbcsvdm2vb1lr0ns934kg?
+2025-03-19 20:03:36 [INFO] - CalendarApp - Event deleted: jqueokbcsvdm2vb1lr0ns934kg
+2025-03-19 20:03:36 [INFO] - SchedulerCalendarUI - Event deleted: BC (SERVICE2+)
+2025-03-19 20:03:36 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/sjoodqvn2b7jmc5ccu80akh814?
+2025-03-19 20:03:37 [INFO] - CalendarApp - Event deleted: sjoodqvn2b7jmc5ccu80akh814
+2025-03-19 20:03:37 [INFO] - SchedulerCalendarUI - Event deleted: BK (SERVICE2)
+2025-03-19 20:03:37 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/1m5svf5opa55fk1uut1a1ahdj8?
+2025-03-19 20:03:38 [INFO] - CalendarApp - Event deleted: 1m5svf5opa55fk1uut1a1ahdj8
+2025-03-19 20:03:38 [INFO] - SchedulerCalendarUI - Event deleted: KS (SERVICE1+)
+2025-03-19 20:03:38 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/bruj6pnnhl5juj397ivna1rkdc?
+2025-03-19 20:03:38 [INFO] - CalendarApp - Event deleted: bruj6pnnhl5juj397ivna1rkdc
+2025-03-19 20:03:38 [INFO] - SchedulerCalendarUI - Event deleted: BC (AVD)
+2025-03-19 20:03:38 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/e26pl93f4g1b87mhmdc197f5fo?
+2025-03-19 20:03:39 [INFO] - CalendarApp - Event deleted: e26pl93f4g1b87mhmdc197f5fo
+2025-03-19 20:03:39 [INFO] - SchedulerCalendarUI - Event deleted: PT (OBSERVE)
+2025-03-19 20:03:39 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/l8uu95nrknr144bo20sugb6ujs?
+2025-03-19 20:03:40 [INFO] - CalendarApp - Event deleted: l8uu95nrknr144bo20sugb6ujs
+2025-03-19 20:03:40 [INFO] - SchedulerCalendarUI - Event deleted: CC (SERVICE1)
+2025-03-19 20:03:40 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/rtrkcao5re46a113igdrvjfjl8?
+2025-03-19 20:03:40 [INFO] - CalendarApp - Event deleted: rtrkcao5re46a113igdrvjfjl8
+2025-03-19 20:03:40 [INFO] - SchedulerCalendarUI - Event deleted: KS (AMD)
+2025-03-19 20:03:40 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/tqn6g92aka1nnj79m11k4jbv0k?
+2025-03-19 20:03:41 [INFO] - CalendarApp - Event deleted: tqn6g92aka1nnj79m11k4jbv0k
+2025-03-19 20:03:41 [INFO] - SchedulerCalendarUI - Event deleted: KL (EMS)
+2025-03-19 20:03:41 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/4fqubmjpaebp2hgkmu22u0sbpk?
+2025-03-19 20:03:42 [INFO] - CalendarApp - Event deleted: 4fqubmjpaebp2hgkmu22u0sbpk
+2025-03-19 20:03:42 [INFO] - SchedulerCalendarUI - Event deleted: CC (SERVICE2)
+2025-03-19 20:03:42 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/kvcdp1qhlgdm1630u00897vmgs?
+2025-03-19 20:03:42 [INFO] - CalendarApp - Event deleted: kvcdp1qhlgdm1630u00897vmgs
+2025-03-19 20:03:42 [INFO] - SchedulerCalendarUI - Event deleted: KS (SERVICE2+)
+2025-03-19 20:03:42 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/8vjs6v92lhatf93n10fnsvij44?
+2025-03-19 20:03:43 [INFO] - CalendarApp - Event deleted: 8vjs6v92lhatf93n10fnsvij44
+2025-03-19 20:03:43 [INFO] - SchedulerCalendarUI - Event deleted: KK (AMD)
+2025-03-19 20:03:43 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/f7ad9vuhgbvnrip98pj8epflo4?
+2025-03-19 20:03:43 [INFO] - CalendarApp - Event deleted: f7ad9vuhgbvnrip98pj8epflo4
+2025-03-19 20:03:43 [INFO] - SchedulerCalendarUI - Event deleted: WL (AVD)
+2025-03-19 20:03:43 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/ofr2a5ssuabht6111hgvp5h0bg?
+2025-03-19 20:03:44 [INFO] - CalendarApp - Event deleted: ofr2a5ssuabht6111hgvp5h0bg
+2025-03-19 20:03:44 [INFO] - SchedulerCalendarUI - Event deleted: PT (AMD)
+2025-03-19 20:03:44 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/t81n7j97kcm8q4unnv5c61f4jk?
+2025-03-19 20:03:45 [INFO] - CalendarApp - Event deleted: t81n7j97kcm8q4unnv5c61f4jk
+2025-03-19 20:03:45 [INFO] - SchedulerCalendarUI - Event deleted: KL (AVD)
+2025-03-19 20:03:45 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/1a0qacmho98i494f9r0q9mt6rg?
+2025-03-19 20:03:45 [INFO] - CalendarApp - Event deleted: 1a0qacmho98i494f9r0q9mt6rg
+2025-03-19 20:03:45 [INFO] - SchedulerCalendarUI - Event deleted: KS (AVD)
+2025-03-19 20:03:45 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/43vi3vbjpbij044dvotpavetig?
+2025-03-19 20:03:46 [INFO] - CalendarApp - Event deleted: 43vi3vbjpbij044dvotpavetig
+2025-03-19 20:03:46 [INFO] - SchedulerCalendarUI - Event deleted: BC (OBSERVE)
+2025-03-19 20:03:46 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/6rj9d0k93k1e590rl57v42ekp4?
+2025-03-19 20:03:47 [INFO] - CalendarApp - Event deleted: 6rj9d0k93k1e590rl57v42ekp4
+2025-03-19 20:03:47 [INFO] - SchedulerCalendarUI - Event deleted: CC (SERVICE1)
+2025-03-19 20:03:47 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/iqucl1v7ms9b44s685sto7pcec?
+2025-03-19 20:03:47 [INFO] - CalendarApp - Event deleted: iqucl1v7ms9b44s685sto7pcec
+2025-03-19 20:03:47 [INFO] - SchedulerCalendarUI - Event deleted: PU (AMD)
+2025-03-19 20:03:47 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/sn694fokuqglfmnfslt6qe0g30?
+2025-03-19 20:03:48 [INFO] - CalendarApp - Event deleted: sn694fokuqglfmnfslt6qe0g30
+2025-03-19 20:03:48 [INFO] - SchedulerCalendarUI - Event deleted: WL (EMS)
+2025-03-19 20:03:48 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/udfv4nj1gqobo14fgj8inc86t8?
+2025-03-19 20:03:49 [INFO] - CalendarApp - Event deleted: udfv4nj1gqobo14fgj8inc86t8
+2025-03-19 20:03:49 [INFO] - SchedulerCalendarUI - Event deleted: KL (SERVICE1+)
+2025-03-19 20:03:49 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/f31ieboee28e7em5tt4bddk7dc?
+2025-03-19 20:03:49 [INFO] - CalendarApp - Event deleted: f31ieboee28e7em5tt4bddk7dc
+2025-03-19 20:03:49 [INFO] - SchedulerCalendarUI - Event deleted: KL (SERVICE2+)
+2025-03-19 20:03:49 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/vorarrqroin76hannl62ojagck?
+2025-03-19 20:03:50 [INFO] - CalendarApp - Event deleted: vorarrqroin76hannl62ojagck
+2025-03-19 20:03:50 [INFO] - SchedulerCalendarUI - Event deleted: CC (SERVICE2)
+2025-03-19 20:03:50 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/26e9oduv6gf9oel0l012e3ihr0?
+2025-03-19 20:03:51 [INFO] - CalendarApp - Event deleted: 26e9oduv6gf9oel0l012e3ihr0
+2025-03-19 20:03:51 [INFO] - SchedulerCalendarUI - Event deleted: PU (SERVICE NIGHT)
+2025-03-19 20:03:51 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/8m774vq6uebsjnn9bj2kr89t8s?
+2025-03-19 20:03:51 [INFO] - CalendarApp - Event deleted: 8m774vq6uebsjnn9bj2kr89t8s
+2025-03-19 20:03:51 [INFO] - SchedulerCalendarUI - Event deleted: BW (AMD)
+2025-03-19 20:03:51 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/lgbb37cg4qsv8g8m77sgtl6bis?
+2025-03-19 20:03:52 [INFO] - CalendarApp - Event deleted: lgbb37cg4qsv8g8m77sgtl6bis
+2025-03-19 20:03:52 [INFO] - SchedulerCalendarUI - Event deleted: NM (SERVICE1+)
+2025-03-19 20:03:52 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/mdetmqh18vts7ae6vt650th4es?
+2025-03-19 20:03:53 [INFO] - CalendarApp - Event deleted: mdetmqh18vts7ae6vt650th4es
+2025-03-19 20:03:53 [INFO] - SchedulerCalendarUI - Event deleted: KL (SERVICE1)
+2025-03-19 20:03:53 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/n03p2c859fc91c90172vlp1tfo?
+2025-03-19 20:03:53 [INFO] - CalendarApp - Event deleted: n03p2c859fc91c90172vlp1tfo
+2025-03-19 20:03:53 [INFO] - SchedulerCalendarUI - Event deleted: WL (EMS)
+2025-03-19 20:03:53 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/nikqe9hjlkbv6gmlvpier841o8?
+2025-03-19 20:03:54 [INFO] - CalendarApp - Event deleted: nikqe9hjlkbv6gmlvpier841o8
+2025-03-19 20:03:54 [INFO] - SchedulerCalendarUI - Event deleted: CC (AVD)
+2025-03-19 20:03:54 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/pfmsmop3nfihg6rqqid0c0e99k?
+2025-03-19 20:03:55 [INFO] - CalendarApp - Event deleted: pfmsmop3nfihg6rqqid0c0e99k
+2025-03-19 20:03:55 [INFO] - SchedulerCalendarUI - Event deleted: BC (OBSERVE)
+2025-03-19 20:03:55 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/dadrt0i83h125ai7qbli880s40?
+2025-03-19 20:03:55 [INFO] - CalendarApp - Event deleted: dadrt0i83h125ai7qbli880s40
+2025-03-19 20:03:55 [INFO] - SchedulerCalendarUI - Event deleted: NM (SERVICE2+)
+2025-03-19 20:03:55 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/eposn4268jq4n7r2fsnnm4olt8?
+2025-03-19 20:03:56 [INFO] - CalendarApp - Event deleted: eposn4268jq4n7r2fsnnm4olt8
+2025-03-19 20:03:56 [INFO] - SchedulerCalendarUI - Event deleted: KL (SERVICE2)
+2025-03-19 20:03:56 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/ssklumjuiuo58i3ibr9gfdql80?
+2025-03-19 20:03:57 [INFO] - CalendarApp - Event deleted: ssklumjuiuo58i3ibr9gfdql80
+2025-03-19 20:03:57 [INFO] - SchedulerCalendarUI - Event deleted: PC (SERVICE NIGHT)
+2025-03-19 20:03:57 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/9mt2sl31b8dvmlntpfplkse4ho?
+2025-03-19 20:03:57 [INFO] - CalendarApp - Event deleted: 9mt2sl31b8dvmlntpfplkse4ho
+2025-03-19 20:03:57 [INFO] - SchedulerCalendarUI - Event deleted: NM (SERVICE1)
+2025-03-19 20:03:57 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/ardipthrt85kk3mchevnd9nero?
+2025-03-19 20:03:58 [INFO] - CalendarApp - Event deleted: ardipthrt85kk3mchevnd9nero
+2025-03-19 20:03:58 [INFO] - SchedulerCalendarUI - Event deleted: WL (EMS)
+2025-03-19 20:03:58 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/bifm8vtc5eugj8kdg8vj9fa890?
+2025-03-19 20:03:59 [INFO] - CalendarApp - Event deleted: bifm8vtc5eugj8kdg8vj9fa890
+2025-03-19 20:03:59 [INFO] - SchedulerCalendarUI - Event deleted: BK (AVD)
+2025-03-19 20:03:59 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/ob3ge8aq7v4e3ek0pnpf7jtc3g?
+2025-03-19 20:03:59 [INFO] - CalendarApp - Event deleted: ob3ge8aq7v4e3ek0pnpf7jtc3g
+2025-03-19 20:03:59 [INFO] - SchedulerCalendarUI - Event deleted: BC (OBSERVE)
+2025-03-19 20:03:59 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/qa4sabd6568qg6nmumahqir8s8?
+2025-03-19 20:04:00 [INFO] - CalendarApp - Event deleted: qa4sabd6568qg6nmumahqir8s8
+2025-03-19 20:04:00 [INFO] - SchedulerCalendarUI - Event deleted: SS (AMD)
+2025-03-19 20:04:00 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/sskagdpc53jlhdaa62mgb8kjk0?
+2025-03-19 20:04:01 [INFO] - CalendarApp - Event deleted: sskagdpc53jlhdaa62mgb8kjk0
+2025-03-19 20:04:01 [INFO] - SchedulerCalendarUI - Event deleted: CC (SERVICE1+)
+2025-03-19 20:04:01 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/5kl8s8chd6ej19v5nud74o9154?
+2025-03-19 20:04:01 [INFO] - CalendarApp - Event deleted: 5kl8s8chd6ej19v5nud74o9154
+2025-03-19 20:04:01 [INFO] - SchedulerCalendarUI - Event deleted: CC (SERVICE2+)
+2025-03-19 20:04:01 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/fud6at1v950m89220cavi4ihq4?
+2025-03-19 20:04:02 [INFO] - CalendarApp - Event deleted: fud6at1v950m89220cavi4ihq4
+2025-03-19 20:04:02 [INFO] - SchedulerCalendarUI - Event deleted: NM (SERVICE2)
+2025-03-19 20:04:02 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/no3p48jfkoq4l2hpsl2pis1t5k?
+2025-03-19 20:04:03 [INFO] - CalendarApp - Event deleted: no3p48jfkoq4l2hpsl2pis1t5k
+2025-03-19 20:04:03 [INFO] - SchedulerCalendarUI - Event deleted: KK (SERVICE NIGHT)
+2025-03-19 20:04:03 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/1fk4dors6j538db5e8h1kgsbj8?
+2025-03-19 20:04:04 [INFO] - CalendarApp - Event deleted: 1fk4dors6j538db5e8h1kgsbj8
+2025-03-19 20:04:04 [INFO] - SchedulerCalendarUI - Event deleted: NM (AVD)
+2025-03-19 20:04:04 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/2a2962fms9inqv8eun8orvdpb8?
+2025-03-19 20:04:04 [INFO] - CalendarApp - Event deleted: 2a2962fms9inqv8eun8orvdpb8
+2025-03-19 20:04:04 [INFO] - SchedulerCalendarUI - Event deleted: WL (EMS)
+2025-03-19 20:04:04 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/i696mqid3cd2k87adc6jbt5spo?
+2025-03-19 20:04:05 [INFO] - CalendarApp - Event deleted: i696mqid3cd2k87adc6jbt5spo
+2025-03-19 20:04:05 [INFO] - SchedulerCalendarUI - Event deleted: BC (OBSERVE)
+2025-03-19 20:04:05 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/kfnm42dagkjlh80407rkhecjqc?
+2025-03-19 20:04:05 [INFO] - CalendarApp - Event deleted: kfnm42dagkjlh80407rkhecjqc
+2025-03-19 20:04:05 [INFO] - SchedulerCalendarUI - Event deleted: WW (SERVICE1+)
+2025-03-19 20:04:05 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/mb6ksf6i8uncqcfqlnvmenc2gk?
+2025-03-19 20:04:06 [INFO] - CalendarApp - Event deleted: mb6ksf6i8uncqcfqlnvmenc2gk
+2025-03-19 20:04:06 [INFO] - SchedulerCalendarUI - Event deleted: PC (SERVICE1)
+2025-03-19 20:04:06 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/rnm64n4l5ig0862l9psus9h6lc?
+2025-03-19 20:04:07 [INFO] - CalendarApp - Event deleted: rnm64n4l5ig0862l9psus9h6lc
+2025-03-19 20:04:07 [INFO] - SchedulerCalendarUI - Event deleted: BK (AMD)
+2025-03-19 20:04:07 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/8vtuokevgr19to8ed3ukuumvg0?
+2025-03-19 20:04:07 [INFO] - CalendarApp - Event deleted: 8vtuokevgr19to8ed3ukuumvg0
+2025-03-19 20:04:07 [INFO] - SchedulerCalendarUI - Event deleted: PC (SERVICE2)
+2025-03-19 20:04:07 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/k4buv52ifsr7tr1d6m25jmqm3c?
+2025-03-19 20:04:08 [INFO] - CalendarApp - Event deleted: k4buv52ifsr7tr1d6m25jmqm3c
+2025-03-19 20:04:08 [INFO] - SchedulerCalendarUI - Event deleted: WW (SERVICE2+)
+2025-03-19 20:04:08 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/6mn7s48rjhm5fjur0a464akhe4?
+2025-03-19 20:04:09 [INFO] - CalendarApp - Event deleted: 6mn7s48rjhm5fjur0a464akhe4
+2025-03-19 20:04:09 [INFO] - SchedulerCalendarUI - Event deleted: PC (AMD)
+2025-03-19 20:04:09 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/d7kmcok1nv7ktbtthf03pfcfd8?
+2025-03-19 20:04:10 [INFO] - CalendarApp - Event deleted: d7kmcok1nv7ktbtthf03pfcfd8
+2025-03-19 20:04:10 [INFO] - SchedulerCalendarUI - Event deleted: KK (AVD)
+2025-03-19 20:04:10 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/gv1f5el9smt1g57197so9kvvqo?
+2025-03-19 20:04:10 [INFO] - CalendarApp - Event deleted: gv1f5el9smt1g57197so9kvvqo
+2025-03-19 20:04:10 [INFO] - SchedulerCalendarUI - Event deleted: WL (EMS)
+2025-03-19 20:04:10 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/kmri1s6jla8tmdk499lbfipkg0?
+2025-03-19 20:04:11 [INFO] - CalendarApp - Event deleted: kmri1s6jla8tmdk499lbfipkg0
+2025-03-19 20:04:11 [INFO] - SchedulerCalendarUI - Event deleted: BC (OBSERVE)
+2025-03-19 20:04:11 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/njaimc0drhdqbe34rd4i9vh0lo?
+2025-03-19 20:04:12 [INFO] - CalendarApp - Event deleted: njaimc0drhdqbe34rd4i9vh0lo
+2025-03-19 20:04:12 [INFO] - SchedulerCalendarUI - Event deleted: NM (SERVICE1+)
+2025-03-19 20:04:12 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/s890r6p5ia6anhp08uccc33j8s?
+2025-03-19 20:04:12 [INFO] - CalendarApp - Event deleted: s890r6p5ia6anhp08uccc33j8s
+2025-03-19 20:04:12 [INFO] - SchedulerCalendarUI - Event deleted: KL (SERVICE1)
+2025-03-19 20:04:12 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/d421i053no55b4nl80j31gsq2g?
+2025-03-19 20:04:13 [INFO] - CalendarApp - Event deleted: d421i053no55b4nl80j31gsq2g
+2025-03-19 20:04:13 [INFO] - SchedulerCalendarUI - Event deleted: NM (SERVICE2+)
+2025-03-19 20:04:13 [DEBUG] - googleapiclient.discovery - URL being requested: DELETE https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events/ih18tesqgn02ui5cmaa7c1aqus?
+2025-03-19 20:04:13 [INFO] - CalendarApp - Event deleted: ih18tesqgn02ui5cmaa7c1aqus
+2025-03-19 20:04:13 [INFO] - SchedulerCalendarUI - Event deleted: KL (SERVICE2)

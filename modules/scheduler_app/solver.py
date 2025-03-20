@@ -166,7 +166,7 @@ class ScheduleSolver:
  
         # [1] Each shift must be assigned to employees more than or equal to min_employees, and less than or equal to max_employees
         for shift in self.shifts:
-            c = sum([self.__shift_vars[(shift, employee)] for employee in self.employees]) == 1
+            c = (sum([self.__shift_vars[(shift, employee)] for employee in self.employees]) == 1)
             date_constraints[shift.date].append(c)
             shift_allocation_constraints[shift] = c
 
@@ -589,7 +589,10 @@ class ScheduleSolver:
         solver.parameters.max_time_in_seconds = 300
         solver.parameters.num_search_workers = 8
         
-        version = 1
+        version = 2
+        not_feasible_date = []
+        constraint_complete = True
+        not_feasible_constraints = []
 
         self.logger.info(f"Solving using verison {version}")
         if version == 1:
@@ -600,8 +603,7 @@ class ScheduleSolver:
                 last_feasible_model = cp_model.CpModel()
                 last_feasible_model.CopyFrom(self.__model)
 
-                constraint_complete = True
-                not_feasible_constraints = []
+                
 
                 # Adding constraints by employee
                 for employee in self.employees:
@@ -623,7 +625,7 @@ class ScheduleSolver:
                         self.__model.CopyFrom(last_feasible_model)  # restore last good state
 
                 # Adding constraints by date
-                not_feasible_date = []
+                
                 if constraint_complete:
                     for date in self.days:
                         temp_model = cp_model.CpModel()
@@ -749,41 +751,84 @@ class ScheduleSolver:
         elif version == 2:
             
             last_feasible_model = cp_model.CpModel()
+            last_feasible_model.CopyFrom(self.__model)
 
-            not_feasible_constraint = []
+            not_feasible_constraints = []
+
+            # Add initial shift constraints and verify feasibility
+            for constraint in shift_constraints:
+                self.__model.Add(constraint)
+
+            status = solver.Solve(self.__model)
+
+            if status in [cp_model.OPTIMAL, cp_model.FEASIBLE]:
+                self.logger.info("✅︎ All initial constraints are feasible.")
+                constraint_complete = True
+            else:
+                self.logger.info("❌ Initial constraints infeasible. Identifying problematic constraints...")
+
+                # Identify problematic constraints
+                for constraint in shift_constraints:
+                    temp_model = cp_model.CpModel()
+                    temp_model.CopyFrom(last_feasible_model)
+                    temp_model.Add(constraint)
+                    temp_status = solver.Solve(temp_model)
+
+                    if temp_status not in [cp_model.OPTIMAL, cp_model.FEASIBLE]:
+                        self.logger.info(f"   - ❌ Constraint {constraint} is infeasible.")
+                        not_feasible_constraints.append(constraint)
+                    else:
+                        last_feasible_model.CopyFrom(temp_model)
+                        # self.logger.info(f"   - ✅︎ Constraint {constraint} is feasible.")
+
+                if not_feasible_constraints:
+                    raise Exception("Failed to set up all initial constraints. Check logs for problematic constraints.")
+
+            # Proceed if initial constraints are feasible
+            if status in [cp_model.OPTIMAL, cp_model.FEASIBLE]:
+                self.logger.info("✅︎ Proceeding to assign shifts individually.")
+                for shift, constraint in shift_allocation_constraints.items():
+                    last_feasible_model.CopyFrom(self.__model)
+                    self.__model.Add(constraint)
+                    status = solver.Solve(self.__model)
+
+                    if status in [cp_model.OPTIMAL, cp_model.FEASIBLE]:
+                        last_feasible_model.CopyFrom(self.__model)
+                        # assigned_employee = [employee for employee in self.employees if solver.Value(self.__shift_vars[(shift, employee)]) == 1][0]
+                        # self.logger.info(f"❌ Shift '{shift.title}' successfully assigned to {assigned_employee.abbreviation}.")
+                        continue
+
+                    else:
+                        self.__model.CopyFrom(last_feasible_model)
+                        self.logger.info(f"❌ Shift '{shift.title}' is failed to be assigned.")
+                        
+
+            else:
+                self.logger.info("❌ Could not proceed due to initial constraints infeasibility. Exit with error.")
+                raise Exception(f"Initial constraints infeasible. Status: {status}")
             
-            # Add all constraints except for constraint [1]
-            for c in shift_constraints:
-                self.__model.Add(c)
-                status = solver.Solve(self.__model)
-                if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
-                    last_feasible_model.CopyFrom(self.__model) # Store the last feasible model
-                    continue
+
+        if constraint_complete:
+            for objective_name, objective_group in objectives.items():
+                temp_model = cp_model.CpModel()
+                temp_model.CopyFrom(self.__model)
+
+                for objective in objective_group:
+                    temp_model.Add(objective)
+
+                status = solver.Solve(temp_model)
+
+                if status in [cp_model.OPTIMAL, cp_model.FEASIBLE]:
+                    self.__model.CopyFrom(temp_model)
+                    last_feasible_model.CopyFrom(self.__model)
+                    self.logger.info(f'✅ Objective satisfied: {objective_name}')
                 else:
-                    not_feasible_constraint.append(c)
+                    self.logger.info(f'❌ Objective "{objective_name}" made the model infeasible; skipping.')
                     self.__model.CopyFrom(last_feasible_model)
 
-
-            if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
-                last_feasible_model.CopyFrom(self.__model) # Store the last feasible model
-                self.logger.info(f"✅︎ all constraints are set up")
-                # Increment solving by shift
-                for shift, c in shift_allocation_constraints.items():
-                    last_feasible_model.CopyFrom(self.__model) # Check point
-                    self.__model.Add(c)
-                    status = solver.Solve(self.__model)
-                    if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
-                        last_feasible_model.CopyFrom(self.__model) # Store the last feasible model
-                        self.logger.info(f"✅︎ {shift.title} is assigned")
-                    else:
-                        self.logger.info(f"❌ {shift.title} is not assigned to any employee")
-                        self.__model.CopyFrom(last_feasible_model) # Restore the last feasible model
-            else:
-                self.logger.info(f"❌ the model is failed to set up all constraints")
-                self.__model.CopyFrom(last_feasible_model) # Restore the last feasible model
-
-            
-
+        final_status = solver.Solve(last_feasible_model)
+        self.logger.info(f"Final status: {final_status}")
+        
 
         # Update the shifts and employees (using the final model, either the optimized or last feasible one)
         for shift in self.shifts:

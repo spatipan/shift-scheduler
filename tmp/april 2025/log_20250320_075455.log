@@ -1,0 +1,303 @@
+2025-03-20 07:54:55 [DEBUG] - config - Logging to tmp/april 2025/log_20250320_075455.log
+2025-03-20 07:54:55 [DEBUG] - GoogleAppAuthenticator - Attempting to load credentials from token file
+2025-03-20 07:54:55 [INFO] - GoogleAppAuthenticator - Loaded valid credentials from token file.
+2025-03-20 07:54:55 [INFO] - GoogleAppAuthenticator - Authenticate successfully
+2025-03-20 07:54:55 [DEBUG] - GoogleAppAuthenticator - Attempting to load credentials from token file
+2025-03-20 07:54:55 [INFO] - GoogleAppAuthenticator - Loaded valid credentials from token file.
+2025-03-20 07:54:55 [INFO] - googleapiclient.discovery_cache - file_cache is only supported with oauth2client<4.0.0
+2025-03-20 07:54:55 [DEBUG] - CalendarApp - Service initialized successfully
+2025-03-20 07:54:55 [INFO] - googleapiclient.discovery_cache - file_cache is only supported with oauth2client<4.0.0
+2025-03-20 07:54:55 [DEBUG] - GoogleSheetApp - Service initialized successfully
+2025-03-20 07:54:55 [DEBUG] - SchedulerSheetUI - SchedulerSheetUI initialized - sheetId: 1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU
+2025-03-20 07:54:55 [DEBUG] - googleapiclient.discovery - URL being requested: GET https://sheets.googleapis.com/v4/spreadsheets/1wHNERHZUxl8mI7xOPtWsvRBHxw9r_ohFoi7BWET_YdU/values/April%202025%21A1%3AV?alt=json
+2025-03-20 07:54:56 [DEBUG] - SchedulerSheetUI - Fetched sheet values from A1:V
+2025-03-20 07:54:56 [DEBUG] - SchedulerCalendarUI - SchedulerCalendarUI initialized - calendarId: em.cmu.teacher@gmail.com
+2025-03-20 07:54:56 [DEBUG] - root - Converted A12 to 11, 0
+2025-03-20 07:54:56 [DEBUG] - root - Converted A42 to 41, 0
+2025-03-20 07:54:56 [DEBUG] - SchedulerSheetUI - Got sheet values from A12:A42, start: (11, 0), end: (41, 0)
+2025-03-20 07:54:56 [DEBUG] - root - Converted A47 to 46, 0
+2025-03-20 07:54:56 [DEBUG] - root - Converted G67 to 66, 6
+2025-03-20 07:54:56 [DEBUG] - SchedulerSheetUI - Got sheet values from A47:G67, start: (46, 0), end: (66, 6)
+2025-03-20 07:54:56 [DEBUG] - root - Converted C11 to 10, 2
+2025-03-20 07:54:56 [DEBUG] - root - Converted L42 to 41, 11
+2025-03-20 07:54:56 [DEBUG] - SchedulerSheetUI - Got sheet values from C11:L42, start: (10, 2), end: (41, 11)
+2025-03-20 07:54:56 [DEBUG] - root - Converted C181 to 180, 2
+2025-03-20 07:54:56 [DEBUG] - root - Converted L212 to 211, 11
+2025-03-20 07:54:56 [DEBUG] - SchedulerSheetUI - Got sheet values from C181:L212, start: (180, 2), end: (211, 11)
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-01 to กอสิน เลาหะวิสุทธิ์
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-01 to ชานนท์ ช่างรัตนากร
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-01 to ณัฐฐิกานต์ มีลาภ
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-02 to ปริญญา เทียนวิบูลย์
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-02 to ชานนท์ ช่างรัตนากร
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-02 to ณัฐฐิกานต์ มีลาภ
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-03 to ชานนท์ ช่างรัตนากร
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-03 to ชานนท์ ช่างรัตนากร
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-03 to ณัฐฐิกานต์ มีลาภ
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-04 to ชานนท์ ช่างรัตนากร
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-04 to ณัฐฐิกานต์ มีลาภ
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-05 to บวร วิทยชำนาญกุล
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-06 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-07 to ปริญญา เทียนวิบูลย์
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-08 to วิพุธ เล้าสุขศรี
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-08 to บวร วิทยชำนาญกุล
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-08 to วชิระ วงศ์ธนสารสิน
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-09 to ณัฐฐิกานต์ มีลาภ
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-09 to บวร วิทยชำนาญกุล
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-09 to วชิระ วงศ์ธนสารสิน
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-10 to พัณณ์ชิตา ชำนาญกิจวณิชย์
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-10 to บวร วิทยชำนาญกุล
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-10 to วชิระ วงศ์ธนสารสิน
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-11 to บวร วิทยชำนาญกุล
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-11 to วชิระ วงศ์ธนสารสิน
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-12 to สริยา เสือแซมเสริม
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-13 to กรีฑา คำเนียม
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-14 to บุญฤทธิ์ คำทิพย์
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-15 to กรองกาญจน์ สุธรรม
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-15 to ณัฐฐิกานต์ มีลาภ
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-16 to วชิระ วงศ์ธนสารสิน
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-16 to ณัฐฐิกานต์ มีลาภ
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-16 to พัณณ์ชิตา ชำนาญกิจวณิชย์
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-17 to สริยา เสือแซมเสริม
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-17 to กอสิน เลาหะวิสุทธิ์
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-17 to ปริญญา เทียนวิบูลย์
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-18 to กอสิน เลาหะวิสุทธิ์
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-18 to ปริญญา เทียนวิบูลย์
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-19 to กรีฑา คำเนียม
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-19 to วิพุธ เล้าสุขศรี
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-20 to ปริญญา เทียนวิบูลย์
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-20 to กอสิน เลาหะวิสุทธิ์
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-21 to วิพุธ เล้าสุขศรี
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-21 to บริบูรณ์ เชนธนากิจ
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-21 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-22 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-22 to วิพุธ เล้าสุขศรี
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-22 to บริบูรณ์ เชนธนากิจ
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-23 to พัณณ์ชิตา ชำนาญกิจวณิชย์
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-23 to วิพุธ เล้าสุขศรี
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-23 to บริบูรณ์ เชนธนากิจ
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-24 to กรีฑา คำเนียม
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-24 to วิพุธ เล้าสุขศรี
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-24 to บริบูรณ์ เชนธนากิจ
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-25 to วิพุธ เล้าสุขศรี
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-25 to บริบูรณ์ เชนธนากิจ
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-26 to ชานนท์ ช่างรัตนากร
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-26 to บริบูรณ์ เชนธนากิจ
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Amd - 2025-04-27 to กอสิน เลาหะวิสุทธิ์
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Avd - 2025-04-27 to ชานนท์ ช่างรัตนากร
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service1 - 2025-04-28 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service2 - 2025-04-28 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-28 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-28 to กรองกาญจน์ สุธรรม
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-29 to กอสิน เลาหะวิสุทธิ์
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service1+ - 2025-04-29 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service2+ - 2025-04-29 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-29 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-29 to กรองกาญจน์ สุธรรม
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Service night - 2025-04-30 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Ems - 2025-04-30 to พิมพ์พรรณ อัศวสุรอิน
+2025-03-20 07:54:56 [DEBUG] - Schedule - Assigned shift Observe - 2025-04-30 to กรองกาญจน์ สุธรรม
+2025-03-20 07:54:56 [DEBUG] - root - Converted B12 to 11, 1
+2025-03-20 07:54:56 [DEBUG] - root - Converted B42 to 41, 1
+2025-03-20 07:54:56 [DEBUG] - SchedulerSheetUI - Got sheet values from B12:B42, start: (11, 1), end: (41, 1)
+2025-03-20 07:54:56 [DEBUG] - root - Converted B218 to 217, 1
+2025-03-20 07:54:56 [DEBUG] - root - Converted C240 to 239, 2
+2025-03-20 07:54:56 [DEBUG] - SchedulerSheetUI - Got sheet values from B218:C240, start: (217, 1), end: (239, 2)
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added total shifts constraint for BC - 4
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added total shifts constraint for BW - 2
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added total shifts constraint for KS - 2
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added total shifts constraint for PT - 6
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added total shifts constraint for WW - 6
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added total shifts constraint for BK - 2
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added total shifts constraint for CC - 6
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added total shifts constraint for KL - 6
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added total shifts constraint for PU - 6
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added total shifts constraint for NM - 8
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added total shifts constraint for SS - 6
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added total shifts constraint for WL - 6
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added total shifts constraint for KK - 6
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added total shifts constraint for PC - 6
+2025-03-20 07:54:56 [DEBUG] - root - Converted H218 to 217, 7
+2025-03-20 07:54:56 [DEBUG] - root - Converted M239 to 238, 12
+2025-03-20 07:54:56 [DEBUG] - SchedulerSheetUI - Got sheet values from H218:M239, start: (217, 7), end: (238, 12)
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added shift preference constraint for BC - {'BC': {'mon': True, 'tue': True, 'wed': True, 'thu': True, 'fri': True}}
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added shift preference constraint for BW - {'BW': {'mon': True, 'tue': True, 'wed': True, 'thu': True, 'fri': True}}
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added shift preference constraint for KS - {'KS': {'mon': False, 'tue': False, 'wed': False, 'thu': False, 'fri': False}}
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added shift preference constraint for PT - {'PT': {'mon': False, 'tue': False, 'wed': False, 'thu': False, 'fri': False}}
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added shift preference constraint for WW - {'WW': {'mon': True, 'tue': True, 'wed': True, 'thu': True, 'fri': True}}
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added shift preference constraint for BK - {'BK': {'mon': False, 'tue': False, 'wed': False, 'thu': False, 'fri': False}}
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added shift preference constraint for CC - {'CC': {'mon': False, 'tue': False, 'wed': False, 'thu': False, 'fri': False}}
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added shift preference constraint for KL - {'KL': {'mon': True, 'tue': True, 'wed': True, 'thu': True, 'fri': True}}
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added shift preference constraint for PU - {'PU': {'mon': True, 'tue': True, 'wed': True, 'thu': True, 'fri': True}}
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added shift preference constraint for NM - {'NM': {'mon': False, 'tue': False, 'wed': False, 'thu': False, 'fri': False}}
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added shift preference constraint for SS - {'SS': {'mon': False, 'tue': False, 'wed': False, 'thu': False, 'fri': False}}
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added shift preference constraint for WL - {'WL': {'mon': True, 'tue': True, 'wed': True, 'thu': True, 'fri': True}}
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added shift preference constraint for KK - {'KK': {'mon': False, 'tue': False, 'wed': False, 'thu': False, 'fri': False}}
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added shift preference constraint for PC - {'PC': {'mon': True, 'tue': True, 'wed': True, 'thu': True, 'fri': True}}
+2025-03-20 07:54:56 [DEBUG] - root - Converted B217 to 216, 1
+2025-03-20 07:54:56 [DEBUG] - root - Converted F240 to 239, 5
+2025-03-20 07:54:56 [DEBUG] - SchedulerSheetUI - Got sheet values from B217:F240, start: (216, 1), end: (239, 5)
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added total shifts per employee constraint for WW - amd - 0
+2025-03-20 07:54:56 [DEBUG] - ScheduleSolver - Added total shifts per employee constraint for WW - avd - 0
+2025-03-20 07:54:56 [DEBUG] - googleapiclient.discovery - URL being requested: GET https://www.googleapis.com/calendar/v3/calendars/em.cmu.teacher%40gmail.com/events?timeMin=2025-04-01T00%3A00%3A00Z&timeMax=2025-04-30T23%3A59%3A59.099999Z&singleEvents=true&orderBy=startTime&alt=json
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Sample event: {'kind': 'calendar#event', 'etag': '"3479527596836000"', 'id': '6oqsrt8tubsd9vmk54vd5so5dp', 'status': 'confirmed', 'htmlLink': 'https://www.google.com/calendar/event?eid=Nm9xc3J0OHR1YnNkOXZtazU0dmQ1c281ZHAgZW0uY211LnRlYWNoZXJAbQ', 'created': '2025-02-17T03:41:55.000Z', 'updated': '2025-02-17T03:43:18.418Z', 'summary': 'BC Director ACLS ', 'location': 'บรรยาย ชั้น 9 อาคารราชนครินทร์ 08.00 น. วันที่ 31 ', 'creator': {'email': 'nareerat9664@gmail.com'}, 'organizer': {'email': 'em.cmu.teacher@gmail.com', 'self': True}, 'start': {'date': '2025-03-31'}, 'end': {'date': '2025-04-02'}, 'transparency': 'transparent', 'iCalUID': '6oqsrt8tubsd9vmk54vd5so5dp@google.com', 'sequence': 0, 'reminders': {'useDefault': False}, 'eventType': 'default'}
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BC Director ACLS  starts at 2025-03-31 00:00:00+07:00 and ends at 2025-04-02 00:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BK ดูงาน ป.โท starts at 2025-03-31 00:00:00+07:00 and ends at 2025-04-10 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW KL WW พี่เมย์ หมิวพารา ประชุมกรรมการภาค starts at 2025-04-01 00:00:00+07:00 and ends at 2025-04-02 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW), กอสิน เลาหะวิสุทธิ์ (KL), วชิระ วงศ์ธนสารสิน (WW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU NM present global health starts at 2025-04-01 00:00:00+07:00 and ends at 2025-04-02 00:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU), ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2025-04-01 00:00:00+07:00 and ends at 2025-04-02 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BK CQI-Skydoctor ประจำเดือน starts at 2025-04-01 10:00:00+07:00 and ends at 2025-04-01 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BC ร่วมนำเสนอข้อมูล CLT ในการอบรม First react AHA presentation starts at 2025-04-01 13:00:00+07:00 and ends at 2025-04-01 15:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PT KL Conference EMCMU resident starts at 2025-04-01 13:00:00+07:00 and ends at 2025-04-01 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT), กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: NM ตรวจ follow up US breast starts at 2025-04-01 13:00:00+07:00 and ends at 2025-04-01 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS KL PU พี่หวาน หมิว ประชุม undergrad starts at 2025-04-02 00:00:00+07:00 and ends at 2025-04-03 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), กอสิน เลาหะวิสุทธิ์ (KL), พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WL อ.น้องเอิน สอน MedEd starts at 2025-04-02 13:00:00+07:00 and ends at 2025-04-02 16:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS PT ประชุทสรรหา starts at 2025-04-02 15:00:00+07:00 and ends at 2025-04-02 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), ปริญญา เทียนวิบูลย์ (PT)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW Lecture TQA starts at 2025-04-03 00:00:00+07:00 and ends at 2025-04-04 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS KL PU พี่หวาน พี่หมิว ตัดเกรดปี 5 starts at 2025-04-03 00:00:00+07:00 and ends at 2025-04-05 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), กอสิน เลาหะวิสุทธิ์ (KL), พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS คุมสอบ Compre NL starts at 2025-04-03 00:00:00+07:00 and ends at 2025-04-04 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BC ร่วมประชุม จัดทำร่างเกณฑ์ติดตามคุณภาพ หน่วยปฏิบัติการแพทย์ starts at 2025-04-03 00:00:00+07:00 and ends at 2025-04-05 00:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WW CC Conference EMCMU resident  starts at 2025-04-03 08:45:00+07:00 and ends at 2025-04-03 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW), ชานนท์ ช่างรัตนากร (CC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KL: สอบลงกองปี6 starts at 2025-04-03 13:00:00+07:00 and ends at 2025-04-03 15:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KL,WW: คุมสอบAdvice Ext. starts at 2025-04-03 15:00:00+07:00 and ends at 2025-04-03 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL), วชิระ วงศ์ธนสารสิน (WW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: CC ลาพักผ่อน starts at 2025-04-04 00:00:00+07:00 and ends at 2025-04-09 00:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS ดูงาน ตปท  starts at 2025-04-04 00:00:00+07:00 and ends at 2025-04-10 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Clinic starts at 2025-04-04 09:00:00+07:00 and ends at 2025-04-04 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: ประชุมฝ่าย วิชาการ วฉท BW WW starts at 2025-04-04 12:15:00+07:00 and ends at 2025-04-04 13:15:00+07:00 for employee: บวร วิทยชำนาญกุล (BW), วชิระ วงศ์ธนสารสิน (WW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: NM WL BW จัดอาจารย์ร่วมพิธี farewell R3 starts at 2025-04-04 13:00:00+07:00 and ends at 2025-04-04 16:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM), วิพุธ เล้าสุขศรี (WL), บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW พี่เก๋ COPD TCEP progression Meeting starts at 2025-04-04 13:00:00+07:00 and ends at 2025-04-04 14:30:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุม HR starts at 2025-04-04 13:30:00+07:00 and ends at 2025-04-04 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KL: ปิดกอง ปี6 starts at 2025-04-04 15:00:00+07:00 and ends at 2025-04-04 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: SS unavailable starts at 2025-04-05 00:00:00+07:00 and ends at 2025-04-08 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BK เรียน starts at 2025-04-05 00:00:00+07:00 and ends at 2025-04-07 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WW vacation starts at 2025-04-07 00:00:00+07:00 and ends at 2025-04-12 00:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: Elective ต่างชาติ 7-20 เม.ย. 68 - CC ดูแล starts at 2025-04-08 00:00:00+07:00 and ends at 2025-04-09 00:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2025-04-08 00:00:00+07:00 and ends at 2025-04-09 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS,PU,KL,หวาน,หมิว: ประชุมundergrad starts at 2025-04-08 10:00:00+07:00 and ends at 2025-04-08 12:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), พิมพ์พรรณ อัศวสุรอิน (PU), กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BC เป็นวิทยากร พยาบาล ระบบส่งต่อทารกแรกเกิด starts at 2025-04-08 10:30:00+07:00 and ends at 2025-04-08 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KL BW WW พี่เมย์ เข้าประชุม TQA หน่วยงาน starts at 2025-04-08 13:00:00+07:00 and ends at 2025-04-08 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL), บวร วิทยชำนาญกุล (BW), วชิระ วงศ์ธนสารสิน (WW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS Research day MedEdu starts at 2025-04-09 00:00:00+07:00 and ends at 2025-04-10 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW renew BLS พยาบาล starts at 2025-04-09 08:00:00+07:00 and ends at 2025-04-09 09:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KL กรรมการตัดสินวิจัยนศพ ผ่าน Zoom (9-10 น) starts at 2025-04-09 09:00:00+07:00 and ends at 2025-04-09 10:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: CC กรรมการตัดสินวิจัยนศพ ผ่าน Zoom (10-12 น) starts at 2025-04-09 10:00:00+07:00 and ends at 2025-04-09 12:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS KL PU พี่หวาน พี่หมิว ตัดเกรดปี 6 starts at 2025-04-10 00:00:00+07:00 and ends at 2025-04-12 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), กอสิน เลาหะวิสุทธิ์ (KL), พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WL BW Conference EMCMU resident  starts at 2025-04-10 08:45:00+07:00 and ends at 2025-04-10 12:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL), บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุมยุทธศาสตร์ (วฉท) starts at 2025-04-10 13:00:00+07:00 and ends at 2025-04-10 15:30:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2025-04-11 00:00:00+07:00 and ends at 2025-04-12 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PC unavailable starts at 2025-04-11 00:00:00+07:00 and ends at 2025-04-15 00:00:00+07:00 for employee: พัณณ์ชิตา ชำนาญกิจวณิชย์ (PC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Clinic starts at 2025-04-11 09:00:00+07:00 and ends at 2025-04-11 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุม HR starts at 2025-04-11 13:30:00+07:00 and ends at 2025-04-11 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BK เรียน starts at 2025-04-12 00:00:00+07:00 and ends at 2025-04-14 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW vac starts at 2025-04-12 00:00:00+07:00 and ends at 2025-04-21 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BK ลากลับบ้าน starts at 2025-04-14 00:00:00+07:00 and ends at 2025-04-17 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2025-04-15 00:00:00+07:00 and ends at 2025-04-16 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PUลา starts at 2025-04-17 00:00:00+07:00 and ends at 2025-04-19 00:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WW NM PU Conference EMCMU resident  starts at 2025-04-17 08:45:00+07:00 and ends at 2025-04-17 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW), ณัฐฐิกานต์ มีลาภ (NM), พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุมคณะฯ (801) starts at 2025-04-17 13:00:00+07:00 and ends at 2025-04-17 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2025-04-18 00:00:00+07:00 and ends at 2025-04-19 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Clinic starts at 2025-04-18 09:00:00+07:00 and ends at 2025-04-18 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุม HR starts at 2025-04-18 13:30:00+07:00 and ends at 2025-04-18 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BK เรียน starts at 2025-04-19 00:00:00+07:00 and ends at 2025-04-21 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS พิธีรับกาวน์  starts at 2025-04-20 00:00:00+07:00 and ends at 2025-04-21 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PT สอน ACLS renewal starts at 2025-04-21 00:00:00+07:00 and ends at 2025-04-22 00:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WW 1st meeting นศ ช่วยวิจัย x4 กลุ่ม starts at 2025-04-21 00:00:00+07:00 and ends at 2025-04-22 00:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: Elective ต่างชาติ 21 เม.ย.- 9 พค 68 -WW ดูแล starts at 2025-04-21 00:00:00+07:00 and ends at 2025-04-22 00:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WW BW อบรมทุนวิจัย starts at 2025-04-21 00:00:00+07:00 and ends at 2025-04-22 00:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW), บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BK weekly meeting SMC starts at 2025-04-21 09:00:00+07:00 and ends at 2025-04-21 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU ประชุม Case Observe KPI starts at 2025-04-21 13:00:00+07:00 and ends at 2025-04-21 14:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุม HR starts at 2025-04-21 13:30:00+07:00 and ends at 2025-04-21 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2025-04-22 00:00:00+07:00 and ends at 2025-04-23 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2025-04-22 00:00:00+07:00 and ends at 2025-04-23 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: Lunch DKSH (sanofi vaccine) starts at 2025-04-22 12:00:00+07:00 and ends at 2025-04-22 13:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WW NM BW CC BC Conference EMCMU resident starts at 2025-04-22 13:00:00+07:00 and ends at 2025-04-22 16:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW), ณัฐฐิกานต์ มีลาภ (NM), บวร วิทยชำนาญกุล (BW), ชานนท์ ช่างรัตนากร (CC), บริบูรณ์ เชนธนากิจ (BC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS PT คกก สรรหา starts at 2025-04-22 14:30:00+07:00 and ends at 2025-04-22 15:30:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), ปริญญา เทียนวิบูลย์ (PT)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW KS PU KL WL พี่หวาน หมิว ประชุม 3 สถาบัน ครั้งที่ 2/67 LPH starts at 2025-04-23 00:00:00+07:00 and ends at 2025-04-24 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW), กรองกาญจน์ สุธรรม (KS), พิมพ์พรรณ อัศวสุรอิน (PU), กอสิน เลาหะวิสุทธิ์ (KL), วิพุธ เล้าสุขศรี (WL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PT ลา starts at 2025-04-23 00:00:00+07:00 and ends at 2025-04-24 00:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW Director ACLS renewal starts at 2025-04-24 00:00:00+07:00 and ends at 2025-04-25 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WL ACLS นครสวรรค์ starts at 2025-04-24 00:00:00+07:00 and ends at 2025-04-30 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS POCCUS  starts at 2025-04-24 00:00:00+07:00 and ends at 2025-04-26 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS), ชานนท์ ช่างรัตนากร (CC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU renew ACLS + Instructor starts at 2025-04-24 00:00:00+07:00 and ends at 2025-04-26 00:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KL ACLS instructor starts at 2025-04-24 00:00:00+07:00 and ends at 2025-04-25 00:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PT SS EMS director starts at 2025-04-24 00:00:00+07:00 and ends at 2025-04-26 00:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT), สริยา เสือแซมเสริม (SS)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BC Conference EMCMU resident  starts at 2025-04-24 08:45:00+07:00 and ends at 2025-04-24 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW Director Inst. starts at 2025-04-25 00:00:00+07:00 and ends at 2025-04-26 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2025-04-25 00:00:00+07:00 and ends at 2025-04-26 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WW Research Clinic starts at 2025-04-25 09:00:00+07:00 and ends at 2025-04-25 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุม HR starts at 2025-04-25 13:30:00+07:00 and ends at 2025-04-25 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU unavailable starts at 2025-04-26 00:00:00+07:00 and ends at 2025-04-28 00:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KK ลา starts at 2025-04-26 00:00:00+07:00 and ends at 2025-05-01 00:00:00+07:00 for employee: กรีฑา คำเนียม (KK)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW Basic Enneagram starts at 2025-04-26 00:00:00+07:00 and ends at 2025-04-29 00:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BK เรียน starts at 2025-04-26 00:00:00+07:00 and ends at 2025-04-28 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: นศ ดูงานเช้า ER KS ดูแล starts at 2025-04-26 00:00:00+07:00 and ends at 2025-04-27 00:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (AMD) starts at 2025-04-26 08:00:00+07:00 and ends at 2025-04-26 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (AMD) starts at 2025-04-26 08:00:00+07:00 and ends at 2025-04-26 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BC (AVD) starts at 2025-04-26 08:00:00+07:00 and ends at 2025-04-26 16:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BC (AVD) starts at 2025-04-26 08:00:00+07:00 and ends at 2025-04-26 16:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS  พิธีรับเสี้อกาวน์ starts at 2025-04-26 09:00:00+07:00 and ends at 2025-04-26 10:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: CC Renew PALS starts at 2025-04-27 00:00:00+07:00 and ends at 2025-04-28 00:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (AVD) starts at 2025-04-27 08:00:00+07:00 and ends at 2025-04-27 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (AVD) starts at 2025-04-27 08:00:00+07:00 and ends at 2025-04-27 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KL (AMD) starts at 2025-04-27 08:00:00+07:00 and ends at 2025-04-27 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KL (AMD) starts at 2025-04-27 08:00:00+07:00 and ends at 2025-04-27 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BK (SMC) starts at 2025-04-28 00:00:00+07:00 and ends at 2025-04-29 00:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BC ร่วมอบรม Human Subject protection & GPC starts at 2025-04-28 00:00:00+07:00 and ends at 2025-04-30 00:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC), พัณณ์ชิตา ชำนาญกิจวณิชย์ (PC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (SERVICE1) starts at 2025-04-28 08:00:00+07:00 and ends at 2025-04-28 12:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS (OBSERVE) starts at 2025-04-28 08:00:00+07:00 and ends at 2025-04-28 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (EMS) starts at 2025-04-28 08:00:00+07:00 and ends at 2025-04-28 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PT (AVD) starts at 2025-04-28 08:00:00+07:00 and ends at 2025-04-28 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (AMD) starts at 2025-04-28 08:00:00+07:00 and ends at 2025-04-28 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS (OBSERVE) starts at 2025-04-28 08:00:00+07:00 and ends at 2025-04-28 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (SERVICE1) starts at 2025-04-28 08:00:00+07:00 and ends at 2025-04-28 12:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (EMS) starts at 2025-04-28 08:00:00+07:00 and ends at 2025-04-28 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WW (SERVICE1+) starts at 2025-04-28 08:00:00+07:00 and ends at 2025-04-28 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (AMD) starts at 2025-04-28 08:00:00+07:00 and ends at 2025-04-28 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PT (AVD) starts at 2025-04-28 08:00:00+07:00 and ends at 2025-04-28 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WW (SERVICE1+) starts at 2025-04-28 08:00:00+07:00 and ends at 2025-04-28 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BC ประชุม อฝส starts at 2025-04-28 09:00:00+07:00 and ends at 2025-04-28 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BK weekly meeting SMC starts at 2025-04-28 09:00:00+07:00 and ends at 2025-04-28 12:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WW (SERVICE2+) starts at 2025-04-28 12:00:00+07:00 and ends at 2025-04-28 16:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (SERVICE2) starts at 2025-04-28 12:00:00+07:00 and ends at 2025-04-28 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (SERVICE2) starts at 2025-04-28 12:00:00+07:00 and ends at 2025-04-28 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WW (SERVICE2+) starts at 2025-04-28 12:00:00+07:00 and ends at 2025-04-28 16:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW ประชุม HR starts at 2025-04-28 13:30:00+07:00 and ends at 2025-04-28 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WL เรียน AI starts at 2025-04-29 00:00:00+07:00 and ends at 2025-04-30 00:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KL (SERVICE NIGHT) starts at 2025-04-29 00:00:00+07:00 and ends at 2025-04-29 08:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KL (SERVICE NIGHT) starts at 2025-04-29 00:00:00+07:00 and ends at 2025-04-29 08:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (EMS) starts at 2025-04-29 08:00:00+07:00 and ends at 2025-04-29 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS (OBSERVE) starts at 2025-04-29 08:00:00+07:00 and ends at 2025-04-29 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PT (AMD) starts at 2025-04-29 08:00:00+07:00 and ends at 2025-04-29 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PT (AMD) starts at 2025-04-29 08:00:00+07:00 and ends at 2025-04-29 16:00:00+07:00 for employee: ปริญญา เทียนวิบูลย์ (PT)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW (AVD) starts at 2025-04-29 08:00:00+07:00 and ends at 2025-04-29 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS (OBSERVE) starts at 2025-04-29 08:00:00+07:00 and ends at 2025-04-29 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (SERVICE1+) starts at 2025-04-29 08:00:00+07:00 and ends at 2025-04-29 12:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WW (SERVICE1) starts at 2025-04-29 08:00:00+07:00 and ends at 2025-04-29 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WW (SERVICE1) starts at 2025-04-29 08:00:00+07:00 and ends at 2025-04-29 12:00:00+07:00 for employee: วชิระ วงศ์ธนสารสิน (WW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW (AVD) starts at 2025-04-29 08:00:00+07:00 and ends at 2025-04-29 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (SERVICE1+) starts at 2025-04-29 08:00:00+07:00 and ends at 2025-04-29 12:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (EMS) starts at 2025-04-29 08:00:00+07:00 and ends at 2025-04-29 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: NM WL ประชุม สฝอ starts at 2025-04-29 09:00:00+07:00 and ends at 2025-04-29 12:00:00+07:00 for employee: ณัฐฐิกานต์ มีลาภ (NM), วิพุธ เล้าสุขศรี (WL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (SERVICE2+) starts at 2025-04-29 12:00:00+07:00 and ends at 2025-04-29 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (SERVICE2) starts at 2025-04-29 12:00:00+07:00 and ends at 2025-04-29 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: CC (SERVICE2) starts at 2025-04-29 12:00:00+07:00 and ends at 2025-04-29 16:00:00+07:00 for employee: ชานนท์ ช่างรัตนากร (CC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (SERVICE2+) starts at 2025-04-29 12:00:00+07:00 and ends at 2025-04-29 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BK KS : Simulation Resident starts at 2025-04-29 13:00:00+07:00 and ends at 2025-04-29 16:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK), กรองกาญจน์ สุธรรม (KS)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: Sim BK KS KL NM Conference EMCMU resident starts at 2025-04-29 13:00:00+07:00 and ends at 2025-04-29 16:00:00+07:00 for employee: บุญฤทธิ์ คำทิพย์ (BK), กรองกาญจน์ สุธรรม (KS), กอสิน เลาหะวิสุทธิ์ (KL), ณัฐฐิกานต์ มีลาภ (NM)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: SS สอน ACLS starts at 2025-04-30 00:00:00+07:00 and ends at 2025-05-01 00:00:00+07:00 for employee: สริยา เสือแซมเสริม (SS)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (SERVICE NIGHT) starts at 2025-04-30 00:00:00+07:00 and ends at 2025-04-30 08:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (SERVICE NIGHT) starts at 2025-04-30 00:00:00+07:00 and ends at 2025-04-30 08:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KL (AVD) starts at 2025-04-30 08:00:00+07:00 and ends at 2025-04-30 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS (OBSERVE) starts at 2025-04-30 08:00:00+07:00 and ends at 2025-04-30 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WL (AMD) starts at 2025-04-30 08:00:00+07:00 and ends at 2025-04-30 16:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BC (SERVICE1+) starts at 2025-04-30 08:00:00+07:00 and ends at 2025-04-30 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BC (SERVICE1+) starts at 2025-04-30 08:00:00+07:00 and ends at 2025-04-30 12:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (EMS) starts at 2025-04-30 08:00:00+07:00 and ends at 2025-04-30 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW (SERVICE1) starts at 2025-04-30 08:00:00+07:00 and ends at 2025-04-30 12:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW (SERVICE1) starts at 2025-04-30 08:00:00+07:00 and ends at 2025-04-30 12:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PU (EMS) starts at 2025-04-30 08:00:00+07:00 and ends at 2025-04-30 16:00:00+07:00 for employee: พิมพ์พรรณ อัศวสุรอิน (PU)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KL (AVD) starts at 2025-04-30 08:00:00+07:00 and ends at 2025-04-30 16:00:00+07:00 for employee: กอสิน เลาหะวิสุทธิ์ (KL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: WL (AMD) starts at 2025-04-30 08:00:00+07:00 and ends at 2025-04-30 16:00:00+07:00 for employee: วิพุธ เล้าสุขศรี (WL)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: KS (OBSERVE) starts at 2025-04-30 08:00:00+07:00 and ends at 2025-04-30 16:00:00+07:00 for employee: กรองกาญจน์ สุธรรม (KS)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW (SERVICE2) starts at 2025-04-30 12:00:00+07:00 and ends at 2025-04-30 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BW (SERVICE2) starts at 2025-04-30 12:00:00+07:00 and ends at 2025-04-30 16:00:00+07:00 for employee: บวร วิทยชำนาญกุล (BW)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BC (SERVICE2+) starts at 2025-04-30 12:00:00+07:00 and ends at 2025-04-30 16:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: BC (SERVICE2+) starts at 2025-04-30 12:00:00+07:00 and ends at 2025-04-30 16:00:00+07:00 for employee: บริบูรณ์ เชนธนากิจ (BC)
+2025-03-20 07:54:57 [DEBUG] - SchedulerCalendarUI - Extracted task: PC ลา starts at 2025-05-01 00:00:00+07:00 and ends at 2025-05-06 00:00:00+07:00 for employee: พัณณ์ชิตา ชำนาญกิจวณิชย์ (PC)

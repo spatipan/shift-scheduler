@@ -44,7 +44,7 @@ class SchedulerSheetUI:
         return self.sheet_values
     
     # Extract information from the fetched values (Date, Employees, Shifts, Fixed Shifts, Tasks, Holidays, Constraints)
-    def extract_sheet_values(self):
+    def extract_sheet_values(self, mode = "solve"):
         '''Extracts information from the fetched values
         (Employees, Shifts, Fixed Shifts, Holidays, Constraints)'''
 
@@ -95,25 +95,42 @@ class SchedulerSheetUI:
             shift.end = shift.end.astimezone(tz= config.TIMEZONE)
         self.schedule.shifts = shifts
 
-        # Get fixed shifts
-        fixed_shifts_values = self.get_sheet_values(range=config.FIXED_SHIFT_RANGE)
-        # print(fixed_shifts_values)
 
-        fixed_shifts_header = [str.lower(i) for i in fixed_shifts_values[0]] 
-        fixed_shift_data = np.array(fixed_shifts_values[1:])
-        fixed_shift_data = np.where(fixed_shift_data == None, '', fixed_shift_data)
+        if mode == "solve":
+            # Get fixed shifts
+            fixed_shifts_values = self.get_sheet_values(range=config.FIXED_SHIFT_RANGE)
+            # print(fixed_shifts_values)
 
-        for row in range(len(fixed_shift_data)):
-            for col in range(len(fixed_shift_data[row])):
-                if fixed_shift_data[row][col] != '':
-                    # filter the shifts by row(date) and column(shift type)
-                    date = start_date + timedelta(days=row)
-                    shifts = self.schedule.get_shifts_by_date(date)
-                    for shift in [s for s in shifts if s.type == fixed_shifts_header[col]]:
-                        for employee in [e for e in  self.schedule.employees if e.abbreviation == fixed_shift_data[row][col]]:
-                            self.schedule.assign_shift(shift, employee)
-                    
-        
+            fixed_shifts_header = [str.lower(i) for i in fixed_shifts_values[0]] 
+            fixed_shift_data = np.array(fixed_shifts_values[1:])
+            fixed_shift_data = np.where(fixed_shift_data == None, '', fixed_shift_data)
+
+            for row in range(len(fixed_shift_data)):
+                for col in range(len(fixed_shift_data[row])):
+                    if fixed_shift_data[row][col] != '':
+                        # filter the shifts by row(date) and column(shift type)
+                        date = start_date + timedelta(days=row)
+                        shifts = self.schedule.get_shifts_by_date(date)
+                        for shift in [s for s in shifts if s.type == fixed_shifts_header[col]]:
+                            for employee in [e for e in  self.schedule.employees if e.abbreviation == fixed_shift_data[row][col]]:
+                                self.schedule.assign_shift(shift, employee)
+                                
+        elif mode == "update":
+            # Get Assigned shifts
+            assigned_shifts_values = self.get_sheet_values(range=config.ASSIGNED_SHIFT_RANGE)
+            assigned_shifts_header = [str.lower(i) for i in assigned_shifts_values[0]] 
+            assigned_shift_data = np.array(assigned_shifts_values[1:])
+            assigned_shift_data = np.where(assigned_shift_data == None, '', assigned_shift_data)
+            for row in range(len(assigned_shift_data)):
+                for col in range(len(assigned_shift_data[row])):
+                    if assigned_shift_data[row][col] != '':
+                        date = start_date + timedelta(days=row)
+                        shifts = self.schedule.get_shifts_by_date(date)
+                        for shift in [s for s in shifts if s.type == assigned_shifts_header[col]]:
+                            for employee in [e for e in  self.schedule.employees if e.abbreviation == assigned_shift_data[row][col]]:
+                                self.schedule.assign_shift(shift, employee)
+
+            
         #Add holidays
         holidays_values = self.get_sheet_values(range=config.HOLIDAYS_RANGE)
         for index in range(len(holidays_values)): #type: ignore

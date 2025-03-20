@@ -43,6 +43,7 @@ SHIFT_RANGE = 'C11:L42'
 EMPLOYEE_RANGE = 'A47:G67'
 FIXED_SHIFT_RANGE = 'C181:L212'
 OUTPUT_RANGE = 'C269:L299'
+ASSIGNED_SHIFT_RANGE = 'C268:M299' # Add service NT
 HOLIDAYS_RANGE = 'B12:B42'
 DATE_RANGE = 'A12:A42'
 # SHIFT_MATRIX_RANGE = 'A210:J219'
@@ -59,7 +60,8 @@ SECRET_PATH = os.path.join(MASTER_PATH, 'secret.json')
 #Secrets
 CREDENTIALS = get_value_from_json(SECRET_PATH, 'credentials')
 TOKEN = get_value_from_json(SECRET_PATH, 'token')
-
+CREDS_PATH = os.path.join(MASTER_PATH, 'credentials.json')
+TOKEN_PATH = os.path.join(MASTER_PATH, 'token.json')
 
 # def config_logging():
 #     logging.basicConfig(level=logging.DEBUG,
@@ -73,7 +75,7 @@ TOKEN = get_value_from_json(SECRET_PATH, 'token')
 #     logger.debug(f'Logging to {LOG_FILE_PATH}')
 
 def config_logging():
-    log_dir = 'tmp'
+    log_dir = f'tmp/{str.lower(SHEET_NAME)}'
     os.makedirs(log_dir, exist_ok=True)
     log_filename = datetime.now().strftime(f'{log_dir}/log_%Y%m%d_%H%M%S.log')
 

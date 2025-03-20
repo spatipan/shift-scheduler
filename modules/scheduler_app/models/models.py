@@ -428,6 +428,11 @@ class Schedule:
 
         # Reorder the columns
         columns = ['service night', 'mc', 'service1', 'service1+', 'service2', 'service2+', 'ems', 'observe', 'amd', 'avd']
+        
+        missing_col = [col for col in columns if col not in shift_schedule.columns]
+        for col in missing_col:
+            shift_schedule[col] = ''
+     
         shift_schedule = shift_schedule[columns].values.tolist()
 
         return shift_schedule

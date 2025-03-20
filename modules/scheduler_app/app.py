@@ -9,11 +9,8 @@ from modules.scheduler_app.calendar_ui import SchedulerCalendarUI
 
 class SchedulerApp:
     def __init__(self):
-        self.google_app_authenticator = GoogleAppAuthenticator(SCOPES = config.GOOGLE_SCOPES)
-        credentials = self.google_app_authenticator.authenticate(
-            credentials = config.CREDENTIALS,
-            token = config.TOKEN,
-        )
+        self.google_app_authenticator = GoogleAppAuthenticator(credentials_path=config.CREDS_PATH, token_path=config.TOKEN_PATH, scopes=config.GOOGLE_SCOPES)
+        credentials = self.google_app_authenticator.authenticate()
         self.calendar_app = CalendarApp(credentials) # init calendar app
         self.sheet_app = GoogleSheetApp(credentials) # init sheet app
         self.schedule = Schedule() # create a schedule
@@ -27,8 +24,8 @@ class SchedulerApp:
     # [1] Fetch information from google apps (calendar, sheet)
         
     # [2] Update information into schedule (Employees, Shifts, Tasks, Holidays, Constraints)
-    def fetch_information(self):
-        self.schedule, self.schedule_solver = self.sheet_ui.extract_sheet_values()
+    def fetch_information(self, mode = "solve"):
+        self.schedule, self.schedule_solver = self.sheet_ui.extract_sheet_values(mode=mode) # get start and end date from here 
         self.schedule = self.calendar_ui.extract_employee_tasks(schedule=self.schedule)
         
     # [3] Call solver to solve the schedule
@@ -47,6 +44,13 @@ class SchedulerApp:
         # self.calendar_ui.update_calendar(schedule=self.schedule)
         
     # [6] Save the schedule into a file
+
+    # [7] In case of need of remove generated events
+    def delete_generated_events(self, batch = True, batch_size = 100):
+        assert self.schedule is not None, 'Schedule is empty'
+        assert self.schedule.start is not None, 'Schedule start date is empty'
+        assert self.schedule.end is not None, 'Schedule end date is empty'
+        self.calendar_ui.delete_generated_events(start=self.schedule.start, end=self.schedule.end)
         
     
         
@@ -54,7 +58,10 @@ if __name__ == '__main__':
     app = SchedulerApp()
     
     # [1] Fetch information from google apps (calendar, sheet)
-    app.sheet_ui.extract_sheet_values()
+    # app.calendar_ui.extract_employee_tasks(app.schedule)
+    app.fetch_information()
+    
+
 
 
 
